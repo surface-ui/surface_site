@@ -1,0 +1,327 @@
+@import "./prism-vsc-dark-plus.css";
+@import "../node_modules/bulma/css/bulma.css";
+@import "../node_modules/animate.css/animate.css";
+
+body.mobile-sidebar-open {
+  overflow: hidden;
+  position: fixed;
+}
+
+.menu-list li ul {
+  margin-top: .2em;
+  margin-bottom: .3em;
+}
+.menu-list li a {
+  padding: .4em .75em;
+}
+
+.mobile-sidebar .sidebar-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: hsla(0,0%,4%,.86);
+  position: fixed;
+  z-index: 40;
+}
+
+.mobile-sidebar .sidebar-content.is-fullheight {
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-sidebar .sidebar-content.is-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.mobile-sidebar .sidebar-content {
+  background-color: #f5f5f5;
+  box-shadow: 5px 0 13px 3px hsla(0,0%,4%,.1);
+  width: 260px;
+  z-index: 41;
+}
+
+.animated.faster {
+  animation-duration: 0.3s;
+}
+
+.mobile-sidebar-open-button {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  bottom: 5px;
+  font-size: 1.4em;
+}
+
+.section {
+  padding-top: 1.5rem;
+}
+
+.sidebar-label {
+  margin: .5em;
+  text-transform: uppercase;
+  color: #7a7a7a;
+  font-size: .9em;
+  letter-spacing: .1em;
+}
+
+.sidebar-bg {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  left: 0;
+  top: 0;
+  background: #f5f5f5;
+  z-index: -1;
+}
+
+.main-content {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+@media screen and (min-width: 769px) {
+  .main-content > div.container {
+    min-width: 500px;
+  }
+
+  .mobile-sidebar-open-button {
+    display: none;
+  }
+}
+
+.dark.card {
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+
+.dark.card > .card-content {
+  padding-top: 3em;
+}
+
+.dark.card > .card-content::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1em;
+  color: #aaa;
+  font-size: smaller;
+  font-weight: 500;
+  content: 'EXAMPLE';
+}
+
+.dark.card > footer.card-footer {
+  overflow: scroll;
+  background-color: rgb(30, 30, 30);
+}
+
+.dark.card > footer.card-footer > div {
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 1rem;
+}
+
+.nav-prev-next {
+  border-top: 2px solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+.nav-prev-next a {
+  margin: 1.5rem;
+}
+
+.nav-prev-next a.nav-prev-next-next {
+  margin-left: auto;
+}
+
+.nav-prev-next a.nav-prev-next-prev {
+  margin-right: auto;
+}
+
+.markdown {
+  margin-top: 2em;
+}
+
+.component-group h2.subtitle {
+  color: #7a7a7a;
+}
+/* SurfaceSiteWeb.Components.ComponentInfo */
+
+.ComponentInfo .subtitle {
+  color: #7a7a7a;
+}
+
+#ComponentInfo_Markdown div.Example pre > code{
+  line-height: 1.6;
+}
+
+#ComponentInfo_Form div.demo pre {
+  border-radius: 6px;
+  padding: 2.0rem;
+  margin-top: 25px;
+}
+
+#ComponentInfo_Form div.demo {
+  width: 35%;
+}
+
+#ComponentInfo_Form div.code {
+  width: 65%;
+}
+
+#ComponentInfo_Field div.demo {
+  width: 45%;
+}
+
+#ComponentInfo_Field div.code {
+  width: 55%;
+}
+
+#ComponentInfo_Link div.demo {
+  width: 20%;
+}
+
+#ComponentInfo_Link div.code {
+  width: 80%;
+}
+
+/* SurfaceSiteWeb.Components.ComponentAPI */
+
+.ComponentAPI table{
+  font-size: .9rem;
+}
+
+.ComponentAPI .table td, .table th {
+  line-height: 1.5;
+}
+
+/* SurfaceSiteWeb.Components.Example */
+
+.Example {
+  position: relative;
+  display: flex;
+  border: 1px solid #ffdd57;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  color: rgba(0,0,0,.7);
+  margin: 2.25rem 0;
+}
+
+.Example:before {
+  background: #ffdd57;
+  border-radius: 4px 4px 0 0;
+  bottom: 100%;
+  content: "Example";
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 700;
+  left: -1px;
+  padding: 4px 8px;
+  position: absolute;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+
+.Example:not(:first-child) {
+  margin-top: 2rem;
+}
+
+.Example:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.Example.vertical {
+  flex-direction: column;
+}
+
+.Example.vertical .demo {
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.Example.vertical .code > pre {
+  width: 100%;
+  border-top: 1px solid #ffdd57;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.Example.horizontal {
+  flex-direction: row;
+}
+
+.Example.horizontal .demo {
+  width: 50%;
+  padding: 1.5rem;
+}
+
+.Example.horizontal > div {
+  width: 50%;
+}
+
+.Example.horizontal .code > pre {
+  border-left: 1px solid #ffdd57;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.Example > .code > pre {
+  padding: 1.25rem 1.5rem;
+  padding-top: 0px;
+  margin: 0;
+  font-size: 1em;
+  height: 100%;
+}
+
+.Example > .code > pre > code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: .9rem;
+}
+
+.Example > .code > pre > code span {
+  font-size: .9rem;
+  /* Unset Bulma defaults so Prism can take over */
+  background-color: unset;
+  display: unset;
+  padding-left: unset;
+  padding-right: unset;
+  white-space: unset;
+}
+
+.Example > .code > pre > code .token.punctuation {
+  color: rgb(128, 128, 128);
+}
+
+.Example > .code > pre > code .token.number {
+  margin-right: 0px;
+}
+
+/* Specific to pages */
+
+.slots-page-props-example .icon {
+  color: #dbdbdb;
+}
+
+/* NProgress */
+
+div#nprogress .bar {
+  background: hsl(0, 0%, 86%);
+}
+
+div#nprogress .bar .peg {
+  box-shadow: 0 0 10px hsl(0, 0%, 86%), 0 0 5px hsl(0, 0%, 86%);
+}
