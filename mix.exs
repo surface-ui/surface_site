@@ -42,6 +42,7 @@ defmodule SurfaceSite.MixProject do
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
       {:surface, "~> 0.1.1"},
+      {:surface_formatter, "~> 0.1.1"},
       {:surface_bulma, github: "msaraiva/surface_bulma"},
       {:earmark, "~> 1.3"},
       {:html_entities, "~> 0.4"}
