@@ -18,16 +18,16 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
       <div class="card">
         <header class="card-header" style="background-color: #f5f5f5">
           <p class="card-header-title">
-            <slot name="header"/>
+            <slot name="header" />
           </p>
         </header>
         <div class="card-content">
           <div class="content">
-            <slot/>
+            <slot />
           </div>
         </div>
         <footer class="card-footer" style="background-color: #f5f5f5">
-          <slot name="footer"/>
+          <slot name="footer" />
         </footer>
       </div>
       """
@@ -53,10 +53,10 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
         <Header>
           A simple card component
         </Header>
-
         This is the same Card component but now we're using
-        <strong>typed slotables</strong> instead of <strong>templates</strong>.
-
+        <strong>typed slotables</strong>
+        instead of
+        <strong>templates</strong>.
         <Footer>
           <a href="#" class="card-footer-item">Footer Item 1</a>
           <a href="#" class="card-footer-item">Footer Item 2</a>

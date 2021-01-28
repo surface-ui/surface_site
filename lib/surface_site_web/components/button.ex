@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Components.Button do
   def render(assigns) do
     ~H"""
     <button class="button {{ @kind }}" :on-click={{ @click }} style="margin: 0px 5px">
-      <slot/>
+      <slot />
     </button>
     """
   end

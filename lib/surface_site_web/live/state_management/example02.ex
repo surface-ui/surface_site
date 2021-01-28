@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     def render(assigns) do
       ~H"""
       <button class="button {{ @kind }}" :on-click={{ @click }} style="margin: 0px 5px">
-        <slot/>
+        <slot />
       </button>
       """
     end
@@ -24,13 +24,13 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     def render(assigns) do
       ~H"""
       <div class={{ "modal", "is-active": @show }} :on-window-keydown="hide" phx-key="Escape">
-        <div class="modal-background"></div>
+        <div class="modal-background" />
         <div class="modal-card">
           <header class="modal-card-head">
             <p class="modal-card-title">{{ @title }}</p>
           </header>
           <section class="modal-card-body">
-            <slot/>
+            <slot />
           </section>
           <footer class="modal-card-foot" style="justify-content: flex-end">
             <Button click="hide" kind="is-info">Ok</Button>
@@ -64,8 +64,11 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
       ~H"""
       <div>
         <Dialog title="Alert" id="dialog">
-          The <b>Dialog</b> is now a stateful component. All event handlers
-          were defined in the component itself. <b>Cool!</b>
+          The
+          <b>Dialog</b>
+          is now a stateful component. All event handlers
+          were defined in the component itself.
+          <b>Cool!</b>
         </Dialog>
 
         <Button click="show_dialog" kind="is-info">Click to open the new dialog</Button>

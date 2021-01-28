@@ -8,8 +8,8 @@ defmodule SurfaceSiteWeb.Contexts do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />
@@ -141,7 +141,6 @@ defmodule SurfaceSiteWeb.Contexts do
                 it's highly recommended that you **always** scope those values as demonstrated. This way
                 you make sure it can play nicely with other libraries that also use contexts.
               </#Markdown>
-
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/state_management">

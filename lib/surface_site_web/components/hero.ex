@@ -5,7 +5,7 @@ defmodule SurfaceSiteWeb.Components.Hero do
     ~H"""
     <section class="hero is-info">
       <div class="hero-body" style="padding: 2.5rem 1.5rem">
-        <slot/>
+        <slot />
       </div>
     </section>
     """

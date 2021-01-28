@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.Slots.SlotExample do
       ~H"""
       <section class="hero is-info">
         <div class="hero-body">
-          <slot/>
+          <slot />
         </div>
       </section>
       """

@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.App do
   def render(assigns) do
     ~H"""
     <section class="section" style="padding: 3rem 1.5rem">
-      <MobileSidebar/>
+      <MobileSidebar />
       <div class="container">
         <div class="section" style="padding: 0rem 1.5rem">
           <div class="container">
@@ -16,7 +16,8 @@ defmodule SurfaceSiteWeb.App do
               <div class="column is-4">
                 <CardWithIcon icon="fa-power-off" title="Getting started">
                   <p>
-                    Start building <strong>rich interactive user-interfaces</strong>,
+                    Start building
+                    <strong>rich interactive user-interfaces</strong>,
                     writing minimal custom Javascript now. For a quick start, choose one of the
                     boilerplates projects or install Surface from scratch.
                   </p>
@@ -26,8 +27,11 @@ defmodule SurfaceSiteWeb.App do
               <div class="column is-4">
                 <CardWithIcon icon="fa-book" title="Documentation">
                   <p>
-                    The basic idea and motivation behind <b>Surface</b>, introducing the
-                    all the main features along with <strong>live examples</strong> and detailed explanation to
+                    The basic idea and motivation behind
+                    <b>Surface</b>, introducing the
+                    all the main features along with
+                    <strong>live examples</strong>
+                    and detailed explanation to
                     help you to get started.
                   </p>
                   <p><LiveRedirect label="Learn more" to="/documentation" /></p>

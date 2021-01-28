@@ -13,7 +13,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.MarkdownInfo do
             The `<#Markdown>` component allows users to write markdown content directly in a Surface template.
             The content will be validated and translated to HTML at **compile-time**.
           </#Markdown>
-          <hr>
+          <hr />
           <#Example language="html">
             <#Markdown class="content">
               ### Heading 3

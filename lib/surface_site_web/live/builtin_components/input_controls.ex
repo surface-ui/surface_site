@@ -8,9 +8,13 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls do
     <div class="component-group">
       <h1 class="title">Input controls</h1>
       <h2 class="subtitle">
-        A set of common <strong>input controls</strong> based on the <code>&lt;input&gt;</code> element.
+        A set of common
+        <strong>input controls</strong>
+        based on the
+        <code>&lt;input&gt;</code>
+        element.
       </h2>
-      <hr>
+      <hr />
       <#Markdown>
         > **Note**: All input controls are wrappers around existing Phoenix built-in helpers.
 

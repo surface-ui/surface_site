@@ -113,12 +113,14 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
 
     def render(assigns) do
       ~H"""
-      {{ form = form_for(@for, "#",
-         phx_change: assigns.change.name,
-         autocomplete: assigns.autocomplete) }}
-        <Context put={{ form: form }}>
-          <slot/>
-        </Context>
+      {{ form =
+        form_for(@for, "#",
+          phx_change: assigns.change.name,
+          autocomplete: assigns.autocomplete
+        ) }}
+      <Context put={{ form: form }}>
+        <slot />
+      </Context>
       <#Raw></form></#Raw>
       """
     end
@@ -136,12 +138,12 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
       ~H"""
       <div class="field">
         <Context get={{ form: form }}>
-          {{ label form, @name, class: "label" }}
+          {{ label(form, @name, class: "label") }}
           <div class="control">
             <Context put={{ field: String.to_atom(@name) }}>
-              <slot/>
+              <slot />
             </Context>
-            {{ error_tag form, @name }}
+            {{ error_tag(form, @name) }}
           </div>
         </Context>
       </div>
@@ -191,15 +193,15 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
         <div class="column">
           <Form for={{ @changeset }} change="validate" autocomplete="off">
             <Field name="name">
-              <TextInput/>
+              <TextInput />
             </Field>
             <Field name="email">
-              <TextInput placeholder="Try me!"/>
+              <TextInput placeholder="Try me!" />
             </Field>
           </Form>
         </div>
         <div class="column">
-      <pre style="height: 170px; border-radius: 6px; padding: 2.25rem">
+          <pre style="height: 170px; border-radius: 6px; padding: 2.25rem">
       {{ @data }}
       </pre>
         </div>

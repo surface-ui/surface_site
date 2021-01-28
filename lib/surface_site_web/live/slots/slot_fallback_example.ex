@@ -27,7 +27,7 @@ defmodule SurfaceSiteWeb.Slots.SlotFallbackExample do
 
     def render(assigns) do
       ~H"""
-      <Hero></Hero>
+      <Hero />
       """
     end
   end

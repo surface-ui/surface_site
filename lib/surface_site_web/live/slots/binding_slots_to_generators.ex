@@ -28,7 +28,7 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
         <tbody>
           <tr :for={{ item <- @items }} class={{ "is-selected": item[:selected] }}>
             <td :for.index={{ @cols }}>
-              <slot name="cols" index={{ index }} :props={{ item: item }}/>
+              <slot name="cols" index={{ index }} :props={{ item: item }} />
             </td>
           </tr>
         </tbody>
@@ -58,7 +58,9 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
       <div>
         <Grid items={{ album <- @albums }}>
           <Column title="Title">
-            {{ album.name }} (Released: <strong>{{ album.released }}</strong>)
+            {{ album.name }}
+            (Released:
+            <strong>{{ album.released }}</strong>)
           </Column>
           <Column title="Artist">
             <a href="#">{{ album.artist }}</a>

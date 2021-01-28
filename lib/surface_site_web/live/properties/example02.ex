@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
     def render(assigns) do
       ~H"""
       <button class={{ "button", "is-info", "is-loading": @loading, "is-rounded": @rounded }}>
-        <slot/>
+        <slot />
       </button>
       """
     end
@@ -28,11 +28,11 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
         </MyButton>
         <form phx-change="check_changed" style="margin-top: 30px">
           <label class="checkbox">
-            <input type="checkbox" name="loading" checked={{ @loading }}>
+            <input type="checkbox" name="loading" checked={{ @loading }} />
             Loading
           </label>
           <label class="checkbox" style="margin-left: 20px">
-            <input type="checkbox" name="rounded" checked={{ @rounded }}>
+            <input type="checkbox" name="rounded" checked={{ @rounded }} />
             Rounded
           </label>
         </form>

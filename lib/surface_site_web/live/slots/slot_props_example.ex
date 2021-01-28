@@ -14,7 +14,7 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
       ~H"""
       <div>
         <p>
-          <slot :props={{ value: @value, max: @max }}/>
+          <slot :props={{ value: @value, max: @max }} />
         </p>
         <div style="padding-top: 10px;">
           <button class="button is-info" :on-click="dec" disabled={{ @value == 1 }}>
@@ -47,14 +47,15 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
       <div>
         <Rating :let={{ value: value }} id="rating_1">
           <h1 class="title is-marginless">
-            Rating: {{ value }}
+            Rating:
+            {{ value }}
           </h1>
         </Rating>
-        <hr>
+        <hr />
         <Rating :let={{ value: value, max: max }} id="rating_2">
           <div>
             <span :for={{ i <- 1..max }} class={{ :icon, "has-text-warning": i <= value }}>
-              <i class="fas fa-star"></i>
+              <i class="fas fa-star" />
             </span>
           </div>
         </Rating>

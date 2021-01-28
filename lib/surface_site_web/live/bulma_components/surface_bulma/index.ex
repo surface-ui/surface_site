@@ -8,9 +8,11 @@ defmodule SurfaceSiteWeb.BulmaComponents.Index do
     <div class="component-group">
       <h1 class="title">UI Components (WIP)</h1>
       <h2 class="subtitle">
-        A suite of <strong>reusable</strong> UI components that can be used directly in your projects
+        A suite of
+        <strong>reusable</strong>
+        UI components that can be used directly in your projects
       </h2>
-      <hr>
+      <hr />
       <#Markdown>
         Includes some of the most common components includng **buttons**, **tabs**, **dialogs**,
         **cards**, **table grids** and more.

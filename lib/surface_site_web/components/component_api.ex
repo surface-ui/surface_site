@@ -49,7 +49,8 @@ defmodule SurfaceSiteWeb.Components.ComponentAPI do
               <code>{{ prop.name }}</code>
             </Column>
             <Column label="Description">
-              {{ format_required(prop) }} {{ prop.doc |> format_desc() |> Markdown.to_html(strip: true) }}
+              {{ format_required(prop) }}
+              {{ prop.doc |> format_desc() |> Markdown.to_html(strip: true) }}
             </Column>
             <Column label="Type">
               <code>{{ inspect(prop.type) }}</code>
@@ -68,7 +69,8 @@ defmodule SurfaceSiteWeb.Components.ComponentAPI do
               <code>{{ slot.name }}</code>
             </Column>
             <Column label="Description">
-            {{ format_required(slot) }} {{ slot.doc |> format_desc() |> Markdown.to_html(strip: true) }}
+              {{ format_required(slot) }}
+              {{ slot.doc |> format_desc() |> Markdown.to_html(strip: true) }}
             </Column>
           </Table>
         </TabItem>
