@@ -131,7 +131,7 @@ defmodule SurfaceSiteWeb.Contexts do
 
                 `<Context put={{ __MODULE__, form: form }}>`
 
-                That would create a composite key cointaining both atoms, i.e. `{Form, :form}` for that value.
+                That would create a composite key containing both atoms, i.e. `{Form, :form}` for that value.
 
                 Now, whenever you need to retrieve the value, you must pass the scope too:
 
