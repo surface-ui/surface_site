@@ -8,11 +8,11 @@ defmodule SurfaceSiteWeb.Slots do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
-          <Sidebar/>
+          <Sidebar />
           <div class="container column" style="background-color: #fff;">
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -215,7 +215,7 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <div class="card-content slots-page-props-example">
-                  <SurfaceSiteWeb.Slots.SlotPropsExample.Example id="slot_props_example"/>
+                  <SurfaceSiteWeb.Slots.SlotPropsExample.Example id="slot_props_example" />
                 </div>
                 <footer class="card-footer">
                   <#Raw>
@@ -245,7 +245,7 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example id="renderless_component"/>
+                  <SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example id="renderless_component" />
                 </div>
                 <footer class="card-footer">
                   <#Raw>

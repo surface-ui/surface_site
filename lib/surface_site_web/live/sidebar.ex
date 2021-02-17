@@ -9,7 +9,7 @@ defmodule SurfaceSiteWeb.Sidebar do
       class="section column is-narrow is-narrow-mobile is-fullheight is-hidden-mobile"
       style="background-color: #f5f5f5;"
     >
-      <SidebarMenu/>
+      <SidebarMenu />
     </aside>
     """
   end

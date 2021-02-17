@@ -8,8 +8,8 @@ defmodule SurfaceSiteWeb.Events do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />
@@ -111,7 +111,7 @@ defmodule SurfaceSiteWeb.Events do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.Events.SurfaceCounter.Counter id="surface_counter"/>
+                  <SurfaceSiteWeb.Events.SurfaceCounter.Counter id="surface_counter" />
                 </div>
                 <footer class="card-footer">
                   <#Raw>

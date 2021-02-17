@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.Index do
         Surface provides a set of built-in components that you can use
         in any project, <strong>regardless of the CSS/JS</strong> solution you might choose.
       </h2>
-      <hr>
+      <hr />
       <#Markdown>
         ## Available components
 

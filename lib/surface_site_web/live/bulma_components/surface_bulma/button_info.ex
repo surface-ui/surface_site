@@ -15,7 +15,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
       <h2 class="subtitle">
         The classic <strong>button</strong>, in different colors, sizes, and states
       </h2>
-      <hr>
+      <hr />
       <#Example>
         <Button>Button</Button>
       </#Example>
@@ -69,7 +69,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
         </div>
       </#Example>
 
-      <ComponentAPI module={{ Button }}/>
+      <ComponentAPI module={{ Button }} />
     </div>
     """
   end

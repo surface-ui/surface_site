@@ -39,8 +39,8 @@ defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
           </#Example>
         </template>
       </ComponentInfo>
-      <br><hr>
-      <ComponentInfo module={{ Column }} title="Table.Column"/>
+      <br /><hr />
+      <ComponentInfo module={{ Column }} title="Table.Column" />
     </div>
     """
   end

@@ -8,8 +8,8 @@ defmodule SurfaceSiteWeb.GettingStarted do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />

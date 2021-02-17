@@ -30,7 +30,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.SelectInfo do
               * [TimeSelect](/builtincomponents/TimeSelect){: data-phx-link="redirect" data-phx-link-state="push"} -
                 Provides a wrapper for Phoenix.HTML.Form's `time_select/3` function.
           </#Markdown>
-          <hr>
+          <hr />
         </template>
       </ComponentInfo>
     </div>

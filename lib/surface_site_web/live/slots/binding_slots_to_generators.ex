@@ -28,7 +28,7 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
         <tbody>
           <tr :for={{ item <- @items }} class={{ "is-selected": item[:selected] }}>
             <td :for.index={{ @cols }}>
-              <slot name="cols" index={{ index }} :props={{ item: item }}/>
+              <slot name="cols" index={{ index }} :props={{ item: item }} />
             </td>
           </tr>
         </tbody>

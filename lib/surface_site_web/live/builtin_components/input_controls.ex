@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls do
       <h2 class="subtitle">
         A set of common <strong>input controls</strong> based on the <code>&lt;input&gt;</code> element.
       </h2>
-      <hr>
+      <hr />
       <#Markdown>
         > **Note**: All input controls are wrappers around existing Phoenix built-in helpers.
 

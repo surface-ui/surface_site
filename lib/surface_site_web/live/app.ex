@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.App do
   def render(assigns) do
     ~H"""
     <section class="section" style="padding: 3rem 1.5rem">
-      <MobileSidebar/>
+      <MobileSidebar />
       <div class="container">
         <div class="section" style="padding: 0rem 1.5rem">
           <div class="container">
