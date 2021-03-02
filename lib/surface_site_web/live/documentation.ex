@@ -8,10 +8,13 @@ defmodule SurfaceSiteWeb.Documentation do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
-        <section class="main-content columns" style="margin-top: 0px; margin-bottom: 0px; position: relative;">
+        <section
+          class="main-content columns"
+          style="margin-top: 0px; margin-bottom: 0px; position: relative;"
+        >
           <Sidebar />
           <div class="container column" style="background-color: #fff;">
             <div class="section" style="padding-bottom: 0px;">

@@ -9,14 +9,13 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />
           <div class="container column" style="background-color: #fff;">
             <div class="section" style="padding-bottom: 0px;">
-
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
@@ -138,7 +137,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 individual tab as follows:
               </#Markdown>
 
-              <ComponentAPI module={{SurfaceSiteWeb.ComponentsBasics.Example02.Button}}/>
+              <ComponentAPI module={{ SurfaceSiteWeb.ComponentsBasics.Example02.Button }} />
 
               <#Markdown>
                 ### Public vs private

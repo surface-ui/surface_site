@@ -21,7 +21,7 @@ defmodule SurfaceSiteWeb.Properties.Example01 do
 
     def render(assigns) do
       ~H"""
-      <Hello name="John Doe"/>
+      <Hello name="John Doe" />
       """
     end
   end

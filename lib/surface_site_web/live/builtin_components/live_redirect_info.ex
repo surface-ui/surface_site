@@ -15,7 +15,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo do
               My link
             </LiveRedirect>
           </#Example>
-          <SectionSeparator title="Label" id="label"/>
+          <SectionSeparator title="Label" id="label" />
           <#Example>
             <LiveRedirect label="My link" to="#"/>
           </#Example>

@@ -10,14 +10,14 @@ defmodule SurfaceSiteWeb.Components.CardWithIcon do
       <div class="card-image has-text-centered">
         <div class="container">
           <span class="icon is-large has-text-info" style="margin-top: 40px;margin-bottom: 12px;">
-            <i class="fas {{ @icon }}" style="font-size: 5em;"></i>
+            <i class="fas {{ @icon }}" style="font-size: 5em;" />
           </span>
         </div>
       </div>
       <div class="card-content">
         <div class="content">
           <h4 class="has-text-centered">{{ @title }}</h4>
-          <slot/>
+          <slot />
         </div>
       </div>
     </div>

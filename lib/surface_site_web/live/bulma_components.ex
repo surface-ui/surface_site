@@ -14,8 +14,8 @@ defmodule SurfaceSiteWeb.BulmaComponents do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />
@@ -48,25 +48,25 @@ defmodule SurfaceSiteWeb.BulmaComponents do
 
   defp route(%{component: nil} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.Index id="index"/>
+    <SurfaceSiteWeb.BulmaComponents.Index id="index" />
     """
   end
 
   defp route(%{component: "Button"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.ButtonInfo id="ButtonInfo"/>
+    <SurfaceSiteWeb.BulmaComponents.ButtonInfo id="ButtonInfo" />
     """
   end
 
   defp route(%{component: "Table"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.TableInfo id="TableInfo"/>
+    <SurfaceSiteWeb.BulmaComponents.TableInfo id="TableInfo" />
     """
   end
 
   defp route(%{component: "Tabs"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.TabsInfo id="TabsInfo"/>
+    <SurfaceSiteWeb.BulmaComponents.TabsInfo id="TabsInfo" />
     """
   end
 

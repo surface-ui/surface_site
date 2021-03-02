@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.Slots.DeclaredSlotExample do
       ~H"""
       <section class="hero is-info">
         <div class="hero-body">
-          <slot/>
+          <slot />
         </div>
       </section>
       """

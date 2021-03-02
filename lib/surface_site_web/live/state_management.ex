@@ -8,8 +8,8 @@ defmodule SurfaceSiteWeb.StateManagement do
   def render(assigns) do
     ~H"""
     <div style="position: relative;">
-      <MobileSidebar/>
-      <div class="sidebar-bg"/>
+      <MobileSidebar />
+      <div class="sidebar-bg" />
       <div class="container is-fullhd">
         <section class="main-content columns">
           <Sidebar />
@@ -77,7 +77,7 @@ defmodule SurfaceSiteWeb.StateManagement do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.StateManagement.Example01.Example id="example_01"/>
+                  <SurfaceSiteWeb.StateManagement.Example01.Example id="example_01" />
                 </div>
                 <footer class="card-footer">
                   <#Raw>
@@ -155,7 +155,7 @@ defmodule SurfaceSiteWeb.StateManagement do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.StateManagement.Example02.Example id="example_02"/>
+                  <SurfaceSiteWeb.StateManagement.Example02.Example id="example_02" />
                 </div>
                 <footer class="card-footer">
                   <#Raw>
