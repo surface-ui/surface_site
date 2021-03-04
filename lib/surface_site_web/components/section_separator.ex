@@ -6,8 +6,8 @@ defmodule SurfaceSiteWeb.Components.SectionSeparator do
 
   def render(assigns) do
     ~H"""
-    <h3 id={{@id}} class="title is-4 is-spaced">
-      <a href={{"##{@id}"}}>#</a> {{ @title }}
+    <h3 id={{ @id }} class="title is-4 is-spaced">
+      <a href={{ "##{@id}" }}>#</a> {{ @title }}
     </h3>
     """
   end

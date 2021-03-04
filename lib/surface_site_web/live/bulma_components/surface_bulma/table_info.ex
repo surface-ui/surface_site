@@ -40,7 +40,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
         </template>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ Column }} title="Table.Column"/>
+      <ComponentInfo module={{ Column }} title="Table.Column" />
     </div>
     """
   end

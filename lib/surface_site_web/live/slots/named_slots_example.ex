@@ -18,16 +18,16 @@ defmodule SurfaceSiteWeb.Slots.NamedSlotsExample do
       <div class="card">
         <header class="card-header" style="background-color: #f5f5f5">
           <p class="card-header-title">
-            <slot name="header"/>
+            <slot name="header" />
           </p>
         </header>
         <div class="card-content">
           <div class="content">
-            <slot/>
+            <slot />
           </div>
         </div>
         <footer class="card-footer" style="background-color: #f5f5f5">
-          <slot name="footer"/>
+          <slot name="footer" />
         </footer>
       </div>
       """

@@ -47,7 +47,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.TabsInfo do
         </template>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ TabItem }} title="Tabs.TabItem"/>
+      <ComponentInfo module={{ TabItem }} title="Tabs.TabItem" />
     </div>
     """
   end

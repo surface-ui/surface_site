@@ -69,7 +69,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
         </div>
       </#Example>
 
-      <ComponentAPI module={{ Button }}/>
+      <ComponentAPI module={{ Button }} />
     </div>
     """
   end

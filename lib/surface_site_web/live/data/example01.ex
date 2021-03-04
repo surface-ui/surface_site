@@ -11,8 +11,12 @@ defmodule SurfaceSiteWeb.Data.Example01 do
           {{ @count }}
         </h1>
         <div>
-          <button class="button is-info" :on-click="dec"> - </button>
-          <button class="button is-info" :on-click="inc"> + </button>
+          <button class="button is-info" :on-click="dec">
+            -
+          </button>
+          <button class="button is-info" :on-click="inc">
+            +
+          </button>
         </div>
       </div>
       """
