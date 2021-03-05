@@ -20,9 +20,10 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
       cd: Path.expand("../assets", __DIR__)
     ]
   ],
+  reloadable_compilers: [:phoenix, :elixir, :surface],
   live_reload: [
     patterns: [
-      ~r{lib/surface_site_web/live/.*(ex)$}
+      ~r{lib/surface_site_web/(live|components)/.*(ex|js)$}
     ]
   ]
 

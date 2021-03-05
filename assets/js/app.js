@@ -6,6 +6,7 @@ import LiveSocket from "phoenix_live_view"
 import topbar from "topbar"
 import Prism from './prism.js';
 import './font-awesome.js';
+import Hooks from "./_hooks"
 
 // Don't load the topbar for catalogue examples/praygrounds
 if (!window.frameElement) {
@@ -14,7 +15,6 @@ if (!window.frameElement) {
   window.addEventListener("phx:page-loading-stop", info => topbar.hide())
 }
 
-let Hooks = {}
 Hooks["Highlight"] = {
   mounted() {
     Prism.highlightElement(document.getElementById(this.el.id))

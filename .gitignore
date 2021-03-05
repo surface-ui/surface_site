@@ -43,3 +43,5 @@ priv/static/css/app.css
 # variables.
 /config/*.secret.exs
 
+# Ignore auto-generated hook files
+/assets/js/_hooks/
