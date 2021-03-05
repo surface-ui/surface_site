@@ -7,7 +7,7 @@ defmodule SurfaceSite.MixProject do
       version: "0.1.0",
       elixir: "~> 1.8",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix] ++ Mix.compilers(),
+      compilers: [:surface, :phoenix] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -41,9 +41,9 @@ defmodule SurfaceSite.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
-      {:surface, "~> 0.1.1", override: true},
+      {:surface, "~> 0.3.1", override: true},
       {:surface_formatter, "~> 0.3"},
-      {:surface_bulma, github: "msaraiva/surface_bulma"},
+      {:surface_bulma, github: "surface-ui/surface_bulma"},
       {:earmark, "~> 1.3"},
       {:html_entities, "~> 0.4"}
     ]

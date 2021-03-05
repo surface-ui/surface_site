@@ -5,6 +5,8 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
     prop loading, :boolean
     prop rounded, :boolean
 
+    slot default
+
     def render(assigns) do
       ~H"""
       <button class={{ "button", "is-info", "is-loading": @loading, "is-rounded": @rounded }}>

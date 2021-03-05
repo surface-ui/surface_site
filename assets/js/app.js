@@ -7,9 +7,12 @@ import topbar from "topbar"
 import Prism from './prism.js';
 import './font-awesome.js';
 
-topbar.config({barColors: {0: "hsl(0, 0%, 86%)"}})
-window.addEventListener("phx:page-loading-start", info => topbar.show())
-window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+// Don't load the topbar for catalogue examples/praygrounds
+if (!window.frameElement) {
+  topbar.config({barColors: {0: "hsl(0, 0%, 86%)"}})
+  window.addEventListener("phx:page-loading-start", info => topbar.show())
+  window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+}
 
 let Hooks = {}
 Hooks["Highlight"] = {

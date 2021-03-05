@@ -4,6 +4,8 @@ defmodule SurfaceSiteWeb.Components.CardWithIcon do
   prop icon, :string, required: true
   prop title, :any, required: true
 
+  slot default
+
   def render(assigns) do
     ~H"""
     <div class="card" style="box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);">

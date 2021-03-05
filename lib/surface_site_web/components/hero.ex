@@ -1,6 +1,8 @@
 defmodule SurfaceSiteWeb.Components.Hero do
   use Surface.Component
 
+  slot default
+
   def render(assigns) do
     ~H"""
     <section class="hero is-info">

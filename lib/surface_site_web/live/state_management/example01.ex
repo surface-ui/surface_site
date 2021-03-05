@@ -5,6 +5,8 @@ defmodule SurfaceSiteWeb.StateManagement.Example01 do
     prop click, :event
     prop kind, :string, default: "is-info"
 
+    slot default
+
     def render(assigns) do
       ~H"""
       <button class="button {{ @kind }}" :on-click={{ @click }}>
@@ -20,6 +22,8 @@ defmodule SurfaceSiteWeb.StateManagement.Example01 do
     prop title, :string, required: true
     prop show, :boolean, required: true
     prop hideEvent, :event, required: true
+
+    slot default
 
     def render(assigns) do
       ~H"""

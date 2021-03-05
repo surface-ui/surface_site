@@ -5,7 +5,7 @@ defmodule SurfaceSiteWeb.Properties.Example01 do
     use Surface.Component
 
     @doc "Someone to say hello to"
-    prop name, :string, required: true, default: ""
+    prop name, :string, required: true
 
     def render(assigns) do
       ~H"""

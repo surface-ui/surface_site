@@ -111,6 +111,8 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     prop change, :event
     prop autocomplete, :string, values: ["on", "off"]
 
+    slot default
+
     def render(assigns) do
       ~H"""
       {{ form =
@@ -133,6 +135,8 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
 
     @doc "The field name"
     prop name, :string, required: true
+
+    slot default
 
     def render(assigns) do
       ~H"""

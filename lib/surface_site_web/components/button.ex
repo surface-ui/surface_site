@@ -4,6 +4,8 @@ defmodule SurfaceSiteWeb.Components.Button do
   prop click, :event
   prop kind, :string, default: "is-info"
 
+  slot default
+
   def render(assigns) do
     ~H"""
     <button class="button {{ @kind }}" :on-click={{ @click }} style="margin: 0px 5px">
