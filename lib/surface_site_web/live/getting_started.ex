@@ -131,7 +131,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 However, you can easily adapt any of the examples to any library of your preference or
                 try them out with your own CSS styles.
 
-                For a quick start with bulma, you can add the following line to your `layout_view.ex`:
+                For a quick start with bulma, you can add the following line to your `root.html.leex`:
 
                 ```
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
