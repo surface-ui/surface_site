@@ -25,7 +25,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
       <ComponentInfo module={{ Table }}>
         <template slot="examples">
           <#Example direction="vertical">
-            <Table data={{ album <- @albums }} rowClass={{ &rowClass/2 }} bordered>
+            <Table id="table" data={{ album <- @albums }} row_class={{ &row_class/2 }} bordered>
               <Column label="Album">
                 {{ album.name }}
               </Column>
@@ -45,7 +45,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
     """
   end
 
-  defp rowClass(item, _index) do
+  defp row_class(item, _index) do
     if item[:selected] do
       "is-selected"
     else

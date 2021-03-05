@@ -1,10 +1,10 @@
 defmodule SurfaceSiteWeb.Components.ComponentAPI do
   use Surface.Component
 
-  alias SurfaceBulma.Tabs
-  alias SurfaceBulma.Tabs.TabItem
-  alias SurfaceBulma.Table
-  alias SurfaceBulma.Table.Column
+  alias SurfaceSiteWeb.Components.Tabs
+  alias SurfaceSiteWeb.Components.Tabs.TabItem
+  alias SurfaceSiteWeb.Components.Table
+  alias SurfaceSiteWeb.Components.Table.Column
   alias SurfaceSiteWeb.Components.Markdown
 
   @doc "The component module"
