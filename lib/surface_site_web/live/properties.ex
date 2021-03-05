@@ -119,7 +119,34 @@ defmodule SurfaceSiteWeb.Properties do
                 > **Note:** For regular HTML tags like `<button>`, the `class` attribute will be handled automatically
                 as expected. For custom components, you need to instruct Surface to do so by setting the type of the
                 property as `:css_class`.
+
+                ## Event property
+
+                In order to declare an event property, you must use the `prop` macro and
+                define the type as `:event`:
+
+                > _**prop** name, **:event**, options_
+
+                Where:
+
+                  * `name` - is the name of the event.
+                  * `options` - a keyword list of options for additional customization.
+
+                ### Supported options
+
+                  * `required` - declares the event as required. Default is `false`.
+                  * `default` - defines a default value for an optional event.
+
+                **Example:**
               </#Markdown>
+
+              <div class="card dark">
+                <footer class="card-footer">
+                  <#Raw>
+                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">MyButton</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(79, 193, 255);">Surface</span>.<span style="color: rgb(79, 193, 255);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Triggers on click"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">click</span>, :event</div><br><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span></div><div>        </div><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@click</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
+                  </#Raw>
+                </footer>
+              </div>
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/components_basics">

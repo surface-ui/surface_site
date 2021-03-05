@@ -26,33 +26,11 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
                 # Events
 
-                In order to declare an event property, you must use the `prop` macro and
-                define the type as `:event`:
+                Phoenix Liveview supports DOM element bindings for client-server interaction. This allows developers
+                to create server-side components that can react to client-side events triggered by the user.
 
-                > _**prop** name, **:event**, options_
+                For a complete guide on Bindings, see the [Phoenix's Bindings Guide](https://hexdocs.pm/phoenix_live_view/bindings.html).
 
-                Where:
-
-                  * `name` - is the name of the event.
-                  * `options` - a keyword list of options for additional customization.
-
-                ### Supported options
-
-                  * `required` - declares the event as required. Default is `false`.
-                  * `default` - defines a default value for an optional event.
-
-                **Example:**
-              </#Markdown>
-
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">MyButton</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Triggers on click"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">click</span>, :event</div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      ...</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
-                </footer>
-              </div>
-
-              <#Markdown>
                 ## Handling events in LiveView (without Surface)
 
                 In Phoenix LiveView, when dispatching events in live components,

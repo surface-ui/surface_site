@@ -5,11 +5,14 @@ defmodule SurfaceSiteWeb.Events.Example01 do
     @doc "Triggers on click"
     prop click, :event
 
-    def render(_assigns) do
-    end
+    slot default
 
-    # def render(assigns) do
-    #   ...
-    # end
+    def render(assigns) do
+      ~H"""
+      <button class="button" :on-click={{ @click }}>
+        <slot />
+      </button>
+      """
+    end
   end
 end
