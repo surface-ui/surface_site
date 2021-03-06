@@ -146,6 +146,9 @@ defmodule SurfaceSiteWeb.Contexts do
               <LiveRedirect to="/state_management">
                 ← State Management
               </LiveRedirect>
+              <LiveRedirect to="/testing">
+                Testing →
+              </LiveRedirect>
             </nav>
           </div>
         </section>

@@ -98,6 +98,22 @@ defmodule SurfaceSiteWeb.SidebarMenu do
               Contexts
             </LiveRedirect>
           </li>
+          <li>
+            <LiveRedirect class="" to="/testing">
+              <span class="icon">
+                <i class="fas fa-tasks" />
+              </span>
+              Testing
+            </LiveRedirect>
+          </li>
+          <li>
+            <LiveRedirect class="" to="/js_interop">
+              <span class="icon">
+                <i class="fab fa-js-square" />
+              </span>
+              JS Interoperability
+            </LiveRedirect>
+          </li>
         </ul>
       </li>
       <li>
