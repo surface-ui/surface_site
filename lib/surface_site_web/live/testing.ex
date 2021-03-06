@@ -26,7 +26,7 @@ defmodule SurfaceSiteWeb.Testing do
                 # Testing
 
                 For convinience, Surface provides a [render_surface/1](https://hexdocs.pm/surface/Surface.LiveViewTest.html#render_surface/1)
-                the allows developers to test component's markup directly. You should use this function
+                macro that allows developers to test component's markup directly. You should use this macro
                 whenever testing regular rendering of stateless components or live components that **don't
                 require a parent live view** during tests.
 
