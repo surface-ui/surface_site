@@ -116,6 +116,117 @@ defmodule SurfaceSiteWeb.Events do
                 section [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
                 in the Phoenix LiveView's docs.
               </#Markdown>
+
+              <#Markdown>
+
+                ### Pass event through an `event` property
+
+                In the above examples the events have been handled by the component itself.
+                Sometime the component does not know how to handle an event and you would like to handle this event in the parent component.
+                For that kind of use case, you must declare the event in the child component by using the `prop` macro defining the type as `:event`,
+                and pass the value of that prop to the `:on-[event]` directive.
+
+                > _**prop** name, :event, options_
+
+                Where:
+
+                  * `name` - is the name of the event.
+                  * `options` - a keyword list of options for additional customization.
+
+                ### Supported options
+
+                  * `required` - declares the event as required. Default is `false`.
+                  * `default` - defines a default value for an optional event that will be handled by the component.
+
+                ### Stateless component
+                The simplest case you need to pass an event is when you create a stateless component that includes an element
+                that defines a server binding (event). Since the component is stateless, it cannot handle the event by itself
+                so it needs to receive the event handler as a prop.
+
+                For example, imagine a `Button` stateless component that raises an event when the user clicks on it.
+                In the following example, we create that kind of component.
+                As you can see in the example, we use twice the button component with two different handling functions that have been defined in the parent live view.
+              </#Markdown>
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Events.LiveButton id="surface_counter_2" />
+                </div>
+                <footer class="card-footer">
+                  <#Raw>
+                  <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(47, 30, 46) none repeat scroll 0% 0%; color: rgb(163, 158, 155); padding: 0.5em;"><span class="hljs-class"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">defmodule</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">Button</span></span> <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">use</span> Surface.Component
+
+    prop label, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:string</span>
+    prop click, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:event</span>, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">required:</span> <span class="hljs-keyword" style="color: rgb(129, 91, 164);">true</span>
+    slot default
+
+    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">render</span></span>(assigns) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    ~H<span class="hljs-string" style="color: rgb(72, 182, 133);">""</span><span class="hljs-string" style="color: rgb(72, 182, 133);">"
+    &lt;button type="</span>button<span class="hljs-string" style="color: rgb(72, 182, 133);">" :on-click={{ @click }}&gt;
+      &lt;slot&gt;{{ @label }}&lt;/slot&gt;
+    &lt;/button&gt;
+    "</span><span class="hljs-string" style="color: rgb(72, 182, 133);">""</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span></pre>
+                  </#Raw>
+                  <#Raw>
+                  <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(47, 30, 46) none repeat scroll 0% 0%; color: rgb(163, 158, 155); padding: 0.5em;"><span class="hljs-class"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">defmodule</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">SurfaceSiteWeb</span></span>.Events.LiveButton <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">use</span> Surface.LiveComponent
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">alias</span> __MODULE_<span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>.Button
+
+    data status, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:string</span>, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">default:</span> <span class="hljs-string" style="color: rgb(72, 182, 133);">"Not clicked :("</span>
+
+    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">render</span></span>(assigns) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    ~H<span class="hljs-string" style="color: rgb(72, 182, 133);">""</span><span class="hljs-string" style="color: rgb(72, 182, 133);">"
+    &lt;div&gt;
+    &lt;p&gt;Status: {{ @status }}&lt;/p&gt;
+    &lt;Button label="</span>Click!<span class="hljs-string" style="color: rgb(72, 182, 133);">" click="</span>clicked<span class="hljs-string" style="color: rgb(72, 182, 133);">" /&gt;
+    &lt;Button label="</span>Reset<span class="hljs-string" style="color: rgb(72, 182, 133);">" click="</span>reset<span class="hljs-string" style="color: rgb(72, 182, 133);">" /&gt;
+    &lt;/div&gt;
+    "</span><span class="hljs-string" style="color: rgb(72, 182, 133);">""</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
+
+    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">handle_event</span></span>(<span class="hljs-string" style="color: rgb(72, 182, 133);">"clicked"</span>, <span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>, socket) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    {<span class="hljs-symbol" style="color: rgb(72, 182, 133);">:noreply</span>, assign(socket, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:status</span>, <span class="hljs-string" style="color: rgb(72, 182, 133);">"Clicked!"</span>)}
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
+
+    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">handle_event</span></span>(<span class="hljs-string" style="color: rgb(72, 182, 133);">"reset"</span>, <span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>, socket) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
+    {<span class="hljs-symbol" style="color: rgb(72, 182, 133);">:noreply</span>, assign(socket, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:status</span>, <span class="hljs-string" style="color: rgb(72, 182, 133);">"Not clicked :("</span>)}
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
+    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
+    </pre>
+                  </#Raw>
+                </footer>
+              </div>
+
+              <#Markdown>
+                ### Stateful component
+                In some case, you want to have a default behaviour that is handled by the component itself and you want to let the developer overrides the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it requires to be stateful.
+
+                One example is a generic stateful `Dialog` component with a close button like the one implemented in the `Stateless` section.
+                By default, if the user click the "close" button, it will close the modal, however, if you're using the dialog to show a form
+                that the user must fill in lots of information, you might want to confirm if the user really wants to close it and ask for confirmation.
+                Something like: "Are you sure you want to close this form? All information provided will be lost.".
+                To allow something like this, you need to have a default local implementation that just closes the dialog
+                but this implementation can be overridden by the parent if it passes a custom implementation that, in our case, asks for confirmation before closing it.
+              </#Markdown>
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour id="event_default_dialog_example" />
+                  <br />
+                  <SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour id="event_overwritten_dialog_example" />
+                </div>
+                <footer class="card-footer">
+                  <#Raw>
+                    CODE
+                  </#Raw>
+                </footer>
+              </div>
+              <#Markdown>
+                As you can see in the example, the stateless `Button` component that raises the event is used by the stateful `Modal` component that implements the default ways to handle the `ok` and the `close` events.
+
+                Now if you want to change the default behaviour of closing the dialog automatically, all you have to do is pass that custom event using the `close` prop.
+              </#Markdown>
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/data">
