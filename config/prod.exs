@@ -10,11 +10,14 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :surface_site, SurfaceSiteWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "surface-site.gigalixirapp.com", port: 443],
+  http: [
+    port: System.get_env("PORT") || 4000,
+    transport_options: [socket_opts: [:inet6]]
+  ],
+  url: [scheme: "https", host: "surface-ui.org", port: 443],
+  force_ssl: [hsts: true, rewrite_on: [:x_forwarded_proto]],
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
-  cache_static_manifest: "priv/static/cache_manifest.json",
-  server: true
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info

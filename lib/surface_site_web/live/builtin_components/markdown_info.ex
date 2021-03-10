@@ -32,8 +32,8 @@ defmodule SurfaceSiteWeb.BuiltinComponents.MarkdownInfo do
 
               ### Links
 
-              * [Source](https://github.com/msaraiva/surface/)
-              * [Docs](http://surface-demo.msaraiva.io/documentation)
+              * [Source](https://github.com/surface-ui/surface)
+              * [Docs](https://surface-ui.org/documentation)
 
               ### Tables
 

@@ -19,7 +19,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.Index do
         Bulma it's a free, open source, responsive **CSS** framework with
         **no JS dependencies**, which makes it a perfect fit to use with **Phoenix LiveView**.
 
-        Source code can be found at: [github.com/msaraiva/surface_bulma](https://github.com/msaraiva/surface_bulma).
+        Source code can be found at: [github.com/surface-ui/surface_bulma](https://github.com/surface-ui/surface_bulma).
 
         > **Note:** Feel free to adapt any of the components or examples
         > to any other CSS framework of your preference. You can use
@@ -35,7 +35,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.Index do
         def deps do
           [
             ...
-            {:surface_bulma, github: "msaraiva/surface_bulma"}
+            {:surface_bulma, github: "surface-ui/surface_bulma"}
           ]
         end
         ```

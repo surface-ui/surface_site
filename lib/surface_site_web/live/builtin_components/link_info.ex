@@ -12,7 +12,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LinkInfo do
           <#Example>
             <Link
               label="Go to source"
-              to="https://github.com/msaraiva/surface/blob/master/lib/surface/components/link.ex"
+              to="https://github.com/surface-ui/surface/blob/master/lib/surface/components/link.ex"
               opts={{ data: [confirm: "Are you sure?"] }}
             />
           </#Example>
