@@ -11,8 +11,10 @@ use Mix.Config
 # before starting your production server.
 config :surface_site, SurfaceSiteWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "surface-demo.msaraiva.io", port: 4000],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: "surface-site.gigalixirapp.com", port: 443],
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -68,4 +70,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+# import_config "prod.secret.exs"
