@@ -56,6 +56,8 @@ defmodule SurfaceSiteWeb.JSInterop do
 
                 ```js
                 import Hooks from "./_hooks"
+                // ...
+                let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken }, hooks: Hooks })
                 ```
 
                 Update the Endpoint options in `config/dev.exs` for live reload of JS hooks:
