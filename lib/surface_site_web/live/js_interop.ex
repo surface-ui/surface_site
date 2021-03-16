@@ -40,7 +40,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                 def project do
                   [
                     ...,
-                    compilers: [:surface, :phoenix] ++ Mix.compilers()
+                    compilers: [:phoenix] ++ Mix.compilers() ++ [:surface]
                   ]
                 end
                 ```
