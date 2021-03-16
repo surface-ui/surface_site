@@ -105,7 +105,7 @@ defmodule SurfaceSiteWeb.StateManagement do
                 That sounds really great but it raises a question. If the parent doesn't own the dialog's
                 state anymore, how can the dialog be opened by the parent?
 
-                ### Introducing `send_update/2`
+                ## Introducing `send_update/2`
 
                 The LiveView documentation states that _"send_update/2 is useful for updating a component
                 that entirely manages its own state, as well as messaging between components."_

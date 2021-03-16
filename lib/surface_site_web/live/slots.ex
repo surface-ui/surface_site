@@ -88,7 +88,7 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
-                # Declaring slots
+                ## Declaring slots
 
                 Slots defined using `<slot/>` are automatically registered into the component's metadata.
                 That means you don't have to explicitly declare them using the `slot` function. However,

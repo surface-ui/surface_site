@@ -66,7 +66,7 @@ defmodule SurfaceSiteWeb.Contexts do
               </div>
 
               <#Markdown>
-                ### Using `<Context>`
+                ## Using `<Context>`
 
                 You can `put` or `get` values to/from the context using the `Context` component.
 

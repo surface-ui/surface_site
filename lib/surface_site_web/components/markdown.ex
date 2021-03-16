@@ -1,6 +1,35 @@
 defmodule SurfaceSiteWeb.Components.Markdown do
   @moduledoc false
 
+  def add_heading_link({"h2", attrs, children, meta}) do
+    id = children |> get_text() |> format_id()
+    attrs = [{"id", id}, {"class", "section-heading"}, {"phx-hook", "SectionHeading"} | attrs]
+    {"h2", attrs, nil, meta}
+  end
+
+  def add_heading_link(node) do
+    node
+  end
+
+  defp get_text([]) do
+    ""
+  end
+
+  defp get_text([node | nodes]) when is_binary(node) do
+    node <> get_text(nodes)
+  end
+
+  defp get_text([{_, _, children, _} | nodes]) do
+    get_text(children) <> get_text(nodes)
+  end
+
+  defp format_id(value) do
+    value
+    |> String.trim()
+    |> String.replace(" ", "-")
+    |> String.downcase()
+  end
+
   def to_html(text, opts \\ [])
 
   def to_html(nil, _opts) do
