@@ -36,7 +36,7 @@ defmodule SurfaceSiteWeb.JSInterop do
 
                 Update `mix.exs`, adding the `:surface` compiler to the list of compilers:
 
-                ```
+                ```elixir
                 def project do
                   [
                     ...,
@@ -47,7 +47,7 @@ defmodule SurfaceSiteWeb.JSInterop do
 
                 Update `.gitignore`:
 
-                ```
+                ```elixir
                 # Ignore auto-generated hook files
                 /assets/js/_hooks/
                 ```
@@ -57,7 +57,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                 ```js
                 import Hooks from "./_hooks"
                 // ...
-                let liveSocket = new LiveSocket("/live", Socket, { params: { _csrf_token: csrfToken }, hooks: Hooks })
+                let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks, ... })
                 ```
 
                 Update the Endpoint options in `config/dev.exs` for live reload of JS hooks:
@@ -106,7 +106,7 @@ defmodule SurfaceSiteWeb.JSInterop do
 
                 Use the `:hook` directive to bind whatever hook you need:
 
-                ```
+                ```surface
                 <div :hook="Card">
                   ...
                 </div>
@@ -114,7 +114,7 @@ defmodule SurfaceSiteWeb.JSInterop do
 
                 You can also access hooks defined by other components using option `:from`:
 
-                ```
+                ```surface
                 <div :hook={{ "Card", from: MyComponents.CardList }}>
                   ...
                 </div>
@@ -126,7 +126,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                 It you need the compiler use a different folder, you can set the `hooks_output_dir`
                 configuration in your `config/dev.exs`. Example:
 
-                ```
+                ```elixir
                 config :surface, :compiler, hooks_output_dir: "assets/js/surface"
                 ```
               </#Markdown>

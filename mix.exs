@@ -41,7 +41,7 @@ defmodule SurfaceSite.MixProject do
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
-      {:surface, "~> 0.3.1", override: true},
+      {:surface, "~> 0.3.2", override: true},
       {:surface_formatter, "~> 0.3"},
       {:surface_bulma, github: "surface-ui/surface_bulma"},
       {:earmark, "~> 1.3"},

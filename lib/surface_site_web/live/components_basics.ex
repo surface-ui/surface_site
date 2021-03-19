@@ -1,10 +1,11 @@
 defmodule SurfaceSiteWeb.ComponentsBasics do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
+  alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Components.ComponentAPI
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
     ~H"""
@@ -45,9 +46,13 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                   <SurfaceSiteWeb.ComponentsBasics.Example01.Example />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(106, 153, 85);"># Defining the component</span></div><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Hello</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      Hello, I'm a component!</div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div>  <span style="color: rgb(106, 153, 85);"># Using the component</span></div><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Hello</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.ComponentsBasics.Example01.Example }}
+                    line_range={{ 2..-3 }}
+                    show_line_numbers
+                    selected_lines={{ 20 }}
+                  />
                 </footer>
               </div>
 
@@ -77,22 +82,24 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
 
                 Using full module name:
 
-                ```
+                ```surface
                 <MyProject.Components.MyButton>
                 <MyProject.Components.MyLink>
                 ```
 
                 Using aliases:
 
-                ```
+                ```elixir
                 alias MyProject.Components.MyButton
                 alias MyProject.Components.MyLink, as: Link
 
                 def render(assigns) do
-                  ...
-                  <MyButton>
-                  <Link>
-                  ...
+                  ~H"\""
+                    <MyButton>Ok</MyButton>
+                    ...
+                    <Link>
+                    ...
+                  "\""
                 end
                 ```
 
@@ -120,18 +127,31 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 * **Integration with editor/tools** - for warnings/errors, syntax highlighting, jump-to-definition, auto-completion and more.
                 * **Docs generation** - see the `Button` component below.
 
-                Let's take a look a component can be defined using Surface's API.
-              </#Markdown>
+                Let's take a look at how a component can be defined using Surface's API.
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div id=":2hn" class="Am Al editable LW-avf tS-tW" hidefocus="true" aria-label="Message Body" g_editable="true" role="textbox" aria-multiline="true" contenteditable="true" tabindex="1" style="direction: ltr; min-height: 580px;" itacorner="6,7:1,1,0,0" spellcheck="false"><div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Button</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The type (color) of the button"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">type</span>, :string, values: [<span style="color: rgb(206, 145, 120);">"primary"</span>, <span style="color: rgb(206, 145, 120);">"success"</span>, <span style="color: rgb(206, 145, 120);">"info"</span>]</div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The Button is expanded (full-width)"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">expanded</span>, :boolean, default: <span style="color: rgb(86, 156, 214);">false</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Triggers on click"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">click</span>, :event</div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Triggers on focus"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">focus</span>, :event</div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The content of the button"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span>, required: <span style="color: rgb(86, 156, 214);">true</span></div><div>    </div><div>    ...</div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+                ```elixir
+                defmodule Button do
+                  use Surface.Component
 
-              <#Markdown>
+                  @doc "The type (color) of the button"
+                  prop type, :string, values: ["primary", "success", "info"]
+
+                  @doc "The Button is expanded (full-width)"
+                  prop expanded, :boolean, default: false
+
+                  @doc "Triggers on click"
+                  prop click, :event
+
+                  @doc "Triggers on focus"
+                  prop focus, :event
+
+                  @doc "The content of the button"
+                  slot default, required: true
+
+                  ...
+                end
+                ```
+
                 The public API of the `Button` above can be automatically generated, including all
                 information about **properties**, **slots** and **events**, divided by group in each
                 individual tab as follows:
@@ -181,17 +201,15 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                     `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`.
 
                 Here's an example using the `:for` directive:
-              </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">ul</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">li</span> <span style="color: rgb(156, 220, 254);">:for</span>=<span style="color: rgb(86, 156, 214);">{{</span> item &lt;- <span style="color: rgb(156, 220, 254);">@items</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(86, 156, 214);">{{</span> item.name <span style="color: rgb(86, 156, 214);">}}</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">li</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">ul</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+                ```surface
+                <ul>
+                  <li :for={{ item <- @items }}>
+                    {{ item.name }}
+                  </li>
+                </ul>
+                ```
 
-              <#Markdown>
                 The `:for` directive will be responsible for injecting the
                 necessary code to iterate over the list of items rendering each item's name.
 
@@ -203,41 +221,32 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 are mostly used when rendering named slots:
 
                 Using `index`:
-              </#Markdown>
 
-              Example 1
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">td</span> <span style="color: rgb(156, 220, 254);">:for.index</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@cols</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"cols"</span> <span style="color: rgb(156, 220, 254);">index</span>=<span style="color: rgb(86, 156, 214);">{{</span> index <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">td</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+                Example 1
 
-              Example 2
+                ```surface
+                <td :for.index={{ @cols }}>
+                  <slot name="cols" index={{ index }}/>
+                </td>
+                ```
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                  <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">td</span> <span style="color: rgb(156, 220, 254);">:for.index</span>=<span style="color: rgb(86, 156, 214);">{{</span> i &lt;- <span style="color: rgb(156, 220, 254);">@cols</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"cols"</span> <span style="color: rgb(156, 220, 254);">index</span>=<span style="color: rgb(86, 156, 214);">{{</span> i <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">td</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+                Example 2
 
-              <#Markdown>
+                ```surface
+                <td :for.index={{ i <- @cols }}>
+                  <slot name="cols" index={{ i }}/>
+                </td>
+                ```
+
                 Using `with_index`:
 
-              </#Markdown>
+                ```surface
+                <td :for.with_index={{ {col, i} <- @cols }}>
+                  Title: {{ col.title }}
+                  <slot name="cols" index={{ i }}/>
+                </td>
+                ```
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">td</span> <span style="color: rgb(156, 220, 254);">:for.with_index</span>=<span style="color: rgb(86, 156, 214);">{{</span> {col, i} &lt;- <span style="color: rgb(156, 220, 254);">@cols</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    Title: <span style="color: rgb(86, 156, 214);">{{</span> col.title <span style="color: rgb(86, 156, 214);">}}</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"cols"</span> <span style="color: rgb(156, 220, 254);">index</span>=<span style="color: rgb(86, 156, 214);">{{</span> i <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">td</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
-
-              <#Markdown>
                 ## Interpolation
 
                 In the example above, the `{{ item.name }}` instructs the compiler to inject
@@ -246,17 +255,19 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 **Important note**: Pay attention that just like React, Surface does not allow incomplete
                 expressions to be interpolated in the template. So something like:
 
-              </#Markdown>
+                ```surface
+                <!-- DON'T DO THIS!!! -->
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                  <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(106, 153, 85);">&lt;!-- DON'T DO THIS!!! --&gt;</span></div><div>    </div><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(197, 134, 192);">if</span> <span style="color: rgb(156, 220, 254);">@condition</span> <span style="color: rgb(197, 134, 192);">do</span> <span style="color: rgb(86, 156, 214);">}}</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">span</span><span style="color: rgb(128, 128, 128);">&gt;</span>It's true!<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">span</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(197, 134, 192);">else</span> <span style="color: rgb(86, 156, 214);">}}</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">span</span><span style="color: rgb(128, 128, 128);">&gt;</span>It's false!<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">span</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(197, 134, 192);">end</span> <span style="color: rgb(86, 156, 214);">}}</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+                <div>
+                  {{ if @condition do }}
+                    <span>It's true!</span>
+                  {{ else }}
+                    <span>It's false!</span>
+                  {{ end }}
+                <div>
+                ```
+                {: show_line_numbers=true selected_lines="6"}
 
-              <#Markdown>
                 it's not accepted and will throw a `compile error`. If you find yourself in a situation
                 where you need to write this kind of code, try to create assigns/variables that represent
                 the final state and use directives like `:if` or `:show` instead. You can also try to move

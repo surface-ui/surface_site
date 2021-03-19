@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.Components.Example do
   def expand(attributes, [children], meta) do
     props = MacroComponent.eval_static_props!(__MODULE__, attributes, meta.caller)
     direction = props[:direction] || "horizontal"
-    language = props[:language] || "jsx"
+    language = props[:language] || "surface"
 
     {:safe, content} =
       children

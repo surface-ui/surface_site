@@ -35,7 +35,8 @@ config :surface, :components, [
    default_class: "content markdown",
    default_opts: [
      smartypants: false,
-     postprocessor: &SurfaceSiteWeb.Components.Markdown.add_heading_link/1
+     code_class_prefix: "language-",
+     postprocessor: &SurfaceSiteWeb.Components.Markdown.post_processor/1
    ]},
   {Surface.Components.Form.Input, default_class: "input"},
   {Surface.Components.Form.Field, default_class: "field"},

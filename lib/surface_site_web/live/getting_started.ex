@@ -50,7 +50,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 If you're using `mix format`, make sure you add `surface` to the `import_deps`
                 configuration in your `.formatter.exs` file:
 
-                ```
+                ```elixir
                 [
                   import_deps: [:ecto, :phoenix, :surface],
                   ...
@@ -60,7 +60,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 To allow live reloading for `.sface` files, add the related patterns to the endpoint
                 configuration in your `config/dev.exs`:
 
-                ```
+                ```elixir
                 config : MyApp, MyAppWeb.Endpoint,
                 live_reload: [
                   patterns: [
@@ -133,13 +133,13 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 For a quick start with bulma, you can add the following line to your `root.html.leex`:
 
-                ```
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
+                ```html
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
                 ```
 
                 or add it to the list of dependencies in `assets/package.json`:
 
-                ```
+                ```elixir
                 "dependencies": {
                   "bulma": "0.8.0"
                 }

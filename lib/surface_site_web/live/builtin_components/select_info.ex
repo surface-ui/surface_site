@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.SelectInfo do
     <div>
       <ComponentInfo module={{ Select }}>
         <template slot="examples">
-          <#Example language="html" direction="vertical">
+          <#Example direction="vertical">
             <div class="select">
               <Select form="user" field="role" options={{ "Admin": "admin", "User": "user" }} />
             </div>
