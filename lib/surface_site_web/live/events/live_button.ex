@@ -25,9 +25,9 @@ defmodule SurfaceSiteWeb.Events.LiveButton do
   def render(assigns) do
     ~H"""
     <div>
-    <p>Status: {{ @status }}</p>
-    <Button label="Click!" click="clicked" />
-    <Button label="Reset" kind="is-danger" click="reset" />
+      <p>Status: {{ @status }}</p>
+      <Button label="Click!" click="clicked" />
+      <Button label="Reset" kind="is-danger" click="reset" />
     </div>
     """
   end

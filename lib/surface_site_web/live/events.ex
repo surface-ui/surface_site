@@ -4,6 +4,8 @@ defmodule SurfaceSiteWeb.Events do
   alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.Code
+  alias SurfaceSiteWeb.Components.Example
 
   def render(assigns) do
     ~H"""
@@ -149,53 +151,19 @@ defmodule SurfaceSiteWeb.Events do
               </#Markdown>
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.Events.LiveButton id="surface_counter_2" />
+                  <#Example>
+                    <SurfaceSiteWeb.Events.LiveButton
+                      id="surface_counter_2"
+                    />
+                  </#Example>
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                  <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(47, 30, 46) none repeat scroll 0% 0%; color: rgb(163, 158, 155); padding: 0.5em;"><span class="hljs-class"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">defmodule</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">Button</span></span> <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">use</span> Surface.Component
-
-    prop label, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:string</span>
-    prop click, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:event</span>, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">required:</span> <span class="hljs-keyword" style="color: rgb(129, 91, 164);">true</span>
-    slot default
-
-    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">render</span></span>(assigns) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    ~H<span class="hljs-string" style="color: rgb(72, 182, 133);">""</span><span class="hljs-string" style="color: rgb(72, 182, 133);">"
-    &lt;button type="</span>button<span class="hljs-string" style="color: rgb(72, 182, 133);">" :on-click={{ @click }}&gt;
-      &lt;slot&gt;{{ @label }}&lt;/slot&gt;
-    &lt;/button&gt;
-    "</span><span class="hljs-string" style="color: rgb(72, 182, 133);">""</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span></pre>
-                  </#Raw>
-                  <#Raw>
-                  <pre class="hljs" style="display: block; overflow-x: auto; background: rgb(47, 30, 46) none repeat scroll 0% 0%; color: rgb(163, 158, 155); padding: 0.5em;"><span class="hljs-class"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">defmodule</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">SurfaceSiteWeb</span></span>.Events.LiveButton <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">use</span> Surface.LiveComponent
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">alias</span> __MODULE_<span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>.Button
-
-    data status, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:string</span>, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">default:</span> <span class="hljs-string" style="color: rgb(72, 182, 133);">"Not clicked :("</span>
-
-    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">render</span></span>(assigns) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    ~H<span class="hljs-string" style="color: rgb(72, 182, 133);">""</span><span class="hljs-string" style="color: rgb(72, 182, 133);">"
-    &lt;div&gt;
-    &lt;p&gt;Status: {{ @status }}&lt;/p&gt;
-    &lt;Button label="</span>Click!<span class="hljs-string" style="color: rgb(72, 182, 133);">" click="</span>clicked<span class="hljs-string" style="color: rgb(72, 182, 133);">" /&gt;
-    &lt;Button label="</span>Reset<span class="hljs-string" style="color: rgb(72, 182, 133);">" click="</span>reset<span class="hljs-string" style="color: rgb(72, 182, 133);">" /&gt;
-    &lt;/div&gt;
-    "</span><span class="hljs-string" style="color: rgb(72, 182, 133);">""</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
-
-    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">handle_event</span></span>(<span class="hljs-string" style="color: rgb(72, 182, 133);">"clicked"</span>, <span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>, socket) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    {<span class="hljs-symbol" style="color: rgb(72, 182, 133);">:noreply</span>, assign(socket, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:status</span>, <span class="hljs-string" style="color: rgb(72, 182, 133);">"Clicked!"</span>)}
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
-
-    <span class="hljs-function"><span class="hljs-keyword" style="color: rgb(129, 91, 164);">def</span> <span class="hljs-title" style="color: rgb(254, 196, 24);">handle_event</span></span>(<span class="hljs-string" style="color: rgb(72, 182, 133);">"reset"</span>, <span class="hljs-number" style="color: rgb(249, 155, 21);">_</span>, socket) <span class="hljs-keyword" style="color: rgb(129, 91, 164);">do</span>
-    {<span class="hljs-symbol" style="color: rgb(72, 182, 133);">:noreply</span>, assign(socket, <span class="hljs-symbol" style="color: rgb(72, 182, 133);">:status</span>, <span class="hljs-string" style="color: rgb(72, 182, 133);">"Not clicked :("</span>)}
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
-    <span class="hljs-keyword" style="color: rgb(129, 91, 164);">end</span>
-    </pre>
-                  </#Raw>
+                <#Code
+                  language="elixir"
+                  module={{ SurfaceSiteWeb.Events.LiveButton }}
+                  show_line_numbers
+                  selected_lines={{ [15, 29..30] }}
+                />
                 </footer>
               </div>
 
