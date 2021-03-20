@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
   alias SurfaceSiteWeb.Components.{Markdown, SectionSeparator, ComponentAPI}
 
   @doc "The component module"
-  prop module, :any, required: true
+  prop module, :module, required: true
 
   @doc "The title"
   prop title, :string
