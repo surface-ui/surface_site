@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.Components.ComponentAPI do
   alias SurfaceSiteWeb.Components.Markdown
 
   @doc "The component module"
-  prop module, :any, required: true
+  prop module, :module, required: true
 
   data has_api?, :boolean
   data props, :list

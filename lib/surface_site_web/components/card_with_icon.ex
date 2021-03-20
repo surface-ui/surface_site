@@ -2,7 +2,7 @@ defmodule SurfaceSiteWeb.Components.CardWithIcon do
   use Surface.Component
 
   prop icon, :string, required: true
-  prop title, :any, required: true
+  prop title, :string, required: true
 
   slot default
 

@@ -65,8 +65,11 @@ defmodule SurfaceSiteWeb.Properties do
                 following types:
 
                 `:any`, `:css_class`, `:list`, `:event`,
-                `:boolean`, `:string`, `:date`, `:datetime`, `:number`, `:integer`, `:decimal`, `:map`,
-                `:fun`, `:atom`, `:module`, `:changeset`, `:form` and `:keyword`.
+                `:boolean`, `:string`, `:time`, `:date`, `:datetime`, `:naive_datetime`,
+                `:number`, `:integer`, `:decimal`, `:map`,
+                `:fun`, `:atom`, `:module`, `:changeset`, `:form`, `:keyword`,
+                `:struct`,  `:tuple`, `:pid`, `:port`, `:reference`, `:bitstring`,
+                `:range`, `:mapset`, `:regex`, `:uri` and `:path`.
 
                 > **Note**: Currently, some of the types above work just as annotations and don't have
                 any practical use aside from documentation. If the type you need is not in that list,
