@@ -42,6 +42,7 @@ defmodule SurfaceSiteWeb.Slots do
                   * `required` - declares the slot as required. Default is `false`.
                   * `props` - the list of custom properties that should be passed to the associated
                     slotable content.
+                  * `as` - defines the slot assign name. Useful if you want to reuse the slot name as a prop.
 
                 ## Rendering content with `<slot>`
 
