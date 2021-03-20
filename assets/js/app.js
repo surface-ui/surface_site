@@ -1,5 +1,8 @@
 import "../css/app.scss";
 
+window.Prism = window.Prism || {};
+window.Prism.manual = true;
+
 import "phoenix_html"
 import {Socket} from "phoenix"
 import LiveSocket from "phoenix_live_view"
@@ -17,7 +20,10 @@ if (!window.frameElement) {
 
 Hooks["Highlight"] = {
   mounted() {
-    Prism.highlightElement(document.getElementById(this.el.id))
+    Prism.highlightElement(this.el)
+
+    // Call it again to fix misplaced selected lines on page reload
+    Prism.highlightElement(this.el)
   }
 }
 

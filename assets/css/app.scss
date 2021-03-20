@@ -329,57 +329,62 @@ body.mobile-sidebar-open {
 
 /* Code highlight (Prism) */
 
-pre[class*='language-'] {
+.markdown pre,
+pre[class*="language-"] {
   width: 100%;
   padding: 1.25rem 1.5rem;
   margin: 0;
   font-size: 1em;
+  background-color: rgb(30, 30, 30);
 }
 
-pre[class*='language-'] > code {
+pre > code[class*="language-"] {
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-pre[class*='language-'] > code span {
+
+pre > code[class*="language-"] span {
   font-size: 1rem;
+  display: inherit;
   /* Unset Bulma defaults so Prism can take over */
   background-color: unset;
-  display: unset;
   padding-left: unset;
   padding-right: unset;
   white-space: unset;
 }
 
-pre[class*='language-'] > code .token.keyword {
+pre > code[class*="language-"] .token.keyword {
   color: #c586c0;
 }
 
-pre[class*='language-'] > code .token.tag,
-pre[class*='language-'] > code .token.tag .token.punctuation,
-pre[class*='language-'] > code .token.attr-value .token.punctuation.attr-equals {
+pre > code[class*="language-"] .token.tag,
+pre > code[class*="language-"] .token.tag .token.punctuation,
+pre > code[class*="language-"] .token.attr-value .token.punctuation.attr-equals {
   color: #d4d4d4;
 }
 
-pre[class*='language-'] > code .token.tag .tag-name {
+pre > code[class*="language-"] .token.tag .tag-name {
   color: #569cd6;
 }
 
-pre[class*='language-'] > code .token.tag > .token.punctuation {
+pre > code[class*="language-"] .token.tag > .token.punctuation {
   color: rgb(128, 128, 128);
 }
 
-pre[class*='language-'] > code .token.doc .token {
+pre > code[class*="language-"] .token.doc .token {
   color: rgb(106, 153, 85);
 }
 
-pre[class*='language-'] > code .embedded-surface-open,
-pre[class*='language-'] > code .embedded-surface-close,
-pre[class*='language-'] > code .token.attr-value .token.punctuation {
+pre > code[class*="language-"] .embedded-surface-open,
+pre > code[class*="language-"] .embedded-surface-close,
+pre > code[class*="language-"] .token.attr-value .token.punctuation {
   color: #ce9178;
 }
 
 /* Prism's line-numbers plugin */
 
+.markdown pre.line-numbers,
 pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;

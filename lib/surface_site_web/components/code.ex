@@ -32,7 +32,7 @@ defmodule SurfaceSiteWeb.Components.Code do
     content = content |> IO.iodata_to_binary() |> String.trim()
 
     id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
-    code_class = build_code_class(language, show_line_numbers)
+    class = build_class(language, show_line_numbers)
     selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
 
     %Surface.AST.Tag{
@@ -41,6 +41,12 @@ defmodule SurfaceSiteWeb.Components.Code do
       meta: meta,
       attributes:
         [
+          %Surface.AST.Attribute{
+            meta: meta,
+            name: :class,
+            type: :css_class,
+            value: %Surface.AST.Literal{value: class}
+          },
           %Surface.AST.Attribute{
             meta: meta,
             name: "phx-update",
@@ -65,7 +71,7 @@ defmodule SurfaceSiteWeb.Components.Code do
               meta: meta,
               name: :class,
               type: :css_class,
-              value: %Surface.AST.Literal{value: code_class}
+              value: %Surface.AST.Literal{value: class}
             },
             %Surface.AST.Attribute{
               meta: meta,
@@ -80,14 +86,15 @@ defmodule SurfaceSiteWeb.Components.Code do
     }
   end
 
-  def selected_lines_to_attr_value(value) do
-    value
-    |> normalize_selected_lines()
-    |> Enum.map_join(",", fn from..to -> "#{from}-#{to}" end)
-  end
-
   defp fix_leading_space(markdown) do
-    ["", first | _] = lines = String.split(markdown, "\n")
+    lines = String.split(markdown, "\n")
+
+    first =
+      case lines do
+        ["", first | _] -> first
+        [first | _] -> first
+      end
+
     [space] = Regex.run(~r/^\s*/, first)
 
     lines
@@ -104,7 +111,6 @@ defmodule SurfaceSiteWeb.Components.Code do
     |> File.read!()
     |> String.split("\n")
     |> Enum.slice(normalize_line_range(from..to))
-    |> List.insert_at(0, "")
     |> Enum.join("\n")
   end
 
@@ -126,7 +132,7 @@ defmodule SurfaceSiteWeb.Components.Code do
     file
   end
 
-  defp build_code_class(language, show_line_numbers) do
+  defp build_class(language, show_line_numbers) do
     classes = ["language-#{language}"]
 
     classes =
@@ -140,14 +146,12 @@ defmodule SurfaceSiteWeb.Components.Code do
   end
 
   defp build_selected_lines_attrs(selected_lines, meta) do
-    value = selected_lines_to_attr_value(selected_lines)
-
     [
       %Surface.AST.Attribute{
         meta: meta,
         name: "data-line",
         type: :string,
-        value: %Surface.AST.Literal{value: value}
+        value: %Surface.AST.Literal{value: selected_lines}
       }
     ]
   end
@@ -177,21 +181,5 @@ defmodule SurfaceSiteWeb.Components.Code do
 
   defp normalize_line_range(value) do
     raise "invalid line range. Expected a range, got #{inspect(value)}"
-  end
-
-  defp normalize_selected_lines(selected_lines) do
-    case selected_lines do
-      line when is_integer(line) ->
-        [line..(line + 1)]
-
-      from..to ->
-        [from..(to + 1)]
-
-      ranges when is_list(ranges) ->
-        Enum.flat_map(ranges, &normalize_selected_lines/1)
-
-      _ ->
-        []
-    end
   end
 end

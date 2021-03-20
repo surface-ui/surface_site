@@ -317,7 +317,7 @@ defmodule SurfaceSiteWeb.Slots do
                     module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example }}
                     line_range={{ 2..38 }}
                     show_line_numbers
-                    selected_lines={{ [15, 29..30] }}
+                    selected_lines="15,29-30"
                   />
                 </footer>
               </div>

@@ -1,6 +1,4 @@
 defmodule SurfaceSiteWeb.Components.Markdown do
-  alias SurfaceSiteWeb.Components.Code
-
   @moduledoc false
 
   # Add link for `## Heading`
@@ -18,7 +16,7 @@ defmodule SurfaceSiteWeb.Components.Markdown do
           attrs
 
         _ ->
-          attrs = if attrs == [], do: [{"class", "language-text"}], else: attrs
+          attrs = if attrs == [], do: [{"class", "language-plain"}], else: attrs
           id = "Markdown_code_#{:erlang.unique_integer([:positive])}"
           [{"id", id}, {"phx-hook", "Highlight"} | attrs]
       end
@@ -45,7 +43,7 @@ defmodule SurfaceSiteWeb.Components.Markdown do
     attrs =
       case selected_lines do
         [{"selected_lines", value}] ->
-          [{"data-line", translate_selected_lines(value)} | attrs]
+          [{"data-line", value} | attrs]
 
         _ ->
           attrs
@@ -57,18 +55,6 @@ defmodule SurfaceSiteWeb.Components.Markdown do
 
   def post_processor(node) do
     node
-  end
-
-  defp translate_selected_lines(value) do
-    selected_lines =
-      for item <- String.split(value, ",") do
-        case item |> String.trim() |> String.split("-") do
-          [v] -> String.to_integer(v)
-          [v1, v2] -> String.to_integer(v1)..String.to_integer(v2)
-        end
-      end
-
-    Code.selected_lines_to_attr_value(selected_lines)
   end
 
   defp get_text([]) do

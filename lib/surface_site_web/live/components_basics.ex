@@ -51,7 +51,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                     module={{ SurfaceSiteWeb.ComponentsBasics.Example01.Example }}
                     line_range={{ 2..-3 }}
                     show_line_numbers
-                    selected_lines={{ 20 }}
+                    selected_lines="20"
                   />
                 </footer>
               </div>
