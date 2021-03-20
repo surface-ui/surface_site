@@ -87,7 +87,14 @@ defmodule SurfaceSiteWeb.Components.Code do
   end
 
   defp fix_leading_space(markdown) do
-    ["", first | _] = lines = String.split(markdown, "\n")
+    lines = String.split(markdown, "\n")
+
+    first =
+      case lines do
+        ["", first | _] -> first
+        [first | _] -> first
+      end
+
     [space] = Regex.run(~r/^\s*/, first)
 
     lines
