@@ -499,6 +499,25 @@ pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
 	background-color: rgba(128, 128, 128, .2);
 }
 
+pre.language-mermaid {
+  background-color: transparent;
+}
+
+pre > code.language-mermaid {
+  visibility: hidden;
+}
+
+/* Mermaid */
+
+pre > code.language-mermaid .messageText {
+  stroke: none !important;
+  font-weight: bold !important;
+}
+
+pre > code[data-processed="true"].language-mermaid {
+  visibility: visible;
+}
+
 /* Specific to pages */
 
 .slots-page-props-example .icon {

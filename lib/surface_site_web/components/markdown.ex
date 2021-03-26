@@ -15,6 +15,10 @@ defmodule SurfaceSiteWeb.Components.Markdown do
         [{"class", "inline"}] ->
           attrs
 
+        [{"class", "mermaid language-mermaid"}] ->
+          id = "Markdown_diagram_#{:erlang.unique_integer([:positive])}"
+          [{"id", id}, {"phx-hook", "Mermaid"} | attrs]
+
         _ ->
           attrs = if attrs == [], do: [{"class", "language-plain"}], else: attrs
           id = "Markdown_code_#{:erlang.unique_integer([:positive])}"
@@ -22,6 +26,13 @@ defmodule SurfaceSiteWeb.Components.Markdown do
       end
 
     {"code", attrs, nil, meta}
+  end
+
+  # Update <pre> for code mermaid
+  def post_processor({"pre", attrs, [{"code", [{"class", "mermaid language-mermaid"}], _, _}], meta}) do
+    attrs = [{"class", "language-mermaid"}, {"phx-update", "ignore"} | attrs]
+
+    {"pre", attrs, nil, meta}
   end
 
   # Update <pre> for code highlighting

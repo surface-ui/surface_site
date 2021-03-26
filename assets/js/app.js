@@ -10,6 +10,8 @@ import topbar from "topbar"
 import Prism from './prism.js';
 import './font-awesome.js';
 import Hooks from "./_hooks"
+import mermaid from "mermaid"
+mermaid.initialize({startOnLoad:false});
 
 // Don't load the topbar for catalogue examples/praygrounds
 if (!window.frameElement) {
@@ -24,6 +26,12 @@ Hooks["Highlight"] = {
 
     // Call it again to fix misplaced selected lines on page reload
     Prism.highlightElement(this.el)
+  }
+}
+
+Hooks["Mermaid"] = {
+  mounted() {
+    mermaid.init(undefined, `#${this.el.id}`);
   }
 }
 
