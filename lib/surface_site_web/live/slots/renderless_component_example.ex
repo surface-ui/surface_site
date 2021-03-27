@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.GettingStarted.RenderlessComponent do
     use Surface.Component, slot: "cols"
 
     @doc "The field to be rendered"
-    prop field, :string
+    prop field, :string, required: true
   end
 
   defmodule Grid do

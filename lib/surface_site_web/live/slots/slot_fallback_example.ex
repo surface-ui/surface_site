@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Slots.SlotFallbackExample do
   # Defining the component
 
-  defmodule Hero do
+  defmodule HeroWithFallbackContent do
     use Surface.Component
 
     @doc "The content of the Hero"
@@ -27,7 +27,7 @@ defmodule SurfaceSiteWeb.Slots.SlotFallbackExample do
 
     def render(assigns) do
       ~H"""
-      <Hero />
+      <HeroWithFallbackContent />
       """
     end
   end
