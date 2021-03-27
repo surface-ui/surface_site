@@ -28,7 +28,7 @@ defmodule SurfaceSiteWeb.Slots do
 
                 Slots are **placeholders** declared by a component that you can fill up with **custom content**.
 
-                In order to declare a slot, you must use the `slot` function:
+                In order to declare a slot, you must use the `slot` macro:
 
                 > _**slot** name, options_
 

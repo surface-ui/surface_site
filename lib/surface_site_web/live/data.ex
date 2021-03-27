@@ -30,7 +30,7 @@ defmodule SurfaceSiteWeb.Data do
                 their state in the socket's `assigns`. In **Surface**, those assigns are called
                 **data assigns**.
 
-                In order to declare a data assign, you must use the `data` function:
+                In order to declare a data assign, you must use the `data` macro:
 
                 > _**data** name, type, options_
 
@@ -51,6 +51,13 @@ defmodule SurfaceSiteWeb.Data do
                 decrement/increment the counter's value.
               </#Markdown>
 
+              <#Markdown>
+                > **Note**: The `data` macro is also available in `Surface.Component`
+                even if that kind of component does not have state.
+                It allows you to define intermediary assigns in the `update` function of the component
+                that computes values based on one or several properties.
+              </#Markdown>
+
               <div class="card dark">
                 <div class="card-content">
                   <SurfaceSiteWeb.Data.Example01.Counter id="example01" />
@@ -66,6 +73,8 @@ defmodule SurfaceSiteWeb.Data do
                 > **Note**: Since we defined a default value for `count`, we don't need to
                 implement the `mount/1` callback to initialize it. All `data` assigns with
                 default values will be automatically initialized by **Surface**.
+                It means that if you need some `data` to be initialized, you need to add a default value, even if it's `nil`.
+                If you do not add a default value, the `data` is not initialized.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
