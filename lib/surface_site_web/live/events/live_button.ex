@@ -1,42 +1,43 @@
-defmodule SurfaceSiteWeb.Events.LiveButton.Button do
-  use Surface.Component
-
-  prop label, :string
-  prop click, :event, required: true
-  prop kind, :string, default: "is-info"
-
-  slot default
-
-  def render(assigns) do
-    ~H"""
-    <button type="button" class="button {{ @kind }}" :on-click={{ @click }}>
-      <slot>{{ @label }}</slot>
-    </button>
-    """
-  end
-end
-
 defmodule SurfaceSiteWeb.Events.LiveButton do
-  use Surface.LiveComponent
-  alias __MODULE__.Button
+  defmodule Button do
+    use Surface.Component
 
-  data status, :string, default: "Not clicked :("
+    prop label, :string
+    prop click, :event, required: true
+    prop kind, :string, default: "is-info"
 
-  def render(assigns) do
-    ~H"""
-    <div>
-      <p>Status: {{ @status }}</p>
-      <Button label="Click!" click="clicked" />
-      <Button label="Reset" kind="is-danger" click="reset" />
-    </div>
-    """
+    slot default
+
+    def render(assigns) do
+      ~H"""
+      <button type="button" class="button {{ @kind }}" :on-click={{ @click }}>
+        <slot>{{ @label }}</slot>
+      </button>
+      """
+    end
   end
 
-  def handle_event("clicked", _, socket) do
-    {:noreply, assign(socket, :status, "Clicked!")}
-  end
+  defmodule Example do
+    use Surface.LiveComponent
 
-  def handle_event("reset", _, socket) do
-    {:noreply, assign(socket, :status, "Not clicked :(")}
+    data count, :integer, default: 0
+
+    def render(assigns) do
+      ~H"""
+      <div>
+        <p>Clicked <strong>{{ @count}}</strong> time(s)</p>
+        <Button label="Click!" click="clicked" />
+        <Button label="Reset" kind="is-danger" click="reset" />
+      </div>
+      """
+    end
+
+    def handle_event("clicked", _, socket) do
+      {:noreply, update(socket, :count, &(&1 + 1))}
+    end
+
+    def handle_event("reset", _, socket) do
+      {:noreply, assign(socket, :count, 0)}
+    end
   end
 end

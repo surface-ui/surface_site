@@ -7,7 +7,9 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     prop title, :string, required: true
     prop ok, :event
     prop close, :event, default: "hide"
+
     data show, :boolean, default: false
+
     slot default
 
     def render(assigns) do
@@ -52,7 +54,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     def render(assigns) do
       ~H"""
       <div>
-        <Dialog title="Fill the form" close="hide_dialog" id="event_dialog_example">
+        <Dialog title="Fill the form" close="hide_dialog" id="event_dialog_example_2">
           Now, click on the cancel button to see the overwritted behavior.<br />
           Nothing will happen if you click on the OK button ;)
         </Dialog>
@@ -69,7 +71,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     end
 
     def handle_event("show_dialog", _, socket) do
-      Dialog.show("event_dialog_example")
+      Dialog.show("event_dialog_example_2")
       {:noreply, socket}
     end
 
@@ -85,7 +87,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
 
     def handle_event("confirm_close_dialog", _, socket) do
       Dialog.hide("confirmation_dialog_example")
-      Dialog.hide("event_dialog_example")
+      Dialog.hide("event_dialog_example_2")
       {:noreply, socket}
     end
   end
@@ -97,7 +99,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     def render(assigns) do
       ~H"""
       <div>
-        <Dialog title="Fill the form" id="event_dialog_example_2">
+        <Dialog title="Fill the form" id="event_dialog_example_1">
           Now, click on the close button to see close the modal.<br />
           Nothing will happen if you click on the OK button ;)
         </Dialog>
@@ -108,7 +110,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     end
 
     def handle_event("show_dialog", _, socket) do
-      Dialog.show("event_dialog_example_2")
+      Dialog.show("event_dialog_example_1")
       {:noreply, socket}
     end
   end
