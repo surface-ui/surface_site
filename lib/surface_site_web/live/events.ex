@@ -1,12 +1,10 @@
 defmodule SurfaceSiteWeb.Events do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
+  alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
   alias SurfaceSiteWeb.Components.Code
-  alias SurfaceSiteWeb.Components.Example
-  alias SurfaceSiteWeb.Events.LiveButton.Button
 
   def render(assigns) do
     ~H"""
