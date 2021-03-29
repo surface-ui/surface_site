@@ -31,15 +31,59 @@ defmodule SurfaceSiteWeb.Testing do
                 require a parent live view** during tests.
 
                 ## Example
-              </#Markdown>
-    <pre><code>{{ example_01() }}</code></pre>
-              <#Markdown>
+
+                ```elixir
+                # Import conveniences for testing
+                use Surface.LiveViewTest
+
+                # The default endpoint for testing
+                @endpoint Endpoint
+
+                test "creates a <button> with class" do
+                  html =
+                    render_surface do
+                      ~H"\""
+                      <Button class="btn">
+                        Ok
+                      </Button>
+                      "\""
+                    end
+
+                  assert html =~ "\""
+                        <button type="button" class="btn">
+                          Ok
+                        </button>
+                        "\""
+                end
+                ```
+                {: show_line_numbers=true selected_lines="9-15"}
+
                 ## Initializing assigns
 
                 You can initialize any assign you need by defining an `assigns` variable before calling `render_surface/1`:
-              </#Markdown>
-    <pre><code>{{ example_02() }}</code></pre>
-              <#Markdown>
+
+                ```elixir
+                test "creates a <button> with class" do
+                  assigns = %{class: "btn"}
+
+                  html =
+                    render_surface do
+                      ~H"\""
+                      <Button class={{ @class }}>
+                        Ok
+                      </Button>
+                      "\""
+                    end
+
+                  assert html =~ "\""
+                         <button type="button" class="btn">
+                           Ok
+                         </button>
+                         "\""
+                end
+                ```
+                {: show_line_numbers=true selected_lines="2, 7"}
+
                 ## Testing stateful components
 
                 For tests depending on the existence of a parent live view, e.g. testing events on live
@@ -64,55 +108,5 @@ defmodule SurfaceSiteWeb.Testing do
       </div>
     </div>
     """
-  end
-
-  defp example_01 do
-    ~S'''
-    # Import conveniences for testing
-    use Surface.LiveViewTest
-
-    # The default endpoint for testing
-    @endpoint Endpoint
-
-    test "creates a <button> with class" do
-      html =
-        render_surface do
-          ~H"""
-          <Button class="btn">
-            Ok
-          </Button>
-          """
-        end
-
-      assert html =~ """
-             <button type="button" class="btn">
-               Ok
-             </button>
-             """
-    end
-    '''
-  end
-
-  defp example_02 do
-    ~S'''
-    test "creates a <button> with class" do
-      assigns = %{class: "btn"}
-
-      html =
-        render_surface do
-          ~H"""
-          <Button class={{ @class }}>
-            Ok
-          </Button>
-          """
-        end
-
-      assert html =~ """
-             <button type="button" class="btn">
-               Ok
-             </button>
-             """
-    end
-    '''
   end
 end

@@ -95,10 +95,11 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
 
                 def render(assigns) do
                   ~H"\""
-                    <MyButton>Ok</MyButton>
+                  <MyButton>Ok</MyButton>
+                  ...
+                  <Link>
                     ...
-                    <Link>
-                    ...
+                  </Link>
                   "\""
                 end
                 ```
