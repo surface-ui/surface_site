@@ -8,8 +8,7 @@ defmodule SurfaceSiteWeb.Components.Code do
   prop module, :module
   prop line_range, :range
   prop show_line_numbers, :boolean
-  # :range | :integer
-  prop selected_lines, :any
+  prop selected_lines, :string
 
   @impl true
   def expand(attributes, children, meta) do
@@ -33,57 +32,17 @@ defmodule SurfaceSiteWeb.Components.Code do
 
     id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
     class = build_class(language, show_line_numbers)
-    selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
 
-    %Surface.AST.Tag{
-      element: "pre",
-      directives: [],
-      meta: meta,
-      attributes:
-        [
-          %Surface.AST.Attribute{
-            meta: meta,
-            name: :class,
-            type: :css_class,
-            value: %Surface.AST.Literal{value: class}
-          },
-          %Surface.AST.Attribute{
-            meta: meta,
-            name: "phx-update",
-            type: :string,
-            value: %Surface.AST.Literal{value: "ignore"}
-          }
-        ] ++ selected_lines_attrs,
-      children: [
-        %Surface.AST.Tag{
-          element: "code",
-          debug: [],
-          directives: [],
-          meta: meta,
-          attributes: [
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :id,
-              type: :string,
-              value: %Surface.AST.Literal{value: id}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :class,
-              type: :css_class,
-              value: %Surface.AST.Literal{value: class}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :"phx-hook",
-              type: :string,
-              value: %Surface.AST.Literal{value: "Highlight"}
-            }
-          ],
-          children: [%Surface.AST.Literal{value: content}]
-        }
-      ]
-    }
+    code =
+      """
+      <pre class="#{class}" phx-update="ignore" data-line="#{selected_lines}">\
+      <code id="#{id}" class="#{class}" phx-hook="Highlight">\
+      #{content}\
+      </code>\
+      </pre>
+      """
+
+    Surface.Compiler.compile(code, meta.line, meta.caller)
   end
 
   defp fix_leading_space(markdown) do
@@ -143,17 +102,6 @@ defmodule SurfaceSiteWeb.Components.Code do
       end
 
     Enum.join(classes, " ")
-  end
-
-  defp build_selected_lines_attrs(selected_lines, meta) do
-    [
-      %Surface.AST.Attribute{
-        meta: meta,
-        name: "data-line",
-        type: :string,
-        value: %Surface.AST.Literal{value: selected_lines}
-      }
-    ]
   end
 
   defp normalize_line_range(from..to) do
