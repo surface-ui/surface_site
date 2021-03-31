@@ -131,6 +131,7 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
 
                 ### Stateless component
+
                 The simplest case you need to pass an event is when you create a stateless component that includes an element
                 that defines a server binding (event). Since the component is stateless, it cannot handle the event by itself
                 so it needs to receive the event handler as a property.
