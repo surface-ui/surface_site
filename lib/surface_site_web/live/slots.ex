@@ -109,13 +109,12 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 By defining any children inside `<slot>...</slot>`, that content becomes the default content.
                 Note that we removed the `required` option in the `slot` declaration. If we had not done so,
-                a warning would inform the user that the fallback content would have no effect, thanks to the compiler!
+                a warning would inform you that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
 
               <#Example>
                 <HeroWithFallbackContent />
               </#Example>
-
 
               <#Markdown>
                 ## Named slots
@@ -170,7 +169,6 @@ defmodule SurfaceSiteWeb.Slots do
 
 
               <#Markdown>
-
                 ## Typed slotables
 
                 Instead of using `<template slot="...">`, you might want to define a custom component to
@@ -373,10 +371,11 @@ defmodule SurfaceSiteWeb.Slots do
                     we bound the value of that prop to each value (item) produced by the generator `items`.
 
                   2. We use `<slot>` to render each column's content passing the current item.
-                > **Note**: It is the right moment to inform you that slots are always lists
-                and `<slot name="<name>" />` as defined at the beginning of the section
-                is just a short hand for `<slot name="<name>" index="0" />`. It means that, under the hood,
-                `<slot name="<name>" />` will be replaced by the first value of the list `@assigns.<name>`.
+
+                > **Note**: Slot contents are always passed as lists. However,
+                if you expect receiving a single content block, like at the beginning
+                of this section, you can use `<slot name="<name>" />` as a
+                shorthand for `<slot name="<name>" index="0" />`.
               </#Markdown>
 
             </div>
