@@ -70,7 +70,7 @@ defmodule SurfaceSiteWeb.Data do
                 > **Note**: Since we defined a default value for `count`, we don't need to
                 implement the `mount/1` callback to initialize it. All `data` assigns with
                 default values will be automatically initialized by **Surface**.
-                It means that if you need some `data` to be initialized, you need to add a default value, even if it's `nil`.
+                That means if you need some `data` to be initialized, you need to add a default value, even if it's `nil`.
                 If you do not add a default value, the `data` is not initialized.
               </#Markdown>
             </div>
