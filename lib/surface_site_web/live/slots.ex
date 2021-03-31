@@ -71,7 +71,7 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
-              The user can now use the `<Hero>` component and fill it up with a custom content.
+              The user can now use the `<Hero>` component and fill it with custom content.
               </#Markdown>
 
               <#Example>
