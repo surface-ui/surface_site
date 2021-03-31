@@ -180,7 +180,7 @@ defmodule SurfaceSiteWeb.Events do
                 Events can only be handled in a `LiveView` or `LiveComponent` so we will store the state in that kind of component.
                 ### Stateful component
 
-                In some cases, you may want to have a default behaviour that is handled by the component itself and let the developer overrides the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it requires to be stateful.
+                In some cases, you may want to have a default behaviour that is handled by the component itself and let the developer override the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it must to be stateful.
 
                 One example is a generic stateful `Dialog` component with a close button.
                 By default, if the user clicks the close button, that will close the modal. However, if you're using the dialog to show a form
