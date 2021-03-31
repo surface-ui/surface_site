@@ -109,7 +109,7 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 By defining any children inside `<slot>...</slot>`, that content becomes the default content.
                 Note that we removed the `required` option in the `slot` declaration. If we had not done so,
-                a warning would inform the user that fallback content has no effect, thanks to the compiler!
+                a warning would inform the user that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
 
               <#Example>
