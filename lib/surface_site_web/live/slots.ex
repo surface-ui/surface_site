@@ -81,7 +81,7 @@ defmodule SurfaceSiteWeb.Slots do
               </#Example>
 
               <#Markdown>
-                If the user tries to use a `Hero` without defining any content, a proper
+                If the user tries to use the `Hero` component without defining any content, a
                 `missing required slot "default"` error will be raised at compile-time.
 
                 ![Missing required slot](/images/slots_required_slot_error.png)
