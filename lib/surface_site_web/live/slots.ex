@@ -147,7 +147,7 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 As you can see in the example, we are using 3 slots:
                 - The header slot
-                - The default slot that contains everything that is not in another slot
+                - The default slot that contains everything that is not in any other slot
                 - The footer slot
 
                 And finally our `Card` component defining all three slots:
