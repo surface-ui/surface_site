@@ -184,7 +184,7 @@ defmodule SurfaceSiteWeb.Events do
 
                 One example is a generic stateful `Dialog` component with a close button.
                 By default, if the user clicks the close button, that will close the modal. However, if you're using the dialog to show a form
-                that the user must fill in lots of information, you might want to confirm if the user really wants to close it and ask for confirmation.
+                that the user must fill in lots of information, and you may want to ask for confirmation that the user really wants to close the dialog.
                 Something like: _"Are you sure you want to close this form? All information provided will be lost."_.
 
                 To impement this feature, you need a default local implementation that closes the dialog
