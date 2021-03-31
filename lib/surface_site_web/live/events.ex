@@ -112,10 +112,6 @@ defmodule SurfaceSiteWeb.Events do
                 section [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
                 in the Phoenix LiveView's docs.
 
-              </#Markdown>
-
-              <#Markdown>
-
                 ## Pass event through an `event` property
 
                 Another great thing about Surface's approach is that it makes passing events as properties
