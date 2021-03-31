@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.Slots do
   alias SurfaceSiteWeb.Slots.SlotFallbackExample.HeroWithFallbackContent
   alias SurfaceSiteWeb.Slots.SlotPropsExample.Rating
 
-  def(render(assigns)) do
+  def render(assigns) do
     ~H"""
     <div style="position: relative;">
       <MobileSidebar />
