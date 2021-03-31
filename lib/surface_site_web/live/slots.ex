@@ -373,9 +373,6 @@ defmodule SurfaceSiteWeb.Slots do
                     we bound the value of that prop to each value (item) produced by the generator `items`.
 
                   2. We use `<slot>` to render each column's content passing the current item.
-              </#Markdown>
-
-              <#Markdown>
                 > **Note**: It is the right moment to inform you that slots are always lists
                 and `<slot name="<name>" />` as defined at the beginning of the section
                 is just a short hand for `<slot name="<name>" index="0" />`. It means that, under the hood,
