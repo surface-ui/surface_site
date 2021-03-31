@@ -49,8 +49,7 @@ defmodule SurfaceSiteWeb.Data do
                 In the following example, we create a simple `Counter` component that has its state
                 defined by a single assign named `count`. You can use the `-` and `+` buttons to
                 decrement/increment the counter's value.
-                > **Note**: The `data` macro is also available in `Surface.Component`
-                even if that kind of component does not have state.
+                > **Note**: The `data` macro is available in both stateful and stateless components. 
                 It allows you to define intermediary assigns in the `update` function of the component
                 that computes values based on one or several properties.
               </#Markdown>
