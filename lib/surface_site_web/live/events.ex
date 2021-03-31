@@ -178,9 +178,6 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
                 Remember that stateless components cannot handle events and do not have state.
                 Events can only be handled in a `LiveView` or `LiveComponent` so we will store the state in that kind of component.
-              </#Markdown>
-
-              <#Markdown>
                 ### Stateful component
                 In some case, you want to have a default behaviour that is handled by the component itself and you want to let the developer overrides the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it requires to be stateful.
 
