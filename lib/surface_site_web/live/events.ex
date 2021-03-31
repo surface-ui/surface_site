@@ -135,7 +135,7 @@ defmodule SurfaceSiteWeb.Events do
                 that defines a server binding (event). Since the component is stateless, it cannot handle the event by itself
                 so it needs to receive the event handler as a property.
 
-                For example, imagine a `Button` stateless component that raises an event when the user clicks on it.
+                For example, imagine a `Button` stateless component that triggers an event when the user clicks on it.
                 In the following example, we create that stateless component.
               </#Markdown>
 
