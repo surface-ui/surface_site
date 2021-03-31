@@ -155,7 +155,7 @@ defmodule SurfaceSiteWeb.Events do
               We declared a required `click` event property that we use on the `<button>` tag with the `:on-click` directive.
 
               Now let's see how to define and pass events to that stateless component.
-              We will use twice the `Button` component with two different handling functions that have been defined in a parent live component.
+              We will use the `Button` component twice, each with a different handling function that has been defined in a parent live component.
               </#Markdown>
 
               <div class="card dark">
