@@ -129,7 +129,6 @@ defmodule SurfaceSiteWeb.Events do
                 See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
 
               <#Markdown>
-
                 ### Stateless component
 
                 The simplest case you need to pass an event is when you create a stateless component that includes an element
