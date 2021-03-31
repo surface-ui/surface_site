@@ -55,7 +55,7 @@ defmodule SurfaceSiteWeb.Slots do
                 the component's body.
 
                 To declare a `slot`, you must use the `slot` macro and provide a name to the slot.
-                In the example below, the slot `default` is declared and it is required.
+                In the example below, the slot `default` is declared as required.
               </#Markdown>
 
               <div class="card dark">
