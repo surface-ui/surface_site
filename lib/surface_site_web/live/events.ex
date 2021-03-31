@@ -121,7 +121,7 @@ defmodule SurfaceSiteWeb.Events do
                 along with the related target, assuming, by default, that the target is the caller component/view.
 
                 In the above examples the events have been handled by the component itself.
-                Sometime the component does not know how to handle an event and you would like to handle this event in the parent component.
+                Sometimes the parent component needs to handle the event.
                 For that kind of use case, you must declare the event in the child component by using the `prop` macro defining the type as `:event`,
                 and pass the value of that prop to the `:on-[event]` directive.
               </#Markdown>
