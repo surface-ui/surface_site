@@ -207,7 +207,7 @@ defmodule SurfaceSiteWeb.Events do
               </div>
 
               <#Markdown>
-                The component implement a default `handle_event` that handles  the `close` event, and two public API functions,
+                The component implements a default `handle_event` that handles  the `close` event, and two public API functions
                 that can be used by other components to show or close the modal.
 
                 Note that the `Modal` stateful component reuses the `Button` stateless component
