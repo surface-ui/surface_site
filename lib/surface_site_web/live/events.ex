@@ -108,9 +108,9 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
                 As you can see, we didn't have to define `phx-target` for any of the buttons. Sweet!
 
-                > **Note**: The complete list of available events, as well as other types of bindings, can be found at
-                section [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
-                in the Phoenix LiveView's docs.
+                > **Note**: The complete list of available events, as well as other types of bindings, can be found in the
+                [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
+                section of the docs for Phoenix LiveView.
 
                 ## Pass event through an `event` property
 
