@@ -107,7 +107,7 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
-                By defining any children inside `<slot>...</slot>`, that content becomes the default content.
+                If at least one child element is defined inside `<slot>...</slot>`, the inner content is used as the default content for that slot.
                 Note that we removed the `required` option in the `slot` declaration. If we had not done so,
                 a warning would inform you that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
