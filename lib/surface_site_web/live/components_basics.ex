@@ -75,6 +75,10 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 This way you can remove the implemented `render/1` altogether. Any defined assign or function
                 will be available in the new template.
 
+                > **Note:** Unlike EEX templates which you can use with any kind of text file,
+                Surface extends HTML. For this reason colocated templates are not named with an `*.html.sface` suffix
+                but with the suffix `*.sface`.
+
                 ## Using aliases
 
                 Since a component is just a module, it can injected using either its full name
