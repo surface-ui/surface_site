@@ -1,9 +1,10 @@
 defmodule SurfaceSiteWeb.Events do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
+  alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
     ~H"""
@@ -60,9 +61,11 @@ defmodule SurfaceSiteWeb.Events do
                   {{ live_component(@socket, SurfaceSiteWeb.Events.PhoenixCounter.Counter, id: "phoenix_counter") }}
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Counter</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Phoenix</span>.<span style="color: rgb(156, 220, 254);">LiveComponent</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">mount</span>(socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:ok, assign(socket, count: <span style="color: rgb(181, 206, 168);">0</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~L&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">h1</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"title"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(86, 156, 214);">&lt;%=</span> <span style="color: rgb(156, 220, 254);">@count</span> <span style="color: rgb(86, 156, 214);">%&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">h1</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">phx-click</span>=<span style="color: rgb(206, 145, 120);">"dec"</span> <span style="color: rgb(156, 220, 254);">phx-target</span>=<span style="color: rgb(206, 145, 120);">"&lt;%= @myself %&gt;"</span><span style="color: rgb(128, 128, 128);">&gt;</span>-<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">phx-click</span>=<span style="color: rgb(206, 145, 120);">"inc"</span> <span style="color: rgb(156, 220, 254);">phx-target</span>=<span style="color: rgb(206, 145, 120);">"&lt;%= @myself %&gt;"</span><span style="color: rgb(128, 128, 128);">&gt;</span>+<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-danger"</span> <span style="color: rgb(156, 220, 254);">phx-click</span>=<span style="color: rgb(206, 145, 120);">"reset"</span> <span style="color: rgb(156, 220, 254);">phx-target</span>=<span style="color: rgb(206, 145, 120);">"&lt;%= @myself %&gt;"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Reset<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">handle_event</span>(<span style="color: rgb(206, 145, 120);">"inc"</span>, <span style="color: rgb(106, 153, 85);">_</span>, socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:noreply, update(socket, :count, <span style="color: rgb(156, 220, 254);">&amp;</span> <span style="color: rgb(156, 220, 254);">&amp;1</span> + <span style="color: rgb(181, 206, 168);">1</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">handle_event</span>(<span style="color: rgb(206, 145, 120);">"dec"</span>, <span style="color: rgb(106, 153, 85);">_</span>, socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:noreply, update(socket, :count, <span style="color: rgb(156, 220, 254);">&amp;</span> <span style="color: rgb(156, 220, 254);">&amp;1</span> - <span style="color: rgb(181, 206, 168);">1</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">handle_event</span>(<span style="color: rgb(206, 145, 120);">"reset"</span>, <span style="color: rgb(106, 153, 85);">_</span>, socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:noreply, assign(socket, :count, <span style="color: rgb(181, 206, 168);">0</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.PhoenixCounter }}
+                    line_range={{ 2..35 }}
+                  />
                 </footer>
               </div>
 
@@ -92,19 +95,161 @@ defmodule SurfaceSiteWeb.Events do
                   <SurfaceSiteWeb.Events.SurfaceCounter.Counter id="surface_counter" />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Counter</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">LiveComponent</span></div><br><div>    <span style="color: rgb(78, 201, 176);">data</span> <span style="color: rgb(156, 220, 254);">count</span>, :integer, default: <span style="color: rgb(181, 206, 168);">0</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">h1</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"title"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@count</span> <span style="color: rgb(86, 156, 214);">}}</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">h1</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(206, 145, 120);">"dec"</span><span style="color: rgb(128, 128, 128);">&gt;</span>-<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(206, 145, 120);">"inc"</span><span style="color: rgb(128, 128, 128);">&gt;</span>+<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-danger"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(206, 145, 120);">"reset"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Reset<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  </div><div>    <span style="color: rgb(106, 153, 85);"># Event handlers</span></div><div>    ...</div><div>  <span style="color: rgb(197, 134, 192);">end</span>    </div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.SurfaceCounter }}
+                    show_line_numbers
+                    line_range={{ 2..23 }}
+                    selected_lines="13-15"
+                  />
                 </footer>
               </div>
 
               <#Markdown>
                 As you can see, we didn't have to define `phx-target` for any of the buttons. Sweet!
 
+                > **Note**: The complete list of available events, as well as other types of bindings, can be found in the
+                [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
+                section of the docs for Phoenix LiveView.
+
+                ## Pass event through an `event` property
+
                 Another great thing about Surface's approach is that it makes passing events as properties
                 also more intuitive. Using phoenix templates, unless you always pass both, the event and the target,
                 you cannot be sure where the event will be handled. You need to know upfront if there's a `phx-target`
-                defined for that DOM element inside that component.
+                defined for that DOM element inside that component. Using Surface, the event is **always** passed
+                along with the related target, assuming, by default, that the target is the caller component/view.
+
+                In the above examples the events have been handled by the component itself.
+                Sometimes the parent component needs to handle the event.
+                For that kind of use case, you must declare the event in the child component by using the `prop` macro defining the type as `:event`,
+                and pass the value of that prop to the `:on-[event]` directive.
+              </#Markdown>
+
+                See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
+
+              <#Markdown>
+                ### Stateless component
+
+                The simplest case you need to pass an event is when you create a stateless component that includes an element
+                that defines a server binding (event). Since the component is stateless, it cannot handle the event by itself
+                so it needs to receive the event handler as a property.
+
+                For example, imagine a `Button` stateless component that triggers an event when the user clicks on it.
+                In the following example, we create that stateless component.
+              </#Markdown>
+
+              <div class="card dark">
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.LiveButton }}
+                    line_range={{ 2..18 }}
+                    show_line_numbers
+                    selected_lines="5, 12"
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
+              We declared a required `click` event property that we use on the `<button>` tag with the `:on-click` directive.
+
+              Now let's see how to define and pass events to that stateless component.
+              We will use the `Button` component twice, each with a different handling function that has been defined in a parent live component.
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Events.LiveButton.Example
+                    id="surface_counter_2"
+                  />
+                </div>
+                <footer class="card-footer">
+                <#Code
+                  language="elixir"
+                  module={{ SurfaceSiteWeb.Events.LiveButton }}
+                  line_range={{ 20..42 }}
+                  show_line_numbers
+                  selected_lines="10-11, 16-18, 20-22"
+                />
+                </footer>
+              </div>
+
+              <#Markdown>
+                Remember that stateless components cannot handle events and do not have state.
+                Events can only be handled in a `LiveView` or `LiveComponent` so we will store the state in that kind of component.
+                ### Stateful component
+
+                In some cases, you may want to have a default behaviour that is handled by the component itself and let the developer override the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it must to be stateful.
+
+                One example is a generic stateful `Dialog` component with a close button.
+                By default, if the user clicks the close button, that will close the modal. However, if you're using the dialog to show a form
+                that the user must fill in lots of information, and you may want to ask for confirmation that the user really wants to close the dialog.
+                Something like: _"Are you sure you want to close this form? All information provided will be lost."_.
+
+                To impement this feature, you need a default local implementation that closes the dialog
+                but this implementation can be overridden by the parent component by passing a custom implementation
+                that, in our case, asks for confirmation before closing it.
+
+                First let's take a look at the `<Dialog>` component and its events.
+              </#Markdown>
+
+              <div class="card dark">
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.DialogExample }}
+                    line_range={{ 2..48 }}
+                    show_line_numbers
+                    selected_lines="8, 44-46"
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
+                The component implements a default `handle_event` that handles  the `close` event, and two public API functions
+                that can be used by other components to open and close the modal.
+
+                Note that the `Modal` stateful component reuses the `Button` stateless component
+                defined at the beginning of this section, and the events are passed along to these buttons components.
+
+                Now take a look at how we can use the dialog component with his default behaviour.
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour id="event_default_dialog_example" />
+                </div>
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.DialogExample }}
+                    line_range={{ 95..116 }}
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
+                Now if you want to change the default behaviour of closing the dialog automatically, all you have to do is pass that custom event using the `close` prop.
+                Remember, we want to ask for confirmation to close the modal.
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour id="event_overwritten_dialog_example" />
+                </div>
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Events.DialogExample }}
+                    line_range={{ 50..93 }}
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
+
+                ## Handle event somewhere else
 
                 Using Surface, the event is **always** passed along with the related target, assuming,
                 by default, that the target is the caller component/view. This should cover most of the
@@ -112,9 +257,6 @@ defmodule SurfaceSiteWeb.Events do
                 event somewhere else, you can explicitly pass the target, e.g., `click={{ "click", target: "#target_id" }}`.
                 If you want the target to be the parent LiveView, you can set the target option as `:live_view`.
 
-                > **Note**: The complete list of available events, as well as other types of bindings, can be found at
-                section [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
-                in the Phoenix LiveView's docs.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
