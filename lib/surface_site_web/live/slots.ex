@@ -1,10 +1,14 @@
 defmodule SurfaceSiteWeb.Slots do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
+  alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
-  alias SurfaceSiteWeb.Components.Code
+  alias SurfaceSiteWeb.Components.{Code, Example}
+
+  alias SurfaceSiteWeb.Slots.DeclaredSlotExample.Hero
+  alias SurfaceSiteWeb.Slots.SlotFallbackExample.HeroWithFallbackContent
+  alias SurfaceSiteWeb.Slots.SlotPropsExample.Rating
 
   def render(assigns) do
     ~H"""
@@ -28,7 +32,7 @@ defmodule SurfaceSiteWeb.Slots do
 
                 Slots are **placeholders** declared by a component that you can fill up with **custom content**.
 
-                In order to declare a slot, you must use the `slot` function:
+                In order to declare a slot, you must use the `slot` macro:
 
                 > _**slot** name, options_
 
@@ -49,15 +53,39 @@ defmodule SurfaceSiteWeb.Slots do
                 Slots are similar to properties as they are exposed as part of the component's **public API**.
                 The main difference is that while properties are passed as attributes, slots are injected inside
                 the component's body.
+
+                To declare a `slot`, you must use the `slot` macro and provide a name to the slot.
+                In the example below, the slot `default` is declared as required.
               </#Markdown>
 
               <div class="card dark">
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Hero</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">section</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero is-info"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero-body"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">section</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.DeclaredSlotExample }}
+                    line_range={{ 4..19 }}
+                    show_line_numbers
+                    selected_lines="5,11"
+                  />
                 </footer>
               </div>
+
+              <#Markdown>
+              The user can now use the `<Hero>` component and fill it with custom content.
+              </#Markdown>
+
+              <#Example>
+                <Hero>
+                  My Custom Content
+                </Hero>
+              </#Example>
+
+              <#Markdown>
+                If the user tries to use the `Hero` component without defining any content, a
+                `missing required slot "default"` error will be raised at compile-time.
+
+                ![Missing required slot](/images/slots_required_slot_error.png)
+              </#Markdown>
 
               <#Markdown>
                 ## Fallback content
@@ -68,53 +96,27 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <footer class="card-footer">
-                  <#Raw>
-                  <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">section</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero is-info"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero-body"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        No content defined!</div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">section</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.SlotFallbackExample }}
+                    line_range={{ 4..21 }}
+                    show_line_numbers
+                    selected_lines="5, 11-13"
+                  />
                 </footer>
               </div>
 
               <#Markdown>
-                By defining any children inside `<slot>...</slot>`, that content becomes the default content.
+                If at least one child element is defined inside `<slot>...</slot>`, the inner content is used as the default content for that slot.
+                Note that we removed the `required` option in the `slot` declaration. If we had not done so,
+                a warning would inform you that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
 
-              <div class="card dark">
-                <div class="card-content">
-                  <SurfaceSiteWeb.Slots.SlotFallbackExample.Example />
-                </div>
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Hero</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+              <#Example>
+                <HeroWithFallbackContent />
+              </#Example>
 
               <#Markdown>
-                ## Declaring slots
-
-                Slots defined using `<slot/>` are automatically registered into the component's metadata.
-                That means you don't have to explicitly declare them using the `slot` function. However,
-                since a slot is also part of the public API, it's advisable to declare it
-                so you can add proper documentation to it. Additionally, if you want Surface to **statically
-                validate** required slots and slot props, you also need to declare them.
-
-                The following updated version of the `Hero` component explicitly declares the default slot.
-              </#Markdown>
-
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Hero</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The content of the Hero"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span>, required: <span style="color: rgb(86, 156, 214);">true</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">section</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero is-info"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"hero-body"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">section</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
-
-              <#Markdown>
-                Now, if the user tries to use a `Hero` without defining any content, a proper
-                `missing required slot "default"` error will be raised at compile-time.
-
-                ![Missing required slot](/images/slots_required_slot_error.png)
-
                 ## Named slots
 
                 In the previous example, we defined a component with a single default slot. But what
@@ -131,28 +133,42 @@ defmodule SurfaceSiteWeb.Slots do
                   <SurfaceSiteWeb.Slots.NamedSlotsExample.Example />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Card</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">template</span> <span style="color: rgb(156, 220, 254);">slot</span>=<span style="color: rgb(206, 145, 120);">"header"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          A simple card component</div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">template</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div>        This example demonstrates how to create components with multiple slots.</div><div>        It defines a <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>default<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span> slot to hold the card's content</div><div>        and two <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>named slots<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>: header and footer.</div><br><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">template</span> <span style="color: rgb(156, 220, 254);">slot</span>=<span style="color: rgb(206, 145, 120);">"footer"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">a</span> <span style="color: rgb(156, 220, 254);">href</span>=<span style="color: rgb(206, 145, 120);">"#"</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-footer-item"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Footer Item 1<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">a</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">a</span> <span style="color: rgb(156, 220, 254);">href</span>=<span style="color: rgb(206, 145, 120);">"#"</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-footer-item"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Footer Item 2<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">a</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">template</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Card</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
+                    line_range={{ 39..60 }}
+                    show_line_numbers
+                    selected_lines="7-9, 11-13, 15-18"
+                  />
                 </footer>
               </div>
 
               <#Markdown>
+                As you can see in the example, we are using 3 slots:
+                - The header slot
+                - The default slot that contains everything that is not in any other slot
+                - The footer slot
+
                 And finally our `Card` component defining all three slots:
               </#Markdown>
 
               <div class="card dark">
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Card</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The header"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">header</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The footer"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">footer</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The main content"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">header</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-header"</span> <span style="color: rgb(156, 220, 254);">style</span>=<span style="color: rgb(206, 145, 120);">"background-color: #f5f5f5"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">p</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-header-title"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"header"</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">p</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">header</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-content"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"content"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">footer</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-footer"</span> <span style="color: rgb(156, 220, 254);">style</span>=<span style="color: rgb(206, 145, 120);">"background-color: #f5f5f5"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"footer"</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">footer</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
+                    line_range={{ 4..35 }}
+                    show_line_numbers
+                    selected_lines="5,8,11,18,23,27"
+                  />
                 </footer>
               </div>
+              <#Markdown>
+                  > **Note**: Pay attention that defining a `<slot />` without a name is the same as defining it as `<slot name="default"/>`.
+              </#Markdown>
+
 
               <#Markdown>
-                Pay attention that defining a `<slot/>` without a name is the same as defining it as
-                `<slot name="default"/>`.
-
                 ## Typed slotables
 
                 Instead of using `<template slot="...">`, you might want to define a custom component to
@@ -162,9 +178,11 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Header</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span>, slot: <span style="color: rgb(206, 145, 120);">"header"</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Footer</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span>, slot: <span style="color: rgb(206, 145, 120);">"footer"</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
+                    line_range={{ 37..43 }}
+                  />
                 </footer>
               </div>
 
@@ -178,9 +196,13 @@ defmodule SurfaceSiteWeb.Slots do
                   <SurfaceSiteWeb.Slots.TypedSlotsExample.Example />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Card</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Header</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      A simple card component</div><div>    <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Header</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div>    This is the same Card component but now we're using</div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>typed slotables<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span> instead of <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>templates<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>.</div><br><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Footer</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">a</span> <span style="color: rgb(156, 220, 254);">href</span>=<span style="color: rgb(206, 145, 120);">"#"</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-footer-item"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Footer Item 1<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">a</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">a</span> <span style="color: rgb(156, 220, 254);">href</span>=<span style="color: rgb(206, 145, 120);">"#"</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"card-footer-item"</span><span style="color: rgb(128, 128, 128);">&gt;</span>Footer Item 2<span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">a</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Footer</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Card</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
+                    show_line_numbers
+                    line_range={{ 47..67 }}
+                    selected_lines="7-9, 14-17"
+                  />
                 </footer>
               </div>
 
@@ -204,9 +226,11 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Rating</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">LiveComponent</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The maximum value"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">max</span>, :integer, default: <span style="color: rgb(181, 206, 168);">5</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "The content"</span></div><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span>, props: [:value, :max]</div><br><div>    <span style="color: rgb(78, 201, 176);">data</span> <span style="color: rgb(156, 220, 254);">value</span>, :integer, default: <span style="color: rgb(181, 206, 168);">1</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">p</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">:props</span>=<span style="color: rgb(86, 156, 214);">{{</span> value: <span style="color: rgb(156, 220, 254);">@value</span>, max: <span style="color: rgb(156, 220, 254);">@max</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">p</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span> <span style="color: rgb(156, 220, 254);">style</span>=<span style="color: rgb(206, 145, 120);">"padding-top: 10px;"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(206, 145, 120);">"dec"</span> <span style="color: rgb(156, 220, 254);">disabled</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@value</span> == <span style="color: rgb(181, 206, 168);">1</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            -</div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button is-info"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(206, 145, 120);">"inc"</span> <span style="color: rgb(156, 220, 254);">disabled</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@value</span> == <span style="color: rgb(156, 220, 254);">@max</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            +</div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">handle_event</span>(<span style="color: rgb(206, 145, 120);">"inc"</span>, <span style="color: rgb(106, 153, 85);">_</span>, socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:noreply, update(socket, :value, <span style="color: rgb(156, 220, 254);">&amp;</span> <span style="color: rgb(156, 220, 254);">&amp;1</span> + <span style="color: rgb(181, 206, 168);">1</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">handle_event</span>(<span style="color: rgb(206, 145, 120);">"dec"</span>, <span style="color: rgb(106, 153, 85);">_</span>, socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:noreply, update(socket, :value, <span style="color: rgb(156, 220, 254);">&amp;</span> <span style="color: rgb(156, 220, 254);">&amp;1</span> - <span style="color: rgb(181, 206, 168);">1</span>)}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Slots.SlotPropsExample }}
+                    line_range={{ 2..39 }}
+                  />
                 </footer>
               </div>
 
@@ -215,16 +239,23 @@ defmodule SurfaceSiteWeb.Slots do
                 value differently.
               </#Markdown>
 
-              <div class="card dark">
-                <div class="card-content slots-page-props-example">
-                  <SurfaceSiteWeb.Slots.SlotPropsExample.Example id="slot_props_example" />
-                </div>
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Rating</span> <span style="color: rgb(156, 220, 254);">:let</span>=<span style="color: rgb(86, 156, 214);">{{</span> value: value <span style="color: rgb(86, 156, 214);">}}</span> <span style="color: rgb(156, 220, 254);">id</span>=<span style="color: rgb(206, 145, 120);">"rating_1"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">h1</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"title is-marginless"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            Rating: <span style="color: rgb(86, 156, 214);">{{</span> value <span style="color: rgb(86, 156, 214);">}}</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">h1</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Rating</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">hr</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Rating</span> <span style="color: rgb(156, 220, 254);">:let</span>=<span style="color: rgb(86, 156, 214);">{{</span> value: value, max: max <span style="color: rgb(86, 156, 214);">}}</span> <span style="color: rgb(156, 220, 254);">id</span>=<span style="color: rgb(206, 145, 120);">"rating_2"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">span</span> <span style="color: rgb(156, 220, 254);">:for</span>=<span style="color: rgb(86, 156, 214);">{{</span> i &lt;- <span style="color: rgb(181, 206, 168);">1</span>..max <span style="color: rgb(86, 156, 214);">}}</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(86, 156, 214);">{{</span> :icon, "has-text-warning": i &lt;= value <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>              <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">i</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"fas fa-star"</span><span style="color: rgb(128, 128, 128);">&gt;&lt;/</span><span style="color: rgb(86, 156, 214);">i</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>            <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">span</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Rating</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+              <#Example>
+                <Rating :let={{ value: value }} id="rating_1">
+                  <h1 class="title is-marginless">
+                    Rating: {{ value }}
+                  </h1>
+                </Rating>
+              </#Example>
+              <#Example>
+                <Rating :let={{ value: value, max: max }} id="rating_2">
+                  <span
+                    :for={{ i <- 1..max }}
+                    class={{ :icon, "has-text-warning": i <= value }}
+                  >
+                    <i class="fas fa-star" />
+                  </span>
+                </Rating>
+              </#Example>
 
               <#Markdown>
                 ## Renderless components
@@ -250,9 +281,13 @@ defmodule SurfaceSiteWeb.Slots do
                   <SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example id="renderless_component" />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">LiveComponent</span></div><br><div>    <span style="color: rgb(78, 201, 176);">data</span> <span style="color: rgb(156, 220, 254);">albums</span>, :list, default: []</div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">mount</span>(socket) <span style="color: rgb(197, 134, 192);">do</span></div><div>      {:ok, assign(socket, albums: [</div><div>        %{name: <span style="color: rgb(206, 145, 120);">"The Dark Side of the Moon"</span>, artist: <span style="color: rgb(206, 145, 120);">"Pink Floyd"</span>, released: <span style="color: rgb(206, 145, 120);">"March 1, 1973"</span>},</div><div>        %{name: <span style="color: rgb(206, 145, 120);">"OK Computer"</span>, artist: <span style="color: rgb(206, 145, 120);">"Radiohead"</span>, released: <span style="color: rgb(206, 145, 120);">"June 16, 1997"</span>},</div><div>        %{name: <span style="color: rgb(206, 145, 120);">"Disraeli Gears"</span>, artist: <span style="color: rgb(206, 145, 120);">"Cream"</span>, released: <span style="color: rgb(206, 145, 120);">"November 2, 1967"</span>, selected: <span style="color: rgb(86, 156, 214);">true</span>},</div><div>        %{name: <span style="color: rgb(206, 145, 120);">"Physical Graffiti"</span>, artist: <span style="color: rgb(206, 145, 120);">"Led Zeppelin"</span>, released: <span style="color: rgb(206, 145, 120);">"February 24, 1975"</span>}</div><div>      ])}</div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Grid</span> <span style="color: rgb(156, 220, 254);">items</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@albums</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Column</span> <span style="color: rgb(156, 220, 254);">field</span>=<span style="color: rgb(206, 145, 120);">"name"</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Column</span> <span style="color: rgb(156, 220, 254);">field</span>=<span style="color: rgb(206, 145, 120);">"artist"</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Column</span> <span style="color: rgb(156, 220, 254);">field</span>=<span style="color: rgb(206, 145, 120);">"released"</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Grid</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent }}
+                    show_line_numbers
+                    line_range={{ 40..72 }}
+                    selected_lines="26-28"
+                  />
                 </footer>
               </div>
 
@@ -265,8 +300,9 @@ defmodule SurfaceSiteWeb.Slots do
                   <#Code
                     language="elixir"
                     module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example }}
-                    line_range={{ 2..38 }}
                     show_line_numbers
+                    line_range={{ 2..38 }}
+                    selected_lines="2, 15, 22, 29"
                   />
                 </footer>
               </div>
@@ -290,9 +326,13 @@ defmodule SurfaceSiteWeb.Slots do
                   <SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Grid</span> <span style="color: rgb(156, 220, 254);">items</span>=<span style="color: rgb(86, 156, 214);">{{</span> album &lt;- <span style="color: rgb(156, 220, 254);">@albums</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Column</span> <span style="color: rgb(156, 220, 254);">title</span>=<span style="color: rgb(206, 145, 120);">"Title"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(86, 156, 214);">{{</span> album.name<span style="color: rgb(86, 156, 214);">}}</span> (Released: <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span><span style="color: rgb(86, 156, 214);">{{</span> album.released <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">strong</span><span style="color: rgb(128, 128, 128);">&gt;</span>)</div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Column</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Column</span> <span style="color: rgb(156, 220, 254);">title</span>=<span style="color: rgb(206, 145, 120);">"Artist"</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>          <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">a</span> <span style="color: rgb(156, 220, 254);">href</span>=<span style="color: rgb(206, 145, 120);">"#"</span><span style="color: rgb(128, 128, 128);">&gt;</span><span style="color: rgb(86, 156, 214);">{{</span> album.artist <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">a</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Column</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">Grid</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">div</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators }}
+                    show_line_numbers
+                    line_range={{ 56..69 }}
+                    selected_lines="4"
+                  />
                 </footer>
               </div>
 
@@ -330,8 +370,14 @@ defmodule SurfaceSiteWeb.Slots do
                     but instead of just defining the name of the prop (as we did for our `Rating` component),
                     we bound the value of that prop to each value (item) produced by the generator `items`.
 
-                  1. We use `<slot>` to render each column's content passing the current item.
+                  2. We use `<slot>` to render each column's content passing the current item.
+
+                > **Note**: Slot contents are always passed as lists. However,
+                if you expect receiving a single content block, like at the beginning
+                of this section, you can use `<slot name="<name>" />` as a
+                shorthand for `<slot name="<name>" index="0" />`.
               </#Markdown>
+
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/events">

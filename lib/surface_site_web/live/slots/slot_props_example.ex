@@ -40,8 +40,6 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
   defmodule Example do
     use Surface.Component
 
-    prop id, :string
-
     def render(assigns) do
       ~H"""
       <div>
