@@ -23,16 +23,33 @@ defmodule SurfaceSiteWeb.Components.Code do
       Module.put_attribute(meta.caller.module, :external_resource, file)
     end
 
+    id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
+    content = get_content(file, line_range, children)
+
+    build_ast(content, meta,
+      id: id,
+      language: language,
+      show_line_numbers: show_line_numbers,
+      selected_lines: selected_lines
+    )
+  end
+
+  def build_ast(code, meta, opts) do
+    id = opts[:id]
+    language = opts[:language]
+    show_line_numbers = opts[:show_line_numbers]
+    selected_lines = opts[:selected_lines]
+
+    class = build_class(language, show_line_numbers)
+    selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
+
     {:safe, content} =
-      get_content(file, line_range, children)
+      code
       |> fix_leading_space()
       |> Phoenix.HTML.html_escape()
 
     content = content |> IO.iodata_to_binary() |> String.trim()
 
-    id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
-    class = build_class(language, show_line_numbers)
-    selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
     %Surface.AST.Tag{
       element: "pre",
       directives: [],

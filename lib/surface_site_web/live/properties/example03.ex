@@ -1,4 +1,4 @@
-defmodule SurfaceSiteWeb.Events.Example01 do
+defmodule SurfaceSiteWeb.Properties.Example03 do
   defmodule MyButton do
     use Surface.Component
 

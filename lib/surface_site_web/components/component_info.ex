@@ -3,6 +3,17 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
 
   alias SurfaceSiteWeb.Components.{Markdown, SectionSeparator, ComponentAPI}
 
+  @sections [
+    "## Examples",
+    "## Properties",
+    "## Slots",
+    "## Events",
+    "### Examples",
+    "### Properties",
+    "### Slots",
+    "### Events"
+  ]
+
   @doc "The component module"
   prop module, :module, required: true
 
@@ -58,7 +69,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
     case Code.fetch_docs(module) do
       {:docs_v1, _, _, "text/markdown", %{"en" => doc}, _, _} ->
         parts =
-          String.split(doc, ["## Examples", "## Properties", "## Slots", "## Events"])
+          String.split(doc, @sections)
           |> List.first()
           |> String.split("\n\n", parts: 2)
 

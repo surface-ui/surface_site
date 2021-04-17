@@ -139,17 +139,13 @@ defmodule SurfaceSiteWeb.Events do
                 In the following example, we create that stateless component.
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Events.LiveButton }}
-                    line_range={{ 2..18 }}
-                    show_line_numbers
-                    selected_lines="5, 12"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Events.LiveButton }}
+                line_range={{ 2..18 }}
+                show_line_numbers
+                selected_lines="5, 12"
+              />
 
               <#Markdown>
               We declared a required `click` event property that we use on the `<button>` tag with the `:on-click` directive.
@@ -194,17 +190,13 @@ defmodule SurfaceSiteWeb.Events do
                 First let's take a look at the `<Dialog>` component and its events.
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Events.DialogExample }}
-                    line_range={{ 2..48 }}
-                    show_line_numbers
-                    selected_lines="8, 44-46"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Events.DialogExample }}
+                line_range={{ 2..48 }}
+                show_line_numbers
+                selected_lines="8, 44-46"
+              />
 
               <#Markdown>
                 The component implements a default `handle_event` that handles  the `close` event, and two public API functions
@@ -223,8 +215,8 @@ defmodule SurfaceSiteWeb.Events do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Events.DialogExample }}
-                    line_range={{ 95..116 }}
+                    module={{ SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour }}
+                    line_range={{ 101..-3 }}
                   />
                 </footer>
               </div>

@@ -15,7 +15,9 @@ defmodule SurfaceSiteWeb.Events.PhoenixCounter do
         <div>
           <button class="button is-info" phx-click="dec" phx-target="<%= @myself %>">-</button>
           <button class="button is-info" phx-click="inc" phx-target="<%= @myself %>">+</button>
-          <button class="button is-danger" phx-click="reset" phx-target="<%= @myself %>">Reset</button>
+          <button class="button is-danger" phx-click="reset" phx-target="<%= @myself %>">
+            Reset
+          </button>
         </div>
       </div>
       """
