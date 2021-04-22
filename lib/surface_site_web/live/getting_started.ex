@@ -37,7 +37,11 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 mix phx.new my_app --live
                 ```
 
-                Then add `surface` to the list of dependencies in `mix.exs`:
+                > **Note:** In case you want to add Surface to an existing Phoenix application that doesn't have
+                LiveView properly installed, please see Phoenix Liveview's installation instructions at
+                [hexdocs.pm/phoenix_live_view/installation.html](https://hexdocs.pm/phoenix_live_view/installation.html).
+
+                Add `surface` to the list of dependencies in `mix.exs`:
 
                 ```elixir
                 def deps do
@@ -72,62 +76,16 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 That's all!
 
-                > **Note:** In case you want to add Surface to an existing Phoenix application that doesn't have
-                LiveView properly installed, please see Phoenix Liveview's installation instructions at
-                [hexdocs.pm/phoenix_live_view/installation.html](https://hexdocs.pm/phoenix_live_view/installation.html).
+                ## Using Surface with Phoenix templates (optional)
 
-                ## Using Surface on plain Phoenix views (optional)
+                Using Surface components in **vanilla** Phoenix templates is partially supported but usually
+                **not recommended**. For more information, please visit
+                [Usage with Phoenix templates](/usage_with_phoenix_templates){: data-phx-link="redirect" data-phx-link-state="push"}.
 
-                In order to have `~H` available for any Phoenix view, add the following import to your web
-                file in `lib/my_app_web.ex`:
+                ## Running the examples (optional)
 
-                ```elixir
-                # lib/my_app_web.ex
-
-                ...
-
-                def view do
-                  quote do
-                    ...
-                    import Surface
-                  end
-                end
-                ```
-
-                You will also need to call `Surface.init/1` in the mount function:
-
-                ```elixir
-                defmodule PageLive do
-                  use Phoenix.LiveView
-
-                  def mount(socket) do
-                    socket = Surface.init(socket)
-                    ...
-                    {:ok, socket}
-                  end
-
-                  ...
-                end
-                ```
-
-                ```elixir
-                defmodule NavComponent do
-                  use Phoenix.LiveComponent
-
-                  def mount(socket) do
-                    socket = Surface.init(socket)
-                    ...
-                    {:ok, socket}
-                  end
-
-                  ...
-                end
-                ```
-
-                ## Running the examples
-
-                Most of the components used in this website as well the examples in the documentation
-                are just thin wrappers around [Bulma](https://bulma.io){: target="_blank"} components.
+                Most of the components used in the examples presented in this website are just thin wrappers around
+                [Bulma](https://bulma.io){: target="_blank"} components.
                 However, you can easily adapt any of the examples to any library of your preference or
                 try them out with your own CSS styles.
 
