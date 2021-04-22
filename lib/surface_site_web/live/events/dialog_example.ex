@@ -55,14 +55,20 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
       ~H"""
       <div>
         <Dialog title="Fill the form" close="hide_dialog" id="event_dialog_example_2">
-          Now, click on the cancel button to see the overwritted behavior.<br />
+          Now, click on the cancel button to see the overwritted behavior. <br>
           Nothing will happen if you click on the OK button ;)
         </Dialog>
 
-        <Dialog title="Alert" ok="confirm_close_dialog" close="hide_confirmation_dialog" id="confirmation_dialog_example">
-          Are you sure you want to close this dialog? All information provided will be lost. <br />
-          If you click on the "close" button, you will be redirect to the previous dialog. <br />
-          If you click on the "ok" button, you will confirm that you would like to close the first dialog.
+        <Dialog
+          title="Alert"
+          ok="confirm_close_dialog"
+          close="hide_confirmation_dialog"
+          id="confirmation_dialog_example"
+        >
+          Are you sure you want to close this dialog? All information provided will be lost. <br>
+          If you click on the "close" button, you will be redirect to the previous dialog. <br>
+          If you click on the "ok" button, you will confirm that you would like to close
+          the first dialog.
         </Dialog>
 
         <Button click="show_dialog">Click to look into action the overwritten event</Button>
@@ -94,6 +100,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
 
   defmodule ExampleWithDefaultBehaviour do
     use Surface.LiveComponent
+
     alias SurfaceSiteWeb.Events.LiveButton.Button
 
     def render(assigns) do

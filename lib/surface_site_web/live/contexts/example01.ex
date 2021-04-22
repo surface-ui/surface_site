@@ -65,7 +65,7 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
             <div class="field">
               <%= label form, :email, class: "label" %>
               <div class="control">
-                <%= text_input form, :email, class: input_class(form, :email), placeholder: "Try me!"  %>
+                <%= text_input form, :email, class: input_class(form, :email), placeholder: "Try me!" %>
                 <%= error_tag form, :email %>
               </div>
             </div>

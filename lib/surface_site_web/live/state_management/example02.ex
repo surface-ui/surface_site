@@ -83,12 +83,3 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     end
   end
 end
-
-# # For the send_update/2 example:
-
-#   def handle_event("show_dialog", _, socket) do
-#     send_update(Dialog, id: "dialog", show: true)
-#     {:noreply, socket}
-#   end
-
-# #

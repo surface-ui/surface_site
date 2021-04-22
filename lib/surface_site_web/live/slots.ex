@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.Slots do
   alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
-  alias SurfaceSiteWeb.Components.{Code, Example}
+  alias SurfaceSiteWeb.Components.{Code, LiveExample}
 
   alias SurfaceSiteWeb.Slots.DeclaredSlotExample.Hero
   alias SurfaceSiteWeb.Slots.SlotFallbackExample.HeroWithFallbackContent
@@ -58,53 +58,43 @@ defmodule SurfaceSiteWeb.Slots do
                 In the example below, the slot `default` is declared as required.
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.DeclaredSlotExample }}
-                    line_range={{ 4..19 }}
-                    show_line_numbers
-                    selected_lines="5,11"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Slots.DeclaredSlotExample }}
+                line_range={{ 4..19 }}
+                show_line_numbers
+                selected_lines="5,11"
+              />
 
               <#Markdown>
               The user can now use the `<Hero>` component and fill it with custom content.
               </#Markdown>
 
-              <#Example>
+              <#LiveExample>
                 <Hero>
                   My Custom Content
                 </Hero>
-              </#Example>
+              </#LiveExample>
 
               <#Markdown>
                 If the user tries to use the `Hero` component without defining any content, a
                 `missing required slot "default"` error will be raised at compile-time.
 
                 ![Missing required slot](/images/slots_required_slot_error.png)
-              </#Markdown>
 
-              <#Markdown>
                 ## Fallback content
 
                 Sometimes it’s useful to specify a fallback content that should be rendered when no content
                 is provided for a slot.
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.SlotFallbackExample }}
-                    line_range={{ 4..21 }}
-                    show_line_numbers
-                    selected_lines="5, 11-13"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Slots.SlotFallbackExample }}
+                line_range={{ 4..21 }}
+                show_line_numbers
+                selected_lines="5, 11-13"
+              />
 
               <#Markdown>
                 If at least one child element is defined inside `<slot>...</slot>`, the inner content is used as the default content for that slot.
@@ -112,9 +102,9 @@ defmodule SurfaceSiteWeb.Slots do
                 a warning would inform you that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
 
-              <#Example>
+              <#LiveExample>
                 <HeroWithFallbackContent />
-              </#Example>
+              </#LiveExample>
 
               <#Markdown>
                 ## Named slots
@@ -152,23 +142,17 @@ defmodule SurfaceSiteWeb.Slots do
                 And finally our `Card` component defining all three slots:
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
-                    line_range={{ 4..35 }}
-                    show_line_numbers
-                    selected_lines="5,8,11,18,23,27"
-                  />
-                </footer>
-              </div>
-              <#Markdown>
-                  > **Note**: Pay attention that defining a `<slot />` without a name is the same as defining it as `<slot name="default"/>`.
-              </#Markdown>
-
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
+                line_range={{ 4..35 }}
+                show_line_numbers
+                selected_lines="5,8,11,18,23,27"
+              />
 
               <#Markdown>
+                > **Note**: Pay attention that defining a `<slot />` without a name is the same as defining it as `<slot name="default"/>`.
+
                 ## Typed slotables
 
                 Instead of using `<template slot="...">`, you might want to define a custom component to
@@ -176,15 +160,11 @@ defmodule SurfaceSiteWeb.Slots do
                 component, setting the `:slot` option as the name of the slot in the parent card.
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
-                    line_range={{ 37..43 }}
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
+                line_range={{ 37..43 }}
+              />
 
               <#Markdown>
                 To use them, we don't have to change anything in the `Card` component. We just need to replace each `<template>`
@@ -224,38 +204,37 @@ defmodule SurfaceSiteWeb.Slots do
                 Let's see the code:
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.SlotPropsExample }}
-                    line_range={{ 2..39 }}
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Slots.SlotPropsExample }}
+                line_range={{ 2..39 }}
+              />
 
               <#Markdown>
                 Now let's create two instances of our `Rating` component, each one rendering its
                 value differently.
               </#Markdown>
 
-              <#Example>
+              <#LiveExample>
                 <Rating :let={{ value: value }} id="rating_1">
                   <h1 class="title is-marginless">
                     Rating: {{ value }}
                   </h1>
                 </Rating>
-              </#Example>
-              <#Example>
-                <Rating :let={{ value: value, max: max }} id="rating_2">
-                  <span
-                    :for={{ i <- 1..max }}
-                    class={{ :icon, "has-text-warning": i <= value }}
-                  >
-                    <i class="fas fa-star" />
-                  </span>
-                </Rating>
-              </#Example>
+              </#LiveExample>
+
+              <div class="slots-page-props-example">
+                <#LiveExample>
+                  <Rating :let={{ value: value, max: max }} id="rating_2">
+                    <span
+                      :for={{ i <- 1..max }}
+                      class={{ :icon, "has-text-warning": i <= value }}
+                    >
+                      <i class="fas fa-star" />
+                    </span>
+                  </Rating>
+                </#LiveExample>
+              </div>
 
               <#Markdown>
                 ## Renderless components
@@ -295,17 +274,13 @@ defmodule SurfaceSiteWeb.Slots do
                 Here are the `Grid` and `Column` components:
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example }}
-                    show_line_numbers
-                    line_range={{ 2..38 }}
-                    selected_lines="2, 15, 22, 29"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example }}
+                show_line_numbers
+                line_range={{ 2..38 }}
+                selected_lines="2, 15, 22, 29"
+              />
 
               <#Markdown>
                 By defining a named slot `cols`, we instruct Surface to create a new assign named
@@ -351,17 +326,13 @@ defmodule SurfaceSiteWeb.Slots do
                 Here's the updated version of the `Column` and `Grid` components:
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example }}
-                    line_range={{ 2..38 }}
-                    show_line_numbers
-                    selected_lines="15,29-30"
-                  />
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example }}
+                line_range={{ 2..38 }}
+                show_line_numbers
+                selected_lines="15,29-30"
+              />
 
               <#Markdown>
                 Let's take a closer look at the two important changes we made in our `Grid`:

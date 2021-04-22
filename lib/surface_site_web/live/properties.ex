@@ -1,9 +1,10 @@
 defmodule SurfaceSiteWeb.Properties do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Raw, Markdown}
+  alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
     ~H"""
@@ -52,9 +53,13 @@ defmodule SurfaceSiteWeb.Properties do
                   <SurfaceSiteWeb.Properties.Example01.Example />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(106, 153, 85);"># Defining the component</span></div><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Hello</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Someone to say hello to"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">name</span>, :string, required: <span style="color: rgb(86, 156, 214);">true</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      Hello, <span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@name</span> <span style="color: rgb(86, 156, 214);">}}</span>!</div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div>  <span style="color: rgb(106, 153, 85);"># Using the component</span></div><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">Example</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(156, 220, 254);">Surface</span>.<span style="color: rgb(156, 220, 254);">Component</span></div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">Hello</span> <span style="color: rgb(156, 220, 254);">name</span>=<span style="color: rgb(206, 145, 120);">"John Doe"</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Properties.Example01.Example }}
+                    line_range={{ 2..-3 }}
+                    show_line_numbers
+                    selected_lines="7"
+                  />
                 </footer>
               </div>
 
@@ -95,13 +100,11 @@ defmodule SurfaceSiteWeb.Properties do
                 We can define our component like this:
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">MyButton</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(79, 193, 255);">Surface</span>.<span style="color: rgb(79, 193, 255);">Component</span></div><br><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">loading</span>, :boolean</div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">rounded</span>, :boolean</div><br><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(206, 145, 120);">"button"</span>, <span style="color: rgb(206, 145, 120);">"is-info"</span>, "is-loading": <span style="color: rgb(156, 220, 254);">@loading</span>, "is-rounded": <span style="color: rgb(156, 220, 254);">@rounded</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);">/&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Properties.Example02 }}
+                line_range={{ 2..17 }}
+              />
 
               <#Markdown>
                 Let's try it out.
@@ -112,9 +115,11 @@ defmodule SurfaceSiteWeb.Properties do
                   <SurfaceSiteWeb.Properties.Example02.Example id="example_02" />
                 </div>
                 <footer class="card-footer">
-                  <#Raw>
-                  <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; line-height: 26px; white-space: pre;"><br><div>  <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">MyButton</span> <span style="color: rgb(156, 220, 254);">loading</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@loading</span> <span style="color: rgb(86, 156, 214);">}}</span> <span style="color: rgb(156, 220, 254);">rounded</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@rounded</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>    Change my style!</div><div>  <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(78, 201, 176);">MyButton</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><br><div></div></div>
-                  </#Raw>
+                  <#Code
+                    language="elixir"
+                    module={{ SurfaceSiteWeb.Properties.Example02.Example }}
+                    line_range={{ 28..30 }}
+                  />
                 </footer>
               </div>
 
@@ -143,13 +148,14 @@ defmodule SurfaceSiteWeb.Properties do
                 **Example:**
               </#Markdown>
 
-              <div class="card dark">
-                <footer class="card-footer">
-                  <#Raw>
-                    <div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Menlo, Monaco, &quot;Courier New&quot;, monospace; font-size: 15px; line-height: 23px; white-space: pre;"><br><div>  <span style="color: rgb(197, 134, 192);">defmodule</span> <span style="color: rgb(78, 201, 176);">MyButton</span> <span style="color: rgb(197, 134, 192);">do</span></div><div>    <span style="color: rgb(86, 156, 214);">use</span> <span style="color: rgb(79, 193, 255);">Surface</span>.<span style="color: rgb(79, 193, 255);">Component</span></div><br><div>    <span style="color: rgb(106, 153, 85);">@doc "Triggers on click"</span></div><div>    <span style="color: rgb(78, 201, 176);">prop</span> <span style="color: rgb(156, 220, 254);">click</span>, :event</div><br><div>    <span style="color: rgb(78, 201, 176);">slot</span> <span style="color: rgb(156, 220, 254);">default</span></div><div>        </div><div>    <span style="color: rgb(197, 134, 192);">def</span> <span style="color: rgb(220, 220, 170);">render</span>(assigns) <span style="color: rgb(197, 134, 192);">do</span></div><div>      <span style="color: rgb(206, 145, 120);">~H&quot;&quot;&quot;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(86, 156, 214);">button</span> <span style="color: rgb(156, 220, 254);">class</span>=<span style="color: rgb(206, 145, 120);">"button"</span> <span style="color: rgb(156, 220, 254);">:on-click</span>=<span style="color: rgb(86, 156, 214);">{{</span> <span style="color: rgb(156, 220, 254);">@click</span> <span style="color: rgb(86, 156, 214);">}}</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>        <span style="color: rgb(128, 128, 128);">&lt;</span><span style="color: rgb(78, 201, 176);">slot</span><span style="color: rgb(128, 128, 128);"> /&gt;</span></div><div>      <span style="color: rgb(128, 128, 128);">&lt;/</span><span style="color: rgb(86, 156, 214);">button</span><span style="color: rgb(128, 128, 128);">&gt;</span></div><div>      <span style="color: rgb(206, 145, 120);">&quot;&quot;&quot;</span></div><div>    <span style="color: rgb(197, 134, 192);">end</span></div><div>  <span style="color: rgb(197, 134, 192);">end</span></div><br><div><span style="color: rgb(197, 134, 192);"></span></div></div>
-                  </#Raw>
-                </footer>
-              </div>
+              <#Code
+                language="elixir"
+                module={{ SurfaceSiteWeb.Properties.Example03 }}
+                line_range={{ 2..-3 }}
+                show_line_numbers
+                selected_lines="5"
+              />
+
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/components_basics">
