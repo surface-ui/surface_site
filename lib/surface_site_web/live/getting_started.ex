@@ -109,7 +109,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                     [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=msaraiva.surface).
 
                   * Improved integration with [ElixirSense](https://github.com/elixir-lsp/elixir_sense)
-                    to provide **auto-completion** is comming soon!
+                    to provide **auto-completion** is coming soon!
                 </#Markdown>
             </div>
             <nav class="nav-prev-next">

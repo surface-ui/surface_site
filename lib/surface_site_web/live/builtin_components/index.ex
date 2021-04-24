@@ -12,6 +12,28 @@ defmodule SurfaceSiteWeb.BuiltinComponents.Index do
         in any project, <strong>regardless of the CSS/JS</strong> solution you might choose.
       </h2>
       <hr>
+
+      <#Markdown>
+        ## Usage
+        Built-in components are usually under the `Surface.Components` namespace and can be aliased as any other component. For instance:
+
+        ```elixir
+        defmodule MyLivePatch do
+          use Surface.Component
+          alias Surface.Components.LivePatch
+
+          def render(assigns) do
+            ~H"\""
+            <LivePatch to="#">
+              <i class="fa fa-link is-info"/>
+              My link
+            </LivePatch>
+            "\""
+          end
+        end
+        ```
+      </#Markdown>
+
       <#Markdown>
         ## Available components
 
