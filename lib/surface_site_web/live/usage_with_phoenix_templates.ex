@@ -40,7 +40,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 with their Surface's counterparts, i.e. `Surface.LiveView`, `Surface.LiveComponent` and `Surface.Component`.
                 This requires no extra step and you'll be able to enjoy all its features without any limitation.
 
-                2. **[Limited]** Follow the steps described in the [Using Surface templates in Liveview](/usage_with_phoenix_views#setting-up-phoenix-views-for-surface)
+                2. **[Limited]** Follow the steps described in the [Setting up Phoenix views for Surface](/usage_with_phoenix_templates#setting-up-phoenix-views-for-surface)
                 section below and use `~H` or `.sface` instead of `~L` and `.leex`. This should work fine but some features
                 may require extra work like implementing `mount` to call `Surface.init(socket)`.
 
