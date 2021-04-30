@@ -37,8 +37,7 @@ defmodule SurfaceSite.MixProject do
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:plug_cowboy, "~> 2.1"},
-      {:phoenix_ecto, "~> 4.1"},
-      {:ecto_sql, "~> 3.0"},
+      {:ecto, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
       {:surface, "~> 0.4.0", override: true},
@@ -50,18 +49,9 @@ defmodule SurfaceSite.MixProject do
     ]
   end
 
-  # Aliases are shortcuts or tasks specific to the current project.
-  # For example, to create, migrate and run the seeds file at once:
-  #
-  #     $ mix ecto.setup
-  #
-  # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate", "test"]
+      setup: ["deps.get", "cmd npm install --prefix assets"]
     ]
   end
 end

@@ -8,11 +8,3 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :surface_site, SurfaceSite.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "surface_site_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
