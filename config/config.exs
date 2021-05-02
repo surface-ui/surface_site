@@ -7,9 +7,6 @@
 # General application configuration
 use Mix.Config
 
-config :surface_site,
-  ecto_repos: [SurfaceSite.Repo]
-
 # Configures the endpoint
 config :surface_site, SurfaceSiteWeb.Endpoint,
   url: [host: "localhost"],

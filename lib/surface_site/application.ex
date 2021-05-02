@@ -8,14 +8,8 @@ defmodule SurfaceSite.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Start the Ecto repository
-      # SurfaceSite.Repo,
-      # Start the PubSub system
       {Phoenix.PubSub, name: SurfaceSite.PubSub},
-      # Start the endpoint when the application starts
       SurfaceSiteWeb.Endpoint
-      # Starts a worker by calling: SurfaceSite.Worker.start_link(arg)
-      # {SurfaceSite.Worker, arg},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
