@@ -42,7 +42,7 @@ defmodule SurfaceSiteWeb.Properties do
 
                   * `required` - declares the property as required. Default is `false`.
                   * `default` - defines a default value for an optional property.
-                  * `values` - the list of possible values for the property.
+                  * `values` - the list or range of possible values for the property.
                   * `accumulate` - instructs Surface to group all different values provided
                     for that property into a single list. Default is `false`, i.e. only the
                     last value is passed.
