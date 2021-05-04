@@ -45,7 +45,8 @@ defmodule SurfaceSite.MixProject do
       {:surface_formatter, "~> 0.3"},
       {:surface_bulma, github: "surface-ui/surface_bulma"},
       {:earmark, "~> 1.3"},
-      {:html_entities, "~> 0.4"}
+      {:html_entities, "~> 0.4"},
+      {:floki, ">= 0.30.0", only: :test}
     ]
   end
 
