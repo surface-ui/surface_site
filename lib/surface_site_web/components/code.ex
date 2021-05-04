@@ -48,6 +48,7 @@ defmodule SurfaceSiteWeb.Components.Code do
       |> fix_leading_space()
       |> Phoenix.HTML.html_escape()
 
+    container_id = :erlang.unique_integer([:positive])
     content = content |> IO.iodata_to_binary() |> String.trim()
 
     %Surface.AST.Tag{
@@ -58,13 +59,19 @@ defmodule SurfaceSiteWeb.Components.Code do
         [
           %Surface.AST.Attribute{
             meta: meta,
+            name: :id,
+            type: :string,
+            value: %Surface.AST.Literal{value: container_id}
+          },
+          %Surface.AST.Attribute{
+            meta: meta,
             name: :class,
             type: :css_class,
             value: %Surface.AST.Literal{value: class}
           },
           %Surface.AST.Attribute{
             meta: meta,
-            name: "phx-update",
+            name: :"phx-update",
             type: :string,
             value: %Surface.AST.Literal{value: "ignore"}
           }
