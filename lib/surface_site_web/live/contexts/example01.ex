@@ -4,8 +4,8 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     import Ecto.Changeset
 
     schema "users" do
-      field :email, :string
-      field :name, :string
+      field(:email, :string)
+      field(:name, :string)
     end
 
     @email ~r/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
