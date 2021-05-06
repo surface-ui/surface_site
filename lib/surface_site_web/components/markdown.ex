@@ -29,8 +29,16 @@ defmodule SurfaceSiteWeb.Components.Markdown do
   end
 
   # Update <pre> for code mermaid
-  def post_processor({"pre", attrs, [{"code", [{"class", "mermaid language-mermaid"}], _, _}], meta}) do
-    attrs = [{"class", "language-mermaid"}, {"phx-update", "ignore"} | attrs]
+  def post_processor(
+        {"pre", attrs, [{"code", [{"class", "mermaid language-mermaid"}], _, _}], meta}
+      ) do
+    id = "Markdown_pre_#{:erlang.unique_integer([:positive])}"
+
+    attrs = [
+      {"id", id},
+      {"class", "language-mermaid"},
+      {"phx-update", "ignore"} | attrs
+    ]
 
     {"pre", attrs, nil, meta}
   end
@@ -60,7 +68,8 @@ defmodule SurfaceSiteWeb.Components.Markdown do
           attrs
       end
 
-    attrs = [{"phx-update", "ignore"} | attrs]
+    id = "Markdown_pre_#{:erlang.unique_integer([:positive])}"
+    attrs = [{"id", id}, {"id", "test"}, {"phx-update", "ignore"} | attrs]
     {"pre", attrs, nil, meta}
   end
 
