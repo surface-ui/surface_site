@@ -20,7 +20,7 @@ defmodule SurfaceSiteWeb.Components.Example do
       |> Phoenix.HTML.html_escape()
 
     content = IO.iodata_to_binary(content)
-    container_id = :erlang.unique_integer([:positive])
+    container_id = "#{inspect(__MODULE__)}_container_#{:erlang.unique_integer([:positive])}"
     id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
 
     %Surface.AST.Tag{

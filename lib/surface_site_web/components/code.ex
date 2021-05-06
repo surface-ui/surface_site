@@ -48,7 +48,7 @@ defmodule SurfaceSiteWeb.Components.Code do
       |> fix_leading_space()
       |> Phoenix.HTML.html_escape()
 
-    container_id = :erlang.unique_integer([:positive])
+    container_id = "#{inspect(__MODULE__)}_container_#{:erlang.unique_integer([:positive])}"
     content = content |> IO.iodata_to_binary() |> String.trim()
 
     %Surface.AST.Tag{

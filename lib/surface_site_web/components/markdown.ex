@@ -32,10 +32,10 @@ defmodule SurfaceSiteWeb.Components.Markdown do
   def post_processor(
         {"pre", attrs, [{"code", [{"class", "mermaid language-mermaid"}], _, _}], meta}
       ) do
-    id = :erlang.unique_integer([:positive])
+    id = "Markdown_pre_#{:erlang.unique_integer([:positive])}"
 
     attrs = [
-      {"id", to_string(id)},
+      {"id", id},
       {"class", "language-mermaid"},
       {"phx-update", "ignore"} | attrs
     ]
@@ -68,8 +68,8 @@ defmodule SurfaceSiteWeb.Components.Markdown do
           attrs
       end
 
-    id = :erlang.unique_integer([:positive])
-    attrs = [{"id", to_string(id)}, {"id", "test"}, {"phx-update", "ignore"} | attrs]
+    id = "Markdown_pre_#{:erlang.unique_integer([:positive])}"
+    attrs = [{"id", id}, {"id", "test"}, {"phx-update", "ignore"} | attrs]
     {"pre", attrs, nil, meta}
   end
 
