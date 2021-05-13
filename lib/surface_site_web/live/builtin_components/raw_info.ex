@@ -12,12 +12,12 @@ defmodule SurfaceSiteWeb.BuiltinComponents.RawInfo do
       <ComponentInfo module={{ Raw }}>
         <template slot="examples">
           <#Example language="html">
-            With traslation:
+            With translation:
             <div class="section title">
               {{ @user }}
             </div>
 
-            Without traslation:
+            Without translation:
             <#Raw>
               <div class="section title">
                 {{ @user }}
