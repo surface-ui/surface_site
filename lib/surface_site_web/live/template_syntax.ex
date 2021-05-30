@@ -38,7 +38,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 {/for}
                 ```
 
-                ## If
+                ## if/elseif/else
 
                 ```elixir
                 {#if @value == 0}
