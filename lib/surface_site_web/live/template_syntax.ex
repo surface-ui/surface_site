@@ -1,4 +1,4 @@
-defmodule SurfaceSiteWeb.ControlFlow do
+defmodule SurfaceSiteWeb.TemplateSyntax do
   use Surface.LiveView
 
   alias Surface.Components.{Link, LiveRedirect, Markdown}
@@ -19,38 +19,42 @@ defmodule SurfaceSiteWeb.ControlFlow do
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
                   <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Control Flow" /></li>
+                  <li class="is-active"><Link to="#" label="Template Syntax" /></li>
                 </ul>
               </nav>
               <#Markdown>
-                # Control Flow
+                # Template Syntax
 
-                Alternatives to the `:for` and `:if` directives are provided in the shape of the `<For>` and `<If>` constructs.
+                Alternatives to the `:for` and `:if` directives are provided in the shape of the `{#for}` and `{#if}` constructs.
                 These constructs are useful when wrapping multiple elements.
 
-                ## For
+                ## for/else
 
                 ```elixir
-                <For each={{ item <- @items }}>
-                  <a href={{ item.to }}>{{ item.label }}</a>
-                  <Icon name="cheveron_left" />
-                </For>
+                {#for item <- @items}
+                  Item: {item}
+                {#else}
+                  No items
+                {/for}
                 ```
-                Properties: `each :generator, required: true` - The generator for the for expression.
-
-                Slots: `default, required: true`
 
                 ## If
 
                 ```elixir
-                <If condition={{ @display_link }}>
-                  <Icon name="cheveron_left" />
-                  <a href={{ @item.to }}>{{ @item.label }}</a>
-                </If>
+                {#if @value == 0}
+                  <div class="equal">
+                    Value {@value} is 0
+                  </div>
+                {#elseif @value > 0}
+                  <div class="greater">
+                    Value {@value} is greater than 0
+                  </div>
+                {#else}
+                  <div class="lower">
+                    Value {@value} is lower than 0
+                  </div>
+                {/if}
                 ```
-                Properties: `condition :boolean, required: true`
-
-                Slots: `default, required: true`
               </#Markdown>
             </div>
             <nav class="nav-prev-next">

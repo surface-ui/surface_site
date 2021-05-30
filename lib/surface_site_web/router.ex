@@ -24,7 +24,7 @@ defmodule SurfaceSiteWeb.Router do
     live "/events", Events
     live "/state_management", StateManagement
     live "/contexts", Contexts
-    live "/control_flow", ControlFlow
+    live "/template_syntax", TemplateSyntax
     live "/testing", Testing
     live "/js_interop", JSInterop
     live "/uicomponents/:component", BulmaComponents

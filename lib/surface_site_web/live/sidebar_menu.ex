@@ -99,11 +99,11 @@ defmodule SurfaceSiteWeb.SidebarMenu do
             </LiveRedirect>
           </li>
           <li>
-            <LiveRedirect class="" to="/control_flow">
+            <LiveRedirect class="" to="/template_syntax">
               <span class="icon">
-                <i class="fa fa-stream" />
+                <i class="fa fa-code" />
               </span>
-              Control Flow
+              Template Syntax
             </LiveRedirect>
           </li>
           <li>

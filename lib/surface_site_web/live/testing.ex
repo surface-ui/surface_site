@@ -96,8 +96,8 @@ defmodule SurfaceSiteWeb.Testing do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/control_flow">
-                ← Control Flow
+              <LiveRedirect to="/template_syntax">
+                ← Template Syntax
               </LiveRedirect>
               <LiveRedirect to="/js_interop">
                 JS Interoperability →
