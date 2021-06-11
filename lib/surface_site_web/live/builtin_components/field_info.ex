@@ -14,7 +14,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FieldInfo do
         <template slot="examples">
           <#Example>
             <Form for={{ :user }}>
-              <Field name="email">
+              <Field name={{ :email }}>
                 <Label>E-mail</Label>
                 <div class="control">
                   <TextInput value={{ @user["email"] }}/>
