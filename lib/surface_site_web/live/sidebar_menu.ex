@@ -248,15 +248,15 @@ defmodule SurfaceSiteWeb.SidebarMenu do
         </ul>
       </li>
       <li>
-        <LiveRedirect class="" to="/uicomponents">
+        <LiveRedirect class="" to="/samplecomponents">
           <span class="icon">
             <i class="fa fa-puzzle-piece" />
           </span>
-          UI Components (WIP)
+          Sample UI Components
         </LiveRedirect>
         <ul>
           <li>
-            <LiveRedirect class="" to="/uicomponents/Button">
+            <LiveRedirect class="" to="/samplecomponents/Button">
               <span class="icon is-small">
                 <i class="fa fa-hand-pointer" />
               </span>
@@ -264,7 +264,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
             </LiveRedirect>
           </li>
           <li>
-            <LiveRedirect class="" to="/uicomponents/Table">
+            <LiveRedirect class="" to="/samplecomponents/Table">
               <span class="icon is-small">
                 <i class="fa fa-table" />
               </span>
@@ -272,7 +272,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
             </LiveRedirect>
           </li>
           <li>
-            <LiveRedirect class="" to="/uicomponents/Tabs">
+            <LiveRedirect class="" to="/samplecomponents/Tabs">
               <span class="icon is-small">
                 <i class="fa fa-folder" />
               </span>

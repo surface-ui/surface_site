@@ -1,8 +1,7 @@
-defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
+defmodule SurfaceSiteWeb.SampleComponents.ButtonInfo do
   use Surface.LiveView
 
-  alias SurfaceSiteWeb.Components.{Example, SectionSeparator, ComponentAPI}
-  alias SurfaceBulma.{Button}
+  alias SurfaceSiteWeb.Components.{Example, SectionSeparator, ComponentAPI, Button}
 
   def mount(_params, _session, socket) do
     {:ok, assign(socket, clickCount: 0)}

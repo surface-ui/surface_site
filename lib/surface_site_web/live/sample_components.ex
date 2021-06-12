@@ -1,4 +1,4 @@
-defmodule SurfaceSiteWeb.BulmaComponents do
+defmodule SurfaceSiteWeb.SampleComponents do
   use Surface.LiveView
 
   alias SurfaceSiteWeb.Sidebar
@@ -25,10 +25,10 @@ defmodule SurfaceSiteWeb.BulmaComponents do
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
                   <li :if={{ @component == nil }} class="is-active">
-                    <Link to="#" label="UI Components" />
+                    <Link to="#" label="Sample UI Components" />
                   </li>
                   <li :if={{ @component != nil }}>
-                    <LiveRedirect label="UI Components" to="/uicomponents" />
+                    <LiveRedirect label="Sample UI Components" to="/samplecomponents" />
                     <li class="is-active">
                       <Link to="#" label={{ @component }} />
                     </li>
@@ -48,25 +48,25 @@ defmodule SurfaceSiteWeb.BulmaComponents do
 
   defp route(%{component: nil} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.Index id="index" />
+    <SurfaceSiteWeb.SampleComponents.Index id="index" />
     """
   end
 
   defp route(%{component: "Button"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.ButtonInfo id="ButtonInfo" />
+    <SurfaceSiteWeb.SampleComponents.ButtonInfo id="ButtonInfo" />
     """
   end
 
   defp route(%{component: "Table"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.TableInfo id="TableInfo" />
+    <SurfaceSiteWeb.SampleComponents.TableInfo id="TableInfo" />
     """
   end
 
   defp route(%{component: "Tabs"} = assigns) do
     ~H"""
-    <SurfaceSiteWeb.BulmaComponents.TabsInfo id="TabsInfo" />
+    <SurfaceSiteWeb.SampleComponents.TabsInfo id="TabsInfo" />
     """
   end
 

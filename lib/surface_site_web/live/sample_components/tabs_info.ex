@@ -1,10 +1,7 @@
-defmodule SurfaceSiteWeb.BulmaComponents.TabsInfo do
+defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
   use Surface.LiveView
 
-  alias SurfaceSiteWeb.Components.{Example, ComponentInfo}
-  alias SurfaceBulma.Button
-  alias SurfaceBulma.Tabs
-  alias SurfaceBulma.Tabs.TabItem
+  alias SurfaceSiteWeb.Components.{Example, ComponentInfo, Button, Tabs, Tabs.TabItem}
 
   data albums, :list
 

@@ -97,7 +97,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 or add it to the list of dependencies in `assets/package.json`:
 
-                ```elixir
+                ```js
                 "dependencies": {
                   "bulma": "0.8.0"
                 }

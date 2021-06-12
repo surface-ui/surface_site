@@ -17,8 +17,8 @@ defmodule SurfaceSiteWeb.App do
                 <CardWithIcon icon="fa-power-off" title="Getting started">
                   <p>
                     Start building <strong>rich interactive user-interfaces</strong>,
-                    writing minimal custom Javascript now. For a quick start, choose one of the
-                    boilerplates projects or install Surface from scratch.
+                    writing minimal custom Javascript. For a quick start, add Surface
+                    to an existing Phoenix LiveView project or install it from scratch.
                   </p>
                   <p><LiveRedirect to="/getting_started">Learn more</LiveRedirect></p>
                 </CardWithIcon>
@@ -34,14 +34,13 @@ defmodule SurfaceSiteWeb.App do
                 </CardWithIcon>
               </div>
               <div class="column is-4">
-                <CardWithIcon icon="fa-code" title="UI Components">
+                <CardWithIcon icon="fa-code" title="Sample UI Components">
                   <p>
-                    A set of common components that can be used in
-                    your projects, including buttons, dialogs, table grids
-                    and more. You can also use them as templates to
-                    create your own custom components.
+                    A set of sample components you can use as templates to
+                    create your own custom components for your projects, including
+                    buttons, tabs, table grids and more.
                   </p>
-                  <p><LiveRedirect label="Learn more" to="/uicomponents" /></p>
+                  <p><LiveRedirect label="Learn more" to="/samplecomponents" /></p>
                 </CardWithIcon>
               </div>
             </div>
