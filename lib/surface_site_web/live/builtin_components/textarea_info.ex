@@ -8,14 +8,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.TextAreaInfo do
     ~F"""
     <div>
       <ComponentInfo module={TextArea}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <TextArea
               rows="4"
               opts={placeholder: "4 lines of textarea"}
             />
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

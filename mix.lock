@@ -26,6 +26,7 @@
   "postgrex": {:hex, :postgrex, "0.15.9", "46f8fe6f25711aeb861c4d0ae09780facfdf3adbd2fb5594ead61504dd489bda", [:mix], [{:connection, "~> 1.0", [hex: :connection, repo: "hexpm", optional: false]}, {:db_connection, "~> 2.1", [hex: :db_connection, repo: "hexpm", optional: false]}, {:decimal, "~> 1.5 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: false]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: true]}], "hexpm", "610719103e4cb2223d4ab78f9f0f3e720320eeca6011415ab4137ddef730adee"},
   "ranch": {:hex, :ranch, "1.8.0", "8c7a100a139fd57f17327b6413e4167ac559fbc04ca7448e9be9057311597a1d", [:make, :rebar3], [], "hexpm", "49fbcfd3682fab1f5d109351b61257676da1a2fdbe295904176d5e521a2ddfe5"},
   "surface": {:git, "https://github.com/surface-ui/surface.git", "1b60501433f6e76fc313e3e4be233f4cd178685b", []},
+  "surface_formatter": {:git, "https://github.com/surface-ui/surface_formatter.git", "8a8f9d0b56cea2dbeff45dd2361ecfe7c9225ea0", [branch: "support-new-surface-syntax"]},
   "surface_markdown": {:git, "https://github.com/surface-ui/surface_markdown.git", "66c4a0705fa82d1515a80de03e3f0a7c089a3b03", [branch: "surface-next"]},
   "telemetry": {:hex, :telemetry, "0.4.3", "a06428a514bdbc63293cd9a6263aad00ddeb66f608163bdec7c8995784080818", [:rebar3], [], "hexpm", "eb72b8365ffda5bed68a620d1da88525e326cb82a75ee61354fc24b844768041"},
 }

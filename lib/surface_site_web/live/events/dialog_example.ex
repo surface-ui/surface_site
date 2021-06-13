@@ -107,7 +107,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
       ~F"""
       <div>
         <Dialog title="Fill the form" id="event_dialog_example_1">
-          Now, click on the close button to see close the modal.<br />
+          Now, click on the close button to see close the modal.<br>
           Nothing will happen if you click on the OK button ;)
         </Dialog>
 

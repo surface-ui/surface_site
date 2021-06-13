@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo do
     ~F"""
     <div>
       <ComponentInfo module={LiveRedirect}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <LiveRedirect to="#">
               <i class="fa fa-link is-info"/>
@@ -19,7 +19,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo do
           <#Example>
             <LiveRedirect label="My link" to="#"/>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

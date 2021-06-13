@@ -100,11 +100,7 @@ defmodule SurfaceSiteWeb.Properties do
                 We can define our component like this:
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={SurfaceSiteWeb.Properties.Example02}
-                line_range={2..17}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Properties.Example02} line_range={2..17} />
 
               <#Markdown>
                 Let's try it out.
@@ -155,7 +151,6 @@ defmodule SurfaceSiteWeb.Properties do
                 show_line_numbers
                 selected_lines="5"
               />
-
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/components_basics">

@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FormInfo do
     ~F"""
     <div>
       <ComponentInfo module={Form}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Form for={:user} change="change" opts={autocomplete: "off"}>
               <Field name="name">
@@ -30,7 +30,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FormInfo do
 
             <pre>@user = {Jason.encode!(@user, pretty: true)}</pre>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

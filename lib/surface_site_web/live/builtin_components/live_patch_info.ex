@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LivePatchInfo do
     ~F"""
     <div>
       <ComponentInfo module={LivePatch}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <LivePatch to="#">
               <i class="fa fa-link is-info"/>
@@ -19,7 +19,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LivePatchInfo do
           <#Example>
             <LivePatch label="My link" to="#"/>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

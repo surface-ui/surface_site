@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FieldInfo do
     ~F"""
     <div>
       <ComponentInfo module={Field}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Form for={:user}>
               <Field name={:email}>
@@ -22,7 +22,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FieldInfo do
               </Field>
             </Form>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

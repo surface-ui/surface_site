@@ -9,7 +9,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.SelectInfo do
     ~F"""
     <div>
       <ComponentInfo module={Select}>
-        <#template slot="examples">
+        <:examples>
           <#Example direction="vertical">
             <div class="select">
               <Select form="user" field="role" options={"Admin": "admin", "User": "user"}/>
@@ -31,7 +31,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.SelectInfo do
                 Provides a wrapper for Phoenix.HTML.Form's `time_select/3` function.
           </#Markdown>
           <hr>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

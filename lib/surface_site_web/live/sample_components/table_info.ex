@@ -21,7 +21,7 @@ defmodule SurfaceSiteWeb.SampleComponents.TableInfo do
     ~F"""
     <div>
       <ComponentInfo module={Table}>
-        <#template slot="examples">
+        <:examples>
           <#Example direction="vertical">
             <Table data={album <- @albums} row_class={&row_class/2} bordered>
               <Column label="Album">
@@ -35,7 +35,7 @@ defmodule SurfaceSiteWeb.SampleComponents.TableInfo do
               </Column>
             </Table>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
       <br><hr>
       <ComponentInfo module={Column} title="Table.Column" />

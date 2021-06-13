@@ -8,11 +8,11 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.DateInputInfo do
     ~F"""
     <div>
       <ComponentInfo module={DateInput}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <DateInput value="2020-06-04" />
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

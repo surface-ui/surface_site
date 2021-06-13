@@ -8,14 +8,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.ColorInputInfo do
     ~F"""
     <div>
       <ComponentInfo module={ColorInput}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Field name="color">
               <Label>Choose a color:</Label>
               <ColorInput value="#3298dc"/>
             </Field>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

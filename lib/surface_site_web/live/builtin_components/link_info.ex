@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LinkInfo do
     ~F"""
     <div>
       <ComponentInfo module={Link}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Link
               label="Go to source"
@@ -16,7 +16,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LinkInfo do
               opts={data: [confirm: "Are you sure?"]}
             />
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

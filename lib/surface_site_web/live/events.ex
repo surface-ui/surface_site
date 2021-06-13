@@ -61,11 +61,7 @@ defmodule SurfaceSiteWeb.Events do
                   {live_component(@socket, SurfaceSiteWeb.Events.PhoenixCounter.Counter, id: "phoenix_counter")}
                 </div>
                 <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={SurfaceSiteWeb.Events.PhoenixCounter}
-                    line_range={2..35}
-                  />
+                  <#Code language="elixir" module={SurfaceSiteWeb.Events.PhoenixCounter} line_range={2..35} />
                 </footer>
               </div>
 
@@ -126,7 +122,7 @@ defmodule SurfaceSiteWeb.Events do
                 and pass the value of that prop to the `:on-[event]` directive.
               </#Markdown>
 
-                See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
+              See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
 
               <#Markdown>
                 ### Stateless component
@@ -156,18 +152,16 @@ defmodule SurfaceSiteWeb.Events do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.Events.LiveButton.Example
-                    id="surface_counter_2"
-                  />
+                  <SurfaceSiteWeb.Events.LiveButton.Example id="surface_counter_2" />
                 </div>
                 <footer class="card-footer">
-                <#Code
-                  language="elixir"
-                  module={SurfaceSiteWeb.Events.LiveButton}
-                  line_range={20..42}
-                  show_line_numbers
-                  selected_lines="10-11, 16-18, 20-22"
-                />
+                  <#Code
+                    language="elixir"
+                    module={SurfaceSiteWeb.Events.LiveButton}
+                    line_range={20..42}
+                    show_line_numbers
+                    selected_lines="10-11, 16-18, 20-22"
+                  />
                 </footer>
               </div>
 
@@ -231,11 +225,7 @@ defmodule SurfaceSiteWeb.Events do
                   <SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour id="event_overwritten_dialog_example" />
                 </div>
                 <footer class="card-footer">
-                  <#Code
-                    language="elixir"
-                    module={SurfaceSiteWeb.Events.DialogExample}
-                    line_range={50..93}
-                  />
+                  <#Code language="elixir" module={SurfaceSiteWeb.Events.DialogExample} line_range={50..93} />
                 </footer>
               </div>
 

@@ -8,14 +8,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LabelInfo do
     ~F"""
     <div>
       <ComponentInfo module={Label}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Field name="name">
               <Label>First name</Label>
               <TextInput/>
             </Field>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

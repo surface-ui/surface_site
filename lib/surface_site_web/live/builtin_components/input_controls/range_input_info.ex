@@ -8,11 +8,11 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RangeInputInfo do
     ~F"""
     <div>
       <ComponentInfo module={RangeInput}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <RangeInput min="1" max="100"/>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

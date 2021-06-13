@@ -160,11 +160,7 @@ defmodule SurfaceSiteWeb.Slots do
                 component, setting the `:slot` option as the name of the slot in the parent card.
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={SurfaceSiteWeb.Slots.TypedSlotsExample}
-                line_range={37..43}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Slots.TypedSlotsExample} line_range={37..43} />
 
               <#Markdown>
                 To use them, we don't have to change anything in the `Card` component. We just need to replace each `<template>`
@@ -204,11 +200,7 @@ defmodule SurfaceSiteWeb.Slots do
                 Let's see the code:
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={SurfaceSiteWeb.Slots.SlotPropsExample}
-                line_range={2..39}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Slots.SlotPropsExample} line_range={2..39} />
 
               <#Markdown>
                 Now let's create two instances of our `Rating` component, each one rendering its
@@ -348,7 +340,6 @@ defmodule SurfaceSiteWeb.Slots do
                 of this section, you can use `<slot name="<name>" />` as a
                 shorthand for `<slot name="<name>" index="0" />`.
               </#Markdown>
-
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/events">

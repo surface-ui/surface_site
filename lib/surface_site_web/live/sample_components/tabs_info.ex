@@ -9,7 +9,7 @@ defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
     ~F"""
     <div>
       <ComponentInfo module={Tabs}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Tabs id="tabs-example" boxed>
 
@@ -41,7 +41,7 @@ defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
 
             </Tabs>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
       <br><hr>
       <ComponentInfo module={TabItem} title="Tabs.TabItem" />

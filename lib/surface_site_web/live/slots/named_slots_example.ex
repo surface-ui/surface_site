@@ -42,18 +42,18 @@ defmodule SurfaceSiteWeb.Slots.NamedSlotsExample do
     def render(assigns) do
       ~F"""
       <Card>
-        <#template slot="header">
+        <:header>
           A simple card component
-        </#template>
+        </:header>
 
         This example demonstrates how to create components with multiple slots.
         It defines a <strong>default</strong> slot to hold the card's content
         and two <strong>named slots</strong>: header and footer.
 
-        <#template slot="footer">
+        <:footer>
           <a href="#" class="card-footer-item">Footer Item 1</a>
           <a href="#" class="card-footer-item">Footer Item 2</a>
-        </#template>
+        </:footer>
       </Card>
       """
     end

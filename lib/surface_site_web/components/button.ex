@@ -78,8 +78,8 @@ defmodule SurfaceSiteWeb.Components.Button do
       :on-click={@click}
       disabled={@disabled}
       value={@value}
-      class={
-        [button: @class == [],
+      class={[
+        button: @class == [],
         "is-#{@color}": @color,
         "is-#{@size}": @size,
         "is-fullwidth": @expand,
@@ -91,7 +91,8 @@ defmodule SurfaceSiteWeb.Components.Button do
         "is-loading": @loading,
         "is-selected": @selected
       ] ++ @class}
-      :attrs={@opts}>
+      {...@opts}
+    >
       <#slot>{@label}</#slot>
     </button>
     """

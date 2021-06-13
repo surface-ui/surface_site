@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.RawInfo do
     ~F"""
     <div>
       <ComponentInfo module={Raw}>
-        <#template slot="examples">
+        <:examples>
           <#Example language="html">
             With translation:
             <div class="section title">
@@ -24,7 +24,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.RawInfo do
               </div>
             </#Raw>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

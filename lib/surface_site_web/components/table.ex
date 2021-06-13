@@ -52,9 +52,10 @@ defmodule SurfaceSiteWeb.Components.Table do
         <tbody>
           <tr
             :for={{item, index} <- Enum.with_index(@data)}
-            class={row_class_fun(@row_class).(item, index)}>
+            class={row_class_fun(@row_class).(item, index)}
+          >
             <td :for.index={index <- @cols}>
-              <span><#slot name="cols" index={index} :args={item: item}/></span>
+              <span><#slot name="cols" index={index} :args={item: item} /></span>
             </td>
           </tr>
         </tbody>

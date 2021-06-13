@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RadioButtonInfo do
     ~F"""
     <div>
       <ComponentInfo module={RadioButton}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <Field name="answer">
               <div class="control">
@@ -21,7 +21,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RadioButtonInfo do
               </div>
             </Field>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

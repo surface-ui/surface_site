@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.MarkdownInfo do
     ~F"""
     <div>
       <ComponentInfo module={Markdown} examplesPosition={:before_docs}>
-        <#template slot="examples">
+        <:examples>
           <#Markdown unwrap>
             The `<#Markdown>` component allows users to write markdown content directly in a Surface template.
             The content will be validated and translated to HTML at **compile-time**.
@@ -59,7 +59,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.MarkdownInfo do
               > using the `#Markdown` component.
             </#Markdown>
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

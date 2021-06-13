@@ -8,11 +8,11 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.TextInputInfo do
     ~F"""
     <div>
       <ComponentInfo module={TextInput}>
-        <#template slot="examples">
+        <:examples>
           <#Example>
             <TextInput value="A single-line text" />
           </#Example>
-        </#template>
+        </:examples>
       </ComponentInfo>
     </div>
     """
