@@ -8,9 +8,9 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <button class="button {{ @kind }}" :on-click={{ @click }} style="margin: 0px 5px">
-        <slot />
+      ~F"""
+      <button class={"button #{@kind}"} :on-click={@click} style="margin: 0px 5px">
+        <#slot />
       </button>
       """
     end
@@ -26,15 +26,15 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <div class={{ "modal", "is-active": @show }} :on-window-keydown="hide" phx-key="Escape">
+      ~F"""
+      <div class={"modal", "is-active": @show} :on-window-keydown="hide" phx-key="Escape">
         <div class="modal-background" />
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">{{ @title }}</p>
+            <p class="modal-card-title">{@title}</p>
           </header>
           <section class="modal-card-body">
-            <slot />
+            <#slot />
           </section>
           <footer class="modal-card-foot" style="justify-content: flex-end">
             <Button click="hide" kind="is-info">Ok</Button>
@@ -65,7 +65,7 @@ defmodule SurfaceSiteWeb.StateManagement.Example02 do
     use Surface.LiveView
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
         <Dialog title="Alert" id="dialog">
           The <b>Dialog</b> is now a stateful component. All event handlers

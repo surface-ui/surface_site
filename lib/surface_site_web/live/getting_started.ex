@@ -6,7 +6,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
   alias SurfaceSiteWeb.MobileSidebar
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -97,7 +97,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 or add it to the list of dependencies in `assets/package.json`:
 
-                ```elixir
+                ```js
                 "dependencies": {
                   "bulma": "0.8.0"
                 }

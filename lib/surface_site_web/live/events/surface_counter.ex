@@ -5,10 +5,10 @@ defmodule SurfaceSiteWeb.Events.SurfaceCounter do
     data count, :integer, default: 0
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
         <h1 class="title">
-          {{ @count }}
+          {@count}
         </h1>
         <div>
           <button class="button is-info" :on-click="dec">-</button>

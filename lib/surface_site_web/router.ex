@@ -27,8 +27,8 @@ defmodule SurfaceSiteWeb.Router do
     live "/template_syntax", TemplateSyntax
     live "/testing", Testing
     live "/js_interop", JSInterop
-    live "/uicomponents/:component", BulmaComponents
-    live "/uicomponents", BulmaComponents
+    live "/samplecomponents/:component", SampleComponents
+    live "/samplecomponents", SampleComponents
     live "/builtincomponents/:component", BuiltinComponents
     live "/builtincomponents", BuiltinComponents
   end

@@ -5,10 +5,10 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo do
   alias Surface.Components.LiveRedirect
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ LiveRedirect }}>
-        <template slot="examples">
+      <ComponentInfo module={LiveRedirect}>
+        <:examples>
           <#Example>
             <LiveRedirect to="#">
               <i class="fa fa-link is-info"/>
@@ -19,7 +19,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo do
           <#Example>
             <LiveRedirect label="My link" to="#"/>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

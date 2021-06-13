@@ -1,18 +1,15 @@
-defmodule SurfaceSiteWeb.BulmaComponents.TabsInfo do
+defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
   use Surface.LiveView
 
-  alias SurfaceSiteWeb.Components.{Example, ComponentInfo}
-  alias SurfaceBulma.Button
-  alias SurfaceBulma.Tabs
-  alias SurfaceBulma.Tabs.TabItem
+  alias SurfaceSiteWeb.Components.{Example, ComponentInfo, Button, Tabs, Tabs.TabItem}
 
   data albums, :list
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Tabs }}>
-        <template slot="examples">
+      <ComponentInfo module={Tabs}>
+        <:examples>
           <#Example>
             <Tabs id="tabs-example" boxed>
 
@@ -44,10 +41,10 @@ defmodule SurfaceSiteWeb.BulmaComponents.TabsInfo do
 
             </Tabs>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ TabItem }} title="Tabs.TabItem" />
+      <ComponentInfo module={TabItem} title="Tabs.TabItem" />
     </div>
     """
   end

@@ -1,15 +1,14 @@
-defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
+defmodule SurfaceSiteWeb.SampleComponents.ButtonInfo do
   use Surface.LiveView
 
-  alias SurfaceSiteWeb.Components.{Example, SectionSeparator, ComponentAPI}
-  alias SurfaceBulma.{Button}
+  alias SurfaceSiteWeb.Components.{Example, SectionSeparator, ComponentAPI, Button}
 
   def mount(_params, _session, socket) do
     {:ok, assign(socket, clickCount: 0)}
   end
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
       <h1 class="title">Button</h1>
       <h2 class="subtitle">
@@ -69,7 +68,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.ButtonInfo do
         </div>
       </#Example>
 
-      <ComponentAPI module={{ Button }} />
+      <ComponentAPI module={Button} />
     </div>
     """
   end

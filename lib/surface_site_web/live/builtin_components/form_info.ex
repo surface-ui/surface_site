@@ -8,29 +8,29 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FormInfo do
   data user, :map, default: %{"name" => "", "email" => ""}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Form }}>
-        <template slot="examples">
+      <ComponentInfo module={Form}>
+        <:examples>
           <#Example>
-            <Form for={{ :user }} change="change" opts={{ autocomplete: "off" }}>
+            <Form for={:user} change="change" opts={autocomplete: "off"}>
               <Field name="name">
                 <Label/>
                 <div class="control">
-                  <TextInput value={{ @user["name"] }}/>
+                  <TextInput value={@user["name"]}/>
                 </div>
               </Field>
               <Field name="email" class="field">
                 <Label>E-mail</Label>
                 <div class="control">
-                  <TextInput value={{ @user["email"] }}/>
+                  <TextInput value={@user["email"]}/>
                 </div>
               </Field>
             </Form>
 
-            <pre>@user = {{ Jason.encode!(@user, pretty: true) }}</pre>
+            <pre>@user = {Jason.encode!(@user, pretty: true)}</pre>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

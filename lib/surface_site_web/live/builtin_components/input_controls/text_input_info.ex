@@ -5,14 +5,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.TextInputInfo do
   alias Surface.Components.Form.TextInput
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ TextInput }}>
-        <template slot="examples">
+      <ComponentInfo module={TextInput}>
+        <:examples>
           <#Example>
             <TextInput value="A single-line text" />
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

@@ -114,14 +114,14 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     slot default
 
     def render(assigns) do
-      ~H"""
-      {{ form =
+      ~F"""
+      {form =
         form_for(@for, "#",
           phx_change: assigns.change.name,
           autocomplete: assigns.autocomplete
-        ) }}
-      <Context put={{ form: form }}>
-        <slot />
+        )}
+      <Context put={form: form}>
+        <#slot />
       </Context>
       <#Raw></form></#Raw>
       """
@@ -139,15 +139,15 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     slot default
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div class="field">
-        <Context get={{ form: form }}>
-          {{ label(form, @name, class: "label") }}
+        <Context get={form: form}>
+          {label(form, @name, class: "label")}
           <div class="control">
-            <Context put={{ field: String.to_atom(@name) }}>
-              <slot />
+            <Context put={field: String.to_atom(@name)}>
+              <#slot />
             </Context>
-            {{ error_tag(form, @name) }}
+            {error_tag(form, @name)}
           </div>
         </Context>
       </div>
@@ -169,12 +169,12 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     prop placeholder, :string
 
     def render(assigns) do
-      ~H"""
-      <Context get={{ form: form, field: field }}>
-        {{ text_input(form, field,
+      ~F"""
+      <Context get={form: form, field: field}>
+        {text_input(form, field,
           class: css_class(["input", isDanger: Keyword.has_key?(form.errors, field)]),
           placeholder: @placeholder
-        ) }}
+        )}
       </Context>
       """
     end
@@ -192,10 +192,10 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     end
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div class="columns">
         <div class="column">
-          <Form for={{ @changeset }} change="validate" autocomplete="off">
+          <Form for={@changeset} change="validate" autocomplete="off">
             <Field name="name">
               <TextInput />
             </Field>
@@ -206,7 +206,7 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
         </div>
         <div class="column">
           <pre style="height: 170px; border-radius: 6px; padding: 2.25rem">
-      {{ @data }}
+      {@data}
       </pre>
         </div>
       </div>

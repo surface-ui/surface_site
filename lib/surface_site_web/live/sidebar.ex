@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.Sidebar do
   alias SurfaceSiteWeb.SidebarMenu
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <aside
       class="section column is-narrow is-narrow-mobile is-fullheight is-hidden-mobile"
       style="background-color: #f5f5f5;"

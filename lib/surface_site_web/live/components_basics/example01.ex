@@ -5,7 +5,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics.Example01 do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       Hello, I'm a component!
       """
     end
@@ -17,7 +17,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics.Example01 do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <Hello />
       """
     end

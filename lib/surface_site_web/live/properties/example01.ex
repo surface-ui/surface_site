@@ -8,8 +8,8 @@ defmodule SurfaceSiteWeb.Properties.Example01 do
     prop name, :string, required: true
 
     def render(assigns) do
-      ~H"""
-      Hello, {{ @name }}!
+      ~F"""
+      Hello, {@name}!
       """
     end
   end
@@ -20,7 +20,7 @@ defmodule SurfaceSiteWeb.Properties.Example01 do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <Hello name="John Doe" />
       """
     end

@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.Slots do
   alias SurfaceSiteWeb.Slots.SlotPropsExample.Rating
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -60,8 +60,8 @@ defmodule SurfaceSiteWeb.Slots do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Slots.DeclaredSlotExample }}
-                line_range={{ 4..19 }}
+                module={SurfaceSiteWeb.Slots.DeclaredSlotExample}
+                line_range={4..19}
                 show_line_numbers
                 selected_lines="5,11"
               />
@@ -90,8 +90,8 @@ defmodule SurfaceSiteWeb.Slots do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Slots.SlotFallbackExample }}
-                line_range={{ 4..21 }}
+                module={SurfaceSiteWeb.Slots.SlotFallbackExample}
+                line_range={4..21}
                 show_line_numbers
                 selected_lines="5, 11-13"
               />
@@ -125,8 +125,8 @@ defmodule SurfaceSiteWeb.Slots do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
-                    line_range={{ 39..60 }}
+                    module={SurfaceSiteWeb.Slots.NamedSlotsExample}
+                    line_range={39..60}
                     show_line_numbers
                     selected_lines="7-9, 11-13, 15-18"
                   />
@@ -144,8 +144,8 @@ defmodule SurfaceSiteWeb.Slots do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Slots.NamedSlotsExample }}
-                line_range={{ 4..35 }}
+                module={SurfaceSiteWeb.Slots.NamedSlotsExample}
+                line_range={4..35}
                 show_line_numbers
                 selected_lines="5,8,11,18,23,27"
               />
@@ -160,11 +160,7 @@ defmodule SurfaceSiteWeb.Slots do
                 component, setting the `:slot` option as the name of the slot in the parent card.
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
-                line_range={{ 37..43 }}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Slots.TypedSlotsExample} line_range={37..43} />
 
               <#Markdown>
                 To use them, we don't have to change anything in the `Card` component. We just need to replace each `<template>`
@@ -178,9 +174,9 @@ defmodule SurfaceSiteWeb.Slots do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Slots.TypedSlotsExample }}
+                    module={SurfaceSiteWeb.Slots.TypedSlotsExample}
                     show_line_numbers
-                    line_range={{ 47..67 }}
+                    line_range={47..67}
                     selected_lines="7-9, 14-17"
                   />
                 </footer>
@@ -204,11 +200,7 @@ defmodule SurfaceSiteWeb.Slots do
                 Let's see the code:
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={{ SurfaceSiteWeb.Slots.SlotPropsExample }}
-                line_range={{ 2..39 }}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Slots.SlotPropsExample} line_range={2..39} />
 
               <#Markdown>
                 Now let's create two instances of our `Rating` component, each one rendering its
@@ -216,19 +208,19 @@ defmodule SurfaceSiteWeb.Slots do
               </#Markdown>
 
               <#LiveExample>
-                <Rating :let={{ value: value }} id="rating_1">
+                <Rating :let={value: value} id="rating_1">
                   <h1 class="title is-marginless">
-                    Rating: {{ value }}
+                    Rating: {value}
                   </h1>
                 </Rating>
               </#LiveExample>
 
               <div class="slots-page-props-example">
                 <#LiveExample>
-                  <Rating :let={{ value: value, max: max }} id="rating_2">
+                  <Rating :let={value: value, max: max} id="rating_2">
                     <span
-                      :for={{ i <- 1..max }}
-                      class={{ :icon, "has-text-warning": i <= value }}
+                      :for={i <- 1..max}
+                      class={:icon, "has-text-warning": i <= value}
                     >
                       <i class="fas fa-star" />
                     </span>
@@ -262,9 +254,9 @@ defmodule SurfaceSiteWeb.Slots do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent }}
+                    module={SurfaceSiteWeb.GettingStarted.RenderlessComponent}
                     show_line_numbers
-                    line_range={{ 40..72 }}
+                    line_range={40..72}
                     selected_lines="26-28"
                   />
                 </footer>
@@ -276,9 +268,9 @@ defmodule SurfaceSiteWeb.Slots do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example }}
+                module={SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example}
                 show_line_numbers
-                line_range={{ 2..38 }}
+                line_range={2..38}
                 selected_lines="2, 15, 22, 29"
               />
 
@@ -303,9 +295,9 @@ defmodule SurfaceSiteWeb.Slots do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators }}
+                    module={SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators}
                     show_line_numbers
-                    line_range={{ 56..69 }}
+                    line_range={56..69}
                     selected_lines="4"
                   />
                 </footer>
@@ -328,8 +320,8 @@ defmodule SurfaceSiteWeb.Slots do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example }}
-                line_range={{ 2..38 }}
+                module={SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example}
+                line_range={2..38}
                 show_line_numbers
                 selected_lines="15,29-30"
               />
@@ -348,7 +340,6 @@ defmodule SurfaceSiteWeb.Slots do
                 of this section, you can use `<slot name="<name>" />` as a
                 shorthand for `<slot name="<name>" index="0" />`.
               </#Markdown>
-
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/events">

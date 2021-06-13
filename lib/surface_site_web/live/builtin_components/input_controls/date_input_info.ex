@@ -5,14 +5,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.DateInputInfo do
   alias Surface.Components.Form.{DateInput}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ DateInput }}>
-        <template slot="examples">
+      <ComponentInfo module={DateInput}>
+        <:examples>
           <#Example>
             <DateInput value="2020-06-04" />
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

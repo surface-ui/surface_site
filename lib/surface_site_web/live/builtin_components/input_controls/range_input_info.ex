@@ -5,14 +5,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RangeInputInfo do
   alias Surface.Components.Form.{RangeInput}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ RangeInput }}>
-        <template slot="examples">
+      <ComponentInfo module={RangeInput}>
+        <:examples>
           <#Example>
             <RangeInput min="1" max="100"/>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

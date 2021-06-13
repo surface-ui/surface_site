@@ -8,9 +8,9 @@ defmodule SurfaceSiteWeb.Properties.Example03 do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <button class="button" :on-click={{ @click }}>
-        <slot />
+      ~F"""
+      <button class="button" :on-click={@click}>
+        <#slot />
       </button>
       """
     end

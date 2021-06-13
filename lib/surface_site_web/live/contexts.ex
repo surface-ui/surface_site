@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Contexts do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -38,8 +38,8 @@ defmodule SurfaceSiteWeb.Contexts do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix }}
-                    line_range={{ 57..72 }}
+                    module={SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix}
+                    line_range={57..72}
                   />
                 </footer>
               </div>
@@ -64,8 +64,8 @@ defmodule SurfaceSiteWeb.Contexts do
                 <footer class="card-footer">
                   <#Code
                     language="surface"
-                    module={{ SurfaceSiteWeb.Contexts.Example01.Example }}
-                    line_range={{ 198..205 }}
+                    module={SurfaceSiteWeb.Contexts.Example01.Example}
+                    line_range={198..205}
                   />
                 </footer>
               </div>
@@ -80,11 +80,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 Let's take a look at our `Form` component.
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.Form }}
-                line_range={{ 104..129 }}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Contexts.Example01.Form} line_range={104..129} />
 
               <#Markdown>
                 The value of variable `form` will be stored in the context under the key `:form` and will be
@@ -94,11 +90,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 We can use the same concept in our `Field` component and add the field name to the context too:
               </#Markdown>
 
-              <#Code
-                language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.Field }}
-                line_range={{ 131..162 }}
-              />
+              <#Code language="elixir" module={SurfaceSiteWeb.Contexts.Example01.Field} line_range={131..162} />
 
               <#Markdown>
                 ### Retrieving values from the context
@@ -109,8 +101,8 @@ defmodule SurfaceSiteWeb.Contexts do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.TextInput }}
-                line_range={{ 164..181 }}
+                module={SurfaceSiteWeb.Contexts.Example01.TextInput}
+                line_range={164..181}
               />
 
               <#Markdown>

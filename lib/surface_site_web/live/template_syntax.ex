@@ -6,7 +6,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
   alias SurfaceSiteWeb.MobileSidebar
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />

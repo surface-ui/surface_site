@@ -6,7 +6,7 @@ defmodule SurfaceSiteWeb.Testing do
   alias SurfaceSiteWeb.MobileSidebar
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -42,7 +42,7 @@ defmodule SurfaceSiteWeb.Testing do
                 test "creates a <button> with class" do
                   html =
                     render_surface do
-                      ~H"\""
+                      ~F"\""
                       <Button class="btn">
                         Ok
                       </Button>
@@ -68,7 +68,7 @@ defmodule SurfaceSiteWeb.Testing do
 
                   html =
                     render_surface do
-                      ~H"\""
+                      ~F"\""
                       <Button class={{ @class }}>
                         Ok
                       </Button>

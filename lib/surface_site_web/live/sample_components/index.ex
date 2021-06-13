@@ -1,25 +1,21 @@
-defmodule SurfaceSiteWeb.BulmaComponents.Index do
+defmodule SurfaceSiteWeb.SampleComponents.Index do
   use Surface.LiveComponent
 
   alias Surface.Components.Markdown
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div class="component-group">
-      <h1 class="title">UI Components (WIP)</h1>
+      <h1 class="title">Sample UI Components</h1>
       <h2 class="subtitle">
-        A suite of <strong>reusable</strong> UI components that can be used directly in your projects
+        A set of reusable UI components you can use as templates to create your own custom components.
       </h2>
       <hr>
       <#Markdown>
         Includes some of the most common components includng **buttons**, **tabs**, **dialogs**,
         **cards**, **table grids** and more.
 
-        This suite uses [Bulma](https://bulma.io){: target="_blank"} for CSS styling.
-        Bulma it's a free, open source, responsive **CSS** framework with
-        **no JS dependencies**, which makes it a perfect fit to use with **Phoenix LiveView**.
-
-        Source code can be found at: [github.com/surface-ui/surface_bulma](https://github.com/surface-ui/surface_bulma).
+        These sample components use [Bulma](https://bulma.io){: target="_blank"} for CSS styling.
 
         > **Note:** Feel free to adapt any of the components or examples
         > to any other CSS framework of your preference. You can use
@@ -29,31 +25,20 @@ defmodule SurfaceSiteWeb.BulmaComponents.Index do
 
         ## Usage
 
-        Add `surface_bulma` to the list of dependencies in `mix.exs`:
-
-        ```
-        def deps do
-          [
-            ...
-            {:surface_bulma, github: "surface-ui/surface_bulma"}
-          ]
-        end
-        ```
-
         To use bulma's CSS styles, choose one of the following methods:
 
         ### 1. Using CDN or downloading files
 
-        Add the following line to your `layout_view.ex`:
+        Add the following line to your `root.html.leex`:
 
-        ```
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css" />
+        ```html
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
         ```
 
         Or download the `.css` file and manually add it to your `priv/static/css` folder.
-        In this case, add the following line to your `layout_view.ex`:
+        In this case, add the following line to your `root.html.leex`:
 
-        ```
+        ```surface
         <link rel="stylesheet" href={{ Routes.static_path(@conn, "/css/bulma.min.css") }} />
         ```
 
@@ -61,7 +46,7 @@ defmodule SurfaceSiteWeb.BulmaComponents.Index do
 
         Add `bulma` to the list of dependencies in `assets/package.json`:
 
-        ```
+        ```js
         "dependencies": {
           ...
           "bulma": "0.8.0"

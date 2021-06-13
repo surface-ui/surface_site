@@ -45,22 +45,22 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
 
     id = "ComponentInfo_#{module_name}"
 
-    ~H"""
-    <div id={{ id }} class="ComponentInfo">
-      <h1 class="title">{{ @title || full_module_name }}</h1>
-      {{ String.trim_trailing(module_summary || "", ".") |> Markdown.to_html(class: "subtitle") }}
+    ~F"""
+    <div id={id} class="ComponentInfo">
+      <h1 class="title">{@title || full_module_name}</h1>
+      {String.trim_trailing(module_summary || "", ".") |> Markdown.to_html(class: "subtitle")}
       <hr>
-      <div :if={{ @examplesPosition == :before_docs }}>
-        <slot name="examples" />
+      <div :if={@examplesPosition == :before_docs}>
+        <#slot name="examples" />
       </div>
-      {{ module_doc |> Markdown.to_html() }}
-      <div :if={{ @examplesPosition == :after_docs }}>
-        <hr :if={{ module_doc not in [nil, ""] }}>
-        <slot name="examples" />
+      {module_doc |> Markdown.to_html()}
+      <div :if={@examplesPosition == :after_docs}>
+        <hr :if={module_doc not in [nil, ""]}>
+        <#slot name="examples" />
       </div>
-      <hr :if={{ assigns[:examples] }}>
-      <SectionSeparator title="Public API" id="{{ module_name }}-API" />
-      <ComponentAPI module={{ @module }} />
+      <hr :if={assigns[:examples]}>
+      <SectionSeparator title="Public API" id={"#{module_name}-API"} />
+      <ComponentAPI module={@module} />
     </div>
     """
   end

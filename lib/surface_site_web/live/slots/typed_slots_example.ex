@@ -14,20 +14,20 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
     slot default
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div class="card">
         <header class="card-header" style="background-color: #f5f5f5">
           <p class="card-header-title">
-            <slot name="header" />
+            <#slot name="header" />
           </p>
         </header>
         <div class="card-content">
           <div class="content">
-            <slot />
+            <#slot />
           </div>
         </div>
         <footer class="card-footer" style="background-color: #f5f5f5">
-          <slot name="footer" />
+          <#slot name="footer" />
         </footer>
       </div>
       """
@@ -48,7 +48,7 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <Card>
         <Header>
           A simple card component

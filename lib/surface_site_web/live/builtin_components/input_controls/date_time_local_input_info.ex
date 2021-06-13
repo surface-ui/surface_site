@@ -5,14 +5,14 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.DateTimeLocalInputInfo 
   alias Surface.Components.Form.{DateTimeLocalInput}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ DateTimeLocalInput }}>
-        <template slot="examples">
+      <ComponentInfo module={DateTimeLocalInput}>
+        <:examples>
           <#Example>
             <DateTimeLocalInput value="2020-06-04T18:45" />
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Data do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -62,8 +62,8 @@ defmodule SurfaceSiteWeb.Data do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Data.Example01.Counter }}
-                    line_range={{ 2..-3 }}
+                    module={SurfaceSiteWeb.Data.Example01.Counter}
+                    line_range={2..-3}
                     show_line_numbers
                     selected_lines="4"
                   />

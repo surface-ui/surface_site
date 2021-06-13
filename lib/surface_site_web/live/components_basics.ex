@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -48,8 +48,8 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.ComponentsBasics.Example01.Example }}
-                    line_range={{ 2..-3 }}
+                    module={SurfaceSiteWeb.ComponentsBasics.Example01.Example}
+                    line_range={2..-3}
                     show_line_numbers
                     selected_lines="20"
                   />
@@ -97,7 +97,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 alias MyProject.Components.MyLink, as: Link
 
                 def render(assigns) do
-                  ~H"\""
+                  ~F"\""
                   <MyButton>Ok</MyButton>
                   ...
                   <Link>
@@ -161,7 +161,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 individual tab as follows:
               </#Markdown>
 
-              <ComponentAPI module={{ SurfaceSiteWeb.ComponentsBasics.Example02.Button }} />
+              <ComponentAPI module={SurfaceSiteWeb.ComponentsBasics.Example02.Button} />
 
               <#Markdown>
                 ### Public vs private

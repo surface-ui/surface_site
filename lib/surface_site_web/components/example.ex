@@ -3,8 +3,8 @@ defmodule SurfaceSiteWeb.Components.Example do
 
   alias Surface.MacroComponent
 
-  prop direction, :string, values: ["horizontal", "vertical"]
-  prop language, :string
+  prop direction, :string, static: true, values: ["horizontal", "vertical"]
+  prop language, :string, static: true
 
   @impl true
   def expand(attributes, [children], meta) do

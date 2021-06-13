@@ -5,10 +5,10 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RadioButtonInfo do
   alias Surface.Components.Form.{RadioButton, Field}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ RadioButton }}>
-        <template slot="examples">
+      <ComponentInfo module={RadioButton}>
+        <:examples>
           <#Example>
             <Field name="answer">
               <div class="control">
@@ -21,7 +21,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.RadioButtonInfo do
               </div>
             </Field>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """

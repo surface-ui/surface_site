@@ -13,19 +13,19 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <div class={{ "modal", "is-active": @show }} :on-window-keydown={{ @close }} phx-key="Escape">
+      ~F"""
+      <div class={"modal", "is-active": @show} :on-window-keydown={@close} phx-key="Escape">
         <div class="modal-background" />
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">{{ @title }}</p>
+            <p class="modal-card-title">{@title}</p>
           </header>
           <section class="modal-card-body">
-            <slot />
+            <#slot />
           </section>
           <footer class="modal-card-foot" style="justify-content: flex-end">
-            <Button click={{ @ok }}>Ok</Button>
-            <Button click={{ @close }} kind="is-danger">Close</Button>
+            <Button click={@ok}>Ok</Button>
+            <Button click={@close} kind="is-danger">Close</Button>
           </footer>
         </div>
       </div>
@@ -52,7 +52,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     alias SurfaceSiteWeb.Events.LiveButton.Button
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
         <Dialog title="Fill the form" close="hide_dialog" id="event_dialog_example_2">
           Now, click on the cancel button to see the overwritted behavior. <br>
@@ -104,10 +104,10 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
     alias SurfaceSiteWeb.Events.LiveButton.Button
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
         <Dialog title="Fill the form" id="event_dialog_example_1">
-          Now, click on the close button to see close the modal.<br />
+          Now, click on the close button to see close the modal.<br>
           Nothing will happen if you click on the OK button ;)
         </Dialog>
 

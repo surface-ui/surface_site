@@ -6,21 +6,21 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
     prop max, :integer, default: 5
 
     @doc "The content"
-    slot default, props: [:value, :max]
+    slot default, args: [:value, :max]
 
     data value, :integer, default: 1
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
         <p>
-          <slot :props={{ value: @value, max: @max }} />
+          <#slot :args={value: @value, max: @max} />
         </p>
         <div style="padding-top: 10px;">
-          <button class="button is-info" :on-click="dec" disabled={{ @value == 1 }}>
+          <button class="button is-info" :on-click="dec" disabled={@value == 1}>
             -
           </button>
-          <button class="button is-info" :on-click="inc" disabled={{ @value == @max }}>
+          <button class="button is-info" :on-click="inc" disabled={@value == @max}>
             +
           </button>
         </div>
@@ -41,17 +41,17 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
-        <Rating :let={{ value: value }} id="rating_1">
+        <Rating :let={value: value} id="rating_1">
           <h1 class="title is-marginless">
-            Rating: {{ value }}
+            Rating: {value}
           </h1>
         </Rating>
         <hr>
-        <Rating :let={{ value: value, max: max }} id="rating_2">
+        <Rating :let={value: value, max: max} id="rating_2">
           <div>
-            <span :for={{ i <- 1..max }} class={{ :icon, "has-text-warning": i <= value }}>
+            <span :for={i <- 1..max} class={:icon, "has-text-warning": i <= value}>
               <i class="fas fa-star" />
             </span>
           </div>

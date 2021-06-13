@@ -1,6 +1,6 @@
 defmodule SurfaceSiteWeb.Components.Table do
   @moduledoc """
-  The inevitable HTML table.
+  A simple HTML table.
 
   You can create a table by setting a souce `data` to it and defining
   columns using the `Table.Column` component.
@@ -28,33 +28,34 @@ defmodule SurfaceSiteWeb.Components.Table do
   element. The function receives the item and index related to
   the row.
   """
-  prop rowClass, :fun
+  prop row_class, :fun
 
   @doc "The columns of the table"
-  slot cols, props: [item: ^data], required: true
+  slot cols, args: [item: ^data], required: true
 
   def render(assigns) do
-    ~H"""
-    <div class={{ @class }}>
-      <table class={{
+    ~F"""
+    <div class={@class}>
+      <table class={
         :table,
         "is-fullwidth": @expanded,
         "is-bordered": @bordered,
         "is-striped": @striped
-      }}>
+      }>
         <thead>
           <tr>
-            <th :for={{ col <- @cols }}>
-              {{ col.label }}
+            <th :for={col <- @cols}>
+              {col.label}
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
-            :for={{ {item, index} <- Enum.with_index(@data) }}
-            class={{ row_class_fun(@rowClass).(item, index) }}>
-            <td :for.index={{ index <- @cols }}>
-              <span><slot name="cols" index={{ index }} :props={{ item: item }}/></span>
+            :for={{item, index} <- Enum.with_index(@data)}
+            class={row_class_fun(@row_class).(item, index)}
+          >
+            <td :for.index={index <- @cols}>
+              <span><#slot name="cols" index={index} :args={item: item} /></span>
             </td>
           </tr>
         </tbody>
@@ -64,5 +65,5 @@ defmodule SurfaceSiteWeb.Components.Table do
   end
 
   defp row_class_fun(nil), do: fn _, _ -> "" end
-  defp row_class_fun(rowClass), do: rowClass
+  defp row_class_fun(row_class), do: row_class
 end

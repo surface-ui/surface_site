@@ -1,9 +1,7 @@
-defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
+defmodule SurfaceSiteWeb.SampleComponents.TableInfo do
   use Surface.LiveView
 
-  alias SurfaceSiteWeb.Components.{Example, ComponentInfo}
-  alias SurfaceBulma.Table
-  alias SurfaceBulma.Table.Column
+  alias SurfaceSiteWeb.Components.{Example, ComponentInfo, Table, Table.Column}
 
   data albums, :list
 
@@ -20,27 +18,27 @@ defmodule SurfaceSiteWeb.BulmaComponents.TableInfo do
   end
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Table }}>
-        <template slot="examples">
+      <ComponentInfo module={Table}>
+        <:examples>
           <#Example direction="vertical">
-            <Table id="table" data={{ album <- @albums }} row_class={{ &row_class/2 }} bordered>
+            <Table data={album <- @albums} row_class={&row_class/2} bordered>
               <Column label="Album">
-                {{ album.name }}
+                {album.name}
               </Column>
               <Column label="Released">
-                {{ album.released }}
+                {album.released}
               </Column>
               <Column label="Artist">
-                <a href="#">{{ album.artist }}</a>
+                <a href="#">{album.artist}</a>
               </Column>
             </Table>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ Column }} title="Table.Column" />
+      <ComponentInfo module={Column} title="Table.Column" />
     </div>
     """
   end

@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.StateManagement do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -45,8 +45,8 @@ defmodule SurfaceSiteWeb.StateManagement do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.StateManagement.Example01.Button }}
-                line_range={{ 2..17 }}
+                module={SurfaceSiteWeb.StateManagement.Example01.Button}
+                line_range={2..17}
               />
 
               <#Markdown>
@@ -57,8 +57,8 @@ defmodule SurfaceSiteWeb.StateManagement do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.StateManagement.Example01.Dialog }}
-                line_range={{ 19..46 }}
+                module={SurfaceSiteWeb.StateManagement.Example01.Dialog}
+                line_range={19..46}
               />
 
               <#Markdown>
@@ -79,8 +79,8 @@ defmodule SurfaceSiteWeb.StateManagement do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.StateManagement.Example01.Example }}
-                    line_range={{ 48..-3 }}
+                    module={SurfaceSiteWeb.StateManagement.Example01.Example}
+                    line_range={48..-3}
                   />
                 </footer>
               </div>
@@ -135,8 +135,8 @@ defmodule SurfaceSiteWeb.StateManagement do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.StateManagement.Example02.Dialog }}
-                line_range={{ 19..62 }}
+                module={SurfaceSiteWeb.StateManagement.Example02.Dialog}
+                line_range={19..62}
               />
 
               <#Markdown>
@@ -154,8 +154,8 @@ defmodule SurfaceSiteWeb.StateManagement do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.StateManagement.Example02.Example }}
-                    line_range={{ 64..-3 }}
+                    module={SurfaceSiteWeb.StateManagement.Example02.Example}
+                    line_range={64..-3}
                   />
                 </footer>
               </div>

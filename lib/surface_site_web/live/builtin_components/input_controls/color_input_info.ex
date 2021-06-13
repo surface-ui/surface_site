@@ -5,17 +5,17 @@ defmodule SurfaceSiteWeb.BuiltinComponents.InputControls.ColorInputInfo do
   alias Surface.Components.Form.{Field, Label, ColorInput}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ ColorInput }}>
-        <template slot="examples">
+      <ComponentInfo module={ColorInput}>
+        <:examples>
           <#Example>
             <Field name="color">
               <Label>Choose a color:</Label>
               <ColorInput value="#3298dc"/>
             </Field>
           </#Example>
-        </template>
+        </:examples>
       </ComponentInfo>
     </div>
     """
