@@ -30,7 +30,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 ## for/else
 
-                ```elixir
+                ```surface
                 {#for item <- @items}
                   Item: {item}
                 {#else}
@@ -40,7 +40,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 ## if/elseif/else
 
-                ```elixir
+                ```surface
                 {#if @value == 0}
                   <div class="equal">
                     Value {@value} is 0
