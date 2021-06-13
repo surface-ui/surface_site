@@ -14,7 +14,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.MarkdownInfo do
             The content will be validated and translated to HTML at **compile-time**.
           </#Markdown>
           <hr>
-          <#Example language="html">
+          <#Example>
             <#Markdown class="content">
               ### Heading 3
 

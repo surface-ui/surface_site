@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.RawInfo do
     <div>
       <ComponentInfo module={Raw}>
         <:examples>
-          <#Example language="html">
+          <#Example>
             With translation:
             <div class="section title">
               {@user}
