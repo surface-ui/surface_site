@@ -7,116 +7,41 @@ defmodule SurfaceSiteWeb.Components.Example do
   prop language, :string, static: true
 
   @impl true
-  def expand(attributes, [children], meta) do
+  def expand(attributes, content, meta) do
     props = MacroComponent.eval_static_props!(__MODULE__, attributes, meta.caller)
     direction = props[:direction] || "horizontal"
     language = props[:language] || "surface"
 
-    {:safe, content} =
-      children
+    content_html =
+      content
       |> String.replace(~r/\n    /, "\n", global: true)
       |> fix_leading_space()
       |> String.trim_trailing()
       |> Phoenix.HTML.html_escape()
+      |> elem(1)
+      |> IO.iodata_to_binary()
 
-    content = IO.iodata_to_binary(content)
+    content_ast = Surface.Compiler.compile(content, meta.line, meta.caller, meta.file)
+
     container_id = "#{inspect(__MODULE__)}_container_#{:erlang.unique_integer([:positive])}"
     id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
+    class = "Example #{direction}"
+    code_class = "content language-#{language}"
 
-    %Surface.AST.Tag{
-      element: "div",
-      directives: [],
-      meta: meta,
-      attributes: [
-        %Surface.AST.Attribute{
-          meta: meta,
-          name: :class,
-          type: :css_class,
-          value: %Surface.AST.Literal{value: "Example #{direction}"}
-        }
-      ],
-      children: [
-        %Surface.AST.Tag{
-          element: "div",
-          directives: [],
-          meta: meta,
-          attributes: [
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :class,
-              type: :css_class,
-              value: %Surface.AST.Literal{value: "demo"}
-            }
-          ],
-          children:
-            children
-            |> IO.iodata_to_binary()
-            |> Surface.Compiler.compile(meta.line, meta.caller, meta.file)
-        },
-        %Surface.AST.Tag{
-          element: "div",
-          directives: [],
-          meta: meta,
-          attributes: [
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :id,
-              type: :string,
-              value: %Surface.AST.Literal{value: container_id}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :class,
-              type: :css_class,
-              value: %Surface.AST.Literal{value: "code"}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :"phx-update",
-              type: :string,
-              value: %Surface.AST.Literal{value: "ignore"}
-            }
-          ],
-          children: [
-            %Surface.AST.Tag{
-              element: "pre",
-              directives: [],
-              meta: meta,
-              attributes: [],
-              children: [
-                %Surface.AST.Tag{
-                  element: "code",
-                  debug: [],
-                  directives: [],
-                  meta: meta,
-                  attributes: [
-                    %Surface.AST.Attribute{
-                      meta: meta,
-                      name: :id,
-                      type: :string,
-                      value: %Surface.AST.Literal{value: id}
-                    },
-                    %Surface.AST.Attribute{
-                      meta: meta,
-                      name: :class,
-                      type: :css_class,
-                      value: %Surface.AST.Literal{value: "content language-#{language}"}
-                    },
-                    %Surface.AST.Attribute{
-                      meta: meta,
-                      name: :"phx-hook",
-                      type: :string,
-                      value: %Surface.AST.Literal{value: "Highlight"}
-                    }
-                  ],
-                  children: [%Surface.AST.Literal{value: content}]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
+    quote_surface do
+      ~F"""
+      <div class={^class}>
+        <div class="demo">
+          {^content_ast}
+        </div>
+        <div id={^container_id} class="code" phx-update="ignore">
+          <pre>
+            <code id={^id} class={^code_class} phx-hook="Highlight">{^content_html}</code>
+          </pre>
+        </div>
+      </div>
+      """
+    end
   end
 
   defp fix_leading_space(markdown) do

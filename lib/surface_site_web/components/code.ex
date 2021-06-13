@@ -11,7 +11,7 @@ defmodule SurfaceSiteWeb.Components.Code do
   prop selected_lines, :string, static: true
 
   @impl true
-  def expand(attributes, children, meta) do
+  def expand(attributes, content, meta) do
     props = MacroComponent.eval_static_props!(__MODULE__, attributes, meta.caller)
     language = props[:language] || "surface"
     file = get_file(props[:file], props[:module])
@@ -24,9 +24,9 @@ defmodule SurfaceSiteWeb.Components.Code do
     end
 
     id = "#{inspect(__MODULE__)}_#{:erlang.unique_integer([:positive])}"
-    content = get_content(file, line_range, children)
+    code = get_code(file, line_range, content)
 
-    build_ast(content, meta,
+    build_ast(code, meta,
       id: id,
       language: language,
       show_line_numbers: show_line_numbers,
@@ -43,69 +43,21 @@ defmodule SurfaceSiteWeb.Components.Code do
     class = build_class(language, show_line_numbers)
     selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
 
-    {:safe, content} =
+    code_content =
       code
       |> fix_leading_space()
       |> Phoenix.HTML.html_escape()
+      |> elem(1)
+      |> IO.iodata_to_binary()
+      |> String.trim()
 
     container_id = "#{inspect(__MODULE__)}_container_#{:erlang.unique_integer([:positive])}"
-    content = content |> IO.iodata_to_binary() |> String.trim()
 
-    %Surface.AST.Tag{
-      element: "pre",
-      directives: [],
-      meta: meta,
-      attributes:
-        [
-          %Surface.AST.Attribute{
-            meta: meta,
-            name: :id,
-            type: :string,
-            value: %Surface.AST.Literal{value: container_id}
-          },
-          %Surface.AST.Attribute{
-            meta: meta,
-            name: :class,
-            type: :css_class,
-            value: %Surface.AST.Literal{value: class}
-          },
-          %Surface.AST.Attribute{
-            meta: meta,
-            name: :"phx-update",
-            type: :string,
-            value: %Surface.AST.Literal{value: "ignore"}
-          }
-        ] ++ selected_lines_attrs,
-      children: [
-        %Surface.AST.Tag{
-          element: "code",
-          debug: [],
-          directives: [],
-          meta: meta,
-          attributes: [
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :id,
-              type: :string,
-              value: %Surface.AST.Literal{value: id}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :class,
-              type: :css_class,
-              value: %Surface.AST.Literal{value: class}
-            },
-            %Surface.AST.Attribute{
-              meta: meta,
-              name: :"phx-hook",
-              type: :string,
-              value: %Surface.AST.Literal{value: "Highlight"}
-            }
-          ],
-          children: [%Surface.AST.Literal{value: content}]
-        }
-      ]
-    }
+    quote_surface do
+      ~F"""
+      <pre id={^container_id} class={^class} phx-update="ignore"><code id={^id} class={^class} phx-hook="Highlight">{^code_content}</code></pre>
+      """
+    end
   end
 
   defp fix_leading_space(markdown) do
@@ -124,11 +76,11 @@ defmodule SurfaceSiteWeb.Components.Code do
     |> Enum.join("\n")
   end
 
-  defp get_content(nil = _file, _range, [content]) do
+  defp get_code(nil = _file, _range, content) do
     String.replace(content, ~S("\""), ~S("""), global: true)
   end
 
-  defp get_content(file, from..to, _children) do
+  defp get_code(file, from..to, _content) do
     file
     |> File.read!()
     |> String.split("\n")
@@ -136,11 +88,11 @@ defmodule SurfaceSiteWeb.Components.Code do
     |> Enum.join("\n")
   end
 
-  defp get_content(file, nil, _children) do
+  defp get_code(file, nil, _children) do
     File.read!(file)
   end
 
-  defp get_content(_file, value, _children) do
+  defp get_code(_file, value, _children) do
     raise "invalid line_range. Expected a range, got #{inspect(value)}"
   end
 
