@@ -7,24 +7,24 @@ defmodule SurfaceSiteWeb.BuiltinComponents.RawInfo do
   def render(assigns) do
     assigns = Map.put(assigns, :user, "John Doe")
 
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Raw }}>
-        <template slot="examples">
+      <ComponentInfo module={Raw}>
+        <#template slot="examples">
           <#Example language="html">
             With translation:
             <div class="section title">
-              {{ @user }}
+              {@user}
             </div>
 
             Without translation:
             <#Raw>
               <div class="section title">
-                {{ @user }}
+                {@user}
               </div>
             </#Raw>
           </#Example>
-        </template>
+        </#template>
       </ComponentInfo>
     </div>
     """

@@ -31,30 +31,30 @@ defmodule SurfaceSiteWeb.Components.Table do
   prop row_class, :fun
 
   @doc "The columns of the table"
-  slot cols, props: [item: ^data], required: true
+  slot cols, args: [item: ^data], required: true
 
   def render(assigns) do
-    ~H"""
-    <div class={{ @class }}>
-      <table class={{
+    ~F"""
+    <div class={@class}>
+      <table class={
         :table,
         "is-fullwidth": @expanded,
         "is-bordered": @bordered,
         "is-striped": @striped
-      }}>
+      }>
         <thead>
           <tr>
-            <th :for={{ col <- @cols }}>
-              {{ col.label }}
+            <th :for={col <- @cols}>
+              {col.label}
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
-            :for={{ {item, index} <- Enum.with_index(@data) }}
-            class={{ row_class_fun(@row_class).(item, index) }}>
-            <td :for.index={{ index <- @cols }}>
-              <span><slot name="cols" index={{ index }} :props={{ item: item }}/></span>
+            :for={{item, index} <- Enum.with_index(@data)}
+            class={row_class_fun(@row_class).(item, index)}>
+            <td :for.index={index <- @cols}>
+              <span><#slot name="cols" index={index} :args={item: item}/></span>
             </td>
           </tr>
         </tbody>

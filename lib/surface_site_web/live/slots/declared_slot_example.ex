@@ -8,10 +8,10 @@ defmodule SurfaceSiteWeb.Slots.DeclaredSlotExample do
     slot default, required: true
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <section class="hero is-info">
         <div class="hero-body">
-          <slot />
+          <#slot />
         </div>
       </section>
       """
@@ -24,7 +24,7 @@ defmodule SurfaceSiteWeb.Slots.DeclaredSlotExample do
   #   use Surface.Component
 
   #   def render(assigns) do
-  #     ~H"""
+  #     ~F"""
   #     <Hero></Hero>
   #     """
   #   end

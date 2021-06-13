@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.Index do
   alias Surface.Components.Markdown
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div class="component-group">
       <h1 class="title">Built-in Components</h1>
       <h2 class="subtitle">
@@ -23,7 +23,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.Index do
           alias Surface.Components.LivePatch
 
           def render(assigns) do
-            ~H"\""
+            ~F"\""
             <LivePatch to="#">
               <i class="fa fa-link is-info"/>
               My link

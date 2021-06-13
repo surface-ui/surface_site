@@ -8,7 +8,7 @@ defmodule SurfaceSiteWeb.SampleComponents.ButtonInfo do
   end
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
       <h1 class="title">Button</h1>
       <h2 class="subtitle">
@@ -68,7 +68,7 @@ defmodule SurfaceSiteWeb.SampleComponents.ButtonInfo do
         </div>
       </#Example>
 
-      <ComponentAPI module={{ Button }} />
+      <ComponentAPI module={Button} />
     </div>
     """
   end

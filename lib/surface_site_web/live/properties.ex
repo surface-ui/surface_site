@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Properties do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -55,8 +55,8 @@ defmodule SurfaceSiteWeb.Properties do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Properties.Example01.Example }}
-                    line_range={{ 2..-3 }}
+                    module={SurfaceSiteWeb.Properties.Example01.Example}
+                    line_range={2..-3}
                     show_line_numbers
                     selected_lines="7"
                   />
@@ -102,8 +102,8 @@ defmodule SurfaceSiteWeb.Properties do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Properties.Example02 }}
-                line_range={{ 2..17 }}
+                module={SurfaceSiteWeb.Properties.Example02}
+                line_range={2..17}
               />
 
               <#Markdown>
@@ -117,8 +117,8 @@ defmodule SurfaceSiteWeb.Properties do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Properties.Example02.Example }}
-                    line_range={{ 28..30 }}
+                    module={SurfaceSiteWeb.Properties.Example02.Example}
+                    line_range={28..30}
                   />
                 </footer>
               </div>
@@ -150,8 +150,8 @@ defmodule SurfaceSiteWeb.Properties do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Properties.Example03 }}
-                line_range={{ 2..-3 }}
+                module={SurfaceSiteWeb.Properties.Example03}
+                line_range={2..-3}
                 show_line_numbers
                 selected_lines="5"
               />

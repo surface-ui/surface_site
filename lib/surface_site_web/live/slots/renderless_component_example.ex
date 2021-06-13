@@ -16,19 +16,19 @@ defmodule SurfaceSiteWeb.GettingStarted.RenderlessComponent do
     slot cols
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <table class="table is-bordered is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th :for={{ col <- @cols }}>
-              {{ Phoenix.Naming.humanize(col.field) }}
+            <th :for={col <- @cols}>
+              {Phoenix.Naming.humanize(col.field)}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr :for={{ item <- @items }} class={{ "is-selected": item[:selected] }}>
-            <td :for={{ col <- @cols, field = String.to_atom(col.field) }}>
-              {{ item[field] }}
+          <tr :for={item <- @items} class={"is-selected": item[:selected]}>
+            <td :for={col <- @cols, field = String.to_atom(col.field)}>
+              {item[field]}
             </td>
           </tr>
         </tbody>
@@ -59,9 +59,9 @@ defmodule SurfaceSiteWeb.GettingStarted.RenderlessComponent do
     end
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
-        <Grid items={{ @albums }}>
+        <Grid items={@albums}>
           <Column field="name" />
           <Column field="artist" />
           <Column field="released" />

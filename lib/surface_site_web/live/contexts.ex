@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Contexts do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -38,8 +38,8 @@ defmodule SurfaceSiteWeb.Contexts do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix }}
-                    line_range={{ 57..72 }}
+                    module={SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix}
+                    line_range={57..72}
                   />
                 </footer>
               </div>
@@ -64,8 +64,8 @@ defmodule SurfaceSiteWeb.Contexts do
                 <footer class="card-footer">
                   <#Code
                     language="surface"
-                    module={{ SurfaceSiteWeb.Contexts.Example01.Example }}
-                    line_range={{ 198..205 }}
+                    module={SurfaceSiteWeb.Contexts.Example01.Example}
+                    line_range={198..205}
                   />
                 </footer>
               </div>
@@ -82,8 +82,8 @@ defmodule SurfaceSiteWeb.Contexts do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.Form }}
-                line_range={{ 104..129 }}
+                module={SurfaceSiteWeb.Contexts.Example01.Form}
+                line_range={104..129}
               />
 
               <#Markdown>
@@ -96,8 +96,8 @@ defmodule SurfaceSiteWeb.Contexts do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.Field }}
-                line_range={{ 131..162 }}
+                module={SurfaceSiteWeb.Contexts.Example01.Field}
+                line_range={131..162}
               />
 
               <#Markdown>
@@ -109,8 +109,8 @@ defmodule SurfaceSiteWeb.Contexts do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Contexts.Example01.TextInput }}
-                line_range={{ 164..181 }}
+                module={SurfaceSiteWeb.Contexts.Example01.TextInput}
+                line_range={164..181}
               />
 
               <#Markdown>

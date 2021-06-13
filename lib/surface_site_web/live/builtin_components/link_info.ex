@@ -5,18 +5,18 @@ defmodule SurfaceSiteWeb.BuiltinComponents.LinkInfo do
   alias Surface.Components.Link
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Link }}>
-        <template slot="examples">
+      <ComponentInfo module={Link}>
+        <#template slot="examples">
           <#Example>
             <Link
               label="Go to source"
               to="https://github.com/surface-ui/surface/blob/master/lib/surface/components/link.ex"
-              opts={{ data: [confirm: "Are you sure?"] }}
+              opts={data: [confirm: "Are you sure?"]}
             />
           </#Example>
-        </template>
+        </#template>
       </ComponentInfo>
     </div>
     """

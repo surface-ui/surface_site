@@ -10,9 +10,9 @@ defmodule SurfaceSiteWeb.StateManagement.ReadmeExample do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <button class="button {{ @kind }}" phx-click={{ @click }} style="margin: 0px 5px">
-        <slot />
+      ~F"""
+      <button class={"button #{@kind}"} phx-click={@click} style="margin: 0px 5px">
+        <#slot />
       </button>
       """
     end
@@ -34,15 +34,15 @@ defmodule SurfaceSiteWeb.StateManagement.ReadmeExample do
     end
 
     def render(assigns) do
-      ~H"""
-      <div class={{ "modal", "is-active": @show }}>
+      ~F"""
+      <div class={"modal", "is-active": @show}>
         <div class="modal-background" />
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">{{ @title }}</p>
+            <p class="modal-card-title">{@title}</p>
           </header>
           <section class="modal-card-body">
-            <slot />
+            <#slot />
           </section>
           <footer class="modal-card-foot" style="justify-content: flex-end">
             <Button click="hide">Ok</Button>
@@ -77,7 +77,7 @@ defmodule SurfaceSiteWeb.StateManagement.ReadmeExample do
     alias SurfaceSiteWeb.Components.Button
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <Dialog title="Alert" id="dialog">
         This <b>Dialog</b> is a stateful component. Cool!
       </Dialog>
@@ -99,14 +99,14 @@ defmodule SurfaceSiteWeb.StateManagement.ReadmeExample do
     prop showHeader, :boolean, default: true
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
-        <div class="header" :if={{ @showHeader }}>
+        <div class="header" :if={@showHeader}>
           The Header
         </div>
         <ul>
-          <li :for={{ item <- @items }}>
-            {{ item }}
+          <li :for={item <- @items}>
+            {item}
           </li>
         </ul>
       </div>

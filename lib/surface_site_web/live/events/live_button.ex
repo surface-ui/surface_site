@@ -9,9 +9,9 @@ defmodule SurfaceSiteWeb.Events.LiveButton do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <button type="button" class="button {{ @kind }}" :on-click={{ @click }}>
-        <slot>{{ @label }}</slot>
+      ~F"""
+      <button type="button" class={"button #{@kind}"} :on-click={@click}>
+        <#slot>{@label}</#slot>
       </button>
       """
     end
@@ -23,9 +23,9 @@ defmodule SurfaceSiteWeb.Events.LiveButton do
     data count, :integer, default: 0
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
-        <p>Clicked <strong>{{ @count}}</strong> time(s)</p>
+        <p>Clicked <strong>{@count}</strong> time(s)</p>
         <Button label="Click!" click="clicked" />
         <Button label="Reset" kind="is-danger" click="reset" />
       </div>

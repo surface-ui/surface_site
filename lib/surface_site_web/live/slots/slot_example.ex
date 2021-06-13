@@ -7,10 +7,10 @@ defmodule SurfaceSiteWeb.Slots.SlotExample do
     slot default
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <section class="hero is-info">
         <div class="hero-body">
-          <slot />
+          <#slot />
         </div>
       </section>
       """
@@ -23,7 +23,7 @@ defmodule SurfaceSiteWeb.Slots.SlotExample do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <Hero>
         This content was wrapped by a Hero!
       </Hero>

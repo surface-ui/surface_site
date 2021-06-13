@@ -71,14 +71,14 @@ defmodule SurfaceSiteWeb.Components.Button do
   slot default
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <button
-      type={{@type}}
-      aria-label={{@aria_label}}
-      :on-click={{@click}}
-      disabled={{@disabled}}
-      value={{@value}}
-      class={{
+      type={@type}
+      aria-label={@aria_label}
+      :on-click={@click}
+      disabled={@disabled}
+      value={@value}
+      class={
         [button: @class == [],
         "is-#{@color}": @color,
         "is-#{@size}": @size,
@@ -90,9 +90,9 @@ defmodule SurfaceSiteWeb.Components.Button do
         "is-active": @active,
         "is-loading": @loading,
         "is-selected": @selected
-      ] ++ @class}}
-      :attrs={{ @opts }}>
-      <slot>{{ @label }}</slot>
+      ] ++ @class}
+      :attrs={@opts}>
+      <#slot>{@label}</#slot>
     </button>
     """
   end

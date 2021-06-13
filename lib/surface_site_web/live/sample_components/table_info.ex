@@ -18,27 +18,27 @@ defmodule SurfaceSiteWeb.SampleComponents.TableInfo do
   end
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Table }}>
-        <template slot="examples">
+      <ComponentInfo module={Table}>
+        <#template slot="examples">
           <#Example direction="vertical">
-            <Table data={{ album <- @albums }} row_class={{ &row_class/2 }} bordered>
+            <Table data={album <- @albums} row_class={&row_class/2} bordered>
               <Column label="Album">
-                {{ album.name }}
+                {album.name}
               </Column>
               <Column label="Released">
-                {{ album.released }}
+                {album.released}
               </Column>
               <Column label="Artist">
-                <a href="#">{{ album.artist }}</a>
+                <a href="#">{album.artist}</a>
               </Column>
             </Table>
           </#Example>
-        </template>
+        </#template>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ Column }} title="Table.Column" />
+      <ComponentInfo module={Column} title="Table.Column" />
     </div>
     """
   end

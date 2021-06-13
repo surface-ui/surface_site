@@ -8,12 +8,12 @@ defmodule SurfaceSiteWeb.Slots.SlotFallbackExample do
     slot default
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <section class="hero is-info">
         <div class="hero-body">
-          <slot>
+          <#slot>
             No content defined!
-          </slot>
+          </#slot>
         </div>
       </section>
       """
@@ -26,7 +26,7 @@ defmodule SurfaceSiteWeb.Slots.SlotFallbackExample do
     use Surface.Component
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <HeroWithFallbackContent />
       """
     end

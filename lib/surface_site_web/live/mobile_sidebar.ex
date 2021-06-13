@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.MobileSidebar do
   alias SurfaceSiteWeb.SidebarMenu
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div id="mobile-sidebar" class="mobile-sidebar" phx-hook="MobileSidebar">
       <div class="sidebar-background" onclick="closeMobileSidebar()" style="display: none;" />
       <div class="sidebar-content is-fixed is-fullheight animated faster" style="display: none;">

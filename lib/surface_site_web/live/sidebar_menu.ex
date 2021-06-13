@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
   alias Surface.Components.LiveRedirect
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <ul class="menu-list">
       <li>
         <LiveRedirect to="/">

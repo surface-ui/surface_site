@@ -8,9 +8,9 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
     slot default
 
     def render(assigns) do
-      ~H"""
-      <button class={{ "button", "is-info", "is-loading": @loading, "is-rounded": @rounded }}>
-        <slot />
+      ~F"""
+      <button class={"button", "is-info", "is-loading": @loading, "is-rounded": @rounded}>
+        <#slot />
       </button>
       """
     end
@@ -23,18 +23,18 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
     data rounded, :boolean, default: false
 
     def render(assigns) do
-      ~H"""
+      ~F"""
       <div>
-        <MyButton loading={{ @loading }} rounded={{ @rounded }}>
+        <MyButton loading={@loading} rounded={@rounded}>
           Change my style!
         </MyButton>
         <form phx-change="check_changed" style="margin-top: 30px">
           <label class="checkbox">
-            <input type="checkbox" name="loading" checked={{ @loading }}>
+            <input type="checkbox" name="loading" checked={@loading}>
             Loading
           </label>
           <label class="checkbox" style="margin-left: 20px">
-            <input type="checkbox" name="rounded" checked={{ @rounded }}>
+            <input type="checkbox" name="rounded" checked={@rounded}>
             Rounded
           </label>
         </form>
@@ -53,16 +53,16 @@ defmodule SurfaceSiteWeb.Properties.Example02 do
   end
 
   # defp interpolation(assigns) do
-  #   ~H"""
+  #   ~F"""
 
   # <!-- DON'T DO THIS!!! -->
 
   # <div>
-  #   {{ if @condition do }}
+  #   {if @condition do}
   #     <span>It's true!</span>
-  #   {{ else }}
+  #   {else}
   #     <span>It's false!</span>
-  #   {{ end }}
+  #   {end}
   # <div>
 
   #   """

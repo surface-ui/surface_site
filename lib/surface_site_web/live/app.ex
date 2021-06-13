@@ -6,7 +6,7 @@ defmodule SurfaceSiteWeb.App do
   alias SurfaceSiteWeb.MobileSidebar
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <section class="section" style="padding: 3rem 1.5rem">
       <MobileSidebar />
       <div class="container">

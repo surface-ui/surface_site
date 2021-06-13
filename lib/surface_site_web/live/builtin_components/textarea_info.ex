@@ -5,17 +5,17 @@ defmodule SurfaceSiteWeb.BuiltinComponents.TextAreaInfo do
   alias Surface.Components.Form.{TextArea}
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ TextArea }}>
-        <template slot="examples">
+      <ComponentInfo module={TextArea}>
+        <#template slot="examples">
           <#Example>
             <TextArea
               rows="4"
-              opts={{ placeholder: "4 lines of textarea" }}
+              opts={placeholder: "4 lines of textarea"}
             />
           </#Example>
-        </template>
+        </#template>
       </ComponentInfo>
     </div>
     """

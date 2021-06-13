@@ -12,7 +12,7 @@ defmodule SurfaceSiteWeb.SampleComponents do
   end
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -24,20 +24,20 @@ defmodule SurfaceSiteWeb.SampleComponents do
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
-                  <li :if={{ @component == nil }} class="is-active">
+                  <li :if={@component == nil} class="is-active">
                     <Link to="#" label="Sample UI Components" />
                   </li>
-                  <li :if={{ @component != nil }}>
+                  <li :if={@component != nil}>
                     <LiveRedirect label="Sample UI Components" to="/samplecomponents" />
                     <li class="is-active">
-                      <Link to="#" label={{ @component }} />
+                      <Link to="#" label={@component} />
                     </li>
                   </li>
                 </ul>
               </nav>
             </div>
             <div class="section">
-              {{ route(assigns) }}
+              {route(assigns)}
             </div>
           </div>
         </section>
@@ -47,32 +47,32 @@ defmodule SurfaceSiteWeb.SampleComponents do
   end
 
   defp route(%{component: nil} = assigns) do
-    ~H"""
+    ~F"""
     <SurfaceSiteWeb.SampleComponents.Index id="index" />
     """
   end
 
   defp route(%{component: "Button"} = assigns) do
-    ~H"""
+    ~F"""
     <SurfaceSiteWeb.SampleComponents.ButtonInfo id="ButtonInfo" />
     """
   end
 
   defp route(%{component: "Table"} = assigns) do
-    ~H"""
+    ~F"""
     <SurfaceSiteWeb.SampleComponents.TableInfo id="TableInfo" />
     """
   end
 
   defp route(%{component: "Tabs"} = assigns) do
-    ~H"""
+    ~F"""
     <SurfaceSiteWeb.SampleComponents.TabsInfo id="TabsInfo" />
     """
   end
 
   defp route(assigns) do
-    ~H"""
-    No documentation for component <strong>{{ @component }}</strong> defined.
+    ~F"""
+    No documentation for component <strong>{@component}</strong> defined.
     """
   end
 end

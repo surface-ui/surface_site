@@ -3,12 +3,12 @@ defmodule SurfaceSiteWeb.Components.Code do
 
   alias Surface.MacroComponent
 
-  prop language, :string
-  prop file, :string
-  prop module, :module
-  prop line_range, :range
-  prop show_line_numbers, :boolean
-  prop selected_lines, :string
+  prop language, :string, static: true
+  prop file, :string, static: true
+  prop module, :module, static: true
+  prop line_range, :range, static: true
+  prop show_line_numbers, :boolean, static: true
+  prop selected_lines, :string, static: true
 
   @impl true
   def expand(attributes, children, meta) do

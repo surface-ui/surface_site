@@ -2,20 +2,20 @@ defmodule SurfaceSiteWeb.LayoutView do
   use SurfaceSiteWeb, :view
 
   def render(_, assigns) do
-    ~H"""
+    ~F"""
     <html lang="en">
       <head>
-        {{ Phoenix.HTML.Tag.csrf_meta_tag() }}
+        {Phoenix.HTML.Tag.csrf_meta_tag()}
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
         <title>Surface</title>
-        <link phx-track-static rel="stylesheet" href={{ Routes.static_path(@conn, "/css/app.css") }}>
+        <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")}>
         <script
           defer
           phx-track-static
           type="text/javascript"
-          src={{ Routes.static_path(@conn, "/js/app.js") }}
+          src={Routes.static_path(@conn, "/js/app.js")}
         />
       </head>
       <body>
@@ -60,11 +60,11 @@ defmodule SurfaceSiteWeb.LayoutView do
             </div>
           </div>
         </section>
-        {{ @inner_content }}
+        {@inner_content}
         <footer class="footer" style="padding: 2rem 1.5rem 2rem">
           <div class="content has-text-centered">
             <p>
-              <strong>Surface</strong> <i>v{{ surface_version() }}</i> -
+              <strong>Surface</strong> <i>v{surface_version()}</i> -
               <a href="https://github.com/surface-ui/surface">github.com/surface-ui/surface</a>.
             </p>
           </div>

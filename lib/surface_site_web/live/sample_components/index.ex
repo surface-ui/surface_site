@@ -4,7 +4,7 @@ defmodule SurfaceSiteWeb.SampleComponents.Index do
   alias Surface.Components.Markdown
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div class="component-group">
       <h1 class="title">Sample UI Components</h1>
       <h2 class="subtitle">

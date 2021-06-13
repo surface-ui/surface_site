@@ -7,7 +7,7 @@ defmodule SurfaceSiteWeb.Events do
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div style="position: relative;">
       <MobileSidebar />
       <div class="sidebar-bg" />
@@ -58,13 +58,13 @@ defmodule SurfaceSiteWeb.Events do
 
               <div class="card dark">
                 <div class="card-content">
-                  {{ live_component(@socket, SurfaceSiteWeb.Events.PhoenixCounter.Counter, id: "phoenix_counter") }}
+                  {live_component(@socket, SurfaceSiteWeb.Events.PhoenixCounter.Counter, id: "phoenix_counter")}
                 </div>
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Events.PhoenixCounter }}
-                    line_range={{ 2..35 }}
+                    module={SurfaceSiteWeb.Events.PhoenixCounter}
+                    line_range={2..35}
                   />
                 </footer>
               </div>
@@ -97,9 +97,9 @@ defmodule SurfaceSiteWeb.Events do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Events.SurfaceCounter }}
+                    module={SurfaceSiteWeb.Events.SurfaceCounter}
                     show_line_numbers
-                    line_range={{ 2..23 }}
+                    line_range={2..23}
                     selected_lines="13-15"
                   />
                 </footer>
@@ -141,8 +141,8 @@ defmodule SurfaceSiteWeb.Events do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Events.LiveButton }}
-                line_range={{ 2..18 }}
+                module={SurfaceSiteWeb.Events.LiveButton}
+                line_range={2..18}
                 show_line_numbers
                 selected_lines="5, 12"
               />
@@ -163,8 +163,8 @@ defmodule SurfaceSiteWeb.Events do
                 <footer class="card-footer">
                 <#Code
                   language="elixir"
-                  module={{ SurfaceSiteWeb.Events.LiveButton }}
-                  line_range={{ 20..42 }}
+                  module={SurfaceSiteWeb.Events.LiveButton}
+                  line_range={20..42}
                   show_line_numbers
                   selected_lines="10-11, 16-18, 20-22"
                 />
@@ -192,8 +192,8 @@ defmodule SurfaceSiteWeb.Events do
 
               <#Code
                 language="elixir"
-                module={{ SurfaceSiteWeb.Events.DialogExample }}
-                line_range={{ 2..48 }}
+                module={SurfaceSiteWeb.Events.DialogExample}
+                line_range={2..48}
                 show_line_numbers
                 selected_lines="8, 44-46"
               />
@@ -215,8 +215,8 @@ defmodule SurfaceSiteWeb.Events do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour }}
-                    line_range={{ 101..-3 }}
+                    module={SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour}
+                    line_range={101..-3}
                   />
                 </footer>
               </div>
@@ -233,8 +233,8 @@ defmodule SurfaceSiteWeb.Events do
                 <footer class="card-footer">
                   <#Code
                     language="elixir"
-                    module={{ SurfaceSiteWeb.Events.DialogExample }}
-                    line_range={{ 50..93 }}
+                    module={SurfaceSiteWeb.Events.DialogExample}
+                    line_range={50..93}
                   />
                 </footer>
               </div>

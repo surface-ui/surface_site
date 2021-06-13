@@ -6,10 +6,10 @@ defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
   data albums, :list
 
   def render(assigns) do
-    ~H"""
+    ~F"""
     <div>
-      <ComponentInfo module={{ Tabs }}>
-        <template slot="examples">
+      <ComponentInfo module={Tabs}>
+        <#template slot="examples">
           <#Example>
             <Tabs id="tabs-example" boxed>
 
@@ -41,10 +41,10 @@ defmodule SurfaceSiteWeb.SampleComponents.TabsInfo do
 
             </Tabs>
           </#Example>
-        </template>
+        </#template>
       </ComponentInfo>
       <br><hr>
-      <ComponentInfo module={{ TabItem }} title="Tabs.TabItem" />
+      <ComponentInfo module={TabItem} title="Tabs.TabItem" />
     </div>
     """
   end
