@@ -174,114 +174,11 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 users need to be able to easily identify the public interface so they can properly interact with
                 the component. The recommendation is to have everything explicitly declared and well documented
                 using Surface's component API.
-
-                ## Directives
-
-                Directives are built-in attributes that can modify the translated code of a component at
-                compile time. Currently, the following directives are supported:
-
-                  * `:for` - Iterates over a list (generator) and renders the content of the tag (or component)
-                    for each item in the list.
-
-                  * `:if` - Conditionally render a tag (or component). The code will be rendered if the expression
-                    is evaluated to a truthy value.
-
-                  * `:show` - Conditionally shows/hides an HTML tag, keeping the rendered element in the DOM even
-                    when the value is `false`.
-
-                  * `:let` - Declares which slot props will be used in the current scope.
-
-                  * `:props` - When defined in a component, it passes dynamic properties to it.
-                    If defined in a `<slot>`, it passes slot props from the slot's scope to the associated content
-                    that is being prepared to fill the slot. For more information see section "**Slots props**"
-                    in the [Slots](/slots) documentation.
-
-                  * `:attrs`- Passes dynamic attributes to any HTML tag.
-
-                  * `:on-[event]` - Sets a `phx-*` event binding defining the component itself as the
-                    default handler (target). This is the prefered way to use `phx` events in **Surface** as it can
-                    properly handle properties of type `:event`. Available directives are: `:on-click`,
-                    `:on-capture-click`, `:on-blur`, `:on-focus`, `:on-change`, `:on-submit`, `:on-keydown`,
-                    `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`.
-
-                Here's an example using the `:for` directive:
-
-                ```surface
-                <ul>
-                  <li :for={{ item <- @items }}>
-                    {{ item.name }}
-                  </li>
-                </ul>
-                ```
-
-                The `:for` directive will be responsible for injecting the
-                necessary code to iterate over the list of items rendering each item's name.
-
-                ### Modifiers
-
-                Directives can also have modifiers that allow users to customize their behaviour.
-
-                For instance, the `:for` directive has two modifiers, `index` and `with_index`. Both
-                are mostly used when rendering named slots:
-
-                Using `index`:
-
-                Example 1
-
-                ```surface
-                <td :for.index={{ @cols }}>
-                  <slot name="cols" index={{ index }}/>
-                </td>
-                ```
-
-                Example 2
-
-                ```surface
-                <td :for.index={{ i <- @cols }}>
-                  <slot name="cols" index={{ i }}/>
-                </td>
-                ```
-
-                Using `with_index`:
-
-                ```surface
-                <td :for.with_index={{ {col, i} <- @cols }}>
-                  Title: {{ col.title }}
-                  <slot name="cols" index={{ i }}/>
-                </td>
-                ```
-
-                ## Interpolation
-
-                In the example above, the `{{ item.name }}` instructs the compiler to inject
-                the expression inside `{{ }}` into the generated code. Any valid expression is accepted.
-
-                **Important note**: Pay attention that just like React, Surface does not allow incomplete
-                expressions to be interpolated in the template. So something like:
-
-                ```surface
-                <!-- DON'T DO THIS!!! -->
-
-                <div>
-                  {{ if @condition do }}
-                    <span>It's true!</span>
-                  {{ else }}
-                    <span>It's false!</span>
-                  {{ end }}
-                <div>
-                ```
-                {: show_line_numbers=true selected_lines="6"}
-
-                it's not accepted and will throw a `compile error`. If you find yourself in a situation
-                where you need to write this kind of code, try to create assigns/variables that represent
-                the final state and use directives like `:if` or `:show` instead. You can also try to move
-                the logic to a separate function. Having this type of conditionals inside
-                your templates tends to pollute the code a lot and it's, in general, not recommended.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/documentation">
-                ← Introduction
+              <LiveRedirect to="/template_syntax">
+                ← Template Syntax
               </LiveRedirect>
               <LiveRedirect to="/properties">
                 Properties →

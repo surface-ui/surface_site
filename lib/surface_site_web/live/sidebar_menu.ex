@@ -31,6 +31,14 @@ defmodule SurfaceSiteWeb.SidebarMenu do
         </LiveRedirect>
         <ul>
           <li>
+            <LiveRedirect class="" to="/template_syntax">
+              <span class="icon">
+                <i class="fa fa-code" />
+              </span>
+              Template Syntax
+            </LiveRedirect>
+          </li>
+          <li>
             <LiveRedirect class="" to="/components_basics">
               <span class="icon">
                 <i class="far fa-file-code" />
@@ -96,14 +104,6 @@ defmodule SurfaceSiteWeb.SidebarMenu do
                 <i class="fa fa-sitemap" />
               </span>
               Contexts
-            </LiveRedirect>
-          </li>
-          <li>
-            <LiveRedirect class="" to="/template_syntax">
-              <span class="icon">
-                <i class="fa fa-code" />
-              </span>
-              Template Syntax
             </LiveRedirect>
           </li>
           <li>

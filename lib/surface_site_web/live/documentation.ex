@@ -50,7 +50,7 @@ defmodule SurfaceSiteWeb.Documentation do
                 ## Features
 
                   * **An HTML-centric** templating language with built-in directives (`:for`, `:if`, ...) and
-                    syntactic sugar for attributes (inspired by Vue.js).
+                    syntactic sugar for attributes.
 
                   * **Components as modules** - they can be stateless, stateful, renderless or compile-time.
 
@@ -71,8 +71,8 @@ defmodule SurfaceSiteWeb.Documentation do
               <LiveRedirect to="/getting_started">
                 ← Getting Started
               </LiveRedirect>
-              <LiveRedirect class="nav-prev-next-next" to="/components_basics">
-                Components Basics →
+              <LiveRedirect to="/template_syntax">
+                Template Syntax →
               </LiveRedirect>
             </nav>
           </div>
