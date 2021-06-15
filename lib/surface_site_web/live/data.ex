@@ -45,7 +45,9 @@ defmodule SurfaceSiteWeb.Data do
                 ### Supported options
 
                   * `default` - defines a default value for the assign.
-                  * `values` - the list or range of possible values for the assign.
+                  * `values` - the list or range of values suggested for the assign.
+                  * `values!` - the list or range of all possible values for the assign. Unlike `values`, this
+                    option enforces validation of the default value against the given list.
 
                 In the following example, we create a simple `Counter` component that has its state
                 defined by a single assign named `count`. You can use the `-` and `+` buttons to

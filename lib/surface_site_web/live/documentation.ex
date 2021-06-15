@@ -31,40 +31,33 @@ defmodule SurfaceSiteWeb.Documentation do
                 Surface is a **server-side rendering** component library that allows developers to
                 build **rich interactive user-interfaces**, writing minimal custom Javascript.
 
-                Built on top of [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view/) and its new
-                [LiveComponent](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveComponent.html), Surface
-                leverages the amazing Phoenix Framework to provide a **fast** and **productive** solution to build
-                modern web applications.
+                Built on top of [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view/) and its component API,
+                Surface leverages the amazing Phoenix Framework to provide a **fast** and **productive** solution
+                to build modern web applications.
 
                 For installation instructions, please visit the [Getting Started](/getting_started) guide.
 
-                ## How does it work?
-
-                Surface's custom compiler translates components defined in an extended HTML-like syntax
-                into Elixir's Abstract Syntax Tree (AST). It also translates standard HTML nodes, allowing to
-                extend their behaviour adding new features like syntactic sugar on attributes definition,
-                directives, static validation and more.
-
-                In order to have your code translated, you need to use the `~H` sigil when defining your templates.
-
                 ## Features
 
-                  * **An HTML-centric** templating language with built-in directives (`:for`, `:if`, ...) and
-                    syntactic sugar for attributes.
+                  * **An HTML-centric** templating language.
 
                   * **Components as modules** - they can be stateless, stateful, renderless or compile-time.
 
-                  * **Declarative properties** - explicitly declare the inputs (properties and events) of each component.
+                  * **Declarative properties** - explicitly declare the inputs (properties, slots and events) of each component.
 
                   * **Slots** - placeholders declared by a component that you can fill up with **custom content**.
 
                   * **Contexts** - allows a parent component to share data with its children without passing them as properties.
 
-                  * **Compile-time checking** of components and their properties, slots and many other validations.
+                  * **Compile-time checking** for the templates, components and their properties, events, slots and many other validations.
 
                   * **Integration with editor/tools** for warnings/errors, syntax highlighting, jump-to-definition,
                     auto-completion (soon!) and more.
 
+                ## How to use it?
+
+                In order to have your templates automatically translated, you need to write the Surface code either wrapped in a `~F`
+                sigil or in a `.sface` file.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
