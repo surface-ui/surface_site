@@ -38,10 +38,9 @@ defmodule SurfaceSiteWeb.Components.Code do
     id = opts[:id]
     language = opts[:language]
     show_line_numbers = opts[:show_line_numbers]
-    selected_lines = opts[:selected_lines]
+    selected_lines = opts[:selected_lines] || ""
 
     class = build_class(language, show_line_numbers)
-    selected_lines_attrs = build_selected_lines_attrs(selected_lines, meta)
 
     code_content =
       code
@@ -55,7 +54,7 @@ defmodule SurfaceSiteWeb.Components.Code do
 
     quote_surface do
       ~F"""
-      <pre id={^container_id} class={^class} phx-update="ignore"><code id={^id} class={^class} phx-hook="Highlight">{^code_content}</code></pre>
+      <pre id={^container_id} class={^class} data-line={^selected_lines} phx-update="ignore"><code id={^id} class={^class} phx-hook="Highlight">{^code_content}</code></pre>
       """
     end
   end
@@ -117,17 +116,6 @@ defmodule SurfaceSiteWeb.Components.Code do
       end
 
     Enum.join(classes, " ")
-  end
-
-  defp build_selected_lines_attrs(selected_lines, meta) do
-    [
-      %Surface.AST.Attribute{
-        meta: meta,
-        name: "data-line",
-        type: :string,
-        value: %Surface.AST.Literal{value: selected_lines}
-      }
-    ]
   end
 
   defp normalize_line_range(from..to) do
