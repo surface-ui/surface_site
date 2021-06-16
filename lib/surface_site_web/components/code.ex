@@ -38,7 +38,7 @@ defmodule SurfaceSiteWeb.Components.Code do
     id = opts[:id]
     language = opts[:language]
     show_line_numbers = opts[:show_line_numbers]
-    selected_lines = opts[:selected_lines] || ""
+    selected_lines = opts[:selected_lines] || false
 
     class = build_class(language, show_line_numbers)
 

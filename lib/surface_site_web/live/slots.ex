@@ -44,11 +44,10 @@ defmodule SurfaceSiteWeb.Slots do
                 ### Supported options
 
                   * `required` - declares the slot as required. Default is `false`.
-                  * `props` - the list of custom properties that should be passed to the associated
-                    slotable content.
+                  * `args` - the list of arguments that should be passed to the associated slotable content.
                   * `as` - defines the slot assign name. Useful if you want to reuse the slot name as a prop.
 
-                ## Rendering content with `<slot>`
+                ## Rendering content with `<#slot>`
 
                 Slots are similar to properties as they are exposed as part of the component's **public API**.
                 The main difference is that while properties are passed as attributes, slots are injected inside
@@ -93,11 +92,11 @@ defmodule SurfaceSiteWeb.Slots do
                 module={SurfaceSiteWeb.Slots.SlotFallbackExample}
                 line_range={4..21}
                 show_line_numbers
-                selected_lines="5, 11-13"
+                selected_lines="12"
               />
 
               <#Markdown>
-                If at least one child element is defined inside `<slot>...</slot>`, the inner content is used as the default content for that slot.
+                If at least one child element is defined inside `<#slot>...</#slot>`, the inner content is used as the default content for that slot.
                 Note that we removed the `required` option in the `slot` declaration. If we had not done so,
                 a warning would inform you that the fallback content would have no effect, thanks to the compiler!
               </#Markdown>
@@ -128,16 +127,18 @@ defmodule SurfaceSiteWeb.Slots do
                     module={SurfaceSiteWeb.Slots.NamedSlotsExample}
                     line_range={39..60}
                     show_line_numbers
-                    selected_lines="7-9, 11-13, 15-18"
+                    selected_lines="7-9, 15-18"
                   />
                 </footer>
               </div>
 
               <#Markdown>
-                As you can see in the example, we are using 3 slots:
+                As you can see in the example, we are assigning 3 slots:
                 - The header slot
                 - The default slot that contains everything that is not in any other slot
                 - The footer slot
+
+                > **Note**: The `<:header>` notation is a shorthand for `<#template name="header"/>`.
 
                 And finally our `Card` component defining all three slots:
               </#Markdown>
@@ -147,15 +148,14 @@ defmodule SurfaceSiteWeb.Slots do
                 module={SurfaceSiteWeb.Slots.NamedSlotsExample}
                 line_range={4..35}
                 show_line_numbers
-                selected_lines="5,8,11,18,23,27"
               />
 
               <#Markdown>
-                > **Note**: Pay attention that defining a `<slot />` without a name is the same as defining it as `<slot name="default"/>`.
+                > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<slot name="default"/>`.
 
                 ## Typed slotables
 
-                Instead of using `<template slot="...">`, you might want to define a custom component to
+                Instead of using `<#template slot="...">` or its shorthand, you might want to define a custom component to
                 hold the slot's content. In our case, we can define a `<Footer>` and a `<Header>`
                 component, setting the `:slot` option as the name of the slot in the parent card.
               </#Markdown>
@@ -183,10 +183,10 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
-                ## Slot props
+                ## Slot arguments
 
                 There are cases when it's necessary to pass information from the child's scope to
-                the corresponding slot content that is being injected by the parent. Using **slot props**, Surface
+                the corresponding slot content that is being injected by the parent. Using **slot arguments**, Surface
                 gives you an extra layer of encapsulation as it allows you to expose only the pieces
                 of data that the parent needs, keeping everything else in the child's scope private
                 to the parent.
@@ -215,15 +215,16 @@ defmodule SurfaceSiteWeb.Slots do
                 </Rating>
               </#LiveExample>
 
+              <br>
+
               <div class="slots-page-props-example">
                 <#LiveExample>
                   <Rating :let={value: value, max: max} id="rating_2">
-                    <span
-                      :for={i <- 1..max}
-                      class={:icon, "has-text-warning": i <= value}
-                    >
-                      <i class="fas fa-star" />
-                    </span>
+                    {#for i <- 1..max}
+                      <span class={:icon, "has-text-warning": i <= value}>
+                        <i class="fas fa-star" />
+                      </span>
+                    {/for}
                   </Rating>
                 </#LiveExample>
               </div>
@@ -256,7 +257,7 @@ defmodule SurfaceSiteWeb.Slots do
                     language="elixir"
                     module={SurfaceSiteWeb.GettingStarted.RenderlessComponent}
                     show_line_numbers
-                    line_range={40..72}
+                    line_range={42..-3}
                     selected_lines="26-28"
                   />
                 </footer>
@@ -270,8 +271,8 @@ defmodule SurfaceSiteWeb.Slots do
                 language="elixir"
                 module={SurfaceSiteWeb.GettingStarted.RenderlessComponent.Example}
                 show_line_numbers
-                line_range={2..38}
-                selected_lines="2, 15, 22, 29"
+                line_range={2..40}
+                selected_lines="2, 15"
               />
 
               <#Markdown>
@@ -281,7 +282,7 @@ defmodule SurfaceSiteWeb.Slots do
                 > **Note**: As you can see, the `Column` component does not render anything. It just holds the
                 provided values for its properties. All the rendering is done by the parent `Grid`.
 
-                ## Binding slot props to generators
+                ## Binding slot arguments to generators
 
                 Imagine that instead of passing the field related to the column,
                 you want to define some markup that should be rendered for each column. This would
@@ -297,8 +298,7 @@ defmodule SurfaceSiteWeb.Slots do
                     language="elixir"
                     module={SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators}
                     show_line_numbers
-                    line_range={56..69}
-                    selected_lines="4"
+                    line_range={58..-4}
                   />
                 </footer>
               </div>
@@ -321,24 +321,24 @@ defmodule SurfaceSiteWeb.Slots do
               <#Code
                 language="elixir"
                 module={SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example}
-                line_range={2..38}
+                line_range={2..40}
                 show_line_numbers
-                selected_lines="15,29-30"
+                selected_lines="15,31"
               />
 
               <#Markdown>
                 Let's take a closer look at the two important changes we made in our `Grid`:
 
-                  1. The `cols` slot now declares a slot prop `item`
+                  1. The `cols` slot now declares a slot argument `item`
                     but instead of just defining the name of the prop (as we did for our `Rating` component),
-                    we bound the value of that prop to each value (item) produced by the generator `items`.
+                    we bound the value of that argument to each value (item) produced by the generator `items`.
 
-                  2. We use `<slot>` to render each column's content passing the current item.
+                  2. We use `<#slot>` to render each column's content passing the current item.
 
                 > **Note**: Slot contents are always passed as lists. However,
                 if you expect receiving a single content block, like at the beginning
-                of this section, you can use `<slot name="<name>" />` as a
-                shorthand for `<slot name="<name>" index="0" />`.
+                of this section, you can use `<#slot name="<name>" />` as a
+                shorthand for `<#slot name="<name>" index="0" />`.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">

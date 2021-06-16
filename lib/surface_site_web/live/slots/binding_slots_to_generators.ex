@@ -20,17 +20,19 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
       <table class="table is-bordered is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th :for={col <- @cols}>
-              {col.title}
-            </th>
+            {#for col <- @cols}
+              <th>{col.title}</th>
+            {/for}
           </tr>
         </thead>
         <tbody>
-          <tr :for={item <- @items} class={"is-selected": item[:selected]}>
-            <td :for.index={@cols}>
-              <#slot name="cols" index={index} :args={item: item} />
-            </td>
-          </tr>
+          {#for item <- @items}
+            <tr class={"is-selected": item[:selected]}>
+              {#for {_, index} <- Enum.with_index(@cols)}
+                <td><#slot name="cols" index={index} :args={item: item} /></td>
+              {/for}
+            </tr>
+          {/for}
         </tbody>
       </table>
       """

@@ -20,17 +20,19 @@ defmodule SurfaceSiteWeb.GettingStarted.RenderlessComponent do
       <table class="table is-bordered is-striped is-hoverable is-fullwidth">
         <thead>
           <tr>
-            <th :for={col <- @cols}>
-              {Phoenix.Naming.humanize(col.field)}
-            </th>
+            {#for col <- @cols}
+              <th>{Phoenix.Naming.humanize(col.field)}</th>
+            {/for}
           </tr>
         </thead>
         <tbody>
-          <tr :for={item <- @items} class={"is-selected": item[:selected]}>
-            <td :for={col <- @cols, field = String.to_atom(col.field)}>
-              {item[field]}
-            </td>
-          </tr>
+          {#for item <- @items}
+            <tr class={"is-selected": item[:selected]}>
+              {#for col <- @cols, field = String.to_atom(col.field)}
+                <td>{item[field]}</td>
+              {/for}
+            </tr>
+          {/for}
         </tbody>
       </table>
       """
