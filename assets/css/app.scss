@@ -544,3 +544,13 @@ div#nprogress .bar {
 div#nprogress .bar .peg {
   box-shadow: 0 0 10px hsl(0, 0%, 86%), 0 0 5px hsl(0, 0%, 86%);
 }
+
+/* Extends vsc-dardk-plus */
+
+.token.slotable-name.class-name{
+  color: #9cdcfe;
+}
+
+.token.slotable-name.class-name > .token.token.punctuation {
+  color: #808080;
+}
