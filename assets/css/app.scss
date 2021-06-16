@@ -293,6 +293,10 @@ body.mobile-sidebar-open {
   width: 50%;
 }
 
+.Example .code {
+  display: flex;
+}
+
 .Example.horizontal .code > pre {
   border-left: 2px solid #ffdd57;
   border-radius: 0px;
@@ -305,7 +309,6 @@ body.mobile-sidebar-open {
   padding-top: 0px;
   margin: 0;
   font-size: 1em;
-  height: 100%;
 }
 
 .Example > .code > pre > code {
