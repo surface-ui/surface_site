@@ -56,7 +56,7 @@ defmodule SurfaceSiteWeb.Testing do
                         "\""
                 end
                 ```
-                {: show_line_numbers=true selected_lines="9-15"}
+                {: show_line_numbers=true}
 
                 ## Initializing assigns
 
@@ -69,7 +69,7 @@ defmodule SurfaceSiteWeb.Testing do
                   html =
                     render_surface do
                       ~F"\""
-                      <Button class={{ @class }}>
+                      <Button class={@class}>
                         Ok
                       </Button>
                       "\""
@@ -82,7 +82,7 @@ defmodule SurfaceSiteWeb.Testing do
                          "\""
                 end
                 ```
-                {: show_line_numbers=true selected_lines="2, 7"}
+                {: show_line_numbers=true selected_lines="2"}
 
                 ## Testing stateful components
 

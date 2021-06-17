@@ -117,13 +117,13 @@ defmodule SurfaceSiteWeb.Contexts do
                 Instead of:
 
                 ```surface
-                <Context put={{ form: form }}>
+                <Context put={form: form}>
                 ```
 
                 you can use:
 
                 ```surface
-                <Context put={{ __MODULE__, form: form }}>
+                <Context put={__MODULE__, form: form}>
                 ```
 
                 That would create a composite key containing both atoms, i.e. `{Form, :form}` for that value.
@@ -131,7 +131,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 Now, whenever you need to retrieve the value, you must pass the scope too:
 
                 ```surface
-                <Context get={{ Form, form: f }}>
+                <Context get={Form, form: f}>
                 ```
 
                 > **Note:** If you want to distribute a library that store values into the context,

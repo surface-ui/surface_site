@@ -545,12 +545,14 @@ div#nprogress .bar .peg {
   box-shadow: 0 0 10px hsl(0, 0%, 86%), 0 0 5px hsl(0, 0%, 86%);
 }
 
-/* Extends vsc-dardk-plus */
+/* Customize vsc-dardk-plus theme */
 
 .token.slotable-name.class-name{
   color: #9cdcfe;
 }
 
-.token.slotable-name.class-name > .token.token.punctuation {
+.token.slotable-name.class-name > .token.token.punctuation,
+.token.block-expression-open > .token.punctuation,
+.token.block-expression-close > .token.punctuation {
   color: #808080;
 }
