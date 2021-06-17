@@ -151,7 +151,7 @@ defmodule SurfaceSiteWeb.Slots do
               />
 
               <#Markdown>
-                > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<slot name="default"/>`.
+                > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<#slot name="default"/>`.
 
                 ## Typed slotables
 

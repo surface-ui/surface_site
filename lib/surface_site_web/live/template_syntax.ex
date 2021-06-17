@@ -218,7 +218,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   * `:show` - Conditionally shows/hides an HTML tag, keeping the rendered element in the DOM even
                     when the value is `false`.
 
-                  * `:let` - Declares which slot props will be used in the current scope.
+                  * `:let` - Declares which slot arguments will be used in the current scope.
 
                   * `:args` - Used in `<#slot>`, it passes slot arguments from the slot's scope to the associated content
                     that is being prepared to fill the slot. For more information see section "**Slots props**"
@@ -253,7 +253,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 ```surface
                 <td :for.index={@cols}>
-                  <slot name="cols" index={index}/>
+                  <#slot name="cols" index={index}/>
                 </td>
                 ```
 
@@ -261,7 +261,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 ```surface
                 <td :for.index={i <- @cols}>
-                  <slot name="cols" index={i}/>
+                  <#slot name="cols" index={i}/>
                 </td>
                 ```
 
@@ -270,7 +270,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 ```surface
                 <td :for.with_index={{col, i} <- @cols}>
                   Title: {col.title}
-                  <slot name="cols" index={i}/>
+                  <#slot name="cols" index={i}/>
                 </td>
                 ```
 

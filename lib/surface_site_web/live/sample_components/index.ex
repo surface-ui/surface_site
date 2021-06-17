@@ -31,7 +31,7 @@ defmodule SurfaceSiteWeb.SampleComponents.Index do
 
         Add the following line to your `root.html.leex`:
 
-        ```html
+        ```surface
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
         ```
 
@@ -39,7 +39,7 @@ defmodule SurfaceSiteWeb.SampleComponents.Index do
         In this case, add the following line to your `root.html.leex`:
 
         ```surface
-        <link rel="stylesheet" href={{ Routes.static_path(@conn, "/css/bulma.min.css") }} />
+        <link rel="stylesheet" href={Routes.static_path(@conn, "/css/bulma.min.css")} />
         ```
 
         ### 2. NPM or Yarn

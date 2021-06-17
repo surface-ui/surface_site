@@ -115,7 +115,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                 You can also access hooks defined by other components using option `:from`:
 
                 ```surface
-                <div :hook={{ "Card", from: MyComponents.CardList }}>
+                <div :hook={"Card", from: MyComponents.CardList}>
                   ...
                 </div>
                 ```

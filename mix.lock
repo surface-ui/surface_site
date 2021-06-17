@@ -24,8 +24,8 @@
   "plug_crypto": {:hex, :plug_crypto, "1.2.2", "05654514ac717ff3a1843204b424477d9e60c143406aa94daf2274fdd280794d", [:mix], [], "hexpm", "87631c7ad914a5a445f0a3809f99b079113ae4ed4b867348dd9eec288cecb6db"},
   "postgrex": {:hex, :postgrex, "0.15.9", "46f8fe6f25711aeb861c4d0ae09780facfdf3adbd2fb5594ead61504dd489bda", [:mix], [{:connection, "~> 1.0", [hex: :connection, repo: "hexpm", optional: false]}, {:db_connection, "~> 2.1", [hex: :db_connection, repo: "hexpm", optional: false]}, {:decimal, "~> 1.5 or ~> 2.0", [hex: :decimal, repo: "hexpm", optional: false]}, {:jason, "~> 1.0", [hex: :jason, repo: "hexpm", optional: true]}], "hexpm", "610719103e4cb2223d4ab78f9f0f3e720320eeca6011415ab4137ddef730adee"},
   "ranch": {:hex, :ranch, "1.8.0", "8c7a100a139fd57f17327b6413e4167ac559fbc04ca7448e9be9057311597a1d", [:make, :rebar3], [], "hexpm", "49fbcfd3682fab1f5d109351b61257676da1a2fdbe295904176d5e521a2ddfe5"},
-  "surface": {:git, "https://github.com/surface-ui/surface.git", "f3ffd9af5289d861575974275307bf4cd80614a7", []},
-  "surface_formatter": {:git, "https://github.com/surface-ui/surface_formatter.git", "8a8f9d0b56cea2dbeff45dd2361ecfe7c9225ea0", [branch: "support-new-surface-syntax"]},
+  "surface": {:git, "https://github.com/surface-ui/surface.git", "91dd0aa41c376fbc3e9178b02a1becba0d08d28f", []},
+  "surface_formatter": {:git, "https://github.com/surface-ui/surface_formatter.git", "ec84811b417ab0b54c0d42e716f36a0303b42d32", [branch: "support-new-surface-syntax"]},
   "surface_markdown": {:git, "https://github.com/surface-ui/surface_markdown.git", "2b8c6661097e9510e8d6f62531357be5cf6366a3", [branch: "surface-next"]},
   "telemetry": {:hex, :telemetry, "0.4.3", "a06428a514bdbc63293cd9a6263aad00ddeb66f608163bdec7c8995784080818", [:rebar3], [], "hexpm", "eb72b8365ffda5bed68a620d1da88525e326cb82a75ee61354fc24b844768041"},
 }
