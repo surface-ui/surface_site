@@ -240,40 +240,6 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                     > **Soft deprecation alert:** It's recommended to use `{... }` instead of `:attrs` and `:props` as
                     > there are plans to remove those directives in future versions.
 
-                ### Modifiers
-
-                Directives can also have modifiers that allow users to customize their behaviour.
-
-                For instance, the `:for` directive has two modifiers, `index` and `with_index`. Both
-                are mostly used when rendering named slots:
-
-                Using `index`:
-
-                Example 1
-
-                ```surface
-                <td :for.index={@cols}>
-                  <#slot name="cols" index={index}/>
-                </td>
-                ```
-
-                Example 2
-
-                ```surface
-                <td :for.index={i <- @cols}>
-                  <#slot name="cols" index={i}/>
-                </td>
-                ```
-
-                Using `with_index`:
-
-                ```surface
-                <td :for.with_index={{col, i} <- @cols}>
-                  Title: {col.title}
-                  <#slot name="cols" index={i}/>
-                </td>
-                ```
-
                 ## Comments
 
                 There are two types for comments that can be injected into a Surface template, **public** and **private**.

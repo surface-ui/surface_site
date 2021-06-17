@@ -153,6 +153,10 @@ body.mobile-sidebar-open {
   margin-top: 2em;
 }
 
+.markdown code {
+  padding: 0.1em 0.2em;
+}
+
 .markdown.content blockquote {
   border-left-width: 7px;
 }
@@ -177,6 +181,7 @@ body.mobile-sidebar-open {
 .component-group h2.subtitle {
   color: #7a7a7a;
 }
+
 /* SurfaceSiteWeb.Components.ComponentInfo */
 
 .ComponentInfo .subtitle {
@@ -545,7 +550,7 @@ div#nprogress .bar .peg {
   box-shadow: 0 0 10px hsl(0, 0%, 86%), 0 0 5px hsl(0, 0%, 86%);
 }
 
-/* Customize vsc-dardk-plus theme */
+/* Customize vsc-dark-plus theme */
 
 .token.slotable-name.class-name{
   color: #9cdcfe;
