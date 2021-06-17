@@ -7,6 +7,10 @@ body.mobile-sidebar-open {
   position: fixed;
 }
 
+code {
+  padding: 0.1em 0.2em;
+}
+
 .menu-list li ul {
   margin-top: .2em;
   margin-bottom: .3em;
@@ -151,10 +155,6 @@ body.mobile-sidebar-open {
 
 .markdown {
   margin-top: 2em;
-}
-
-.markdown code {
-  padding: 0.1em 0.2em;
 }
 
 .markdown.content blockquote {
