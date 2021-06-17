@@ -76,6 +76,14 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 That's all!
 
+                ## Migrating from `v0.4.x` to `v0.5.x`
+
+                Surface `v0.5.0` introduces a new syntax which requires migrating components written in previous versions.
+                In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
+                can automatically translate the old syntax into the new one.
+
+                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/master/MIGRATING.md) for details.
+
                 ## Using Surface with Phoenix templates (optional)
 
                 Using Surface components in **vanilla** Phoenix templates is partially supported but usually

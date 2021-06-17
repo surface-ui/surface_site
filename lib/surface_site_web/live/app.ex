@@ -36,7 +36,7 @@ defmodule SurfaceSiteWeb.App do
               <div class="column is-4">
                 <CardWithIcon icon="fa-code" title="Sample UI Components">
                   <p>
-                    A set of sample components you can use as templates to
+                    A set of sample components that you can use as templates to
                     create your own custom components for your projects, including
                     buttons, tabs, table grids and more.
                   </p>
