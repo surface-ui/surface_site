@@ -65,4 +65,40 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
       """
     end
   end
+
+  defmodule FancyHeader do
+    use Surface.Component, slot: "header"
+
+    slot default, required: true
+
+    def render(assigns) do
+      ~F"""
+        <#slot name="default" />
+        <span> 😉</span>
+      """
+    end
+  end
+
+  defmodule FancyHeaderExample do
+    use Surface.Component
+
+    def render(assigns) do
+      ~F"""
+      <Card>
+        <FancyHeader>
+          A fancy card component
+        </FancyHeader>
+
+        This is the same Card component but now we're using
+        <strong>rendered typed slotables</strong> instead of <strong>simple typed slotables</strong>.
+        The <strong>FancyHeader</strong> acts as a slot and as a wrapper for its content.
+
+        <Footer>
+          <a href="#" class="card-footer-item">Footer Item 1</a>
+          <a href="#" class="card-footer-item">Footer Item 2</a>
+        </Footer>
+      </Card>
+      """
+    end
+  end
 end

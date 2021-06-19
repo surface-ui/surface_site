@@ -183,6 +183,36 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
+                ## Rendered typed slotable
+
+                Typed slotable component could have a render function that you could use to wrap the content of the slot.
+                It is pretty useful when you would like to have different behaviour for the same slot of a component.
+                For example, you could have different headers for the `Card` component.
+
+                To use them, as typed slotable, we don't have to change anything in the `Card` component.
+                We just need to add a `render` function to the typed slotable component.
+
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Slots.TypedSlotsExample.FancyHeaderExample />
+                </div>
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={SurfaceSiteWeb.Slots.TypedSlotsExample}
+                    show_line_numbers
+                    line_range={69..103}
+                    selected_lines="6-11, 20-22"
+                  />
+                </footer>
+              </div>
+
+
+              <#Markdown>
+                > **Note**: You can use the `prop` and the `slot` macro with rendered typed slotable component.
+
                 ## Slot arguments
 
                 There are cases when it's necessary to pass information from the child's scope to
