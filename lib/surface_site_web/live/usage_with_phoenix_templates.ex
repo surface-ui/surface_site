@@ -41,7 +41,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 This requires no extra step and you'll be able to enjoy all its features without any limitation.
 
                 2. **[Limited]** Follow the steps described in the [Setting up Phoenix views for Surface](/usage_with_phoenix_templates#setting-up-phoenix-views-for-surface)
-                section below and use `~H` or `.sface` instead of `~L` and `.leex`. This should work fine but some features
+                section below and use `~F` or `.sface` instead of `~L` and `.leex`. This should work fine but some features
                 may require extra work like implementing `mount` to call `Surface.init(socket)`.
 
                 3. **[Not Recommened]** Inject the component using phoenix's `live_component/4` directly in your template.
