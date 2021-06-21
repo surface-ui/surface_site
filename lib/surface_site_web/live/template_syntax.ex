@@ -38,33 +38,13 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 Tags and components can also be written as self-closing tags, like `<button/>` or `<Footer/>`.
 
+                Void elements defined by the [HTML specs](https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#void-elements),
+                can be written in both forms. As self-closing tags, like `<br/>` or in its original form `<br>`.
+
                 ## Built-in Tags and Macro Components
 
                 Some special built-in tags as well as macro components must be injected with the `#` prefix. Currently,
                 Surface provides the `<#template>` and `<#slot>` special components and the `<#Raw>` macro component.
-
-                ## Attributes and props
-
-                Attributes can be defined pretty much the same way you define attributes in HTML. The main difference is that
-                Surface extends the syntax to allow attributes to receive values as expressions.
-
-                ### Example
-
-                ```surface
-                <div id="123" class={@myclass}>
-                  ...
-                </div>
-                ```
-
-                Components' properties can also be set using an attribute-like notation.
-
-                ### Example
-
-                ```surface
-                <Card title="My Card" class={@class}>
-                  ...
-                </Card>
-                ```
 
                 ## Expressions
 
@@ -78,6 +58,69 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 </div>
                 ```
 
+                ## Attributes and props
+
+                Tag attributes and component properties can be defined pretty much the same way you define attributes in HTML.
+                The main difference is that Surface extends the syntax, allowing users to pass expressions directly instead of
+                only literal strings.
+
+                ### Example
+
+                ```surface
+                <div id="123" class={@myclass}>
+                  ...
+                </div>
+
+                <Card title="My Card" class={@class}>
+                  ...
+                </Card>
+                ```
+
+                ## Boolean attributes
+
+                Whenever you need to render a boolean attribute based on a condition, you can pass that condition directly as an expression:
+
+                ```surface
+                <button disabled={@step != :finished}>
+                ```
+
+                If the expression evaluates to a truthy value, the atrribute will be rendered, otherwise the whole attribute assignment
+                will be suppressed from the rendered HTML.
+
+                ## Shorthand attribute assignment
+
+                When setting attributes/props values, it's common to pass existing assigns or variables that have the same name as the
+                attribute being assigned. For convenience, Surface provides a shorthand syntax for that:
+
+                ```surface
+                <input {=@class} {=@disabled}>
+                ```
+
+                which is equivalent to:
+
+                ```surface
+                <input class={@class} disabled={@disabled}>
+                ```
+
+                > **Note**: When used in regular HTML tags (not components), if the variable/assign's name contains `_` (underscore),
+                they will be automatically converted to `-` (dash), e.g., `{=@data_value}` is translated to `data-value={@data_value}`.
+
+                ## Dynamic attributes/props
+
+                Passing a list of dynamic attributes to a tag or component can be done using the `{... }` shorthand:
+
+                ```surface
+                <div id="my_div" {...@dynamic_attrs}>
+                  ...
+                </div>
+                ```
+
+                The attributes can be passed as either a keyword list or a map.
+
+                > **Note**: The concept is very similar to spread attributes in `React` or `Svelte`. However, in Surface this is
+                implemented as a [Tagged Expression](/template_syntax#tagged-expressions) as `Elixir` does not provide a
+                spread operator like the `...` in `JS`.
+
                 ## Tagged expressions
 
                 Allows the Surface compiler to customize the behaviour of an expression, usually to provide syntactic sugar
@@ -86,10 +129,8 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 Currently, Surface provides the following built-in tagged expressions:
 
                   * `{=value}` - Shorthand syntax for passing attributes with name and value matching either `name={name}` or `name={@name}`.
-                    For instance, `{=@selected}` is equivalent to `selected={@selected}`
 
-                  * `{...values}` - Shorthand syntax for passing dynamic attributes. For instance `<div {...@values}>`, where `@values` is either
-                    a keyword list or a map. When used in the context of a HTML tag.
+                  * `{...values}` - Shorthand syntax for passing dynamic attributes/props.
 
                   * `{^variable}` - Injects the AST fragment hold by the given `variable` directly into the compiled AST of the template.
                     It can only be used inside `quote_surface` (usually in a macro component) and the behaviour is analogous to
