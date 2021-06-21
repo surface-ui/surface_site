@@ -236,7 +236,7 @@ defmodule SurfaceSiteWeb.Events do
                 Using Surface, the event is **always** passed along with the related target, assuming,
                 by default, that the target is the caller component/view. This should cover most of the
                 cases you have to face when working with events. In the rare cases when you need to handle the
-                event somewhere else, you can explicitly pass the target, e.g., `click={{ "click", target: "#target_id" }}`.
+                event somewhere else, you can explicitly pass the target, e.g., `:on-click={"click", target: "#my-target"}`.
                 If you want the target to be the parent LiveView, you can set the target option as `:live_view`.
 
               </#Markdown>
