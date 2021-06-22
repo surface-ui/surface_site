@@ -74,14 +74,14 @@ defmodule SurfaceSiteWeb.Events do
                 that in order to keep the behaviour consistent and predictable across multiple components,
                 you should:
 
-                  * always use the `:on-[event]` directive.
-                  * always declare event properties as `:event`
+                  * always use the `:on-[event]` directive in HTML tags.
+                  * always declare event properties in components using the type `:event`
 
-                > **Note**: You can still use Phoenix's built-in `phx-[event]` directly if you want,
-                however, if you need to pass that event as a property, you should declare that property as
+                > **Note**: You can still use Phoenix's built-in `phx-[event]` directly in HTML tags if you want,
+                however, if you need to pass that event as a property before, you should declare that property as
                 `:string` instead of `:event`.
 
-                ### The `:on-[event]` directive
+                ## The `:on-[event]` directive
 
                 Let's rewrite our example again using Surface's `:on-click` directive:
               </#Markdown>
@@ -104,7 +104,12 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
                 As you can see, we didn't have to define `phx-target` for any of the buttons. Sweet!
 
-                > **Note**: The complete list of available events, as well as other types of bindings, can be found in the
+                > **IMPORTANT**: Pay attention that `:on-[event]` directives can only be used in HTML tags, **not components**.
+                The reason is because, unlike a tag, a component may render more than one DOM element so
+                it's up to the component's author to define the component's public API, including its exposed events,
+                and properly forward those events to the related HTML elements they belong.
+
+                The complete list of available events, as well as other types of bindings, can be found in the
                 [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
                 section of the docs for Phoenix LiveView.
 
@@ -118,8 +123,8 @@ defmodule SurfaceSiteWeb.Events do
 
                 In the above examples the events have been handled by the component itself.
                 Sometimes the parent component needs to handle the event.
-                For that kind of use case, you must declare the event in the child component by using the `prop` macro defining the type as `:event`,
-                and pass the value of that prop to the `:on-[event]` directive.
+                For that kind of use case, you must declare the event in the child component by using the `prop`
+                macro defining the type as `:event` and pass its value to the underlying HTML tag using the `:on-[event]` directive.
               </#Markdown>
 
               See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
@@ -234,11 +239,37 @@ defmodule SurfaceSiteWeb.Events do
                 ## Handle event somewhere else
 
                 Using Surface, the event is **always** passed along with the related target, assuming,
-                by default, that the target is the caller component/view. This should cover most of the
-                cases you have to face when working with events. In the rare cases when you need to handle the
-                event somewhere else, you can explicitly pass the target, e.g., `click={{ "click", target: "#target_id" }}`.
+                by default, that the target is the caller component/view.
+
+                This should cover most of the cases you have to face when working with events.
+                In the rare cases when you need to handle the event somewhere else, you can explicitly
+                pass the target.
+
+                ### Examples
+
+                Using `:on-click` in a HTML tag:
+
+                ```surface
+                <button :on-click={"click", target: "#target_id"}>
+                  OK
+                </button>
+                ```
+
+                Passing a prop of type `:event` to a component:
+
+                ```surface
+                <Button click={"click", target: "#target_id"}>
+                  OK
+                </Button>
+                ```
+
                 If you want the target to be the parent LiveView, you can set the target option as `:live_view`.
 
+                ```surface
+                <button :on-click={"click", target: :live_view}>
+                  OK
+                </button>
+                ```
               </#Markdown>
             </div>
             <nav class="nav-prev-next">

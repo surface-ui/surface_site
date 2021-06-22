@@ -266,11 +266,12 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                     that is being prepared to fill the slot. For more information see section "**Slots props**"
                     in the [Slots](/slots) documentation.
 
-                  * `:on-[event]` - Sets a `phx-*` event binding defining the component itself as the
-                    default handler (target). This is the preferred way to use `phx` events in **Surface** as it can
-                    properly handle properties of type `:event`. Available directives are: `:on-click`,
+                  * `:on-[event]` - Set up a server event binding by generating a `phx-[event]` and a `phx-target` in the HTML tag,
+                    defining the component itself as the default handler (target). This is the preferred way to use `phx` events
+                    in **Surface** as it can properly handle properties of type `:event`. Available directives are: `:on-click`,
                     `:on-capture-click`, `:on-blur`, `:on-focus`, `:on-change`, `:on-submit`, `:on-keydown`,
-                    `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`.
+                    `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`. For
+                    details, see [The :on-[event] directive](/events#the-:on-[event]-directive).
 
                   * `:values` - Defines a list of values to be sent to the server when dispatching events. It generates
                     multiple `phx-value-*`. One for each key-value passed, e.g., `<div :values={id: @id, group: @group}>`.
