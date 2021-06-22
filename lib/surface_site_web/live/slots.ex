@@ -163,7 +163,7 @@ defmodule SurfaceSiteWeb.Slots do
               <#Code language="elixir" module={SurfaceSiteWeb.Slots.TypedSlotsExample} line_range={37..43} />
 
               <#Markdown>
-                To use them, we don't have to change anything in the `Card` component. We just need to replace each `<template>`
+                To use them, we don't have to change anything in the `Card` component. We just need to replace each `<#template>`
                 with the appropriate `Footer` or `Header` component.
               </#Markdown>
 
@@ -183,15 +183,23 @@ defmodule SurfaceSiteWeb.Slots do
               </div>
 
               <#Markdown>
-                ## Rendered typed slotable
+                One benefit of using typed slotables is that you can define properties for them just like you'd do for
+                any other component, allowing the user to pass extra information to customize the rendering.
 
-                Typed slotable component could have a render function that you could use to wrap the content of the slot.
-                It is pretty useful when you would like to have different behaviour for the same slot of a component.
+                The `<Footer>` and `<Header>` components above are called "Renderless Slotables" as they don't implement
+                the `render/1` callback. A renderless slotable is mostly used when you just need a declarative way to
+                assign slot contents along with some additional properties. The slotable, however, is not responsible
+                for any kind of rendering as this task is fully delegated to the **parent component**.
+
+                More details and a more elaborate example is presented in [Renderless Slotables](http://localhost:4000/slots#renderless-components)
+                later on.
+
+                ## Implementing `render/1`
+
+                By implementing the `render/1` callback, you can customize the content of the slot with extra markup,
+                allowing users to apply a different behaviour or look for the same slot.
+
                 For example, you could have different headers for the `Card` component.
-
-                To use them, as typed slotable, we don't have to change anything in the `Card` component.
-                We just need to add a `render` function to the typed slotable component.
-
               </#Markdown>
 
               <div class="card dark">
@@ -209,10 +217,7 @@ defmodule SurfaceSiteWeb.Slots do
                 </footer>
               </div>
 
-
               <#Markdown>
-                > **Note**: You can use the `prop` and the `slot` macro with rendered typed slotable component.
-
                 ## Slot arguments
 
                 There are cases when it's necessary to pass information from the child's scope to

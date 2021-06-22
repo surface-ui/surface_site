@@ -48,7 +48,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 ## Expressions
 
-                Expressions can be wrapped in `{ }` and injected directly in the body of a component or as an attribute/property value.
+                Elixir expressions can be wrapped in `{ }` and injected directly in the body of a component or as an attribute/property value.
 
                 ### Example
 
@@ -149,9 +149,10 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 {/block}
                 ```
 
-                Where `block` is the name of the block, like `if`, `for`, etc. The `expression` must always be passed.
+                Where `block` is the name of the block, for instance, `for`, `if`, `case`, etc. And `expression` is the Elixir expression
+                expected by the block, which must always be passed.
 
-                The format for **sub-blocks** is similar but unlike blocks, they don't require a closing tag:
+                The format for **sub-blocks** is similar but, unlike blocks, they don't require a closing tag:
 
                 ```surface
                 {#block expression}
@@ -270,6 +271,10 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                     properly handle properties of type `:event`. Available directives are: `:on-click`,
                     `:on-capture-click`, `:on-blur`, `:on-focus`, `:on-change`, `:on-submit`, `:on-keydown`,
                     `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`.
+
+                  * `:values` - Defines a list of values to be sent to the server when dispatching events. It generates
+                    multiple `phx-value-*`. One for each key-value passed, e.g., `<div :values={id: @id, group: @group}>`.
+                    The list of values can be either a keyword list or a map. The values will always be serialized as **strings**.
 
                   * `:for` - Iterates over a list (generator) and renders the content of the tag (or component)
                     for each item in the list.
