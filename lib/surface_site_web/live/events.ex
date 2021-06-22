@@ -247,7 +247,7 @@ defmodule SurfaceSiteWeb.Events do
 
                 ### Examples
 
-                Using `:on-click` in a HTML tag:
+                Using `:on-click` in HTML tags:
 
                 ```surface
                 <button :on-click={"click", target: "#target_id"}>
