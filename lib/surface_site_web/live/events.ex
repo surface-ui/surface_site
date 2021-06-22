@@ -239,11 +239,10 @@ defmodule SurfaceSiteWeb.Events do
                 ## Handle event somewhere else
 
                 Using Surface, the event is **always** passed along with the related target, assuming,
-                by default, that the target is the caller component/view.
+                by default, that the target is the caller component/view. This should cover most of
+                the cases you have to face when working with events.
 
-                This should cover most of the cases you have to face when working with events.
-                In the rare cases when you need to handle the event somewhere else, you can explicitly
-                pass the target.
+                If you still need to handle the event somewhere else, you can explicitly pass the target.
 
                 ### Examples
 
