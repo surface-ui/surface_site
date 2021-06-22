@@ -191,7 +191,7 @@ defmodule SurfaceSiteWeb.Slots do
                 assign slot contents along with some additional properties. The slotable, however, is not responsible
                 for any kind of rendering as this task is fully delegated to the **parent component**.
 
-                More details and a more elaborate example is presented in [Renderless Slotables](http://localhost:4000/slots#renderless-components)
+                More details and a more elaborate example is presented in [Renderless Slotables](/slots#renderless-components)
                 later on.
 
                 ## Implementing `render/1`
