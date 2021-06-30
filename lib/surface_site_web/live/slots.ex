@@ -8,6 +8,7 @@ defmodule SurfaceSiteWeb.Slots do
 
   alias SurfaceSiteWeb.Slots.DeclaredSlotExample.Hero
   alias SurfaceSiteWeb.Slots.SlotFallbackExample.HeroWithFallbackContent
+  alias SurfaceSiteWeb.Slots.SlotDefinedExample.{SlotDefinedNoFooterExample, SlotDefinedFooterExample}
   alias SurfaceSiteWeb.Slots.SlotPropsExample.Rating
 
   def render(assigns) do
@@ -153,6 +154,54 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<#slot name="default"/>`.
 
+                ### Detecting optional slots
+                If you would like to render content depending on whether an optional slot is defined or not, you can use the `slot_assigned?/1` macro.
+              </#Markdown>
+
+              <#Code
+                language="elixir"
+                module={SurfaceSiteWeb.Slots.SlotDefinedExample}
+                show_line_numbers
+                line_range={4..27}
+                selected_lines="16-20"
+              />
+
+              <#Markdown>
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Slots.SlotDefinedExample.SlotDefinedNoFooterExample />
+                </div>
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={SurfaceSiteWeb.Slots.SlotDefinedExample}
+                    show_line_numbers
+                    line_range={36..38}
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
+              </#Markdown>
+
+              <div class="card dark">
+                <div class="card-content">
+                  <SurfaceSiteWeb.Slots.SlotDefinedExample.SlotDefinedFooterExample />
+                </div>
+                <footer class="card-footer">
+                  <#Code
+                    language="elixir"
+                    module={SurfaceSiteWeb.Slots.SlotDefinedExample}
+                    show_line_numbers
+                    line_range={48..53}
+                    selected_lines="3-5"
+                  />
+                </footer>
+              </div>
+
+              <#Markdown>
                 ## Typed slotables
 
                 Instead of using `<#template slot="...">` or its shorthand, you might want to define a custom component to
