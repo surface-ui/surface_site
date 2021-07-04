@@ -369,7 +369,22 @@ defmodule SurfaceSiteWeb.Slots do
                 if you expect receiving a single content block, like at the beginning
                 of this section, you can use `<#slot name="<name>" />` as a
                 shorthand for `<#slot name="<name>" index="0" />`.
+
+                ## Utils
+
+                ### `slot_assigned?`
+                Surface provides the `slot_assigned?` macro that you can use in your template to know if a
+                slot as been filled in. It is useful to avoid rendering unecessary HTML tags that are used to wrap an optional slot
+                in combination with the `:if` directive
               </#Markdown>
+
+              <#Code
+                language="elixir"
+                module={SurfaceSiteWeb.Slots.SlotExample.SlotAssignedExample}
+                line_range={34..46}
+                show_line_numbers
+                selected_lines="8"
+              />
             </div>
             <nav class="nav-prev-next">
               <LiveRedirect to="/events">

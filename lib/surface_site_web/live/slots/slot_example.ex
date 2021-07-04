@@ -30,4 +30,18 @@ defmodule SurfaceSiteWeb.Slots.SlotExample do
       """
     end
   end
+
+  defmodule SlotAssignedExample do
+    use Surface.Component
+
+    slot header
+
+    def render(assigns) do
+      ~F"""
+      <div :if={{ slot_assigned?(:header) }}>
+        <#slot name="header"/>
+      </div>
+      """
+    end
+  end
 end
