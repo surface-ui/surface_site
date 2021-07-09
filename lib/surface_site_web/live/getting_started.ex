@@ -57,6 +57,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 [
                   import_deps: [:ecto, :phoenix, :surface],
+                  surface_inputs: ["{lib,test}/**/*.{ex,exs,sface}"],
                   ...
                 ]
                 ```
@@ -71,6 +72,16 @@ defmodule SurfaceSiteWeb.GettingStarted do
                     ...,
                     ~r"lib/my_app_web/live/.*(sface)$",
                   ]
+                ]
+                ```
+
+                Surface provides a set of built-in components that you can use in any project. Some of these components require configuration:
+
+                The `ErrorTag` expects that you define a `default_translator` to translate form error messages.
+                If you do not use the `ErrorTag` component you can skip this configuration.
+                ```elixir
+                config :surface, :components, [
+                  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
                 ]
                 ```
 
