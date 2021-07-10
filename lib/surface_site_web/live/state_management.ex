@@ -37,7 +37,7 @@ defmodule SurfaceSiteWeb.StateManagement do
 
                 State management in functional components is quite simple. After all, there's no state to be
                 managed. It works as just like a pure function. You define properties that will be merged into
-                the `assings`, the `assigns` will be passed to the `render/1` function and that's it. You cannot
+                the `assigns`, the `assigns` will be passed to the `render/1` function and that's it. You cannot
                 define events that can change any of the assigned values. If you want to do that, you'll have to
                 change the values passed as properties in the parent component, forcing the `render/1` function
                 to be called again with the updated values.
