@@ -40,7 +40,7 @@ defmodule SurfaceSite.MixProject do
       {:ecto, "~> 3.6"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
-      {:surface, "~> 0.5.0"},
+      {:surface, "~> 0.5.2"},
       {:surface_formatter, "~> 0.5.0"},
       {:surface_markdown, "~> 0.2.0"},
       {:earmark, "~> 1.3"},
