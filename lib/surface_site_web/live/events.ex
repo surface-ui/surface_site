@@ -52,20 +52,6 @@ defmodule SurfaceSiteWeb.Events do
                   the child. There's no way to retrieve that information since templates are not treated as structured
                   code, they are just text.
 
-                Here's the `Counter` example used in the [Data](/data) section, but this
-                time using **Phoenix templates**:
-              </#Markdown>
-
-              <div class="card dark">
-                <div class="card-content">
-                  {live_component(@socket, SurfaceSiteWeb.Events.PhoenixCounter.Counter, id: "phoenix_counter")}
-                </div>
-                <footer class="card-footer">
-                  <#Code language="elixir" module={SurfaceSiteWeb.Events.PhoenixCounter} line_range={2..35} />
-                </footer>
-              </div>
-
-              <#Markdown>
                 ## Handling events in Surface
 
                 Instead of treating templates as plain text, Surface parses the code identifying
@@ -81,9 +67,15 @@ defmodule SurfaceSiteWeb.Events do
                 however, if you need to pass that event as a property before, you should declare that property as
                 `:string` instead of `:event`.
 
-                ## The `:on-[event]` directive
+                ## Using the `:on-[event]` directive
 
-                Let's rewrite our example again using Surface's `:on-click` directive:
+                The `:on-[event]` directive can configure a server event binding by automatically generating the `phx-[event]`
+                and `phx-target` attributes in the HTML tag, defining the component itself as the default handler (target).
+                This is the preferred way to use `phx` events in **Surface** as it can properly handle properties of type `:event`.
+
+                Available directives are: `:on-click`, `:on-capture-click`, `:on-blur`, `:on-focus`,
+                `:on-change`, `:on-submit`, `:on-keydown`, `:on-keyup`, `:on-window-focus`, `:on-window-blur`,
+                `:on-window-keydown` and `:on-window-keyup`.
               </#Markdown>
 
               <div class="card dark">
@@ -95,8 +87,7 @@ defmodule SurfaceSiteWeb.Events do
                     language="elixir"
                     module={SurfaceSiteWeb.Events.SurfaceCounter}
                     show_line_numbers
-                    line_range={2..23}
-                    selected_lines="13-15"
+                    line_range={2..-3}
                   />
                 </footer>
               </div>
@@ -113,7 +104,7 @@ defmodule SurfaceSiteWeb.Events do
                 [Bindings](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-bindings)
                 section of the docs for Phoenix LiveView.
 
-                ## Pass event through an `event` property
+                ## Passing events through `:event` properties
 
                 Another great thing about Surface's approach is that it makes passing events as properties
                 also more intuitive. Using phoenix templates, unless you always pass both, the event and the target,
@@ -165,7 +156,6 @@ defmodule SurfaceSiteWeb.Events do
                     module={SurfaceSiteWeb.Events.LiveButton}
                     line_range={20..42}
                     show_line_numbers
-                    selected_lines="10-11, 16-18, 20-22"
                   />
                 </footer>
               </div>
@@ -173,38 +163,43 @@ defmodule SurfaceSiteWeb.Events do
               <#Markdown>
                 Remember that stateless components cannot handle events and do not have state.
                 Events can only be handled in a `LiveView` or `LiveComponent` so we will store the state in that kind of component.
+
                 ### Stateful component
 
                 In some cases, you may want to have a default behaviour that is handled by the component itself and let the developer override the default implementation with a custom one. To implement a default behaviour, the component must implement an `handle_event/3` function, and so it must to be stateful.
 
-                One example is a generic stateful `Dialog` component with a close button.
-                By default, if the user clicks the close button, that will close the modal. However, if you're using the dialog to show a form
-                that the user must fill in lots of information, and you may want to ask for confirmation that the user really wants to close the dialog.
+                One example is a generic stateful `Dialog` component.
+                By default, if the user clicks "Close", the dialog is hidden. However, if you're using the dialog to show a form
+                where the user must fill in lots of information, you may want to ask for confirmation before closing it.
                 Something like: _"Are you sure you want to close this form? All information provided will be lost."_.
 
-                To impement this feature, you need a default local implementation that closes the dialog
-                but this implementation can be overridden by the parent component by passing a custom implementation
-                that, in our case, asks for confirmation before closing it.
+                To implement such feature, you need to provide a default local implementation that closes the dialog,
+                along with a way to override this implementation if the parent component passes its own custom logic.
+                In our case, we want to ask for confirmation before closing it.
 
-                First let's take a look at the `<Dialog>` component and its events.
+                First let's take a look at our generic `<Dialog>` component and its events.
               </#Markdown>
 
               <#Code
                 language="elixir"
                 module={SurfaceSiteWeb.Events.DialogExample}
-                line_range={2..48}
+                line_range={2..52}
                 show_line_numbers
-                selected_lines="8, 44-46"
+                selected_lines="9-10, 48-50"
               />
 
               <#Markdown>
-                The component implements a default `handle_event` that handles  the `close` event, and two public API functions
-                that can be used by other components to open and close the modal.
+                The component implements a default `handle_event` that handles the `close` event and provides two public
+                functions that can be used by other components to open and close the modal.
 
-                Note that the `Modal` stateful component reuses the `Button` stateless component
-                defined at the beginning of this section, and the events are passed along to these buttons components.
+                > **Note:** We're using `send_update/2` to set the value of the `:show` data assign. We'll get into
+                > more details about `send_update/2` in the [State management](/state_management) page.
 
-                Now take a look at how we can use the dialog component with his default behaviour.
+                Also notice that the stateful `Dialog` component reuses the stateless `Button` component
+                defined at the beginning of this section and the events defined are passed along to these
+                buttons components.
+
+                Now, we can use the dialog component with his default behaviour.
               </#Markdown>
 
               <div class="card dark">
@@ -215,14 +210,14 @@ defmodule SurfaceSiteWeb.Events do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.Events.DialogExample.ExampleWithDefaultBehaviour}
-                    line_range={101..-3}
+                    line_range={54..82}
                   />
                 </footer>
               </div>
 
               <#Markdown>
-                Now if you want to change the default behaviour of closing the dialog automatically, all you have to do is pass that custom event using the `close` prop.
-                Remember, we want to ask for confirmation to close the modal.
+                If you want to change the default behaviour of closing the dialog automatically, all you have to do is
+                pass that custom event using the `close` prop. Remember, we want to ask for confirmation to close the modal.
               </#Markdown>
 
               <div class="card dark">
@@ -230,19 +225,22 @@ defmodule SurfaceSiteWeb.Events do
                   <SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour id="event_overwritten_dialog_example" />
                 </div>
                 <footer class="card-footer">
-                  <#Code language="elixir" module={SurfaceSiteWeb.Events.DialogExample} line_range={50..93} />
+                  <#Code
+                    language="elixir"
+                    module={SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour}
+                    line_range={84..-3}
+                  />
                 </footer>
               </div>
 
               <#Markdown>
+                ## Choosing another target
 
-                ## Handle event somewhere else
+                As explained, by default, Surface **always** passes the event name along with the default target
+                (the caller component/view). This should cover most of the cases you have to face when working with events.
 
-                Using Surface, the event is **always** passed along with the related target, assuming,
-                by default, that the target is the caller component/view. This should cover most of
-                the cases you have to face when working with events.
-
-                If you still need to handle the event somewhere else, you can explicitly pass the target.
+                In case you still need the event to be handled by any other component/view, you can explicitly pass the target
+                using the `target` option.
 
                 ### Examples
 

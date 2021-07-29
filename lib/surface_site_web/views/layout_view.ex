@@ -16,7 +16,7 @@ defmodule SurfaceSiteWeb.LayoutView do
           phx-track-static
           type="text/javascript"
           src={Routes.static_path(@conn, "/js/app.js")}
-        />
+        ></script>
       </head>
       <body>
         <a

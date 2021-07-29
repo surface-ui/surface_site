@@ -16,9 +16,7 @@ defmodule SurfaceSiteWeb.Slots.SlotDefinedExample do
         <div class="hero-body">
           <#slot />
         </div>
-        <div style="border-top:2px solid #f5f5f5;
-          padding-top:5px; margin-top:3px;
-          padding-left: 4px;" :if={slot_assigned?(:footer)}>
+        <div :if={slot_assigned?(:footer)} style="padding:5px; border-top:2px solid #f5f5f5;">
           <#slot name="footer" />
         </div>
       </section>
@@ -34,7 +32,7 @@ defmodule SurfaceSiteWeb.Slots.SlotDefinedExample do
     def render(assigns) do
       ~F"""
       <HeroWithOptionalFooter>
-        <p>Hello! No need for a footer for me!</p>
+        <p>Hello! No footer for me.</p>
       </HeroWithOptionalFooter>
       """
     end
@@ -46,7 +44,7 @@ defmodule SurfaceSiteWeb.Slots.SlotDefinedExample do
     def render(assigns) do
       ~F"""
       <HeroWithOptionalFooter>
-        <p>Hello! Check out the footer!</p>
+        <p>Hello! Check out the footer.</p>
         <:footer>
           <p>&copy;2021</p>
         </:footer>

@@ -19,9 +19,7 @@ defmodule SurfaceSiteWeb.Events.SurfaceCounter do
       """
     end
 
-    #   # Event handlers
-    #   ...
-    # end
+    # Event handlers
 
     def handle_event("inc", _, socket) do
       {:noreply, update(socket, :count, &(&1 + 1))}

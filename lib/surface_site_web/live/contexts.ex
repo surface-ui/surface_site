@@ -37,7 +37,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 </div>
                 <footer class="card-footer">
                   <#Code
-                    language="elixir"
+                    language="html"
                     module={SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix}
                     line_range={57..72}
                   />

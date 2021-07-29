@@ -10,7 +10,7 @@ defmodule SurfaceSiteWeb.Events.LiveButton do
 
     def render(assigns) do
       ~F"""
-      <button type="button" class={"button #{@kind}"} :on-click={@click}>
+      <button type="button" class={"button", @kind} :on-click={@click}>
         <#slot>{@label}</#slot>
       </button>
       """
