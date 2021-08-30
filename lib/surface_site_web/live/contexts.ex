@@ -134,6 +134,17 @@ defmodule SurfaceSiteWeb.Contexts do
                 <Context get={Form, form: f}>
                 ```
 
+                In case you need to get/put values from/to different scopes, you can define
+                multiple `get`/`put` props. For instance:
+
+                ```surface
+                <Context
+                  get={Form, form: form}
+                  get={Field, field: field}>
+                  ...
+                </Context>
+                ```
+
                 > **Note:** If you want to distribute a library that store values into the context,
                 it's highly recommended that you **always** scope those values as demonstrated. This way
                 you make sure it can play nicely with other libraries that also use contexts.
