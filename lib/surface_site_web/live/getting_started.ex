@@ -75,6 +75,86 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
+                ## Integration
+
+                We will assume that you already have LiveView already implemented in your project. (See the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/installation.html#content) for greater detail on how to accomplish this).
+
+                A simple example migration from `Phoenix.LiveView` consists of the following steps.
+
+                ### Ensure you have a LiveView available
+
+                Ensure that you have `LiveView` configured correctly in your project by implementing a `live` route directed to a `LiveView`.
+
+                ```elixir
+                live "/", ExampleLive, :index
+                ```
+
+                Surface offers drop-in replacement components for `Phoenix.LiveView` (`Surface.LiveView`), `Phoenix.Component` (`Surface.Component`), and `Phoenix.LiveComponent` (`Surface.LiveComponent`).
+
+                Let's create our first `Surface.Component` and render it in our `Surface.LiveView`.
+
+
+                ### Create your first Surface.Component
+
+                Create a module for your component. Similarly to a `Phoenix.LiveView` component, `Surface` supports co-locating templates within a sigil (`~F` rather than `~L/~H`) or a template file with the same file name and the extension (`.sface` rather than `.leex/.heex`).
+
+
+                ```elixir
+                defmodule MyAppWeb.Components.ExampleComponent do
+                  use Surface.Component
+
+                  slot default, required: true
+
+                  def render(assigns) do
+                    ~F"\""
+                    <h1><#slot /></h1>
+                    "\""
+                  end
+
+                  # Or omit the render function and create a file
+                  # with the same filename as the component but with
+                  # an `.sface` extension
+
+                end
+                ```
+
+                ### Converting a Phoenix.LiveView to Surface.LiveView
+
+                Change the macro in your `LiveView` from `Phoenix.LiveView` (or `YourApp, :live_view`) and the render sigil from `~H/~L` or your template extension from `.heex`/`.leex` to `.sface`.
+
+                ```elixir
+                defmodule MyAppWeb.ExampleLive do
+                  # If you generated an app with mix phx.new --live,
+                  # the line below would be: use MyAppWeb, :live_view
+
+                  #  use Phoenix.LiveView
+                  use Surface.LiveView
+
+                  alias MyAppWeb.Components.ExampleComponent
+
+                  def render(assigns) do
+                  # ~H"\""
+                    ~F"\""
+                    <ExampleComponent>
+                      Surface is Working!!!
+                    </ExampleComponent>
+                    "\""
+                  end
+
+                  # Or omit the render function and create a file
+                  # with the same filename as the LiveView but with
+                  # an `.sface` extension
+
+                end
+                ```
+
+                ### Surface Extends LiveView
+
+                The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix project can be found at the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/).
+
+
+                ### Component Configurations
+
                 Surface provides a set of built-in components that you can use in any project. Some of these components require configuration:
 
                 The `ErrorTag` expects that you define a `default_translator` to translate form error messages.
