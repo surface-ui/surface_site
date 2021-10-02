@@ -66,7 +66,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 configuration in your `config/dev.exs`:
 
                 ```elixir
-                config : MyApp, MyAppWeb.Endpoint,
+                config :my_app, MyAppWeb.Endpoint,
                 live_reload: [
                   patterns: [
                     ...,
