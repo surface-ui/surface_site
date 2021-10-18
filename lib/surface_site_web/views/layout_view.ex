@@ -10,12 +10,12 @@ defmodule SurfaceSiteWeb.LayoutView do
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1">
         <title>Surface</title>
-        <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/css/app.css")}>
+        <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}>
         <script
           defer
           phx-track-static
           type="text/javascript"
-          src={Routes.static_path(@conn, "/js/app.js")}
+          src={Routes.static_path(@conn, "/assets/app.js")}
         ></script>
       </head>
       <body>

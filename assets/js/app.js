@@ -1,11 +1,11 @@
-import "../css/app.scss";
+import "../css/app.css";
 
 window.Prism = window.Prism || {};
 window.Prism.manual = true;
 
 import "phoenix_html"
 import {Socket} from "phoenix"
-import LiveSocket from "phoenix_live_view"
+import {LiveSocket} from "phoenix_live_view"
 import topbar from "topbar"
 import Prism from './prism.js';
 import './font-awesome.js';

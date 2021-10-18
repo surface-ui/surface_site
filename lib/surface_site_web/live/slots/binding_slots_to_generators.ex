@@ -40,7 +40,7 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
   end
 
   defmodule Example do
-    use Surface.Component
+    use Surface.LiveComponent
 
     data albums, :list
 

@@ -12,13 +12,7 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch",
-      cd: Path.expand("../assets", __DIR__)
-    ]
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
   ],
   reloadable_compilers: [:phoenix, :elixir, :surface],
   live_reload: [

@@ -33,14 +33,16 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.0"},
+      {:phoenix, "~> 1.6.0"},
+      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:phoenix_pubsub, "~> 2.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:plug_cowboy, "~> 2.1"},
-      {:ecto, "~> 3.6"},
+      {:ecto, "~> 3.7"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.0"},
-      {:surface, "~> 0.5.2"},
+      # {:surface, "~> 0.5.2"},
+      {:surface, path: "../surface", override: true},
       {:surface_formatter, "~> 0.5.0"},
       {:surface_markdown, "~> 0.2.0"},
       {:earmark, "~> 1.3"},
@@ -52,7 +54,8 @@ defmodule SurfaceSite.MixProject do
 
   defp aliases do
     [
-      setup: ["deps.get", "cmd npm install --prefix assets"]
+      setup: ["deps.get", "cmd npm install --prefix assets"],
+      "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end
