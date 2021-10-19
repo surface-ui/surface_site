@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.Data do
 
   alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
-  alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do

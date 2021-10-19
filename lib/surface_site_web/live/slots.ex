@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.Slots do
 
   alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
-  alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.{Code, LiveExample}
 
   alias SurfaceSiteWeb.Slots.DeclaredSlotExample.Hero
@@ -378,7 +378,7 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example />
+                  <SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example id="binding_slot_args_to_generators"/>
                 </div>
                 <footer class="card-footer">
                   <#Code

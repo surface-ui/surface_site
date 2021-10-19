@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
 
   alias SurfaceSiteWeb.Sidebar
   alias Surface.Components.{LiveRedirect, Link}
-  alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.ComponentInfo
 
   data component, :string

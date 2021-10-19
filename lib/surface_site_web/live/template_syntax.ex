@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
   alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
-  alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.MobileSidebar
 
   def render(assigns) do
     ~F"""

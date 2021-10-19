@@ -1,11 +1,11 @@
-defmodule SurfaceSiteWeb.MobileSidebar do
+defmodule SurfaceSiteWeb.Components.MobileSidebar do
   use Surface.Component
 
   alias SurfaceSiteWeb.SidebarMenu
 
   def render(assigns) do
     ~F"""
-    <div id="mobile-sidebar" class="mobile-sidebar" phx-hook="MobileSidebar">
+    <div id="mobile-sidebar" class="mobile-sidebar" :hook="MobileSidebar">
       <div class="sidebar-background" onclick="closeMobileSidebar()" style="display: none;" />
       <div class="sidebar-content is-fixed is-fullheight animated faster" style="display: none;">
         <section class="hero is-info">

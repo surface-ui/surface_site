@@ -3,7 +3,7 @@ defmodule SurfaceSiteWeb.App do
 
   alias SurfaceSiteWeb.Components.CardWithIcon
   alias Surface.Components.LiveRedirect
-  alias SurfaceSiteWeb.MobileSidebar
+  alias SurfaceSiteWeb.Components.MobileSidebar
 
   def render(assigns) do
     ~F"""
