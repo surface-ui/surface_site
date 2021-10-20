@@ -1,7 +1,3 @@
-@import "./prism-vsc-dark-plus.css";
-@import "../node_modules/bulma/css/bulma.css";
-@import "../node_modules/animate.css/animate.css";
-
 body.mobile-sidebar-open {
   overflow: hidden;
   position: fixed;

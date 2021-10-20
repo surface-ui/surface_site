@@ -32,14 +32,9 @@ npm-debug.log
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
 # /priv/static/
-priv/static/js/app.js
-priv/static/css/app.css
 
 # Ignore assets that are produced by build tools.
 /priv/static/assets/
-
-# Ignore digested assets cache.
-/priv/static/cache_manifest.json
 
 # Files matching config/*.secret.exs pattern contain sensitive
 # data and you should not commit them into version control.

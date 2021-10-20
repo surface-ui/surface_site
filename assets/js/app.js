@@ -1,3 +1,6 @@
+import "../css/prism-vsc-dark-plus.css";
+import "../css/bulma.css";
+import "../css/animate.css";
 import "../css/app.css";
 
 window.Prism = window.Prism || {};
@@ -6,12 +9,13 @@ window.Prism.manual = true;
 import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
-import topbar from "topbar"
-import Prism from './prism.js';
-import './font-awesome.js';
+import topbar from "../vendor/topbar"
+import Prism from "../vendor/prism.js";
+import "../vendor/font-awesome.js";
 import Hooks from "./_hooks"
-import mermaid from "mermaid"
-mermaid.initialize({startOnLoad: false});
+// Uncomment when we start using mermaid
+// import mermaid from "../vendor/mermaid"
+// mermaid.initialize({startOnLoad: false});
 
 // Don't load the topbar for catalogue examples/praygrounds
 if (!window.frameElement) {
@@ -29,11 +33,12 @@ Hooks["Highlight"] = {
   }
 }
 
-Hooks["Mermaid"] = {
-  mounted() {
-    mermaid.init(undefined, `#${this.el.id}`);
-  }
-}
+// Uncomment when we start using mermaid
+// Hooks["Mermaid"] = {
+//   mounted() {
+//     mermaid.init(undefined, `#${this.el.id}`);
+//   }
+// }
 
 Hooks["SectionHeading"] = {
   mounted() {
