@@ -77,7 +77,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 That's it! You can now access your application at http://localhost:4000.
 
-                You can see the full list of options provided by `surface.init` by running:
+                You can see the full list of options provided by `surface.init` running:
 
                 ```
                 mix help surface.init
@@ -88,7 +88,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 In case you don't want to use `mix surface.init`, you can configure the project manually with
                 the following steps.
 
-                1. If you're using `mix format`, make sure you add `surface` to the `import_deps`
+                If you're using `mix format`, make sure you add `surface` to the `import_deps`
                 configuration in your `.formatter.exs` file:
 
                 ```elixir
@@ -99,7 +99,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
-                2. To allow live reloading for `.sface` files, add the related patterns to the endpoint
+                To allow live reloading for `.sface` files, add the related patterns to the endpoint
                 configuration in your `config/dev.exs`:
 
                 ```elixir
@@ -112,9 +112,9 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
-                3. If you're using `Gettext` and you want to use the built-in `ErrorTag`, you need to configure it
-                in your `config.exs` so it can properly translate error messages using gettext. If you don't plan
-                to use the `ErrorTag` component, you can skip this configuration.
+                If you're using `Gettext` and you want to use the built-in `<ErrorTag>` component, you need to
+                configure it in your `config.exs` so it can properly translate error messages using gettext. If you
+                don't plan to use `ErrorTag`, you can skip this configuration.
 
                 ```elixir
                 config :surface, :components, [
@@ -122,18 +122,20 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
-                ## Creating your first Surface component
+                ## Building components
 
                 Surface offers drop-in replacement components for `Phoenix.LiveView` (`Surface.LiveView`),
                 `Phoenix.Component` (`Surface.Component`), and `Phoenix.LiveComponent` (`Surface.LiveComponent`).
 
-                Let's create our first `Surface.Component` and render it in a `Surface.LiveView`.
+                Let's build our first `Surface.Component` and render it in a `Surface.LiveView`.
 
-                Create a module for your component. Similarly to a `Phoenix.LiveView`, `Surface` supports templates
-                within a sigil (`~F` rather than `~L/~H`) or in a colocated template file with the same name and
-                extension (`.sface` rather than `.leex/.heex`).
+                Create a file called `example_component.ex` and place it in your `lib/my_app_web/components` folder, which
+                should have been previously created by the `mix surface.init` task. In case you've configured your project
+                manually, you can place it in `lib/my_app_web/live`.
 
                 ```elixir
+                # lib/my_app_web/components/example_component.ex
+
                 defmodule MyAppWeb.Components.ExampleComponent do
                   use Surface.Component
 
@@ -141,15 +143,17 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                   def render(assigns) do
                     ~F"\""
-                    <h1><#slot /></h1>
+                    <h1><#slot/></h1>
                     "\""
                   end
                 end
                 ```
 
-                Create a module for our Liveview.
+                Create a file called `example_live.ex` and place it in your `lib/my_app_web/live` folder.
 
                 ```elixir
+                # lib/my_app_web/live/example_live.ex
+
                 defmodule MyAppWeb.ExampleLive do
                   use Surface.LiveView
 
@@ -158,7 +162,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                   def render(assigns) do
                     ~F"\""
                     <ExampleComponent>
-                      Surface is Working!!!
+                      Hi there!
                     </ExampleComponent>
                     "\""
                   end
@@ -171,7 +175,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 live "/example", ExampleLive
                 ```
 
-                You can now see your Liveview and Component in action at `http://localhost:4000/example`
+                You can now see your Liveview and Component in action at `http://localhost:4000/example`.
 
                 ## Converting a `Phoenix.LiveView` to `Surface.LiveView`
 
@@ -196,7 +200,8 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 ```elixir
                 defmodule YourAppWeb
-                # ...
+                  ...
+
                   def surface_view do
                    quote do
                      use Surface.LiveView,
@@ -205,7 +210,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                      unquote(view_helpers())
                    end
                  end
-                # ...
+                 ...
                 end
 
                 defmodule YourAppWeb.ExampleLive
@@ -243,7 +248,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 }
                 ```
 
-                ## Surface Extends LiveView
+                ## Surface extends LiveView
 
                 The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their
                 functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix
