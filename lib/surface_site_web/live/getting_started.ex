@@ -29,9 +29,9 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 For a quick start, you can either add Surface to an existing Phoenix LiveView project or install it
                 from scratch.
 
-                ## Installing from scratch
+                ## Installation
 
-                Phoenix v1.5 comes with built-in support for LiveView apps. You can create a new application with
+                Phoenix v1.6 comes with built-in support for LiveView apps. You can create a new phoenix application with:
 
                 ```
                 mix phx.new my_app --live
@@ -46,12 +46,49 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 def deps do
                   [
-                    {:surface, "~> 0.5.1"}
+                    {:surface, "~> 0.6.0"}
                   ]
                 end
                 ```
 
-                If you're using `mix format`, make sure you add `surface` to the `import_deps`
+                ## Configuring the project using `mix surface.init`
+
+                After fetching the dependencies with `mix deps.get`, you can run the `surface.init` task to
+                update the necessary files in your project.
+
+                In case you want the task to also generate a sample component for you, use can use the `--demo` option.
+                A liveview using the component will be available at the `/demo` route.
+
+                Additionally, the task can also set up a [Surface Catalogue](https://github.com/surface-ui/surface_catalogue/)
+                for your project using the `--catalogue` option. The catalogue will be available at `/catalogue`.
+
+                > **Note:** When using the `--demo` and `--catalogue` options together, the task also generates two
+                > catalogue examples and a playground for the sample component.
+
+                ```
+                mix surface.init --demo --catalogue
+                ```
+
+                Start the Phoenix server with:
+
+                ```
+                mix phx.server
+                ```
+
+                That's it! You can now access your application at http://localhost:4000.
+
+                You can see the full list of options provided by `surface.init` by running:
+
+                ```
+                mix help surface.init
+                ```
+
+                ## Configuring the project manually
+
+                In case you don't want to use `mix surface.init`, you can configure the project manually with
+                the following steps.
+
+                1. If you're using `mix format`, make sure you add `surface` to the `import_deps`
                 configuration in your `.formatter.exs` file:
 
                 ```elixir
@@ -62,7 +99,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
-                To allow live reloading for `.sface` files, add the related patterns to the endpoint
+                2. To allow live reloading for `.sface` files, add the related patterns to the endpoint
                 configuration in your `config/dev.exs`:
 
                 ```elixir
@@ -75,29 +112,26 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ]
                 ```
 
-                ## Integration
-
-                We will assume that you already have LiveView already implemented in your project. (See the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/installation.html#content) for greater detail on how to accomplish this).
-
-                A simple example migration from `Phoenix.LiveView` consists of the following steps.
-
-                ### Ensure you have a LiveView available
-
-                Ensure that you have `LiveView` configured correctly in your project by implementing a `live` route directed to a `LiveView`.
+                3. If you're using `Gettext` and you want to use the built-in `ErrorTag`, you need to configure it
+                in your `config.exs` so it can properly translate error messages using gettext. If you don't plan
+                to use the `ErrorTag` component, you can skip this configuration.
 
                 ```elixir
-                live "/", ExampleLive, :index
+                config :surface, :components, [
+                  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
+                ]
                 ```
 
-                Surface offers drop-in replacement components for `Phoenix.LiveView` (`Surface.LiveView`), `Phoenix.Component` (`Surface.Component`), and `Phoenix.LiveComponent` (`Surface.LiveComponent`).
+                ## Creating your first Surface component
 
-                Let's create our first `Surface.Component` and render it in our `Surface.LiveView`.
+                Surface offers drop-in replacement components for `Phoenix.LiveView` (`Surface.LiveView`),
+                `Phoenix.Component` (`Surface.Component`), and `Phoenix.LiveComponent` (`Surface.LiveComponent`).
 
+                Let's create our first `Surface.Component` and render it in a `Surface.LiveView`.
 
-                ### Create your first Surface.Component
-
-                Create a module for your component. Similarly to a `Phoenix.LiveView` component, `Surface` supports co-locating templates within a sigil (`~F` rather than `~L/~H`) or a template file with the same file name and the extension (`.sface` rather than `.leex/.heex`).
-
+                Create a module for your component. Similarly to a `Phoenix.LiveView`, `Surface` supports templates
+                within a sigil (`~F` rather than `~L/~H`) or in a colocated template file with the same name and
+                extension (`.sface` rather than `.leex/.heex`).
 
                 ```elixir
                 defmodule MyAppWeb.Components.ExampleComponent do
@@ -110,101 +144,77 @@ defmodule SurfaceSiteWeb.GettingStarted do
                     <h1><#slot /></h1>
                     "\""
                   end
-
-                  # Or omit the render function and create a file
-                  # with the same filename as the component but with
-                  # an `.sface` extension
-
                 end
                 ```
 
-                ### Converting a Phoenix.LiveView to Surface.LiveView
-
-                Change the macro in your `LiveView` from `Phoenix.LiveView` (or `YourApp, :live_view`) and the render sigil from `~H/~L` or your template extension from `.heex`/`.leex` to `.sface`.
+                Create a module for our Liveview.
 
                 ```elixir
                 defmodule MyAppWeb.ExampleLive do
-                  # If you generated an app with mix phx.new --live,
-                  # the line below would be: use MyAppWeb, :live_view
-
-                  #  use Phoenix.LiveView
                   use Surface.LiveView
 
                   alias MyAppWeb.Components.ExampleComponent
 
                   def render(assigns) do
-                  # ~H"\""
                     ~F"\""
                     <ExampleComponent>
                       Surface is Working!!!
                     </ExampleComponent>
                     "\""
                   end
-
-                  # Or omit the render function and create a file
-                  # with the same filename as the LiveView but with
-                  # an `.sface` extension
-
                 end
                 ```
 
-                > ### Optional: Integration with a typical Phoenix project's macros
-                >
-                > By default, `Surface.LiveView`,`Surface.Component`, and `Surface.LiveComponent` do not make use of existing macros in `YourAppWeb`. Using these macros directly in your views will bypass the default `YourAppWeb, :live_view/:live_component/:component` macros that are generated by default in `Phoenix` apps (using the `phx.new --live` mix task). In consequence, using these `Surface` macros directly in your views will result in the default layout not rendering, nor will any other work be done by the `:live_view` macro (ex. `aliases` or `imports`).
-                >
-                > In order to provide the comprable functionality to a typical `Phoenix.LiveView` project setup, either:
-                > - modify the existing `YourAppWeb, :live_view` macro to use `Surface.LiveView` in place of `Phoenix.LiveView`
-                > - create a new macro for the explicit use of `Surface.LiveView` (ex. `:surface_view`)
-                >
-                > ```elixir
-                > defmodule YourAppWeb
-                > # ...
-                >   def surface_view do
-                >    quote do
-                >      use Surface.LiveView,
-                >        layout: {YourAppWeb.LayoutView, "live.html"}
-                >
-                >      unquote(view_helpers())
-                >    end
-                >  end
-                > # ...
-                > end
-                >
-                > defmodule YourAppWeb.ExampleLive
-                >   use YourAppWeb, :surface_view
-                > end
-                > ```
-                >
-                >
-                >
-                > Modifying the generated `:live_view` macro will result in wholesale adoption of `Surface.LiveView` throughout the project, while creating a new macro will require explicit adoption in your project views.
+                Add a new route for our Liveview in your `router.ex`.
 
-                ### Surface Extends LiveView
-
-                The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix project can be found at the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/).
-
-
-                ### Component Configurations
-
-                Surface provides a set of built-in components that you can use in any project. Some of these components require configuration:
-
-                The `ErrorTag` expects that you define a `default_translator` to translate form error messages.
-                If you do not use the `ErrorTag` component you can skip this configuration.
                 ```elixir
-                config :surface, :components, [
-                  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
-                ]
+                live "/example", ExampleLive
                 ```
 
-                That's all!
+                You can now see your Liveview and Component in action at `http://localhost:4000/example`
 
-                ## Migrating from `v0.4.x` to `v0.5.x`
+                ## Converting a `Phoenix.LiveView` to `Surface.LiveView`
 
-                Surface `v0.5.0` introduces a new syntax which requires migrating components written in previous versions.
-                In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
-                can automatically translate the old syntax into the new one.
+                In case you want to migrate an existing `Phoenix.Liveview` to `Surface.Liveview`, replace
+                the `use Surface.LiveView` (or `use YourApp, :live_view`) with `use Surface.Liveview` and
+                replace the sigil from `~H/~L` with `~F`. If you're using colocated files, rename the extension
+                from `.heex`/`.leex` to `.sface`.
 
-                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/master/MIGRATING.md) for details.
+                ## Integration with typical Phoenix project's macros (optional)
+
+                By default, `Surface.LiveView`, `Surface.Component`, and `Surface.LiveComponent` do not make
+                use of existing macros in `YourAppWeb`. Using these macros directly in your views will bypass
+                the default `YourAppWeb, :live_view/:live_component/:component` macros that are generated by
+                default in `Phoenix` apps (using the `phx.new --live` mix task). Consequently, using the `Surface`
+                macros directly will not render the default layout nor will make use of any other setup done
+                by the `:live_view` macro (ex. `aliases` or `imports`).
+
+                If you want to use the same approach with Surface, you can either:
+
+                - modify the existing `YourAppWeb, :live_view` macro to use `Surface.LiveView` in place of `Phoenix.LiveView`
+                - or create a new macro for the explicit use of `Surface.LiveView` (ex. `:surface_view`)
+
+                ```elixir
+                defmodule YourAppWeb
+                # ...
+                  def surface_view do
+                   quote do
+                     use Surface.LiveView,
+                       layout: {YourAppWeb.LayoutView, "live.html"}
+
+                     unquote(view_helpers())
+                   end
+                 end
+                # ...
+                end
+
+                defmodule YourAppWeb.ExampleLive
+                  use YourAppWeb, :surface_view
+                end
+                ```
+
+                Modifying the generated `:live_view` macro will result in wholesale adoption of `Surface.LiveView`
+                throughout the project, while creating a new macro will require explicit adoption in your project views.
 
                 ## Using Surface with Phoenix templates (optional)
 
@@ -232,6 +242,29 @@ defmodule SurfaceSiteWeb.GettingStarted do
                   "bulma": "0.8.0"
                 }
                 ```
+
+                ## Surface Extends LiveView
+
+                The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their
+                functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix
+                project can be found at the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/).
+
+                ## Migrating from `v0.5.x` to `v0.6.x`
+
+                Surface `v0.6.x` relies on the Liveview features available since `v0.16`. The main change
+                from the user perspective is that the stateless `Surface.Component` now is built on top of
+                `Phoenix.Component` instead of `Phoenix.LiveComponent`. This means the `mount/1`, `preload/1`
+                and `udpate/2` callbacks are no longer available. If you initialize any assign or compute
+                any value using those callbacks, you need to replace them with one of the new
+                [assign helpers](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#module-assigns).
+
+                ## Migrating from `v0.4.x` to `v0.5.x`
+
+                Surface `v0.5.0` introduces a new syntax which requires migrating components written in previous versions.
+                In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
+                can automatically translate the old syntax into the new one.
+
+                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/master/MIGRATING.md) for details.
 
                 ## Tooling
 
