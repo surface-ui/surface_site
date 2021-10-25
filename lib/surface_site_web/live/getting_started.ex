@@ -180,7 +180,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ## Converting a `Phoenix.LiveView` to `Surface.LiveView`
 
                 In case you want to migrate an existing `Phoenix.Liveview` to `Surface.Liveview`, replace
-                the `use Surface.LiveView` (or `use YourApp, :live_view`) with `use Surface.Liveview` and
+                the `use Phoenix.LiveView` (or `use YourApp, :live_view`) with `use Surface.Liveview` and
                 replace the sigil from `~H/~L` with `~F`. If you're using colocated files, rename the extension
                 from `.heex`/`.leex` to `.sface`.
 
