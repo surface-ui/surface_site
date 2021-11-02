@@ -122,6 +122,29 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 }
                 ```
 
+                ## Surface extends LiveView
+
+                The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their
+                functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix
+                project can be found at the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/).
+
+                ## Migrating from `v0.5.x` to `v0.6.x`
+
+                Surface `v0.6.x` relies on the Liveview features available since `v0.16`. The main change
+                from the user perspective is that the stateless `Surface.Component` now is built on top of
+                `Phoenix.Component` instead of `Phoenix.LiveComponent`. This means the `mount/1`, `preload/1`
+                and `udpate/2` callbacks are no longer available. If you initialize any assign or compute
+                any value using those callbacks, you need to replace them with one of the new
+                [assign helpers](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#module-assigns).
+
+                ## Migrating from `v0.4.x` to `v0.5.x`
+
+                Surface `v0.5.0` introduces a new syntax which requires migrating components written in previous versions.
+                In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
+                can automatically translate the old syntax into the new one.
+
+                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/master/MIGRATING.md) for details.
+
                 ## Related Projects
 
                 We are working on several related projects.
