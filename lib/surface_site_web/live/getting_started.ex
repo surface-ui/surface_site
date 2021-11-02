@@ -122,6 +122,28 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 }
                 ```
 
+                ## Related Projects
+
+                We are working on several related projects.
+
+                #### Surface Formatter
+
+                [Surface Formatter](https://github.com/surface-ui/surface_formatter) is a formatter for `~F` sigil blocks and `.sface` files.
+
+                Add the library to the list of dependencies in your project's mix file and use the `mix surface.format` task.
+
+                #### Surface Catalogue
+
+                [Surface Catalogue](https://github.com/surface-ui/surface_catalogue) is a development playground for your `Surface` components with similar goals to the Javascript library [Storybook](https://storybook.js.org).
+
+                #### Surface Bootstrap
+
+                [Surface Bootstrap](https://github.com/surface-ui/surface_bootstrap) is a set of Bootstrap components implemented using the [Bootstrap CSS framework](https://getbootstrap.com/docs/5.0/getting-started/introduction/).
+
+                #### Surface Bulma
+
+                [Surface Bulma](https://github.com/surface-ui/surface_bulma) is a set of Bootstrap components implemented using the [Bulma CSS framework](https://bulma.io/).
+
                 ## Tooling
 
                   * A **VS Code** extension that adds support for **syntax highlighting** is available at
