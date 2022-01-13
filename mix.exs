@@ -5,7 +5,7 @@ defmodule SurfaceSite.MixProject do
     [
       app: :surface_site,
       version: "0.1.0",
-      elixir: "~> 1.8",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers() ++ [:surface],
       start_permanent: Mix.env() == :prod,
@@ -33,21 +33,21 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.6.0"},
-      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
+      {:phoenix, "~> 1.6.6"},
+      {:esbuild, "~> 0.4", runtime: Mix.env() == :dev},
       {:phoenix_pubsub, "~> 2.0"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:plug_cowboy, "~> 2.1"},
+      {:phoenix_live_reload, "~> 1.3", only: :dev},
+      {:plug_cowboy, "~> 2.5"},
       {:ecto, "~> 3.7"},
       {:postgrex, ">= 0.0.0"},
-      {:jason, "~> 1.0"},
-      {:surface, "~> 0.6.0", override: true},
-      {:surface_formatter, "~> 0.5.0"},
-      {:surface_markdown, "~> 0.2.0"},
-      {:earmark, "~> 1.3"},
-      {:html_entities, "~> 0.4"},
-      {:phoenix_ecto, "~> 4.2"},
-      {:floki, ">= 0.30.0", only: :test}
+      {:jason, "~> 1.3"},
+      {:surface, "~> 0.7.0", override: true},
+      {:surface_formatter, "~> 0.7.4"},
+      {:surface_markdown, "~> 0.3.0"},
+      {:earmark, "~> 1.4"},
+      {:html_entities, "~> 0.5"},
+      {:phoenix_ecto, "~> 4.4"},
+      {:floki, ">= 0.32.0", only: :test}
     ]
   end
 

@@ -5,7 +5,7 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
 
 # Configures the endpoint
 config :surface_site, SurfaceSiteWeb.Endpoint,
@@ -43,7 +43,7 @@ config :surface, :components, [
 
 # Configure esbuild (the version is required)
 config :esbuild,
-  version: "0.13.8",
+  version: "0.14.10",
   default: [
     args: ~w(js/app.js --bundle --target=es2016 --outdir=../priv/static/assets),
     cd: Path.expand("../assets", __DIR__),
