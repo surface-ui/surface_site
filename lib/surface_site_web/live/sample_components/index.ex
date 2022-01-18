@@ -32,7 +32,7 @@ defmodule SurfaceSiteWeb.SampleComponents.Index do
         Add the following line to your `root.html.leex`:
 
         ```surface
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
         ```
 
         Or download the `.css` file and manually add it to your `priv/static/css` folder.
@@ -49,7 +49,7 @@ defmodule SurfaceSiteWeb.SampleComponents.Index do
         ```js
         "dependencies": {
           ...
-          "bulma": "0.8.0"
+          "bulma": "0.9.3"
         }
         ```
         </#Markdown>
