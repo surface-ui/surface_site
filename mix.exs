@@ -5,7 +5,7 @@ defmodule SurfaceSite.MixProject do
     [
       app: :surface_site,
       version: "0.1.0",
-      elixir: "~> 1.12",
+      elixir: "~> 1.11",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix] ++ Mix.compilers() ++ [:surface],
       start_permanent: Mix.env() == :prod,
