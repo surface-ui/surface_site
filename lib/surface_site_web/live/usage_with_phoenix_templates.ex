@@ -36,7 +36,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 If you find a Surface component you want to use in your existing phoenix project.
                 You have the following options:
 
-                1. **[Recommened]** Replace the live views (or components) that will use the desired component
+                1. **[Recommended]** Replace the live views (or components) that will use the desired component
                 with their Surface's counterparts, i.e. `Surface.LiveView`, `Surface.LiveComponent` and `Surface.Component`.
                 This requires no extra step and you'll be able to enjoy all its features without any limitation.
 
@@ -44,7 +44,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 section below and use `~F` or `.sface` instead of `~L` and `.leex`. This should work fine but some features
                 may require extra work like implementing `mount` to call `Surface.init(socket)`.
 
-                3. **[Not Recommened]** Inject the component using phoenix's `live_component/4` directly in your template.
+                3. **[Not Recommended]** Inject the component using phoenix's `live_component/4` directly in your template.
                 This will work for most simple components as long as they don't make use of slots nor contexts.
                 Other features that may be added in the future might not work with this approach either.
 
