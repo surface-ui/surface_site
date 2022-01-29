@@ -16,6 +16,7 @@ defmodule SurfaceSiteWeb.Router do
     live "/", App
     live "/getting_started", GettingStarted
     live "/usage_with_phoenix_templates", UsageWithPhoenixTemplates
+    live "/usage_without_liveview", UsageWithoutLiveview
     live "/documentation", Documentation
     live "/components_basics", ComponentsBasics
     live "/properties", Properties
