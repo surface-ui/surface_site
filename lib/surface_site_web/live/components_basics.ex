@@ -41,6 +41,26 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                 any other HTML tag.
               </#Markdown>
 
+              <#Markdown>
+                ## Types available
+
+                  When declaring a **property** and/or **data**, you can define the type of the assign using one of the
+                  following types:
+
+                  `:any`, `:css_class`, `:list`, `:event`,
+                  `:boolean`, `:string`, `:time`, `:date`, `:datetime`, `:naive_datetime`,
+                  `:number`, `:integer`, `:decimal`, `:map`,
+                  `:fun`, `:atom`, `:module`, `:changeset`, `:form`, `:keyword`,
+                  `:struct`,  `:tuple`, `:pid`, `:port`, `:reference`, `:bitstring`,
+                  `:range`, `:mapset`, `:regex`, `:uri` and `:path`.
+
+                  > **Note**: Currently, some of the types above work just as annotations and don't have
+                  any practical use aside from documentation. If the type you need is not in that list,
+                  you can safely use `:any` instead. However, some other types like `:css_class`, `:list`
+                  and `:event` are handled differently, i.e. there are extra rules and behaviours applied
+                  to them.
+              </#Markdown>
+
               <div class="card dark">
                 <div class="card-content">
                   <SurfaceSiteWeb.ComponentsBasics.Example01.Example />

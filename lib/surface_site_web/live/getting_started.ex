@@ -46,7 +46,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 def deps do
                   [
-                    {:surface, "~> 0.6.0"}
+                    {:surface, "~> 0.7.0"}
                   ]
                 end
                 ```
@@ -237,14 +237,14 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 For a quick start with bulma, you can add the following line to your `root.html.leex`:
 
                 ```html
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
                 ```
 
                 or add it to the list of dependencies in `assets/package.json`:
 
                 ```js
                 "dependencies": {
-                  "bulma": "0.8.0"
+                  "bulma": "0.9.3"
                 }
                 ```
 
