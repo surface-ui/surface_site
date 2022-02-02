@@ -144,8 +144,7 @@ defmodule SurfaceSiteWeb.Contexts do
                   ...
                 </Context>
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 > **Note:** If you want to distribute a library that store values into the context,
                 it's highly recommended that you **always** scope those values as demonstrated. This way
                 you make sure it can play nicely with other libraries that also use contexts.

@@ -57,8 +57,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   Name: {String.upcase(@name)}
                 </div>
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 ## Attributes and props
 
                 Tag attributes and component properties can be defined pretty much the same way you define attributes in HTML.
@@ -76,8 +75,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   ...
                 </Card>
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 ## Boolean attributes
 
                 Whenever you need to render a boolean attribute based on a condition, you can pass that condition directly as an expression:
@@ -118,8 +116,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 ```
 
                 The attributes can be passed as either a keyword list or a map.
-              </#Markdown>
-              <#Markdown>
+
                 > **Note**: The concept is very similar to spread attributes in `React` or `Svelte`. However, in Surface this is
                 implemented as a [Tagged Expression](/template_syntax#tagged-expressions) as `Elixir` does not provide a
                 spread operator like the `...` in `JS`.
@@ -254,8 +251,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   Loading ...
                 </div>
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 Currently, the following directives are supported:
 
                   * `:if` - Conditionally render a tag (or component). The code will be rendered if the expression

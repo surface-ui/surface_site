@@ -119,8 +119,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                   ...
                 </div>
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 ## Choosing a different output dir
 
                 By default, Surface builds all components' JS files into `./assets/js/_hooks/`.

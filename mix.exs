@@ -44,7 +44,8 @@ defmodule SurfaceSite.MixProject do
       {:surface, "~> 0.7.0", override: true},
       {:surface_formatter, "~> 0.7.4"},
       {:surface_markdown, "~> 0.3.0"},
-      {:earmark, "~> 1.4"},
+      {:earmark, "1.4.19", override: true},
+      {:earmark_parser, "1.4.17", override: true},
       {:html_entities, "~> 0.5"},
       {:phoenix_ecto, "~> 4.4"},
       {:floki, ">= 0.32.0", only: :test}

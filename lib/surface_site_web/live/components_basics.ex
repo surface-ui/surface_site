@@ -126,8 +126,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                   "\""
                 end
                 ```
-              </#Markdown>
-              <#Markdown>
+
                 ## The component API
 
                 **Surface** provides built-in functions that should be used to declare the essential building
