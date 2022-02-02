@@ -19,7 +19,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
                   <li><LiveRedirect label="Getting Started" to="/getting_started" /></li>
-                  <li class="is-active"><Link to="#" label="Usage with Phoenix views" /></li>
+                  <li class="is-active"><Link to="#" label="Usage with Phoenix templates" /></li>
                 </ul>
               </nav>
 
