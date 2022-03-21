@@ -280,7 +280,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
                 can automatically translate the old syntax into the new one.
 
-                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/master/MIGRATING.md) for details.
+                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/main/MIGRATING.md) for details.
 
                 ## Tooling
 
