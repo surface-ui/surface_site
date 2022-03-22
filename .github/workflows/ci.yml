@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - misc
 
 jobs:
   mix_test:
@@ -37,8 +38,9 @@ jobs:
           mix local.hex --force
           mix local.rebar --force
           mix deps.get --only test
-      - run: mix compile --warnings-as-errors
-        if: matrix.warnings_as_errors
+      - name: Compile Dependencies
+        run: mix deps.compile
+      - run: mix compile --warnings-as-errors=${{matrix.warnings_as_errors || false}}
       - run: mix format --check-formatted
         if: matrix.check_formatted
       - run: mix test
