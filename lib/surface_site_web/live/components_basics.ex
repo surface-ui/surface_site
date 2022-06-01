@@ -37,8 +37,12 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                   * **Surface.MacroComponent** - A low-level component which is responsible
                     for translating its own content at compile time.
 
-                Components instances can be injected in a template using the same notation as
-                any other HTML tag.
+                > **Note**: For simpler, stateless components that don't require advanced features like
+                contexts, you can also define them as **function components** as described in the
+                [phoenix docs](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html).
+                If you prefer, you can use `~F` instead of `~H` for a full Surface experience.
+                Keep in mind that some static validations provided by Surface may not available
+                when using function components.
               </#Markdown>
 
               <#Markdown>
