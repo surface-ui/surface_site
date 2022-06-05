@@ -59,9 +59,10 @@ defmodule SurfaceSiteWeb.LayoutsAndDeadViews do
                     ]
                 ```
 
-                Then, change the extension of your template files using Surface from `.html.heex` to `.sface`
-                (e.g. `templates/your_app_web/page/index.sface`), making sure your templates
-                are using the Surface syntax (`{foo}` for interpolation instead of `<%= foo %>`)
+                Then, change the extension of your template files from `.html.heex` to `.sface`
+                (e.g. `templates/your_app_web/page/index.sface`) and make sure you replace any `EEx/HEEx`
+                code interpolation with the proper Surface syntax. For instance, if you have `<%= foo %>`, replace it
+                with `{foo}`.
 
                 ### Enabling only in specific views
 
