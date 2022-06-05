@@ -221,7 +221,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 Modifying the generated `:live_view` macro will result in wholesale adoption of `Surface.LiveView`
                 throughout the project, while creating a new macro will require explicit adoption in your project views.
 
-                ## Using Surface templates without LiveView
+                ## Using Surface in layouts and dead views
 
                 It is possible to use `sface` templates on regular controllers, views and layouts in your application.
                 This can be useful if you have an existing application and want to start using Surface stateless components
@@ -230,7 +230,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 `root.html.heex` or `live.html.heex`.
 
                 For more information, please visit
-                [Usage without LiveView](/usage_without_liveview){: data-phx-link="redirect" data-phx-link-state="push"}.
+                [Layouts & dead views](/layouts_and_dead_views){: data-phx-link="redirect" data-phx-link-state="push"}.
 
                 ## Using Surface with Phoenix templates (optional)
 

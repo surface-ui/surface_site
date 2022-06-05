@@ -122,6 +122,26 @@ defmodule SurfaceSiteWeb.SidebarMenu do
               JS Interoperability
             </LiveRedirect>
           </li>
+          <li>
+            <LiveRedirect class="" to="/layouts_and_dead_views">
+              <span class="icon">
+                <svg
+                  class="svg-inline--fa fa-align-left fa-w-14"
+                  aria-hidden="true"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <g fill="currentColor">
+                    <rect width="234.667" height="512"/>
+                    <rect x="277.333" width="234.667" height="234.667"/>
+                    <rect x="277.333" y="277.333" width="234.667" height="234.667"/>
+                  </g>
+                </svg>
+              </span>
+              Layouts &amp; dead views
+            </LiveRedirect>
+          </li>
         </ul>
       </li>
       <li>
