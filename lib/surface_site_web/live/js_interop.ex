@@ -135,6 +135,9 @@ defmodule SurfaceSiteWeb.JSInterop do
               <LiveRedirect to="/testing">
                 ← Testing
               </LiveRedirect>
+              <LiveRedirect to="/layouts_and_dead_views">
+                Layouts &amp; dead views →
+              </LiveRedirect>
             </nav>
           </div>
         </section>
