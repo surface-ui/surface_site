@@ -1,6 +1,5 @@
 defmodule SurfaceSite.Blog do
-
-  defmodule NotFoundError, do: defexception [:message, plug_status: 404]
+  defmodule NotFoundError, do: defexception([:message, plug_status: 404])
 
   defmodule Post do
     alias SurfaceSiteWeb.Components.Markdown
@@ -29,7 +28,7 @@ defmodule SurfaceSite.Blog do
 
   @posts Enum.sort_by(@posts, & &1.date, {:desc, Date})
 
-  @visible_posts Enum.filter(@posts, & !&1.hidden)
+  @visible_posts Enum.filter(@posts, &(!&1.hidden))
 
   @tags @visible_posts |> Enum.flat_map(& &1.tags) |> Enum.uniq() |> Enum.sort()
 
