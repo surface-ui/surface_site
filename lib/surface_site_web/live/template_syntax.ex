@@ -47,7 +47,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 ## Built-in Tags and Macro Components
 
                 Some special built-in tags as well as macro components must be injected with the `#` prefix. Currently,
-                Surface provides the `<#template>` and `<#slot>` special components and the `<#Raw>` macro component.
+                Surface provides the `<#slot>` special component and the `<#Raw>` macro component.
 
                 ## Expressions
 

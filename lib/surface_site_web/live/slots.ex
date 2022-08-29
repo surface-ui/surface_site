@@ -44,8 +44,9 @@ defmodule SurfaceSiteWeb.Slots do
                 ### Supported options
 
                   * `required` - declares the slot as required. Default is `false`.
-                  * `args` - the list of arguments that should be passed to the associated slotable content.
+                  * `arg` - an atom or map defining the type of the argument that will be passed to the associated slotable content.
                   * `as` - defines the slot assign name. Useful if you want to reuse the slot name as a prop.
+                  * `generator_prop` - property that will be used as generator for this slot.
 
                 ## Rendering content with `<#slot>`
 
@@ -138,8 +139,6 @@ defmodule SurfaceSiteWeb.Slots do
                 - The default slot that contains everything that is not in any other slot
                 - The footer slot
 
-                > **Note**: The `<:header>` notation is a shorthand for `<#template name="header"/>`.
-
                 And finally our `Card` component defining all three slots:
               </#Markdown>
 
@@ -151,7 +150,7 @@ defmodule SurfaceSiteWeb.Slots do
               />
 
               <#Markdown>
-                > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<#slot name="default"/>`.
+                > **Note**: Pay attention that defining a `<#slot />` without a name is the same as defining it as `<#slot {@default} />`.
 
                 ### Detecting optional slots
 
@@ -207,7 +206,7 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 ## Typed slotables
 
-                Instead of using `<#template slot="...">` or its shorthand, you might want to define a custom component to
+                Instead of using `<:slot>`, you might want to define a custom component to
                 hold the slot's content. In our case, we can define a `<Footer>` and a `<Header>`
                 component, setting the `:slot` option as the name of the slot in the parent card.
               </#Markdown>
@@ -215,7 +214,7 @@ defmodule SurfaceSiteWeb.Slots do
               <#Code language="elixir" module={SurfaceSiteWeb.Slots.TypedSlotsExample} line_range={37..43} />
 
               <#Markdown>
-                To use them, we don't have to change anything in the `Card` component. We just need to replace each `<#template>`
+                To use them, we don't have to change anything in the `Card` component. We just need to replace each `<:slot>`
                 with the appropriate `Footer` or `Header` component.
               </#Markdown>
 
@@ -369,7 +368,7 @@ defmodule SurfaceSiteWeb.Slots do
                 > **Note**: As you can see, the `Column` component does not render anything. It just holds the
                 provided values for its properties. All the rendering is done by the parent `Grid`.
 
-                ## Binding slot arguments to generators
+                ## Slot generators
 
                 Imagine that instead of passing the field related to the column,
                 you want to define some markup that should be rendered for each column. This would
@@ -416,16 +415,13 @@ defmodule SurfaceSiteWeb.Slots do
               <#Markdown>
                 Let's take a closer look at the two important changes we made in our `Grid`:
 
-                  1. The `cols` slot now declares a slot argument `item`
-                    but instead of just defining the name of the prop (as we did for our `Rating` component),
-                    we bound the value of that argument to each value (item) produced by the generator `items`.
+                  1. The `cols` slot now references `items` as the `generator_prop`.
 
-                  2. We use `<#slot>` to render each column's content passing the current item.
+                  2. We use `<#slot>` to render each column's content passing the current item as the `generator_value`.
 
-                > **Note**: Slot contents are always passed as lists. However,
-                if you expect receiving a single content block, like at the beginning
-                of this section, you can use `<#slot name="<name>" />` as a
-                shorthand for `<#slot name="<name>" index="0" />`.
+                > **Note**: Surface Slots are implemented as regular [LiveView Slots](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#module-slots).
+                The `<#slot>` component is basically a wrapper around `render_slot/2` that allows extended features like contexts and generators.
+                For instance `<#slot {@default, @form} />` is analogous to `render_slot(@inner_block, @form)`.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
