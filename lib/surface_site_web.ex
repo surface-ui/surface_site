@@ -39,6 +39,8 @@ defmodule SurfaceSiteWeb do
 
       alias SurfaceSiteWeb.Router.Helpers, as: Routes
       import Surface
+
+      use Phoenix.HTML
     end
   end
 

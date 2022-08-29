@@ -3,6 +3,25 @@ body.mobile-sidebar-open {
   position: fixed;
 }
 
+.blog-right-bar.column.is-narrow {
+  display: none;
+}
+
+@media screen and (min-width: 1216px) {
+  .blog-right-bar.column.is-narrow {
+    display: block;
+  }
+}
+
+.panel-heading {
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+}
+
+.panel-block {
+  padding: 0.75em 0.75em;
+}
+
 code {
   padding: 0.1em 0.2em;
 }

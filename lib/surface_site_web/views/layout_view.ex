@@ -1,7 +1,17 @@
 defmodule SurfaceSiteWeb.LayoutView do
   use SurfaceSiteWeb, :view
 
-  def render(_, assigns) do
+  def render("app.html", assigns) do
+    ~F"""
+    <main>
+      <p class="alert alert-info" role="alert">{get_flash(@conn, :info)}</p>
+      <p class="alert alert-danger" role="alert">{get_flash(@conn, :error)}</p>
+      {@inner_content}
+    </main>
+    """
+  end
+
+  def render("root.html", assigns) do
     ~F"""
     <html lang="en">
       <head>

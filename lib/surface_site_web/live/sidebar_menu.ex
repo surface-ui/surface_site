@@ -132,11 +132,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >
-                  <g fill="currentColor">
-                    <rect width="234.667" height="512"/>
-                    <rect x="277.333" width="234.667" height="234.667"/>
-                    <rect x="277.333" y="277.333" width="234.667" height="234.667"/>
-                  </g>
+                <path fill="currentColor" d="M0,0v512h512V0H0z M469.333,234.667h-192v-192h192V234.667z M42.667,42.667h192v426.667h-192V42.667z M277.333,469.333 v-192h192v192H277.333z"/>
                 </svg>
               </span>
               Layouts &amp; dead views
