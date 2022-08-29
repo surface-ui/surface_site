@@ -38,7 +38,9 @@ config :surface, :components, [
   {Surface.Components.Form.TextInput, default_class: "input"},
   {Surface.Components.Form.Field, default_class: "field"},
   {Surface.Components.Form.TextArea, default_class: "textarea"},
-  {Surface.Components.Form.Label, default_class: "label"}
+  {Surface.Components.Form.Label, default_class: "label"},
+  {SurfaceSiteWeb.Contexts.Example01.Form, propagate_context_to_slots: true},
+  {SurfaceSiteWeb.Contexts.Example01.Field, propagate_context_to_slots: true}
 ]
 
 # Configure esbuild (the version is required)

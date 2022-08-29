@@ -136,20 +136,18 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
     @doc "The field name"
     prop name, :string, required: true
 
+    prop form, :form, from_context: :form
+
     slot default
 
     def render(assigns) do
       ~F"""
       <div class="field">
-        <Context get={form: form}>
-          {label(form, @name, class: "label")}
-          <div class="control">
-            <Context put={field: String.to_atom(@name)}>
-              <#slot />
-            </Context>
-            {error_tag(form, @name)}
-          </div>
-        </Context>
+        {label(@form, @name, class: "label")}
+        <div class="control">
+          <#slot context_put={field: String.to_atom(@name)} />
+          {error_tag(@form, @name)}
+        </div>
       </div>
       """
     end
@@ -168,14 +166,15 @@ defmodule SurfaceSiteWeb.Contexts.Example01 do
 
     prop placeholder, :string
 
+    data form, :form, from_context: :form
+    data field, :any, from_context: :field
+
     def render(assigns) do
       ~F"""
-      <Context get={form: form, field: field}>
-        {text_input(form, field,
-          class: css_class(["input", isDanger: Keyword.has_key?(form.errors, field)]),
-          placeholder: @placeholder
-        )}
-      </Context>
+      {text_input(@form, @field,
+        class: css_class(["input", isDanger: Keyword.has_key?(@form.errors, @field)]),
+        placeholder: @placeholder
+      )}
       """
     end
   end

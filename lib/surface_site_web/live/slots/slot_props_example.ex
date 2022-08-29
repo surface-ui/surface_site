@@ -6,7 +6,7 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
     prop max, :integer, default: 5
 
     @doc "The content"
-    slot default, args: [:value, :max]
+    slot default, arg: %{value: :integer, max: :integer}
 
     data value, :integer, default: 1
 
@@ -14,7 +14,7 @@ defmodule SurfaceSiteWeb.Slots.SlotPropsExample do
       ~F"""
       <div>
         <p>
-          <#slot :args={value: @value, max: @max} />
+          <#slot {@default, value: @value, max: @max} />
         </p>
         <div style="padding-top: 10px;">
           <button class="button is-info" :on-click="dec" disabled={@value == 1}>

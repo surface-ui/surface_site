@@ -17,7 +17,7 @@ defmodule SurfaceSiteWeb.Slots.SlotDefinedExample do
           <#slot />
         </div>
         <div :if={slot_assigned?(:footer)} style="padding:5px; border-top:2px solid #f5f5f5;">
-          <#slot name="footer" />
+          <#slot {@footer} />
         </div>
       </section>
       """

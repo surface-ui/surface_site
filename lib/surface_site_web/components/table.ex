@@ -9,7 +9,7 @@ defmodule SurfaceSiteWeb.Components.Table do
   use Surface.Component
 
   @doc "The data that populates the table"
-  prop data, :list, required: true
+  prop data, :generator, required: true
 
   @doc "The table is expanded (full-width)"
   prop expanded, :boolean, default: true
@@ -31,7 +31,7 @@ defmodule SurfaceSiteWeb.Components.Table do
   prop row_class, :fun
 
   @doc "The columns of the table"
-  slot cols, args: [item: ^data], required: true
+  slot cols, generator_prop: :data, required: true
 
   def render(assigns) do
     ~F"""
@@ -54,8 +54,8 @@ defmodule SurfaceSiteWeb.Components.Table do
             :for={{item, index} <- Enum.with_index(@data)}
             class={row_class_fun(@row_class).(item, index)}
           >
-            <td :for.index={index <- @cols}>
-              <span><#slot name="cols" index={index} :args={item: item} /></span>
+            <td :for={col <- @cols}>
+              <span><#slot {col} generator_value={item} /></span>
             </td>
           </tr>
         </tbody>

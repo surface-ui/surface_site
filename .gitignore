@@ -46,3 +46,4 @@ npm-debug.log
 
 # Ignore auto-generated hook files
 /assets/js/_hooks/
+/assets/css/_components.css

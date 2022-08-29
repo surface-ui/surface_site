@@ -18,7 +18,7 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
       <div class="card">
         <header class="card-header" style="background-color: #f5f5f5">
           <p class="card-header-title">
-            <#slot name="header" />
+            <#slot {@header} />
           </p>
         </header>
         <div class="card-content">
@@ -27,7 +27,7 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
           </div>
         </div>
         <footer class="card-footer" style="background-color: #f5f5f5">
-          <#slot name="footer" />
+          <#slot {@footer} />
         </footer>
       </div>
       """
@@ -73,7 +73,7 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
 
     def render(assigns) do
       ~F"""
-      <#slot name="default" />
+      <#slot {@default} />
       <span> 😉 </span>
       """
     end

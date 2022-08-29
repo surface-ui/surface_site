@@ -10,10 +10,10 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
     use Surface.Component
 
     @doc "The list of items to be rendered"
-    prop items, :list, required: true
+    prop items, :generator, required: true
 
     @doc "The list of columns defining the Grid"
-    slot cols, args: [item: ^items]
+    slot cols, generator_prop: :items
 
     def render(assigns) do
       ~F"""
@@ -28,8 +28,8 @@ defmodule SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators do
         <tbody>
           {#for item <- @items}
             <tr class={"is-selected": item[:selected]}>
-              {#for {_, index} <- Enum.with_index(@cols)}
-                <td><#slot name="cols" index={index} :args={item: item} /></td>
+              {#for col <- @cols}
+                <td><#slot {col} generator_value={item} /></td>
               {/for}
             </tr>
           {/for}
