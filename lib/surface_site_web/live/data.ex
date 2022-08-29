@@ -39,7 +39,7 @@ defmodule SurfaceSiteWeb.Data do
 
                   * `name` - is the name of the assign.
                   * `type` - an atom defining the type of the assign. See all available types in
-                    section **"Properties > Property types"**.
+                    section ["Components Basics > Types available"](http://localhost:4000/components_basics#types-available).
                   * `options` - a keyword list of options for additional customization.
 
                 ### Supported options

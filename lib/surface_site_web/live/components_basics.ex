@@ -51,7 +51,7 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
                   When declaring a **property** and/or **data**, you can define the type of the assign using one of the
                   following types:
 
-                  `:any`, `:css_class`, `:list`, `:event`,
+                  `:any`, `:css_class`, `:list`, `:event`, `:generator`,
                   `:boolean`, `:string`, `:time`, `:date`, `:datetime`, `:naive_datetime`,
                   `:number`, `:integer`, `:decimal`, `:map`,
                   `:fun`, `:atom`, `:module`, `:changeset`, `:form`, `:keyword`,
