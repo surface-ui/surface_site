@@ -35,7 +35,7 @@ config :surface, :components, [
      code_class_prefix: "language-",
      postprocessor: &SurfaceSiteWeb.Components.Markdown.post_processor/1
    ]},
-  {Surface.Components.Form.Input, default_class: "input"},
+  {Surface.Components.Form.TextInput, default_class: "input"},
   {Surface.Components.Form.Field, default_class: "field"},
   {Surface.Components.Form.TextArea, default_class: "textarea"},
   {Surface.Components.Form.Label, default_class: "label"}

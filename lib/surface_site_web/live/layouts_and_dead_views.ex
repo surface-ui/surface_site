@@ -1,4 +1,4 @@
-defmodule SurfaceSiteWeb.UsageWithoutLiveview do
+defmodule SurfaceSiteWeb.LayoutsAndDeadViews do
   use Surface.LiveView
 
   alias Surface.Components.{Link, LiveRedirect, Markdown}
@@ -18,17 +18,17 @@ defmodule SurfaceSiteWeb.UsageWithoutLiveview do
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Getting Started" to="/getting_started" /></li>
-                  <li class="is-active"><Link to="#" label="Usage with Phoenix views" /></li>
+                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
+                  <li class="is-active"><Link to="#" label="Layouts & dead views" /></li>
                 </ul>
               </nav>
 
               <#Markdown>
-                ## Usage without LiveView
+                ## Layouts & dead views
 
                 It is possible to use `sface` templates on regular controllers, views and layouts in your application.
                 This can be useful if you have an existing application and want to start using Surface stateless components
-                on non-LiveView pages that you already have.
+                on **non-LiveView** pages that you already have.
                 It can also be useful if you want to render Surface components on your layout templates such as `app.html.heex`,
                 `root.html.heex` or `live.html.heex`.
 
@@ -59,9 +59,10 @@ defmodule SurfaceSiteWeb.UsageWithoutLiveview do
                     ]
                 ```
 
-                Then, change the extension of your template files using Surface from `.html.heex` to `.sface`
-                (e.g. `templates/your_app_web/page/index.sface`), making sure your templates
-                are using the Surface syntax (`{foo}` for interpolation instead of `<%= foo %>`)
+                Then, change the extension of your template files from `.html.heex` to `.sface`
+                (e.g. `templates/your_app_web/page/index.sface`) and make sure you replace any `EEx/HEEx`
+                code interpolation with the proper Surface syntax. For instance, if you have `<%= foo %>`, replace it
+                with `{foo}`.
 
                 ### Enabling only in specific views
 
@@ -89,8 +90,8 @@ defmodule SurfaceSiteWeb.UsageWithoutLiveview do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/getting_started">
-                ← Getting Started
+              <LiveRedirect to="/js_interop">
+                ← JS Interoperability
               </LiveRedirect>
             </nav>
           </div>

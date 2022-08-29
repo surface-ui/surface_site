@@ -46,7 +46,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 def deps do
                   [
-                    {:surface, "~> 0.7.0"}
+                    {:surface, "~> 0.7.4"}
                   ]
                 end
                 ```
@@ -88,14 +88,14 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 In case you don't want to use `mix surface.init`, you can configure the project manually with
                 the following steps.
 
-                If you're using `mix format`, make sure you add `surface` to the `import_deps`
-                configuration in your `.formatter.exs` file:
+                If you're using `mix format`, make sure you add `surface` to the `import_deps` and set up
+                surface's built-in formatter in your `.formatter.exs` file:
 
                 ```elixir
                 [
-                  import_deps: [:ecto, :phoenix, :surface],
-                  surface_inputs: ["{lib,test}/**/*.{ex,exs,sface}"],
-                  ...
+                  import_deps: [:phoenix, :surface],
+                  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}", "{lib,test}/**/*.sface"],
+                  plugins: [Surface.Formatter.Plugin]
                 ]
                 ```
 
@@ -221,7 +221,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 Modifying the generated `:live_view` macro will result in wholesale adoption of `Surface.LiveView`
                 throughout the project, while creating a new macro will require explicit adoption in your project views.
 
-                ## Using Surface templates without LiveView
+                ## Using Surface in layouts and dead views
 
                 It is possible to use `sface` templates on regular controllers, views and layouts in your application.
                 This can be useful if you have an existing application and want to start using Surface stateless components
@@ -230,7 +230,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 `root.html.heex` or `live.html.heex`.
 
                 For more information, please visit
-                [Usage without LiveView](/usage_without_liveview){: data-phx-link="redirect" data-phx-link-state="push"}.
+                [Layouts & dead views](/layouts_and_dead_views){: data-phx-link="redirect" data-phx-link-state="push"}.
 
                 ## Using Surface with Phoenix templates (optional)
 

@@ -17,7 +17,8 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
   reloadable_compilers: [:phoenix, :elixir, :surface],
   live_reload: [
     patterns: [
-      ~r{lib/surface_site_web/(live|components)/.*(ex|js)$}
+      ~r{lib/surface_site_web/(live|components)/.*(ex|js)$},
+      ~r{priv/posts/*/.*(md)$}
     ]
   ]
 

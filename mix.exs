@@ -41,10 +41,9 @@ defmodule SurfaceSite.MixProject do
       {:ecto, "~> 3.7"},
       {:postgrex, ">= 0.0.0"},
       {:jason, "~> 1.3"},
-      {:surface, "~> 0.7.0"},
+      {:surface, "~> 0.7.4"},
       {:surface_markdown, "~> 0.4.0"},
-      {:earmark, "1.4.19"},
-      {:earmark_parser, "1.4.17", override: true},
+      {:nimble_publisher, "~> 0.1.2"},
       {:html_entities, "~> 0.5"},
       {:phoenix_ecto, "~> 4.4"},
       {:floki, ">= 0.32.0", only: :test}

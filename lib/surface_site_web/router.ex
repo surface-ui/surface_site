@@ -13,10 +13,14 @@ defmodule SurfaceSiteWeb.Router do
   scope "/", SurfaceSiteWeb do
     pipe_through :browser
 
+    get "/blog", BlogController, :index
+    get "/blog/tags/:tag", BlogController, :index
+    get "/blog/:id", BlogController, :show
+
     live "/", App
     live "/getting_started", GettingStarted
     live "/usage_with_phoenix_templates", UsageWithPhoenixTemplates
-    live "/usage_without_liveview", UsageWithoutLiveview
+    live "/layouts_and_dead_views", LayoutsAndDeadViews
     live "/documentation", Documentation
     live "/components_basics", ComponentsBasics
     live "/properties", Properties

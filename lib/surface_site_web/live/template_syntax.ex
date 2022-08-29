@@ -36,7 +36,10 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 A component can be injected using its module name, for instance `<Card>`, `<Grid>` or `<Form>`. The naming
                 convention follows the same rules as for any other module name in `Elixir`, i.e., it must be capitalized.
 
-                Tags and components can also be written as self-closing tags, like `<button/>` or `<Footer/>`.
+                Vanilla function components that are local or imported can be injected directly as `<.my_function>`. For remote
+                functions, you need to write the full function path, e.g., `<MyModule.my_function>`.
+
+                Tags and components can also be written as self-closing tags, like `<button/>`, `<Footer/>` or `<.my_function/>`.
 
                 Void elements defined by the [HTML specs](https://www.w3.org/TR/2011/WD-html-markup-20110113/syntax.html#void-elements),
                 can be written in both forms. As self-closing tags, like `<br/>` or in its original form `<br>`.
@@ -266,6 +269,9 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                     that is being prepared to fill the slot. For more information see section "**Slots props**"
                     in the [Slots](/slots) documentation.
 
+                  * `:for` - Iterates over a list (generator) and renders the content of the tag (or component)
+                    for each item in the list.
+
                   * `:on-[event]` - Set up a server event binding by generating a `phx-[event]` and a `phx-target` in the HTML tag,
                     defining the component itself as the default handler (target). This is the preferred way to use `phx` events
                     in **Surface** as it can properly handle properties of type `:event`. Available directives are: `:on-click`,
@@ -276,12 +282,6 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   * `:values` - Defines a list of values to be sent to the server when dispatching events. It generates
                     multiple `phx-value-*`. One for each key-value passed, e.g., `<div :values={id: @id, group: @group}>`.
                     The list of values can be either a keyword list or a map. The values will always be serialized as **strings**.
-
-                  * `:for` - Iterates over a list (generator) and renders the content of the tag (or component)
-                    for each item in the list.
-
-                    > **Soft deprecation alert:** It's recommended to use the `{#for ...}` block instead of `:for`
-                    > as there are plans to remove this directive in future versions.
 
                   * `:attrs` and `:props` - Passes dynamic properties to a HTML tags and component, respectively.
                     > **Soft deprecation alert:** It's recommended to use `{... }` instead of `:attrs` and `:props` as
