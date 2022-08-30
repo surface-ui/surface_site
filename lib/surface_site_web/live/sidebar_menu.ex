@@ -131,6 +131,14 @@ defmodule SurfaceSiteWeb.SidebarMenu do
             </LiveRedirect>
           </li>
           <li>
+            <LiveRedirect class="" to="/scoped_css">
+              <span class="icon">
+                <i class="fa fa-list-alt" />
+              </span>
+              Scoped CSS
+            </LiveRedirect>
+          </li>
+          <li>
             <LiveRedirect class="" to="/layouts_and_dead_views">
               <span class="icon">
                 <svg

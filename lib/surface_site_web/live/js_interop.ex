@@ -32,47 +32,6 @@ defmodule SurfaceSiteWeb.JSInterop do
                 In case you don't, please read [JavaScript interoperability](https://hexdocs.pm/phoenix_live_view/js-interop.html)
                 for general guidance.
 
-                ## Setup
-
-                Update `mix.exs`, adding the `:surface` compiler to the list of compilers:
-
-                ```elixir
-                def project do
-                  [
-                    ...,
-                    compilers: [:phoenix] ++ Mix.compilers() ++ [:surface]
-                  ]
-                end
-                ```
-
-                Update `.gitignore`:
-
-                ```elixir
-                # Ignore auto-generated hook files
-                /assets/js/_hooks/
-                ```
-
-                Update `assets/js/app.js`:
-
-                ```js
-                import Hooks from "./_hooks"
-                // ...
-                let liveSocket = new LiveSocket("/live", Socket, { hooks: Hooks, ... })
-                ```
-
-                Update the Endpoint options in `config/dev.exs` for live reload of JS hooks:
-
-                ```elixir
-                config :my_app, MyAppWeb.Endpoint,
-                  ...
-                  reloadable_compilers: [:phoenix, :elixir, :surface],
-                  live_reload: [
-                    patterns: [
-                      ~r"lib/my_app_web/(live|components)/.*(ex|js)$",
-                      ...
-                    ]
-                ```
-
                 ## Usage
 
                 Create a colocated `.hooks.js` file with the same base name of the component.
@@ -86,7 +45,29 @@ defmodule SurfaceSiteWeb.JSInterop do
                 ├── card.hooks.js
                 ```
 
-                Export the hooks you need in `card.hooks.js`:
+                Export your hook as `default` in `card.hooks.js`:
+
+                ```js
+                export default {
+                  mounted(){
+                    console.log("Card mounted")
+                  }
+                }
+                ```
+
+                Use the `:hook` directive to bind the hook to the HTML element:
+
+                ```surface
+                <div :hook>
+                  ...
+                </div>
+                ```
+
+                ### Defining multiple hooks
+
+                If you need to bind more than one hook to different elements in you HTML, you
+                can export multiple hooks:
+
 
                 ```js
                 let Card = {
@@ -104,15 +85,16 @@ defmodule SurfaceSiteWeb.JSInterop do
                 export {Card, OtherHook};
                 ```
 
-                Use the `:hook` directive to bind whatever hook you need:
+                Then use the `:hook` directive passing the name of each hook related to each element:
 
                 ```surface
                 <div :hook="Card">
                   ...
+                  <div :hook="OtherHook">
                 </div>
                 ```
 
-                You can also access hooks defined by other components using option `:from`:
+                You can also access hooks defined by other components using the `:from` option:
 
                 ```surface
                 <div :hook={"Card", from: MyComponents.CardList}>
@@ -135,8 +117,8 @@ defmodule SurfaceSiteWeb.JSInterop do
               <LiveRedirect to="/testing">
                 ← Testing
               </LiveRedirect>
-              <LiveRedirect to="/layouts_and_dead_views">
-                Layouts &amp; dead views →
+              <LiveRedirect to="/scoped_css">
+                Scoped CSS →
               </LiveRedirect>
             </nav>
           </div>

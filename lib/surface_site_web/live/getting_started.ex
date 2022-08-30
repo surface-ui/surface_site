@@ -85,44 +85,11 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 ## Configuring the project manually
 
-                In case you don't want to use `mix surface.init`, you can configure the project manually with
-                the following steps.
+                In case you don't want to use `mix surface.init`, please check our
+                [Set up Surface manually](/manual_setup){: data-phx-link="redirect" data-phx-link-state="push"}
+                section for instructions.
 
-                If you're using `mix format`, make sure you add `surface` to the `import_deps` and set up
-                surface's built-in formatter in your `.formatter.exs` file:
-
-                ```elixir
-                [
-                  import_deps: [:phoenix, :surface],
-                  inputs: ["*.{ex,exs}", "{config,lib,test}/**/*.{ex,exs}", "{lib,test}/**/*.sface"],
-                  plugins: [Surface.Formatter.Plugin]
-                ]
-                ```
-
-                To allow live reloading for `.sface` files, add the related patterns to the endpoint
-                configuration in your `config/dev.exs`:
-
-                ```elixir
-                config :my_app, MyAppWeb.Endpoint,
-                live_reload: [
-                  patterns: [
-                    ...,
-                    ~r"lib/my_app_web/live/.*(sface)$",
-                  ]
-                ]
-                ```
-
-                If you're using `Gettext` and you want to use the built-in `<ErrorTag>` component, you need to
-                configure it in your `config.exs` so it can properly translate error messages using gettext. If you
-                don't plan to use `ErrorTag`, you can skip this configuration.
-
-                ```elixir
-                config :surface, :components, [
-                  {Surface.Components.Form.ErrorTag, default_translator: {MyAppWeb.ErrorHelpers, :translate_error}}
-                ]
-                ```
-
-                ## Building components
+                ## Creating components
 
                 Surface offers drop-in replacement components for `Phoenix.LiveView` (`Surface.LiveView`),
                 `Phoenix.Component` (`Surface.Component`), and `Phoenix.LiveComponent` (`Surface.LiveComponent`).
@@ -238,57 +205,17 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 **not recommended**. For more information, please visit
                 [Usage with Phoenix templates](/usage_with_phoenix_templates){: data-phx-link="redirect" data-phx-link-state="push"}.
 
-                ## Running the examples (optional)
-
-                Most of the components used in the examples presented in this website are just thin wrappers around
-                [Bulma](https://bulma.io){: target="_blank"} components.
-                However, you can easily adapt any of the examples to any library of your preference or
-                try them out with your own CSS styles.
-
-                For a quick start with bulma, you can add the following line to your `root.html.leex`:
-
-                ```html
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
-                ```
-
-                or add it to the list of dependencies in `assets/package.json`:
-
-                ```js
-                "dependencies": {
-                  "bulma": "0.9.3"
-                }
-                ```
-
                 ## Surface extends LiveView
 
                 The `Surface` replacement components are wrappers around the respective `LiveView` components and extend their
                 functionality. A more thorough understanding of how `LiveView` works and how it is integrated into a Phoenix
                 project can be found at the [`Phoenix LiveView` documentation](https://hexdocs.pm/phoenix_live_view/).
 
-                ## Migrating from `v0.5.x` to `v0.6.x`
-
-                Surface `v0.6.x` relies on the Liveview features available since `v0.16`. The main change
-                from the user perspective is that the stateless `Surface.Component` now is built on top of
-                `Phoenix.Component` instead of `Phoenix.LiveComponent`. This means the `mount/1`, `preload/1`
-                and `udpate/2` callbacks are no longer available. If you initialize any assign or compute
-                any value using those callbacks, you need to replace them with one of the new
-                [assign helpers](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#module-assigns).
-
-                ## Migrating from `v0.4.x` to `v0.5.x`
-
-                Surface `v0.5.0` introduces a new syntax which requires migrating components written in previous versions.
-                In order to make the migration process as smooth as possible, Surface `v0.5.x` ships with a converter that
-                can automatically translate the old syntax into the new one.
-
-                Please see the [Migration Guide](https://github.com/surface-ui/surface/blob/main/MIGRATING.md) for details.
-
                 ## Tooling
 
                   * A **VS Code** extension that adds support for **syntax highlighting** is available at
                     [marketplace.visualstudio.com](https://marketplace.visualstudio.com/items?itemName=msaraiva.surface).
 
-                  * Improved integration with [ElixirSense](https://github.com/elixir-lsp/elixir_sense)
-                    to provide **auto-completion** is coming soon!
                 </#Markdown>
             </div>
             <nav class="nav-prev-next">

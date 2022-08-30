@@ -20,6 +20,7 @@ defmodule SurfaceSiteWeb.Router do
     live "/", App
     live "/getting_started", GettingStarted
     live "/usage_with_phoenix_templates", UsageWithPhoenixTemplates
+    live "/manual_setup", ManualSetup
     live "/layouts_and_dead_views", LayoutsAndDeadViews
     live "/documentation", Documentation
     live "/components_basics", ComponentsBasics
@@ -32,6 +33,7 @@ defmodule SurfaceSiteWeb.Router do
     live "/template_syntax", TemplateSyntax
     live "/testing", Testing
     live "/js_interop", JSInterop
+    live "/scoped_css", ScopedCSS
     live "/samplecomponents/:component", SampleComponents
     live "/samplecomponents", SampleComponents
     live "/builtincomponents/:component", BuiltinComponents
