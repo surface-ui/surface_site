@@ -1,6 +1,8 @@
 defmodule SurfaceSiteWeb.LayoutView do
   use SurfaceSiteWeb, :view
 
+  alias Surface.Components.LiveRedirect
+
   def render("app.html", assigns) do
     ~F"""
     <main>
@@ -59,7 +61,7 @@ defmodule SurfaceSiteWeb.LayoutView do
           <div class="hero-body" style="padding: 2.3rem 1.5rem 1.0rem 1.5rem">
             <div class="container">
               <h1 class="title">
-                <span>Surface UI</span>
+                <LiveRedirect to="/">Surface UI</LiveRedirect>
               </h1>
               <h2 class="subtitle" style="margin-right: 30px">
                 A <strong>server-side rendering</strong> component library for <strong>Phoenix</strong>

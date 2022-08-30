@@ -14,7 +14,7 @@ related to **Surface** and **Liveview**, including tutorials, tips, official ann
 and some of the ideas we have for the future.
 
 Along with our blog, we're also activating our Twitter account so if you want to keep updated
-with the latest news on Surface, follow [@surfaceui](https://twitter.com/surfaceui)!
+with the latest news on Surface, follow [@SurfaceUI](https://twitter.com/surfaceui).
 
 Welcome and enjoy!
 

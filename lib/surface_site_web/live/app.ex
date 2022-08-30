@@ -24,16 +24,6 @@ defmodule SurfaceSiteWeb.App do
                 </CardWithIcon>
               </div>
               <div class="column is-4">
-                <CardWithIcon icon="fa-book" title="Documentation">
-                  <p>
-                    The basic idea and motivation behind <b>Surface</b>, introducing the
-                    all the main features along with <strong>live examples</strong> and detailed explanation to
-                    help you to get started.
-                  </p>
-                  <p><LiveRedirect label="Learn more" to="/documentation" /></p>
-                </CardWithIcon>
-              </div>
-              <div class="column is-4">
                 <CardWithIcon icon="fa-code" title="Sample UI Components">
                   <p>
                     A set of sample components that you can use as templates to
@@ -41,6 +31,15 @@ defmodule SurfaceSiteWeb.App do
                     buttons, tabs, table grids and more.
                   </p>
                   <p><LiveRedirect label="Learn more" to="/samplecomponents" /></p>
+                </CardWithIcon>
+              </div>
+              <div class="column is-4">
+                <CardWithIcon icon="fa-edit" title="Blog">
+                  <p>
+                    Blog posts sharing relevant content related to <b>Surface</b> and <b>Liveview</b>,
+                    including tutorials, tips, official announcements and some of the ideas we have for the future.
+                  </p>
+                  <p><LiveRedirect label="See blog" to="/blog" /></p>
                 </CardWithIcon>
               </div>
             </div>

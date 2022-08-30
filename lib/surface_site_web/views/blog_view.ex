@@ -120,6 +120,7 @@ defmodule SurfaceSiteWeb.BlogView do
 
   def sidebar(assigns) do
     ~F"""
+    {!--
     <nav class="panel">
       <p class="panel-heading has-text-grey-dark">
         Search
@@ -132,7 +133,7 @@ defmodule SurfaceSiteWeb.BlogView do
           </span>
         </p>
       </div>
-    </nav>
+    </nav>--}
     <nav class="panel">
       <p class="panel-heading has-text-grey-dark">
         Tags

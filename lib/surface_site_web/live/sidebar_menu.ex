@@ -15,6 +15,14 @@ defmodule SurfaceSiteWeb.SidebarMenu do
         </LiveRedirect>
       </li>
       <li>
+        <LiveRedirect class="" to="/blog">
+          <span class="icon">
+            <i class="fas fa-edit"></i>
+          </span>
+          Blog
+        </LiveRedirect>
+      </li>
+      <li>
         <LiveRedirect class="" to="/getting_started">
           <span class="icon">
             <i class="fa fa-power-off" />
