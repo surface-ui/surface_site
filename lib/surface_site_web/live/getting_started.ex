@@ -62,11 +62,16 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 Additionally, the task can also set up a [Surface Catalogue](https://github.com/surface-ui/surface_catalogue/)
                 for your project using the `--catalogue` option. The catalogue will be available at `/catalogue`.
 
-                > **Note:** When using the `--demo` and `--catalogue` options together, the task also generates two
-                > catalogue examples and a playground for the sample component.
+                > **Note:** When using the `--demo` and `--catalogue` options together, the task also generates
+                > a couple of examples and a playground for the sample component.
+
+                The `--layouts` option will replace the `.heex` layout files with equivalent `.sface` files and
+                the `--tailwind` will set up TailwindCSS and use it in the layouts and demo.
+
+                To see the full list of options you can run `mix help surface.init`.
 
                 ```
-                mix surface.init --demo --catalogue
+                mix surface.init --demo --catalogue --layouts --tailwind
                 ```
 
                 Start the Phoenix server with:
