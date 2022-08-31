@@ -34,8 +34,8 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                   * Better code organization as each component style can be defined alongside its component
                   * Avoid conflicts between components rules as each declaration is scoped per component
                   * Prevent CSS rules from the parent components from leaking into child elements or other
-                    components, unless this behavior is desired and explicitly declared using `:deep()`.
-                  * Allows injecting elixir expressions into the CSS declarations using `s-bind()`, allowing users to apply
+                    components.
+                  * Support injecting elixir expressions into the CSS declarations using `s-bind()`, allowing users to apply
                     dynamic values to CSS properties based on the components' assigns. One great thing about this approach
                     is that it keeps the CSS syntax valid so it doesn't affect tools that depend on valid CSS syntax
                     like editor highlighters, linters, etc.

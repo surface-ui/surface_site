@@ -1,5 +1,5 @@
 %{
-  title: "Surface v0.8 released!",
+  title: "What's new in Surface v0.8?",
   author: "Marlus Saraiva",
   tags: ~w(surface releases CSS contexts tailwind catalogue),
   description: """
@@ -9,15 +9,13 @@
 }
 ---
 
-**Surface v0.8** is out with new features, major improvements and fixes.
+**Surface v0.8** is out with new features, major improvements and fixes. The full changelog can
+be found [here](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md).
 
-The full changelog can be found [here](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md).
-We also provide a [migration guide](https://github.com/surface-ui/surface/blob/main/MIGRATING.md) with
-more information about running `mix surface.convert` to automatically migrate the code from `v0.7` to `v0.8`,
-breaking changes that require user intervention and warnings that may be emitted to help you fix any issue
-safely. We encourage you to read each warning with care and follow the instructions for a smooth migration.
+A [migration guide](https://github.com/surface-ui/surface/blob/main/MIGRATING.md) is also provided with
+more information about running `mix surface.convert` to help you migrate your code from `v0.7` to `v0.8`.
 
-Let's take a look at some of the new features.
+Now, let's take a look at some of the new features.
 
 ## Scoped CSS styles
 
@@ -30,14 +28,16 @@ Some of the benefits are:
   * Better code organization as each component style can be defined alongside its component
   * Avoid conflicts between components rules as each declaration is scoped per component
   * Prevent CSS rules from the parent components from leaking into children elements or other
-    components, unless this behaviour is desired and explicitly declared using the `:deep()` pseudo-class.
-  * Allows injecting elixir expressions into the CSS declarations using `s-bind()`, allowing users to apply
+    components.
+  * Support injecting elixir expressions into the CSS declarations using `s-bind()`, allowing users to apply
     dynamic values to CSS properties based on the components' assigns. One great thing about this approach
     is that it keeps the CSS syntax valid so it doesn't interfere with tools that depend on valid CSS syntax
     like editor highlighters, linters, etc.
   * Zero configuration in `app.css` or any other file when importing new components, including
     components from dependencies. The compiler will automatically collect and process all component-related
     styles seamlessly.
+
+For more info on the topic, see the [Scoped CSS](/scoped_css) page.
 
 ## New context API
 
@@ -72,6 +72,8 @@ def render(assigns) do
   """
 end
 ```
+
+For more info on the topic, see the [Contexts](/contexts) page.
 
 ## New `render_sface/1` function
 

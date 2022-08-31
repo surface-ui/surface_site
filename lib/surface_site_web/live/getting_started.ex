@@ -82,12 +82,6 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 That's it! You can now access your application at http://localhost:4000.
 
-                You can see the full list of options provided by `surface.init` running:
-
-                ```
-                mix help surface.init
-                ```
-
                 ## Configuring the project manually
 
                 In case you don't want to use `mix surface.init`, please check our
