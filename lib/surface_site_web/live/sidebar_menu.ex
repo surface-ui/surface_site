@@ -277,6 +277,22 @@ defmodule SurfaceSiteWeb.SidebarMenu do
               Raw
             </LiveRedirect>
           </li>
+          <li>
+            <LiveRedirect class="" to="/builtincomponents/Component">
+              <span class="icon is-small">
+                <i class="fa fa-code" />
+              </span>
+              Component (dynamic)
+            </LiveRedirect>
+          </li>
+          <li>
+            <LiveRedirect class="" to="/builtincomponents/LiveComponent">
+              <span class="icon is-small">
+                <i class="fa fa-code" />
+              </span>
+              LiveComponent (dynamic)
+            </LiveRedirect>
+          </li>
         </ul>
       </li>
       <li>

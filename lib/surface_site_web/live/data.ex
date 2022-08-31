@@ -48,6 +48,7 @@ defmodule SurfaceSiteWeb.Data do
                   * `values` - the list or range of values suggested for the assign.
                   * `values!` - the list or range of all possible values for the assign. Unlike `values`, this
                     option enforces validation of the default value against the given list.
+                  * `from_context` - sets the value to the one stored in the context under the given key.
 
                 In the following example, we create a simple `Counter` component that has its state
                 defined by a single assign named `count`. You can use the `-` and `+` buttons to

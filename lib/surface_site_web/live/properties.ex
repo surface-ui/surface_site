@@ -45,6 +45,8 @@ defmodule SurfaceSiteWeb.Properties do
                   * `values` - the list or range of values suggested for the property.
                   * `values!` - the list or range of all possible values for the property. Unlike `values`, this
                     option enforces validation of the default value against the given list.
+                  * `from_context` - if the prop is not passed or the value is `nil`, sets the value to the one
+                    stored in the context under the given key.
                   * `accumulate` - instructs Surface to group all different values provided
                     for that property into a single list. Default is `false`, i.e. only the
                     last value is passed.

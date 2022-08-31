@@ -4,7 +4,6 @@ defmodule SurfaceSiteWeb.Contexts do
   alias Surface.Components.{Link, LiveRedirect, Markdown}
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
-  alias SurfaceSiteWeb.Components.Code
 
   def render(assigns) do
     ~F"""
@@ -26,87 +25,53 @@ defmodule SurfaceSiteWeb.Contexts do
               <#Markdown>
                 # Contexts
 
-                Sometimes you need to initialize some kind of context before using a component. For instance,
-                when working with forms in Phoenix templates, you usually need to define a form variable that
-                can be passed to form elements along with each field name. Here's an example:
-              </#Markdown>
+                Depending on the requirements of your project, as the tree of components start to grow deeper,
+                you may face situations where some piece of information must be available in many different
+                components down the tree. For instance, the user's id or the timezone. The classical solution
+                is to pass that information as properties until it reaches its destiny.
+                For small projects where you don't have too many child components in that situation, that's not only
+                fine, but usually preferred. However, for larger project with many levels of components, this
+                potentially becomes hard to maintain as every single parent component must define the very same
+                property, forcing the user to explixitly pass that unipresent piece of information all over the system.
+                A problem known as **"Property drilling"**.
 
-              <div class="card dark">
-                <div class="card-content">
-                  <SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix id="example_01_phoenix" />
-                </div>
-                <footer class="card-footer">
-                  <#Code
-                    language="html"
-                    module={SurfaceSiteWeb.Contexts.Example01.ExamplePhoenix}
-                    line_range={57..72}
-                  />
-                </footer>
-              </div>
+                In order to overcome such problem, Surface provides a Context API, which allow users to store
+                values in a shared data structure on a higher level in the tree and then access those values
+                anywhere in the lower levels.
 
-              <#Markdown>
-                Using Surface contexts, you can improve the developer experience by not forcing one to
-                pass the **form** and **field** values multiple times. Instead, you can store those
-                values in the **context** and retrieve them in the child component when needed.
+                The easiest way to use contexts is to store values using `Context.put/3` and retrieving them
+                with the `from_context` option.
+
+                # Example
+
+                Storing the value in a parent Liveview:
+
+                ```elixir
+                def mount(_params, _session, socket) do
+                  socket = Context.put(socket, timezone: "UTC")
+                  {:ok, socket}
+                end
+                ```
+
+                Retrieving the value from the context in any component down the tree:
+
+                ```elixir
+                data timezone, :string, from_context: :timezone
+
+                def render(assigns) do
+                  ~F"\""
+                  <h1>Timezone: {@timezone}<h1>
+                  "\""
+                end
+                ```
 
                 > **Note**: Although storing values in contexts might be an interesting way to
-                avoid **"Property drilling"**, you must use them carefully. Overusing them will make
-                your code less explicit, which may lead to components that are harder to reason
-                about.
+                avoid property drilling, you must use them carefully. Overusing them will make
+                your code less efficient and less explicit, which may lead to components that are harder to reason
+                about. We recommend using context only for more global information like user-related
+                info that is not frequently updated.
 
-                Here's the updated version of our form now using components and contexts:
-              </#Markdown>
-
-              <div class="card dark">
-                <div class="card-content">
-                  <SurfaceSiteWeb.Contexts.Example01.Example id="example_01" />
-                </div>
-                <footer class="card-footer">
-                  <#Code
-                    language="surface"
-                    module={SurfaceSiteWeb.Contexts.Example01.Example}
-                    line_range={198..205}
-                  />
-                </footer>
-              </div>
-
-              <#Markdown>
-                ## Using `<Context>`
-
-                You can `put` or `get` values to/from the context using the `Context` component.
-
-                ### Putting values into the context
-
-                Let's take a look at our `Form` component.
-              </#Markdown>
-
-              <#Code language="elixir" module={SurfaceSiteWeb.Contexts.Example01.Form} line_range={104..129} />
-
-              <#Markdown>
-                The value of variable `form` will be stored in the context under the key `:form` and will be
-                available to any child component inside `<Context>...</Context>`, including any instance present
-                in the content assigned to the "default" slot.
-
-                We can use the same concept in our `Field` component and add the field name to the context too:
-              </#Markdown>
-
-              <#Code language="elixir" module={SurfaceSiteWeb.Contexts.Example01.Field} line_range={131..162} />
-
-              <#Markdown>
-                ### Retrieving values from the context
-
-                Now that we have both values, `form` and `field` properly stored in the context,
-                the `TextInput` component can access those values and use them as need:
-              </#Markdown>
-
-              <#Code
-                language="elixir"
-                module={SurfaceSiteWeb.Contexts.Example01.TextInput}
-                line_range={164..181}
-              />
-
-              <#Markdown>
-                ## Scoping context values
+                ## Namespacing context values
 
                 One important thing to keep in mind it that storing values from different components
                 might lead to naming conflicts. To avoid that, Surface allows you to "namespace" the
@@ -116,38 +81,69 @@ defmodule SurfaceSiteWeb.Contexts do
 
                 Instead of:
 
-                ```surface
-                <Context put={form: form}>
+                ```elixir
+                socket = Context.put(socket, form: form)
                 ```
 
                 you can use:
 
-                ```surface
-                <Context put={__MODULE__, form: form}>
+                ```elixir
+                socket = Context.put(socket, __MODULE__, form: form)
                 ```
 
                 That would create a composite key containing both atoms, i.e. `{Form, :form}` for that value.
 
                 Now, whenever you need to retrieve the value, you must pass the scope too:
 
-                ```surface
-                <Context get={Form, form: f}>
+                ```elixir
+                form = Context.get(Form, :form)
                 ```
 
-                In case you need to get/put values from/to different scopes, you can define
-                multiple `get`/`put` props. For instance:
-
                 ```surface
-                <Context
-                  get={Form, form: form}
-                  get={Field, field: field}>
-                  ...
-                </Context>
+                data form, :form, from_context: {Form, :form}
                 ```
 
-                > **Note:** If you want to distribute a library that store values into the context,
+                > **Note:** If you want to distribute a library that stores values into the context,
                 it's highly recommended that you **always** scope those values as demonstrated. This way
                 you make sure it can play nicely with other libraries that also use contexts.
+
+                ## Scope-aware context
+
+                Sometimes you need to initialize values that should be propagated only inside the component's
+                scope via its slots. For instance, when working with forms in Phoenix, you usually need to
+                define a form variable that has to be passed to input elements along with each field name.
+
+                Using Surface contexts, you can improve the developer experience by not forcing one to
+                pass the **form** and **field** values multiple times. Instead, you can store those
+                values in the **context** and retrieve them in the child components when needed.
+
+                You can use `<#slot context_put={}/>` to propagate context values directly to a slot or
+                `<Context put={}>...</Context>` when you need to propagate them to all slots and children
+                inside a block. Using `<Context put={}>` is less efficient diff-tracking-wise so it should
+                be used only when `<#slot context_put={}/>` is not an option.
+
+                All Surface built-in form/input components provided implement this approach so you can use
+                them as:
+
+                ```surface
+                <Form for={:user} change="change">
+                  <Field name="name">
+                    <Label/>
+                    <TextInput/>
+                    <ErrorTag/>
+                  </Field>
+                  <Field name="email">
+                    <Label>E-mail</Label>
+                    <TextInput/>
+                    <ErrorTag/>
+                  </Field>
+                </Form>
+                ```
+
+                > **Note**: Using scope-aware context is more expensive than using regular context via `Context.put/3`.
+                The reason is that the former relies on variables to be passed down to the slots and should only be
+                used when you already need to use variables, like in the example above that, behind the scenes, use
+                the form instance created by the underlying LV's `<.form>` component.
               </#Markdown>
             </div>
             <nav class="nav-prev-next">

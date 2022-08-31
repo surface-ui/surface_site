@@ -275,7 +275,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                   * `:on-[event]` - Set up a server event binding by generating a `phx-[event]` and a `phx-target` in the HTML tag,
                     defining the component itself as the default handler (target). This is the preferred way to use `phx` events
                     in **Surface** as it can properly handle properties of type `:event`. Available directives are: `:on-click`,
-                    `:on-capture-click`, `:on-blur`, `:on-focus`, `:on-change`, `:on-submit`, `:on-keydown`,
+                    `:on-capture-click`, `click-away`, `:on-blur`, `:on-focus`, `:on-change`, `:on-submit`, `:on-keydown`,
                     `:on-keyup`, `:on-window-focus`, `:on-window-blur`, `:on-window-keydown` and `:on-window-keyup`. For
                     details, see [The :on-[event] directive](/events#the-:on-[event]-directive).
 

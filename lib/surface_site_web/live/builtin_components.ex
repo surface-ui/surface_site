@@ -294,6 +294,18 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
     """
   end
 
+  defp route(%{component: "Component"} = assigns) do
+    ~F"""
+    <ComponentInfo module={Surface.Components.Dynamic.Component} />
+    """
+  end
+
+  defp route(%{component: "LiveComponent"} = assigns) do
+    ~F"""
+    <ComponentInfo module={Surface.Components.Dynamic.LiveComponent} />
+    """
+  end
+
   defp route(%{component: "Markdown"} = assigns) do
     ~F"""
     <SurfaceSiteWeb.BuiltinComponents.MarkdownInfo id="MarkdownInfo" />
