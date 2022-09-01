@@ -46,7 +46,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 def deps do
                   [
-                    {:surface, "~> 0.7.4"}
+                    {:surface, "~> 0.8.0"}
                   ]
                 end
                 ```

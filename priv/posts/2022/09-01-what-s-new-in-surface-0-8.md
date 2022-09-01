@@ -10,9 +10,9 @@
 ---
 
 **Surface v0.8** is out with new features, major improvements and fixes. The full changelog can
-be found [here](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md).
+be found [here](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md#v080-2022-09-01).
 
-A [migration guide](https://github.com/surface-ui/surface/blob/main/MIGRATING.md) is also provided with
+A [migration guide](https://github.com/surface-ui/surface/blob/v0.8.0/MIGRATING.md) is also provided with
 more information about running `mix surface.convert` to help you migrate your code from `v0.7` to `v0.8`.
 
 Now, let's take a look at some of the new features.
@@ -184,7 +184,7 @@ assertions to check if the texts passed are present in the generated HTML.
 
 Along with the features above, we shipped other important updates, like the new Slot API,
 as well as many enhancements to improve both, ergonomics and performance. So make sure you take a
-look at the full [changelog](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md) and feel
+look at the full [changelog](https://github.com/surface-ui/surface/blob/main/CHANGELOG.md#v080-2022-09-01) and feel
 free to report any issue you might find. You can also reach out on our
 [#surface](https://elixir-slackin.herokuapp.com/) channel on Slack.
 
