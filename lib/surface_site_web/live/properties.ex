@@ -35,7 +35,7 @@ defmodule SurfaceSiteWeb.Properties do
                 Where:
 
                   * `name` - is the name of the property.
-                  * `type` - an atom defining the type of the property. See all available types in section ["Components Basics > Types available"](http://localhost:4000/components_basics#types-available).
+                  * `type` - an atom defining the type of the property. See all available types in section ["Components Basics > Types available"](/components_basics#types-available).
                   * `options` - a keyword list of options for additional customization.
 
                 ### Supported options
