@@ -96,7 +96,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 Now, whenever you need to retrieve the value, you must pass the scope too:
 
                 ```elixir
-                form = Context.get(Form, :form)
+                form = Context.get(socket_or_assigns, Form, :form)
                 ```
 
                 ```surface
