@@ -121,6 +121,21 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                 }
                 ```
 
+                ## Global selectors
+
+                In order to apply styles to child components based on global classes, you need
+                to use the `:global()` pseudo-class so instruct the compiler to not add scope
+                information to the related elements.
+
+                Common cases are theme-related and global status classes, e.g. `.dark`,
+                `.phx-connected` and `.phx-loading`.
+
+                ```css
+                :global(.dark) .link {
+                  ...
+                }
+                ```
+
                 ## Dynamic property values
 
                 You can inject elixir expressions into CSS property values using `s-bind()`

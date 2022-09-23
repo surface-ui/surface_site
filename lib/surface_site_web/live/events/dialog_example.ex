@@ -92,7 +92,7 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
       ~F"""
       <div>
         <Dialog title="User form" close_click="open_confirmation_dialog" id="form_dialog_2">
-          <Form for={:user}>
+          <Form for={:user2}>
             <Field name="name"><Label/><TextInput/></Field>
             <Field name="email"><Label/><TextInput/></Field>
           </Form>
