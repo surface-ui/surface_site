@@ -58,10 +58,12 @@ defmodule SurfaceSiteWeb.JSInterop do
                 Use the `:hook` directive to bind the hook to the HTML element:
 
                 ```surface
-                <div :hook>
+                <div id="my_div" :hook>
                   ...
                 </div>
                 ```
+
+                > Hooks require a unique ID on each element.
 
                 ### Defining multiple hooks
 

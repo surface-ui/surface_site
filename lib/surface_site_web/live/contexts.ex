@@ -39,6 +39,9 @@ defmodule SurfaceSiteWeb.Contexts do
                 values in a shared data structure on a higher level in the tree and then access those values
                 anywhere in the lower levels.
 
+                > **Warning**: Currently, context values do not propagate to [function components](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html)
+                unless you implement it as a [module component](https://hexdocs.pm/surface/Surface.Component.html).
+
                 The easiest way to use contexts is to store values using `Context.put/3` and retrieving them
                 with the `from_context` option.
 
