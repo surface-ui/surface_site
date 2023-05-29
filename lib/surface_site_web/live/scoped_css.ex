@@ -83,16 +83,22 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                 As with colocated files, all CSS rules defined inside `<style>` will be scoped and applies only to the
                 local HTML elements.
 
+                ## Scopes are defined by module
+
+                By default, styles defined in a colocated `.css` file are scoped by module, which means any function
+                components defined in the same module will belong to the same scope. If you need a function component
+                to define its own scope, use `<style>` in that component instead.
+
                 ## How does it work?
 
-                Scoped CSS is achieved by instructing the compiler to inject a `data-s-*` attribute to elements
+                Scoped CSS is achieved by instructing the Surface compiler to inject a `s-*` attribute to elements
                 affected by the CSS declarations. The selectors are also translated so they can only apply to the
                 related elements.
 
                 In the last example, the translated CSS code would look something, like:
 
                 ```css
-                .tag[data-s-9651d1c] {
+                .tag[s-9651d1c] {
                   @apply px-3 py-1 mr-2 rounded-full font-semibold text-sm text-gray-700 bg-gray-200;
                 }
                 ```
@@ -101,9 +107,9 @@ defmodule SurfaceSiteWeb.ScopedCSS do
 
                 ```surface
                 <div>
-                  <span data-s-9651d1c class="tag">...</span>
-                  <span data-s-9651d1c class="tag">...</span>
-                  <span data-s-9651d1c class="tag">...</span>
+                  <span s-9651d1c class="tag">...</span>
+                  <span s-9651d1c class="tag">...</span>
+                  <span s-9651d1c class="tag">...</span>
                 </div>
                 ```
 
@@ -149,6 +155,90 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                 ```
 
                 Where `@color` is a component assign but could be any valid elixir expression that will be evaluated at runtime.
+
+                ## Generating CSS variants (Tailwind only)
+
+                CSS variants provide a declarative way to conditionally apply certain CSS classes according
+                to their values. You can instruct the Surface compiler to automatically generate tailwind variants
+                based on defined assigns. In order to define CSS variants for your templates, you can use the `css_variant`
+                option, which is available for both, `prop` and `data`.
+
+                > **Note**: If you have initialized your project using `mix surface.init`, you should have CSS variants already enabled.
+                > If that's not the case, you can anable it by following the instructions in [Surface compiler's options](https://hexdocs.pm/surface/Mix.Tasks.Compile.Surface.html#module-options).
+
+                ### Example
+
+                ```elixir
+                 prop loading, :boolean, css_variant: true
+                 prop size, :string, values: ["small", "large"], css_variant: true
+                ```
+
+                By declaring `css_variant`, a set of default variants will be automatically available in your templates
+                and can be used directly in any `class` attribute. By default, all variants' names will
+                start with the `@` prefix.
+
+                ### Example
+
+                ```surface
+                <button class="@loading:opacity-75 @size-small:text-sm @size-large:text-lg">
+                  Submit
+                </button>
+                ```
+
+                ## CSS variants naming convention
+
+                Depending on the type defined for your prop/data, as well as the options passed, a different set of
+                variants may be generated for each possible value.
+
+                Here's the default naming convention for each type:
+
+                ### Boolean
+
+                * The `assign-name` itself, if `true`.
+                * `not-[assign-name]`, if `false`.
+
+                Example:
+
+                ```surface
+                <div class="@loading:opacity-75 @not-loading:opacity-100">
+                  ...
+                </div>
+                ```
+
+                ### Enumerables (`:list`, `:map` and `:mapset`)
+
+                * `has-[assign-name]` - if the enumerable has items.
+                * `no-[assign-name]` - if the enumerable is empty or `nil`.
+
+                ```surface
+                <div class="@has-items:text-blue-500 @no-items:text-red-500">
+                  ...
+                </div>
+
+                ```
+
+                ### Strings, atoms and integers defining `values` or `values!`
+
+                * `[assign-name]-[value]` for each `value` in `values`.
+
+                Example:
+
+                ```surface
+                <div class="@size-small:text-sm @size-medium:text-base @size-large:text-lg">
+                  ...
+                </div>
+                ```
+
+                ### All other types
+
+                * The `assign-name` itself, if the value is not `nil`.
+                * `not-[assign-name]`, if the value is `nil`.
+
+                ## Customizing CSS variants
+
+                If you need to perform further customization, like changing the generated variants' names or prefix, please see the
+                [Customizing variants' names](https://hexdocs.pm/surface/Mix.Tasks.Compile.Surface.html#module-customizing-variants-names)
+                section in the docs.
 
                 ## Limitations
 

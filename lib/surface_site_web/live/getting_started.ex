@@ -31,7 +31,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 ## Installation
 
-                Phoenix v1.6 comes with built-in support for LiveView apps. You can create a new phoenix application with:
+                Phoenix v1.7 comes with built-in support for LiveView apps. You can create a new phoenix application with:
 
                 ```
                 mix phx.new my_app
@@ -46,7 +46,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 ```elixir
                 def deps do
                   [
-                    {:surface, "~> 0.8.0"}
+                    {:surface, "~> 0.10.0"}
                   ]
                 end
                 ```
@@ -66,12 +66,11 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 > a couple of examples and a playground for the sample component.
 
                 The `--layouts` option will replace the `.heex` layout files with equivalent `.sface` files and
-                the `--tailwind` will set up TailwindCSS and use it in the layouts and demo.
 
                 To see the full list of options you can run `mix help surface.init`.
 
                 ```
-                mix surface.init --demo --catalogue --layouts --tailwind
+                mix surface.init --demo --catalogue --layouts
                 ```
 
                 Start the Phoenix server with:
@@ -162,16 +161,16 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 If you want to use the same approach with Surface, you can either:
 
                 - modify the existing `YourAppWeb, :live_view` macro to use `Surface.LiveView` in place of `Phoenix.LiveView`
-                - or create a new macro for the explicit use of `Surface.LiveView` (ex. `:surface_view`)
+                - or create a new macro for the explicit use of `Surface.LiveView` (ex. `:surface_live_view`)
 
                 ```elixir
                 defmodule YourAppWeb
                   ...
 
-                  def surface_view do
+                  def surface_live_view do
                    quote do
                      use Surface.LiveView,
-                       layout: {YourAppWeb.LayoutView, "live.html"}
+                       layout: {YourAppWeb.Layouts, :app}
 
                      unquote(view_helpers())
                    end
@@ -180,7 +179,7 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 end
 
                 defmodule YourAppWeb.ExampleLive
-                  use YourAppWeb, :surface_view
+                  use YourAppWeb, :surface_live_view
                 end
                 ```
 
@@ -189,11 +188,11 @@ defmodule SurfaceSiteWeb.GettingStarted do
 
                 ## Using Surface in layouts and dead views
 
-                It is possible to use `sface` templates on regular controllers, views and layouts in your application.
+                You can use `sface` templates on regular controllers, views and layouts in your application.
                 This can be useful if you have an existing application and want to start using Surface stateless components
                 on non-LiveView pages that you already have.
                 It can also be useful if you want to render Surface components on your layout templates such as `app.html.heex`,
-                `root.html.heex` or `live.html.heex`.
+                and `root.html.heex`.
 
                 For more information, please visit
                 [Layouts & dead views](/layouts_and_dead_views){: data-phx-link="redirect" data-phx-link-state="push"}.

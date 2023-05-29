@@ -43,11 +43,15 @@ defmodule SurfaceSiteWeb.Documentation do
 
                   * **Components as modules** - they can be stateless, stateful, renderless or compile-time.
 
-                  * **Declarative properties** - explicitly declare the inputs (properties, slots and events) of each component.
+                  * **Declarative properties** - explicitly declare the inputs (properties, slots and events) of each component, including live components.
 
                   * **Slots** - placeholders declared by a component that you can fill up with **custom content**.
 
-                  * **Contexts** - allows a parent component to share data with its children without passing them as properties.
+                  * **Contexts** - allows a parent component to share data with its children without passing them as properties.
+
+                  * **Scoped CSS** - allows defining CSS rules that are scoped by component avoiding conflicts between components styles and more.
+
+                  * **Scoped JS hooks** - allows defining JS hooks in colocated `.hooks.js` files that are automatically loaded without extra setup.
 
                   * **Compile-time checking** for the templates, components and their properties, events, slots and many other validations.
 

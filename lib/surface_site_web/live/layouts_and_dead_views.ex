@@ -26,7 +26,7 @@ defmodule SurfaceSiteWeb.LayoutsAndDeadViews do
               <#Markdown>
                 ## Layouts & dead views
 
-                It is possible to use `sface` templates on regular controllers, views and layouts in your application.
+                You can use `sface` templates on regular controllers, views and layouts in your application.
                 This can be useful if you have an existing application and want to start using Surface stateless components
                 on **non-LiveView** pages that you already have.
                 It can also be useful if you want to render Surface components on your layout templates such as `app.html.heex`,
