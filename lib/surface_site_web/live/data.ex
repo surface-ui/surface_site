@@ -49,6 +49,9 @@ defmodule SurfaceSiteWeb.Data do
                   * `values!` - the list or range of all possible values for the assign. Unlike `values`, this
                     option enforces validation of the default value against the given list.
                   * `from_context` - sets the value to the one stored in the context under the given key.
+                  * `css_variant` - Tailwind only. If set to `true`, instructs the Surface compiler to generate
+                    CSS variants based on the related assign's type and value. Default is `false`. For further information,
+                    see ["Generating CSS variants "](/scoped_css#generating-css-variants-(tailwind-only)).
 
                 In the following example, we create a simple `Counter` component that has its state
                 defined by a single assign named `count`. You can use the `-` and `+` buttons to

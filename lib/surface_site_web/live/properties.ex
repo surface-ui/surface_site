@@ -50,6 +50,10 @@ defmodule SurfaceSiteWeb.Properties do
                   * `accumulate` - instructs Surface to group all different values provided
                     for that property into a single list. Default is `false`, i.e. only the
                     last value is passed.
+                  * `css_variant` - Tailwind only. If set to `true`, instructs the Surface compiler to generate
+                    CSS variants based on the related assign's type and value. Default is `false`. For further information,
+                    see ["Generating CSS variants "](/scoped_css#generating-css-variants-(tailwind-only)).
+
               </#Markdown>
 
               <div class="card dark">
