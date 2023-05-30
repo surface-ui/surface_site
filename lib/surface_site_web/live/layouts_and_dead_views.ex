@@ -19,20 +19,53 @@ defmodule SurfaceSiteWeb.LayoutsAndDeadViews do
                 <ul>
                   <li><LiveRedirect label="Home" to="/" /></li>
                   <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Layouts & dead views" /></li>
+                  <li class="is-active"><Link to="#" label="Layouts &amp; dead views" /></li>
                 </ul>
               </nav>
 
               <#Markdown>
                 ## Layouts & dead views
 
-                You can use `sface` templates on regular controllers, views and layouts in your application.
-                This can be useful if you have an existing application and want to start using Surface stateless components
-                on **non-LiveView** pages that you already have.
-                It can also be useful if you want to render Surface components on your layout templates such as `app.html.heex`,
-                `root.html.heex` or `live.html.heex`.
+                You can use `sface` templates for regular controllers, views and layouts.
 
-                To enable that, add `use Surface.View, template: "lib/*your_app_web*/templates"` to the `view` function of
+                If you're using Phoenix `>= v1.7`, all you have to do is:
+
+                * Use a `.sface` file instead `.html.heex`.
+                * Use the `embed_sface/1` macro instead of the `embed_templates/1`.
+                * If you're converting an existing heex file, make sure you replace any `EEx/HEEx`
+                  code interpolation with the proper Surface syntax. For instance, if you have `<%= @foo %>`, replace it
+                  with `{@foo}`.
+
+                ### Example
+
+                For a typical `MyAppWeb.PageController` module, you should have a colocated `MyAppWeb.PageHTML` like:
+
+                ```elixir
+                defmodule MyAppWeb.PageHTML do
+                  use MyAppWeb, :html
+
+                  embed_sface "page_html/home.sface"
+                end
+                ```
+
+                As for layouts, you usually want something like:
+
+                ```elixir
+                defmodule MyAppWeb.Layouts do
+                  use MyAppWeb, :html
+
+                  embed_sface("layouts/root.sface")
+                  embed_sface("layouts/app.sface")
+                end
+                ```
+
+                > **Note**: Currently, you need to call `embed_sface/1` for each individual template as
+                > described in the example above.
+
+                ## Older Phoenix versions
+
+                To enable support for dead views in older Phoenix versions, you need to use the old `View` approach,
+                by adding `use Surface.View, template: "lib/*your_app_web*/templates"` to the `view` function of
                 your application on `lib/your_app_web.ex`:
 
                 ```elixir
@@ -61,13 +94,12 @@ defmodule SurfaceSiteWeb.LayoutsAndDeadViews do
 
                 Then, change the extension of your template files from `.html.heex` to `.sface`
                 (e.g. `templates/your_app_web/page/index.sface`) and make sure you replace any `EEx/HEEx`
-                code interpolation with the proper Surface syntax. For instance, if you have `<%= foo %>`, replace it
-                with `{foo}`.
+                code interpolation with the proper Surface syntax as mentioned in the last section.
 
                 ### Enabling only in specific views
 
                 If you want to make Surface templates available only on specific views, you can add a new function
-                on the `lib/your_app_web.ex`:
+                in `lib/your_app_web.ex`:
 
                 ```elixir
                 defmodule YourAppWeb do
