@@ -39,6 +39,7 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                     dynamic values to CSS properties based on the components' assigns. One great thing about this approach
                     is that it keeps the CSS syntax valid so it doesn't affect tools that depend on valid CSS syntax
                     like editor highlighters, linters, etc.
+                  * Auto generate Taiwind variants based on `prop`/`data` using the `css_variant` option.
                   * Zero-configuration in `app.css` or any other file when importing new components, including
                     components from dependencies. The compiler will automatically collect and process all component-related
                     styles seamlessly.
@@ -83,7 +84,7 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                 As with colocated files, all CSS rules defined inside `<style>` will be scoped and applies only to the
                 local HTML elements.
 
-                ## Scopes are defined by module
+                ## Scopes by module
 
                 By default, styles defined in a colocated `.css` file are scoped by module, which means any function
                 components defined in the same module will belong to the same scope. If you need a function component
@@ -115,7 +116,7 @@ defmodule SurfaceSiteWeb.ScopedCSS do
 
                 ## Deep selectors
 
-                By default, the scoped CSS declarations only apply to the elements defined by the component itself.
+                By default, the scoped CSS declarations only apply to the elements defined in the same module.
                 However, sometimes it might be useful to bypass that rule. For instance, when you're creating a
                 parent component that will be responsible for the layout of its children.
 
