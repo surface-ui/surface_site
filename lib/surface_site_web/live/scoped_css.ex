@@ -41,8 +41,8 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                     like editor highlighters, linters, etc.
                   * Auto generate Taiwind variants based on `prop`/`data` using the `css_variant` option.
                   * Zero-configuration in `app.css` or any other file when importing new components, including
-                    components from dependencies. The compiler will automatically collect and process all component-related
-                    styles seamlessly.
+                    components from dependencies (tha is, any dependency that has `surface` as a dependency). The compiler  
+                    will automatically collect and process all component-related styles seamlessly.
 
                 ## Usage with colocated `.css` file
 
