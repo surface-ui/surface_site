@@ -15,16 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - elixir: 1.12.0
-            otp: 24.0
-          - elixir: 1.13.4
-            otp: 24.0
-          - elixir: 1.13.4
-            otp: 25.0
-            check_formatted: true
-            warnings_as_errors: true
-          - elixir: 1.14.0
-            otp: 25.0
+          - elixir: '1.14.5'
+            otp: '25.3.2.8'
     env:
       MIX_ENV: test
     steps:
@@ -40,7 +32,6 @@ jobs:
           mix deps.get --only test
       - name: Compile Dependencies
         run: mix deps.compile
-      - run: mix compile --warnings-as-errors=${{matrix.warnings_as_errors || false}}
+      - run: mix compile --warnings-as-errors
       - run: mix format --check-formatted
-        if: matrix.check_formatted
       - run: mix test
