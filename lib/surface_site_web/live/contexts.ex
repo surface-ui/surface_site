@@ -129,7 +129,7 @@ defmodule SurfaceSiteWeb.Contexts do
                 them as:
 
                 ```surface
-                <Form for={:user} change="change">
+                <Form for={%{}} as={:user} change="change">
                   <Field name="name">
                     <Label/>
                     <TextInput/>
