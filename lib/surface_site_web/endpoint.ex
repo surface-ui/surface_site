@@ -1,7 +1,16 @@
 defmodule SurfaceSiteWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :surface_site
 
-  socket "/live", Phoenix.LiveView.Socket
+  # The session will be stored in the cookie and signed,
+  # this means its contents can be read but not tampered with.
+  # Set :encryption_salt if you would also like to encrypt it.
+  @session_options [
+    store: :cookie,
+    key: "_surface_site_key",
+    signing_salt: "AOliij/f"
+  ]
+
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -22,7 +31,8 @@ defmodule SurfaceSiteWeb.Endpoint do
   end
 
   plug Plug.RequestId
-  plug Plug.Logger
+  # TODO: this is the default plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
+  # TODO: this is the surface_site way plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
@@ -31,14 +41,6 @@ defmodule SurfaceSiteWeb.Endpoint do
 
   plug Plug.MethodOverride
   plug Plug.Head
-
-  # The session will be stored in the cookie and signed,
-  # this means its contents can be read but not tampered with.
-  # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_surface_site_key",
-    signing_salt: "AOliij/f"
-
+  plug Plug.Session, @session_options
   plug SurfaceSiteWeb.Router
 end
