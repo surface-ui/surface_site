@@ -87,7 +87,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
                 <button disabled={@step != :finished}>
                 ```
 
-                If the expression evaluates to a truthy value, the atrribute will be rendered, otherwise the whole attribute assignment
+                If the expression evaluates to a truthy value, the attribute will be rendered, otherwise the whole attribute assignment
                 will be suppressed from the rendered HTML.
 
                 ## Shorthand attribute assignment
