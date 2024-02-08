@@ -28,11 +28,11 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
       :before_docs
     ]
 
-   data id, :string
-   data full_module_name, :string
-   data module_summary, :string
-   data module_doc, :string
-   data module_name, :string
+  data id, :string
+  data full_module_name, :string
+  data module_summary, :string
+  data module_doc, :string
+  data module_name, :string
 
   @doc "The examples for the component"
   slot examples
@@ -50,6 +50,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
     {module_summary, module_doc} = fetch_module_doc(assigns.module)
 
     id = "ComponentInfo_#{module_name}"
+
     assigns =
       assigns
       |> assign(:id, id)
