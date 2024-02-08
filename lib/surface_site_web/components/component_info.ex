@@ -28,6 +28,12 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
       :before_docs
     ]
 
+   data id, :string
+   data full_module_name, :string
+   data module_summary, :string
+   data module_doc, :string
+   data module_name, :string
+
   @doc "The examples for the component"
   slot examples
 
@@ -44,22 +50,29 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
     {module_summary, module_doc} = fetch_module_doc(assigns.module)
 
     id = "ComponentInfo_#{module_name}"
+    assigns =
+      assigns
+      |> assign(:id, id)
+      |> assign(:full_module_name, full_module_name)
+      |> assign(:module_summary, module_summary)
+      |> assign(:module_doc, module_doc)
+      |> assign(:module_name, module_name)
 
     ~F"""
-    <div id={id} class="ComponentInfo">
-      <h1 class="title">{@title || full_module_name}</h1>
-      {String.trim_trailing(module_summary || "", ".") |> Markdown.to_html(class: "subtitle")}
+    <div id={@id} class="ComponentInfo">
+      <h1 class="title">{@title || @full_module_name}</h1>
+      {String.trim_trailing(@module_summary || "", ".") |> Markdown.to_html(class: "subtitle")}
       <hr>
       <div :if={@examplesPosition == :before_docs}>
         <#slot {@examples} />
       </div>
-      {module_doc |> Markdown.to_html()}
+      {@module_doc |> Markdown.to_html()}
       <div :if={@examplesPosition == :after_docs}>
-        <hr :if={module_doc not in [nil, ""]}>
+        <hr :if={@module_doc not in [nil, ""]}>
         <#slot {@examples} />
       </div>
       <hr :if={assigns[:examples]}>
-      <SectionSeparator title="Public API" id={"#{module_name}-API"} />
+      <SectionSeparator title="Public API" id={"#{@module_name}-API"} />
       <ComponentAPI module={@module} />
     </div>
     """
