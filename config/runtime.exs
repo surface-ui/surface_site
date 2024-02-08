@@ -36,6 +36,8 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "surface-ui.org"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
+  config :surface_site, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
+
   config :surface_site, SurfaceSiteWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
     http: [

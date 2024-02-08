@@ -8,9 +8,9 @@ defmodule SurfaceSite.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the PubSub system
+      {DNSCluster, query: Application.get_env(:surface_site, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: SurfaceSite.PubSub},
-      # Start the Endpoint (http/https)
+      # Start to serve requests, typically the last entry
       SurfaceSiteWeb.Endpoint
     ]
 

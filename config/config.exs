@@ -27,6 +27,7 @@ config :surface, :components, [
 # Configures the endpoint
 config :surface_site, SurfaceSiteWeb.Endpoint,
   url: [host: "localhost"],
+  adapter: Phoenix.Endpoint.Cowboy2Adapter,
   render_errors: [
     formats: [html: SurfaceSiteWeb.ErrorHTML, json: SurfaceSiteWeb.ErrorJSON],
     layout: false
