@@ -13,7 +13,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FieldInfo do
       <ComponentInfo module={Field}>
         <:examples>
           <#Example>
-            <Form for={:user}>
+            <Form for={%{}} as={:user}>
               <Field name={:email}>
                 <Label>E-mail</Label>
                 <div class="control">

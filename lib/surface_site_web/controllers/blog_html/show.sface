@@ -1,0 +1,56 @@
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    Prism.highlightAll()
+  });
+</script>
+<div style="background: #f5f5f5;">
+  <div class="container">
+    <section class="main-content">
+      <div class="container" style="background-color: #fff;">
+        <div class="section" style="padding: 1.5rem 2.0rem; padding-bottom: 0px;">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+              <li><LiveRedirect label="Home" to="/" /></li>
+              <li><LiveRedirect label="Blog" to="/blog" /></li>
+              <li class="is-active"><Link to="#" label={@post.title} /></li>
+            </ul>
+          </nav>
+          <hr>
+          <div class="columns">
+            <div class="column" style="padding-bottom: 20px;">
+              <div class="content">
+                <h1 style="margin-bottom: 0.1em;">{@post.title}</h1>
+                <p>
+                  by {@post.author} ・ <time>{Calendar.strftime(@post.date, "%B %d, %Y")}</time>
+                </p>
+                <p style="display: flex; align-items: center; gap: 8px; margin-bottom: 1.8em;">
+                  <span class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="#aaa">
+                      <path
+                        fill-rule="evenodd"
+                        d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  {#for tag <- @post.tags}
+                    <span class="tag">{tag}</span>
+                  {/for}
+                </p>
+                {raw(@post.body)}
+              </div>
+            </div>
+            <div class="blog-right-bar column is-narrow" style="width: 300px;">
+              <.sidebar tags={@tags} , recent_posts={@recent_posts} />
+            </div>
+          </div>
+          <nav class="nav-prev-next">
+            <LiveRedirect to="/blog">
+              ← Blog
+            </LiveRedirect>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -5,9 +5,9 @@ defmodule SurfaceSiteWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
+    plug :put_root_layout, html: {SurfaceSiteWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug :put_root_layout, {SurfaceSiteWeb.LayoutView, :root}
   end
 
   scope "/", SurfaceSiteWeb do

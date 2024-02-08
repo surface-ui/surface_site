@@ -4,22 +4,20 @@ import Config
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
-# watchers to your application. For example, we use it
-# with webpack to recompile .js and .css sources.
+# watchers to your application. For example, we can use it
+# to bundle .js and .css sources.
 config :surface_site, SurfaceSiteWeb.Endpoint,
-  http: [port: 4000],
-  debug_errors: true,
-  code_reloader: true,
+  # Binding to loopback ipv4 address prevents access from other machines.
+  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
+  http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
+  code_reloader: true,
+  debug_errors: true,
+  secret_key_base: "qdZaVqRjkIyGWZ50fXKWgziVNqwZTtBLxQiTxBHJpMGXJvDljm+oAEwq+4r+2R4y",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
-  ],
-  reloadable_compilers: [:phoenix, :elixir, :surface],
-  live_reload: [
-    patterns: [
-      ~r{lib/surface_site_web/(live|components)/.*(ex|js)$},
-      ~r{priv/posts/*/.*(md)$}
-    ]
+    # TODO: Tailwind
+    # tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -30,7 +28,6 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
 #
 #     mix phx.gen.cert
 #
-# Note that this task requires Erlang/OTP 20 or later.
 # Run `mix help phx.gen.cert` for more information.
 #
 # The `http:` config above can be replaced with:
@@ -45,6 +42,17 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
 # If desired, both `http:` and `https:` keys can be
 # configured to run both http and https servers on
 # different ports.
+
+# Watch static and templates for browser reloading.
+config :surface_site, SurfaceSiteWeb.Endpoint,
+  reloadable_compilers: [:elixir, :app, :surface],
+  live_reload: [
+    patterns: [
+      ~r{priv/posts/*/.*(md)$},
+      ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
+      ~r"lib/surface_site_web/(controllers|live|components)/.*(ex|heex|sface|js)$"
+    ]
+  ]
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

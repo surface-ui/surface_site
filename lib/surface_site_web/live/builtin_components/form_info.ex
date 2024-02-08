@@ -13,7 +13,7 @@ defmodule SurfaceSiteWeb.BuiltinComponents.FormInfo do
       <ComponentInfo module={Form}>
         <:examples>
           <#Example>
-            <Form for={:user} change="change" opts={autocomplete: "off"}>
+            <Form for={%{}} as={:user} change="change" opts={autocomplete: "off"}>
               <Field name="name">
                 <Label/>
                 <div class="control">

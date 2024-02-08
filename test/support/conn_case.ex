@@ -6,28 +6,24 @@ defmodule SurfaceSiteWeb.ConnCase do
   Such tests rely on `Phoenix.ConnTest` and also
   import other functionality to make it easier
   to build common data structures and query the data layer.
-
-  Finally, if the test case interacts with the database,
-  it cannot be async. For this reason, every test runs
-  inside a transaction which is reset at the beginning
-  of the test unless the test case is marked as async.
   """
 
   use ExUnit.CaseTemplate
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint SurfaceSiteWeb.Endpoint
+
+      use SurfaceSiteWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      alias SurfaceSiteWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint SurfaceSiteWeb.Endpoint
     end
   end
 
-  setup do
+  setup _tags do
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

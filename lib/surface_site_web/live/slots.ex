@@ -377,7 +377,7 @@ defmodule SurfaceSiteWeb.Slots do
 
               <div class="card dark">
                 <div class="card-content">
-                  <SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example id="binding_slot_args_to_generators"/>
+                  <SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators.Example id="binding_slot_args_to_generators" />
                 </div>
                 <footer class="card-footer">
                   <#Code
