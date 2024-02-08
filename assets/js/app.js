@@ -40,7 +40,7 @@ let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToke
 // import mermaid from "../vendor/mermaid"
 // mermaid.initialize({startOnLoad: false});
 
-// Don't load the topbar for catalogue examples/praygrounds
+// Don't load the topbar for catalogue examples/playgrounds
 if (!window.frameElement) {
   topbar.config({barColors: {0: "hsl(0, 0%, 86%)"}})
   window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
