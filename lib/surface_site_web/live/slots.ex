@@ -289,6 +289,10 @@ defmodule SurfaceSiteWeb.Slots do
               <#Code language="elixir" module={SurfaceSiteWeb.Slots.SlotPropsExample} line_range={2..39} />
 
               <#Markdown>
+                > **Note**: for simplicity, the example here does not implement any kind of validation on the backend
+                nor any blocking on the client to prevent multiple clicks leading to a negative `value`. The goal is
+                just to explain how slots work. In production, your should probably do both.
+
                 Now let's create two instances of our `Rating` component, each one rendering its
                 value differently.
               </#Markdown>
