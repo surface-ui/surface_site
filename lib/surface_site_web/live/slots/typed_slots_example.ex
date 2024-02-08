@@ -74,7 +74,9 @@ defmodule SurfaceSiteWeb.Slots.TypedSlotsExample do
     def render(assigns) do
       ~F"""
       <#slot {@default} />
-      <span> 😉 </span>
+      <span>
+        😉
+      </span>
       """
     end
   end

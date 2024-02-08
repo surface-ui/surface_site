@@ -10,5 +10,4 @@ defmodule SurfaceSiteWeb.Layouts do
   defp surface_version() do
     Application.spec(:surface, :vsn)
   end
-
 end

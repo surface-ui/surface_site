@@ -17,7 +17,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
       <li>
         <LiveRedirect class="" to="/blog">
           <span class="icon">
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-edit" />
           </span>
           Blog
         </LiveRedirect>
@@ -148,7 +148,10 @@ defmodule SurfaceSiteWeb.SidebarMenu do
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"
                 >
-                <path fill="currentColor" d="M0,0v512h512V0H0z M469.333,234.667h-192v-192h192V234.667z M42.667,42.667h192v426.667h-192V42.667z M277.333,469.333 v-192h192v192H277.333z"/>
+                  <path
+                    fill="currentColor"
+                    d="M0,0v512h512V0H0z M469.333,234.667h-192v-192h192V234.667z M42.667,42.667h192v426.667h-192V42.667z M277.333,469.333 v-192h192v192H277.333z"
+                  />
                 </svg>
               </span>
               Layouts &amp; dead views

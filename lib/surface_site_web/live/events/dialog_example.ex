@@ -63,8 +63,8 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
       <div>
         <Dialog title="User form" id="form_dialog_1">
           <Form for={%{}} as={:user}>
-            <Field name="name"><Label/><TextInput/></Field>
-            <Field name="email"><Label/><TextInput/></Field>
+            <Field name="name"><Label /><TextInput /></Field>
+            <Field name="email"><Label /><TextInput /></Field>
           </Form>
           Clicking <strong>"Ok"</strong> or <strong>"Close"</strong>
           closes the form (default behaviour).
@@ -93,8 +93,8 @@ defmodule SurfaceSiteWeb.Events.DialogExample do
       <div>
         <Dialog title="User form" close_click="open_confirmation_dialog" id="form_dialog_2">
           <Form for={%{}} as={:user2}>
-            <Field name="name"><Label/><TextInput/></Field>
-            <Field name="email"><Label/><TextInput/></Field>
+            <Field name="name"><Label /><TextInput /></Field>
+            <Field name="email"><Label /><TextInput /></Field>
           </Form>
           Now, clicking <strong>"Close"</strong> shows a confirmation dialog
           instead of closing the form.
