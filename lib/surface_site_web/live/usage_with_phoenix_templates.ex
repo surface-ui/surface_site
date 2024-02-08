@@ -29,8 +29,8 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 Using Surface components in **vanilla Phoenix templates**, i.e. using `~H` or in `*.heex` files,
                 is partially supported, however, this approach is limited and mostly not recommended.
 
-                Keep in mind that Surface extends Liveview, adding extra features like contexts.
-                Since there's **no built-in support** for it in Phoenix, Surface needs to prepare the LV/Component
+                Keep in mind that Surface extends Liveview, adding extra features like contexts and Scoped CSS.
+                Since there's **no built-in support** for them in Phoenix, Surface needs to prepare the LV/Component
                 to make those features work seamlessly.
 
                 If you find a Surface component you want to use in your existing phoenix project.
@@ -44,9 +44,10 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 section below and use `~F` or `.sface` instead of `~H` and `.heex`. This should work fine but some features
                 may require extra work like implementing `mount` to call `Surface.init(socket)`.
 
-                3. **[Not Recommended]** Inject the component using phoenix's `live_component/4` directly in your template.
-                This will work for most simple components as long as they don't make use of slots nor contexts.
-                Other features that may be added in the future might not work with this approach either.
+                3. **[Not Recommended]** Use `<YourSurfaceComponent.render/>` for function components and
+                `<.live_component module={YourSufaceLiveComponent} .../>` for Live components. This can work for most simple components
+                as long as they don't make use of any of Surface's exclusive features. Pay attention that other features that may be added
+                in the future might not work with this approach either.
 
                 ## Setting up Phoenix views for Surface
 
