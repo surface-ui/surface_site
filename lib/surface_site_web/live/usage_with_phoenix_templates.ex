@@ -26,11 +26,11 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
               <#Markdown>
                 ## Usage with Phoenix templates
 
-                Using Surface components in **vanilla Phoenix templates**, i.e. using `~L` or in `*.leex` files,
+                Using Surface components in **vanilla Phoenix templates**, i.e. using `~H` or in `*.heex` files,
                 is partially supported, however, this approach is limited and mostly not recommended.
 
-                Keep in mind that Surface extends Liveview, adding extra features like slots and contexts.
-                Since there's **no built-in support** for them in Phoenix, Surface needs to prepare the LV/Component
+                Keep in mind that Surface extends Liveview, adding extra features like contexts.
+                Since there's **no built-in support** for it in Phoenix, Surface needs to prepare the LV/Component
                 to make those features work seamlessly.
 
                 If you find a Surface component you want to use in your existing phoenix project.
@@ -41,7 +41,7 @@ defmodule SurfaceSiteWeb.UsageWithPhoenixTemplates do
                 This requires no extra step and you'll be able to enjoy all its features without any limitation.
 
                 2. **[Limited]** Follow the steps described in the [Setting up Phoenix views for Surface](/usage_with_phoenix_templates#setting-up-phoenix-views-for-surface)
-                section below and use `~F` or `.sface` instead of `~L` and `.leex`. This should work fine but some features
+                section below and use `~F` or `.sface` instead of `~H` and `.heex`. This should work fine but some features
                 may require extra work like implementing `mount` to call `Surface.init(socket)`.
 
                 3. **[Not Recommended]** Inject the component using phoenix's `live_component/4` directly in your template.
