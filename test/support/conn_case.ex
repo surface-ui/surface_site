@@ -12,13 +12,14 @@ defmodule SurfaceSiteWeb.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint SurfaceSiteWeb.Endpoint
+
+      use SurfaceSiteWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      alias SurfaceSiteWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint SurfaceSiteWeb.Endpoint
     end
   end
 

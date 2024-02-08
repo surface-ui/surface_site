@@ -1,3 +1,13 @@
+/* Import scoped CSS rules for components
+@import "./_components.css";
+
+TODO: Tailwind
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+This file is for your main application CSS */
+
 body.mobile-sidebar-open {
   overflow: hidden;
   position: fixed;
@@ -30,6 +40,7 @@ code {
   margin-top: .2em;
   margin-bottom: .3em;
 }
+
 .menu-list li a {
   padding: .4em .75em;
 }
@@ -40,7 +51,7 @@ code {
   position: absolute;
   right: 0;
   top: 0;
-  background: hsla(0,0%,4%,.86);
+  background: hsla(0, 0%, 4%, .86);
   position: fixed;
   z-index: 40;
 }
@@ -64,7 +75,7 @@ code {
 
 .mobile-sidebar .sidebar-content {
   background-color: #f5f5f5;
-  box-shadow: 5px 0 13px 3px hsla(0,0%,4%,.1);
+  box-shadow: 5px 0 13px 3px hsla(0, 0%, 4%, .1);
   width: 260px;
   z-index: 41;
 }
@@ -121,7 +132,7 @@ code {
 
 .dark.card {
   border-radius: 10px;
-  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 0 2px 3px rgba(10, 10, 10, .1), 0 0 0 1px rgba(10, 10, 10, .1);
 }
 
 .dark.card > .card-content {
@@ -203,7 +214,7 @@ code {
   color: #7a7a7a;
 }
 
-#ComponentInfo_Markdown div.Example pre > code{
+#ComponentInfo_Markdown div.Example pre > code {
   line-height: 1.6;
 }
 
@@ -239,11 +250,12 @@ code {
 
 /* SurfaceSiteWeb.Components.ComponentAPI */
 
-.ComponentAPI table{
+.ComponentAPI table {
   font-size: .9rem;
 }
 
-.ComponentAPI .table td, .table th {
+.ComponentAPI .table td,
+.table th {
   line-height: 1.5;
 }
 
@@ -256,7 +268,7 @@ code {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-  color: rgba(0,0,0,.7);
+  color: rgba(0, 0, 0, .7);
   margin: 2.25rem 0;
 }
 
@@ -416,31 +428,29 @@ pre > code[class*="language-"] .token.attr-value .token.punctuation.string {
 
 .markdown pre.line-numbers,
 pre[class*="language-"].line-numbers {
-	position: relative;
-	padding-left: 3.8em;
-	counter-reset: linenumber;
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
 }
 
 pre[class*="language-"].line-numbers > code {
-	position: relative;
-	white-space: inherit;
+  position: relative;
+  white-space: inherit;
 }
 
 .line-numbers .line-numbers-rows {
-	position: absolute;
-	pointer-events: none;
-	top: 0;
-	font-size: 100%;
-	left: -3.8em;
-	width: 3em; /* works for line-numbers below 1000 lines */
-	letter-spacing: -1px;
-	border-right: 1px solid #999;
-
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 1px solid #999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .line-numbers-rows > span {
@@ -459,76 +469,75 @@ pre[class*="language-"].line-numbers > code {
 /* Prism's line-highlight plugin */
 
 pre[data-line] {
-	position: relative;
-	padding: 1em 0 1em 3em;
+  position: relative;
+  padding: 1em 0 1em 3em;
 }
 
 .line-highlight {
-	position: absolute;
-	left: 0;
-	right: 0;
-	padding: inherit 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
   /* Same as .prism’s padding-top */
-	/* margin-top: 1em; */
-	margin-top: 0.85em;
-
-	background: hsla(24, 20%, 50%,.08);
-	background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-
-	pointer-events: none;
-
-	line-height: inherit;
-	white-space: pre;
+  /* margin-top: 1em; */
+  margin-top: 0.85em;
+  background: hsla(24, 20%, 50%, .08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%, .1) 70%, hsla(24, 20%, 50%, 0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
 }
 
 @media print {
-	.line-highlight {
-		/*
+  .line-highlight {
+    /*
 		 * This will prevent browsers from replacing the background color with white.
 		 * It's necessary because the element is layered on top of the displayed code.
 		 */
-		-webkit-print-color-adjust: exact;
-		color-adjust: exact;
-	}
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
 }
 
-	.line-highlight:before,
-	.line-highlight[data-end]:after {
-		content: attr(data-start);
-		position: absolute;
-		top: .4em;
-		left: .6em;
-		min-width: 1em;
-		padding: 0 .5em;
-		background-color: hsla(24, 20%, 50%,.4);
-		color: hsl(24, 20%, 95%);
-		font: bold 65%/1.5 sans-serif;
-		text-align: center;
-		vertical-align: .3em;
-		border-radius: 999px;
-		text-shadow: none;
-		box-shadow: 0 1px white;
-	}
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%, .4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
 
-	.line-highlight[data-end]:after {
-		content: attr(data-end);
-		top: auto;
-		bottom: .4em;
-	}
+.line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}
 
 .line-numbers .line-highlight:before,
 .line-numbers .line-highlight:after {
-	content: none;
+  content: none;
 }
 
 pre[id].linkable-line-numbers span.line-numbers-rows {
-	pointer-events: all;
+  pointer-events: all;
 }
+
 pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
-	cursor: pointer;
+  cursor: pointer;
 }
+
 pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
-	background-color: rgba(128, 128, 128, .2);
+  background-color: rgba(128, 128, 128, .2);
 }
 
 pre.language-mermaid {
@@ -568,7 +577,7 @@ div#nprogress .bar .peg {
 
 /* Customize vsc-dark-plus theme */
 
-.token.slotable-name.class-name{
+.token.slotable-name.class-name {
   color: #9cdcfe;
 }
 

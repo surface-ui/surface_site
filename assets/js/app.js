@@ -1,8 +1,6 @@
 import "../css/prism-vsc-dark-plus.css";
 import "../css/bulma.css";
 import "../css/animate.css";
-// We import the CSS which is extracted to its own file by esbuild.
-// Remove this line if you add a your own CSS build pipeline (e.g postcss).
 import "../css/app.css";
 
 window.Prism = window.Prism || {};
@@ -45,8 +43,8 @@ let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToke
 // Don't load the topbar for catalogue examples/praygrounds
 if (!window.frameElement) {
   topbar.config({barColors: {0: "hsl(0, 0%, 86%)"}})
-  window.addEventListener("phx:page-loading-start", info => topbar.show())
-  window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+  window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
+  window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
 }
 
 Hooks["Highlight"] = {

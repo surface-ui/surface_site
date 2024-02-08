@@ -7,7 +7,8 @@ defmodule SurfaceSiteWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_surface_site_key",
-    signing_salt: "AOliij/f"
+    signing_salt: "AOliij/f",
+    same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -20,7 +21,7 @@ defmodule SurfaceSiteWeb.Endpoint do
     at: "/",
     from: :surface_site,
     gzip: false,
-    only: ~w(assets fonts images favicon.ico robots.txt)
+    only: SurfaceSiteWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -31,8 +32,7 @@ defmodule SurfaceSiteWeb.Endpoint do
   end
 
   plug Plug.RequestId
-  # TODO: this is the default plug Plug.Telemetry, event_prefix: [:phoenix, :endpoint]
-  # TODO: this is the surface_site way plug Plug.Logger
+  plug Plug.Logger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],
