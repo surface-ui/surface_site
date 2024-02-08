@@ -107,7 +107,7 @@ defmodule SurfaceSiteWeb.JSInterop do
                 ## Choosing a different output dir
 
                 By default, Surface builds all components' JS files into `./assets/js/_hooks/`.
-                It you need the compiler use a different folder, you can set the `hooks_output_dir`
+                If you need the compiler use a different folder, you can set the `hooks_output_dir`
                 configuration in your `config/dev.exs`. Example:
 
                 ```elixir
