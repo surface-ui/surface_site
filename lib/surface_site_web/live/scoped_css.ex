@@ -40,9 +40,9 @@ defmodule SurfaceSiteWeb.ScopedCSS do
                     is that it keeps the CSS syntax valid so it doesn't affect tools that depend on valid CSS syntax
                     like editor highlighters, linters, etc.
                   * Auto generate Taiwind variants based on `prop`/`data` using the `css_variant` option.
-                  * Zero-configuration in `app.css` or any other file when importing new components, including
-                    components from dependencies (that is, any dependency that has `surface` as a dependency). The compiler  
-                    will automatically collect and process all component-related styles seamlessly.
+                  * Zero-configuration in `app.css` or any other file when adding new Surface components, including
+                    those from dependencies. The compiler will automatically collect and process all Surface component-related
+                    styles seamlessly.
 
                 ## Usage with colocated `.css` file
 
