@@ -33,17 +33,18 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:surface, "~> 0.11.1"},
+      {:surface, "~> 0.11", github: "surface-ui/surface", override: true},
+      {:phoenix, "1.7.10"},
       {:surface_markdown, "~> 0.6.1"},
       {:nimble_publisher, "~> 0.1.2"},
       {:html_entities, "~> 0.5"},
-      {:phoenix, "1.7.7"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:floki, ">= 0.30.0", only: :test},
-      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
+      {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       # TODO: Tailwind
       # {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
       {:jason, "~> 1.2"},
+      {:dns_cluster, "~> 0.1.1"},
       {:plug_cowboy, "~> 2.5"}
     ]
   end

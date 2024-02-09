@@ -138,7 +138,7 @@ defmodule SurfaceSiteWeb.Components.Code do
           raise "invalid line range. Ending line cannot be 0"
       end
 
-    index_from..index_to
+    index_from..index_to//1
   end
 
   defp normalize_line_range(value) do

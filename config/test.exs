@@ -7,9 +7,6 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
   secret_key_base: "qick86rrt0cZHQpbf7BLKywNWLsT9FUWpg/f//xOmOw6ZD/rVBUd+f0KMzEw0jI+",
   server: false
 
-# In test we don't send emails.
-config :surface_site, SurfaceSite.Mailer, adapter: Swoosh.Adapters.Test
-
 # Print only warnings and errors during test
 config :logger, level: :warning
 
