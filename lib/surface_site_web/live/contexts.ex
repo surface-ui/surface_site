@@ -112,6 +112,11 @@ defmodule SurfaceSiteWeb.Contexts do
 
                 ## Scope-aware context
 
+                > **Soft deprecation alert:** Scope-aware context will be deprecaded in the near future and fully removed
+                > in `v0.13`. The reason is the lack of built-in support for that feature in Liveview itself, which
+                > leads to inefficient diff-tracking when using it. Global context related functions like `Context.put`
+                > and `Context.get`, as well as the `:from_context` option, will be kept as their use don't affect diff-tracking negatively.
+
                 Sometimes you need to initialize values that should be propagated only inside the component's
                 scope via its slots. For instance, when working with forms in Phoenix, you usually need to
                 define a form variable that has to be passed to input elements along with each field name.
