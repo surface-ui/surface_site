@@ -214,6 +214,12 @@ code {
   color: #7a7a7a;
 }
 
+.ComponentInfo div.deprecated {
+  display: block;
+  padding: 9px 15px;
+  background-color: hsl(60, 100%, 43%, 62%);
+}
+
 #ComponentInfo_Markdown div.Example pre > code {
   line-height: 1.6;
 }

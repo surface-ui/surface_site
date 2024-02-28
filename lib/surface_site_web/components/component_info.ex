@@ -33,6 +33,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
   data module_summary, :string
   data module_doc, :string
   data module_name, :string
+  data module_metadata, :map
 
   @doc "The examples for the component"
   slot examples
@@ -47,7 +48,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
 
     full_module_name = String.replace_prefix(module_name, "", prefix)
 
-    {module_summary, module_doc} = fetch_module_doc(assigns.module)
+    {module_summary, module_doc, module_metadata} = fetch_module_doc(assigns.module)
 
     id = "ComponentInfo_#{module_name}"
 
@@ -58,11 +59,13 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
       |> assign(:module_summary, module_summary)
       |> assign(:module_doc, module_doc)
       |> assign(:module_name, module_name)
+      |> assign(:module_metadata, module_metadata)
 
     ~F"""
     <div id={@id} class="ComponentInfo">
       <h1 class="title">{@title || @full_module_name}</h1>
       {String.trim_trailing(@module_summary || "", ".") |> Markdown.to_html(class: "subtitle")}
+      <.deprecated_warning message={@module_metadata[:deprecated]} />
       <hr>
       <div :if={@examplesPosition == :before_docs}>
         <#slot {@examples} />
@@ -81,16 +84,24 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
 
   defp fetch_module_doc(module) do
     case Code.fetch_docs(module) do
-      {:docs_v1, _, _, "text/markdown", %{"en" => doc}, _, _} ->
+      {:docs_v1, _, _, "text/markdown", %{"en" => doc}, metadata, _} ->
         parts =
           String.split(doc, @sections)
           |> List.first()
           |> String.split("\n\n", parts: 2)
 
-        {Enum.at(parts, 0), Enum.at(parts, 1)}
+        {Enum.at(parts, 0), Enum.at(parts, 1), metadata}
 
       _ ->
-        {nil, nil}
+        {nil, nil, nil}
     end
+  end
+
+  defp deprecated_warning(assigns) do
+    ~F"""
+    <div :if={@message} class="deprecated">
+      This module is deprecated. {@message}
+    </div>
+    """
   end
 end
