@@ -26,6 +26,7 @@ defmodule SurfaceSite.MixProject do
 
   # Specifies which paths to compile per environment.
   defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(:dev), do: ["lib"] ++ catalogues()
   defp elixirc_paths(_), do: ["lib"]
 
   # Specifies your project dependencies.
@@ -38,6 +39,7 @@ defmodule SurfaceSite.MixProject do
       {:surface_markdown, "~> 0.7.0"},
       {:nimble_publisher, "~> 0.1.2"},
       {:html_entities, "~> 0.5"},
+      {:surface_catalogue, "~> 0.6.2"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:floki, ">= 0.30.0", only: :test},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
@@ -58,6 +60,15 @@ defmodule SurfaceSite.MixProject do
       # "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
       setup: ["deps.get"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"]
+    ]
+  end
+
+  def catalogues do
+    [
+      # Local catalogue
+      "priv/catalogue",
+      # Dependencies catalogues
+      "deps/surface/priv/catalogue"
     ]
   end
 end

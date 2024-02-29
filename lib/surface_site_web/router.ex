@@ -1,5 +1,6 @@
 defmodule SurfaceSiteWeb.Router do
   use SurfaceSiteWeb, :router
+  import Surface.Catalogue.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -38,5 +39,13 @@ defmodule SurfaceSiteWeb.Router do
     live "/samplecomponents", SampleComponents
     live "/builtincomponents/:component", BuiltinComponents
     live "/builtincomponents", BuiltinComponents
+  end
+
+  if Mix.env() == :dev do
+    scope "/" do
+      pipe_through :browser
+
+      surface_catalogue("/catalogue")
+    end
   end
 end

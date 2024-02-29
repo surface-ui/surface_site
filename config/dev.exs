@@ -1,5 +1,13 @@
 import Config
 
+config :esbuild,
+  catalogue: [
+    args:
+      ~w(../deps/surface_catalogue/assets/js/app.js --bundle --target=es2017 --minify --outdir=../priv/static/assets/catalogue),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -15,9 +23,10 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "qdZaVqRjkIyGWZ50fXKWgziVNqwZTtBLxQiTxBHJpMGXJvDljm+oAEwq+4r+2R4y",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     # TODO: Tailwind
     # tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:catalogue, ~w(--sourcemap=inline --watch)]}
   ]
 
 # ## SSL Support
@@ -50,7 +59,8 @@ config :surface_site, SurfaceSiteWeb.Endpoint,
     patterns: [
       ~r{priv/posts/*/.*(md)$},
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"lib/surface_site_web/(controllers|live|components)/.*(ex|heex|sface|js)$"
+      ~r"lib/surface_site_web/(controllers|live|components)/.*(ex|heex|sface|js)$",
+      ~r"priv/catalogue/.*(ex)$"
     ]
   ]
 
