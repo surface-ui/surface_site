@@ -79,7 +79,7 @@ defmodule SurfaceSiteWeb.Components.Code do
     String.replace(content, ~S("\""), ~S("""), global: true)
   end
 
-  defp get_code(file, from..to, _content) do
+  defp get_code(file, from..to//_, _content) do
     file
     |> File.read!()
     |> String.split("\n")
@@ -118,7 +118,7 @@ defmodule SurfaceSiteWeb.Components.Code do
     Enum.join(classes, " ")
   end
 
-  defp normalize_line_range(from..to) do
+  defp normalize_line_range(from..to//_) do
     index_from =
       if from > 0 do
         from - 1

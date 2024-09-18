@@ -80,7 +80,7 @@ defmodule SurfaceSiteWeb.StateManagement do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.StateManagement.Example01.Example}
-                    line_range={48..-3}
+                    line_range={48..-3//-1}
                   />
                 </footer>
               </div>
@@ -155,7 +155,7 @@ defmodule SurfaceSiteWeb.StateManagement do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.StateManagement.Example02.Example}
-                    line_range={64..-3}
+                    line_range={64..-3//-1}
                   />
                 </footer>
               </div>

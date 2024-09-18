@@ -39,7 +39,7 @@ defmodule SurfaceSiteWeb.Components.ComponentInfo do
   slot examples
 
   def render(assigns) do
-    prefix = if assigns.module.component_type == Surface.MacroComponent, do: "#", else: ""
+    prefix = if assigns.module.component_type() == Surface.MacroComponent, do: "#", else: ""
 
     module_name =
       assigns.module

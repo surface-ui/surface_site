@@ -347,7 +347,7 @@ defmodule SurfaceSiteWeb.Slots do
                     language="elixir"
                     module={SurfaceSiteWeb.GettingStarted.RenderlessComponent}
                     show_line_numbers
-                    line_range={42..-3}
+                    line_range={42..-3//-1}
                     selected_lines="26-28"
                   />
                 </footer>
@@ -388,7 +388,7 @@ defmodule SurfaceSiteWeb.Slots do
                     language="elixir"
                     module={SurfaceSiteWeb.GettingStarted.BindingSlotsToGenerators}
                     show_line_numbers
-                    line_range={58..-4}
+                    line_range={58..-4//-1}
                   />
                 </footer>
               </div>

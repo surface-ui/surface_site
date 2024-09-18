@@ -69,7 +69,7 @@ defmodule SurfaceSiteWeb.Data do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.Data.Example01.Counter}
-                    line_range={2..-3}
+                    line_range={2..-3//-1}
                     show_line_numbers
                     selected_lines="4"
                   />

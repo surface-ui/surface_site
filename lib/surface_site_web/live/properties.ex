@@ -64,7 +64,7 @@ defmodule SurfaceSiteWeb.Properties do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.Properties.Example01.Example}
-                    line_range={2..-3}
+                    line_range={2..-3//-1}
                     show_line_numbers
                     selected_lines="7"
                   />
@@ -137,7 +137,7 @@ defmodule SurfaceSiteWeb.Properties do
               <#Code
                 language="elixir"
                 module={SurfaceSiteWeb.Properties.Example03}
-                line_range={2..-3}
+                line_range={2..-3//-1}
                 show_line_numbers
                 selected_lines="5"
               />

@@ -87,7 +87,7 @@ defmodule SurfaceSiteWeb.Events do
                     language="elixir"
                     module={SurfaceSiteWeb.Events.SurfaceCounter}
                     show_line_numbers
-                    line_range={2..-3}
+                    line_range={2..-3//-1}
                   />
                 </footer>
               </div>
@@ -228,7 +228,7 @@ defmodule SurfaceSiteWeb.Events do
                   <#Code
                     language="elixir"
                     module={SurfaceSiteWeb.Events.DialogExample.ExampleWithOverwrittenBehaviour}
-                    line_range={84..-3}
+                    line_range={84..-3//-1}
                   />
                 </footer>
               </div>
