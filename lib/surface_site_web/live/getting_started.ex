@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.GettingStarted do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
 
@@ -17,8 +17,8 @@ defmodule SurfaceSiteWeb.GettingStarted do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li class="is-active"><Link to="#" label="Getting Started" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li class="is-active"><a href="#">Getting Started</a></li>
                 </ul>
               </nav>
 
@@ -217,9 +217,9 @@ defmodule SurfaceSiteWeb.GettingStarted do
                 </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect class="nav-prev-next-next" to="/documentation">
+              <.link class="nav-prev-next-next" navigate="/documentation">
                 Documentation →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

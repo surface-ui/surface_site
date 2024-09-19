@@ -5,8 +5,8 @@
         <div class="section" style="padding: 1.5rem 2.0rem; padding-bottom: 0px;">
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
-              <li><LiveRedirect label="Home" to="/" /></li>
-              <li class="is-active"><Link to="#" label="Blog" /></li>
+              <li><.link navigate="/">Home</.link></li>
+              <li class="is-active"><a href="#">Blog</a></li>
             </ul>
           </nav>
           <hr>
@@ -14,9 +14,9 @@
             <div class="column" style="padding-bottom: 20px;">
               {#for post <- @posts}
                 <div class="content">
-                  <Link to={~p"/blog/#{post.id}"}>
+                  <.link navigate={~p"/blog/#{post.id}"}>
                     <h1 style="margin-bottom: 0.1em;">{post.title}</h1>
-                  </Link>
+                  </.link>
                   <p>
                     by {post.author} ・ <time>{Calendar.strftime(post.date, "%B %d, %Y")}</time>
                   </p>
@@ -31,13 +31,13 @@
                       </svg>
                     </span>
                     {#for tag <- post.tags}
-                      <Link to={"/blog/tags/#{tag}"}>
+                      <.link navigate={"/blog/tags/#{tag}"}>
                         <span class="tag">{tag}</span>
-                      </Link>
+                      </.link>
                     {/for}
                   </p>
                   {post.description}
-                  <Link label="Continue reading »" to={~p"/blog/#{post.id}"} />
+                  <.link navigate={~p"/blog/#{post.id}"}>Continue reading »</.link>
                   <hr>
                 </div>
               {#else}

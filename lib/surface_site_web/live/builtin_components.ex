@@ -2,7 +2,6 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
   use Surface.LiveView
 
   alias SurfaceSiteWeb.Sidebar
-  alias Surface.Components.{LiveRedirect, Link}
   alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.ComponentInfo
 
@@ -24,18 +23,18 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
+                  <li><.link navigate="/">Home</.link></li>
                   <li :if={@component == nil} class="is-active">
-                    <Link to="#" label="Built-in Components" />
+                    <a href="#">Built-in Components</a>
                   </li>
                   <li :if={@component != nil}>
-                    <LiveRedirect label="Built-in Components" to="/builtincomponents" />
+                    <.link navigate="/builtincomponents">Built-in Components</.link>
                   </li>
                   <li :if={input_control?(@component)}>
-                    <LiveRedirect label="Input Controls" to="/builtincomponents/InputControls" />
+                    <.link navigate="/builtincomponents/InputControls">Input Controls</.link>
                   </li>
                   <li :if={@component != nil} class="is-active">
-                    <Link to="#" label={component_label(@component)} />
+                    <a href="#">{component_label(@component)}</a>
                   </li>
                 </ul>
               </nav>
@@ -44,9 +43,9 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
               {route(assigns)}
             </div>
             <nav :if={input_control?(@component)} class="nav-prev-next">
-              <LiveRedirect to="/builtincomponents/InputControls">
+              <.link navigate="/builtincomponents/InputControls">
                 ← Input Controls
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>
@@ -242,19 +241,19 @@ defmodule SurfaceSiteWeb.BuiltinComponents do
 
   defp route(%{component: "Link"} = assigns) do
     ~F"""
-    <SurfaceSiteWeb.BuiltinComponents.LinkInfo id="LinkInfo" />
+    <ComponentInfo module={Surface.Components.Link} />
     """
   end
 
   defp route(%{component: "LiveRedirect"} = assigns) do
     ~F"""
-    <SurfaceSiteWeb.BuiltinComponents.LiveRedirectInfo id="LiveRedirectInfo" />
+    <ComponentInfo module={Surface.Components.LiveRedirect} />
     """
   end
 
   defp route(%{component: "LivePatch"} = assigns) do
     ~F"""
-    <SurfaceSiteWeb.BuiltinComponents.LivePatchInfo id="LivePatchInfo" />
+    <ComponentInfo module={Surface.Components.LivePatch} />
     """
   end
 

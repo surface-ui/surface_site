@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.StateManagement do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.Code
@@ -18,9 +18,9 @@ defmodule SurfaceSiteWeb.StateManagement do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="State management" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">State management</a></li>
                 </ul>
               </nav>
 
@@ -161,12 +161,12 @@ defmodule SurfaceSiteWeb.StateManagement do
               </div>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/slots">
+              <.link navigate="/slots">
                 ← Slots
-              </LiveRedirect>
-              <LiveRedirect to="/contexts">
+              </.link>
+              <.link navigate="/contexts">
                 Contexts →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

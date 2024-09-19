@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.ComponentsBasics do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Components.ComponentAPI
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
@@ -19,9 +19,9 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Components Basics" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Components Basics</a></li>
                 </ul>
               </nav>
 
@@ -201,12 +201,12 @@ defmodule SurfaceSiteWeb.ComponentsBasics do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/template_syntax">
+              <.link navigate="/template_syntax">
                 ← Template Syntax
-              </LiveRedirect>
-              <LiveRedirect to="/properties">
+              </.link>
+              <.link navigate="/properties">
                 Properties →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

@@ -2,7 +2,6 @@ defmodule SurfaceSiteWeb.App do
   use Surface.LiveView
 
   alias SurfaceSiteWeb.Components.CardWithIcon
-  alias Surface.Components.LiveRedirect
   alias SurfaceSiteWeb.Components.MobileSidebar
 
   def render(assigns) do
@@ -20,7 +19,7 @@ defmodule SurfaceSiteWeb.App do
                     writing minimal custom Javascript. For a quick start, add Surface
                     to an existing Phoenix LiveView project or install it from scratch.
                   </p>
-                  <p><LiveRedirect to="/getting_started">Learn more</LiveRedirect></p>
+                  <p><.link navigate="/getting_started">Learn more</.link></p>
                 </CardWithIcon>
               </div>
               <div class="column is-4">
@@ -30,7 +29,7 @@ defmodule SurfaceSiteWeb.App do
                     create your own custom components for your projects, including
                     buttons, tabs, table grids and more.
                   </p>
-                  <p><LiveRedirect label="Learn more" to="/samplecomponents" /></p>
+                  <p><.link to="/samplecomponents">Learn more</.link></p>
                 </CardWithIcon>
               </div>
               <div class="column is-4">
@@ -39,7 +38,7 @@ defmodule SurfaceSiteWeb.App do
                     Blog posts sharing relevant content related to <b>Surface</b> and <b>Liveview</b>,
                     including tutorials, tips, official announcements and some of the ideas we have for the future.
                   </p>
-                  <p><LiveRedirect label="See blog" to="/blog" /></p>
+                  <p><.link navigate="/blog">See blog</.link></p>
                 </CardWithIcon>
               </div>
             </div>

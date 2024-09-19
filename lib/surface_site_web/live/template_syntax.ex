@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.TemplateSyntax do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
 
@@ -17,9 +17,9 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Template Syntax" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Template Syntax</a></li>
                 </ul>
               </nav>
               <#Markdown>
@@ -309,12 +309,12 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/documentation">
+              <.link navigate="/documentation">
                 ← Introduction
-              </LiveRedirect>
-              <LiveRedirect class="nav-prev-next-next" to="/components_basics">
+              </.link>
+              <.link class="nav-prev-next-next" navigate="/components_basics">
                 Components Basics →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

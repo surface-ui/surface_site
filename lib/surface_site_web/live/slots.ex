@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Slots do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.{Code, LiveExample}
@@ -22,9 +22,9 @@ defmodule SurfaceSiteWeb.Slots do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Slots" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Slots</a></li>
                 </ul>
               </nav>
               <#Markdown>
@@ -429,12 +429,12 @@ defmodule SurfaceSiteWeb.Slots do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/events">
+              <.link navigate="/events">
                 ← Events
-              </LiveRedirect>
-              <LiveRedirect to="/state_management">
+              </.link>
+              <.link navigate="/state_management">
                 State Management →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

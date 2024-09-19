@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Events do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.Code
@@ -18,9 +18,9 @@ defmodule SurfaceSiteWeb.Events do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Events" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Events</a></li>
                 </ul>
               </nav>
 
@@ -118,7 +118,7 @@ defmodule SurfaceSiteWeb.Events do
                 macro defining the type as `:event` and pass its value to the underlying HTML tag using the `:on-[event]` directive.
               </#Markdown>
 
-              See the properties <LiveRedirect label="Event" to="/properties#event-property" /> section for more details about event properties.
+              See the properties <.link navigate="/properties#event-property">Event</.link> section for more details about event properties.
 
               <#Markdown>
                 ### Stateless component
@@ -270,12 +270,12 @@ defmodule SurfaceSiteWeb.Events do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/data">
+              <.link navigate="/data">
                 ← Data
-              </LiveRedirect>
-              <LiveRedirect to="/slots">
+              </.link>
+              <.link navigate="/slots">
                 Slots →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

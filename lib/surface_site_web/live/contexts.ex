@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Contexts do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
 
@@ -17,9 +17,9 @@ defmodule SurfaceSiteWeb.Contexts do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Contexts" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Contexts</a></li>
                 </ul>
               </nav>
               <#Markdown>
@@ -155,12 +155,12 @@ defmodule SurfaceSiteWeb.Contexts do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/state_management">
+              <.link navigate="/state_management">
                 ← State Management
-              </LiveRedirect>
-              <LiveRedirect to="/testing">
+              </.link>
+              <.link navigate="/testing">
                 Testing →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

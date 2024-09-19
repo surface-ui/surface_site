@@ -1,85 +1,83 @@
 defmodule SurfaceSiteWeb.SidebarMenu do
   use Surface.Component
 
-  alias Surface.Components.LiveRedirect
-
   def render(assigns) do
     ~F"""
     <ul class="menu-list">
       <li>
-        <LiveRedirect to="/">
+        <.link navigate="/">
           <span class="icon">
             <i class="fa fa-home" />
           </span>
           Home
-        </LiveRedirect>
+        </.link>
       </li>
       <li>
-        <LiveRedirect class="" to="/blog">
+        <.link class="" navigate="/blog">
           <span class="icon">
             <i class="fas fa-edit" />
           </span>
           Blog
-        </LiveRedirect>
+        </.link>
       </li>
       <li>
-        <LiveRedirect class="" to="/getting_started">
+        <.link class="" navidate="/getting_started">
           <span class="icon">
             <i class="fa fa-power-off" />
           </span>
           Getting started
-        </LiveRedirect>
+        </.link>
       </li>
       <li>
-        <LiveRedirect class="" to="/documentation">
+        <.link class="" navigate="/documentation">
           <span class="icon">
             <i class="fa fa-book" />
           </span>
           Documentation
-        </LiveRedirect>
+        </.link>
         <ul>
           <li>
-            <LiveRedirect class="" to="/template_syntax">
+            <.link class="" navigate="/template_syntax">
               <span class="icon">
                 <i class="fa fa-code" />
               </span>
               Template Syntax
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/components_basics">
+            <.link class="" navigate="/components_basics">
               <span class="icon">
                 <i class="far fa-file-code" />
               </span>
               Components Basics
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/properties">
+            <.link class="" navigate="/properties">
               <span class="icon">
                 <i class="fa fa-cubes" />
               </span>
               Properties
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/data">
+            <.link class="" navigate="/data">
               <span class="icon">
                 <i class="fa fa-cube" />
               </span>
               Data
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/events">
+            <.link class="" navigate="/events">
               <span class="icon">
                 <i class="fa fa-bolt" />
               </span>
               Events
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/slots">
+            <.link class="" navigate="/slots">
               <span class="icon">
                 <svg
                   class="svg-inline--fa fa-align-left fa-w-14"
@@ -96,50 +94,50 @@ defmodule SurfaceSiteWeb.SidebarMenu do
                   /></svg>
               </span>
               Slots
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/state_management">
+            <.link class="" navigate="/state_management">
               <span class="icon">
                 <i class="fa fa-exchange-alt" />
               </span>
               State Management
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/contexts">
+            <.link class="" navigate="/contexts">
               <span class="icon">
                 <i class="fa fa-sitemap" />
               </span>
               Contexts
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/testing">
+            <.link class="" navigate="/testing">
               <span class="icon">
                 <i class="fas fa-tasks" />
               </span>
               Testing
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/js_interop">
+            <.link class="" navigate="/js_interop">
               <span class="icon">
                 <i class="fab fa-js-square" />
               </span>
               JS Interoperability
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/scoped_css">
+            <.link class="" navigate="/scoped_css">
               <span class="icon">
                 <i class="fa fa-list-alt" />
               </span>
               Scoped CSS
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/layouts_and_dead_views">
+            <.link class="" navigate="/layouts_and_dead_views">
               <span class="icon">
                 <svg
                   class="svg-inline--fa fa-align-left fa-w-14"
@@ -155,180 +153,180 @@ defmodule SurfaceSiteWeb.SidebarMenu do
                 </svg>
               </span>
               Layouts &amp; dead views
-            </LiveRedirect>
+            </.link>
           </li>
         </ul>
       </li>
       <li>
-        <LiveRedirect class="" to="/builtincomponents">
+        <.link class="" navigate="/builtincomponents">
           <span class="icon">
             <i class="fa fa-code" />
           </span>
           Built-in Components
-        </LiveRedirect>
+        </.link>
         <ul>
           <li>
             <p class="sidebar-label">Navigation</p>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Link">
+            <.link class="" navigate="/builtincomponents/Link">
               <span class="icon is-small">
                 <i class="fas fa-link" />
               </span>
               Link
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/LivePatch">
+            <.link class="" navigate="/builtincomponents/LivePatch">
               <span class="icon is-small">
                 <i class="fas fa-external-link-square-alt" />
               </span>
               LivePatch
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/LiveRedirect">
+            <.link class="" navigate="/builtincomponents/LiveRedirect">
               <span class="icon is-small">
                 <i class="fa fa-external-link-alt" />
               </span>
               LiveRedirect
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
             <p class="sidebar-label">Form</p>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Form">
+            <.link class="" navigate="/builtincomponents/Form">
               <span class="icon is-small">
                 <i class="fab fa-wpforms" />
               </span>
               Form
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Field">
+            <.link class="" navigate="/builtincomponents/Field">
               <span class="icon is-small">
                 <i class="fas fa-minus" />
               </span>
               Field
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/FieldContext">
+            <.link class="" navigate="/builtincomponents/FieldContext">
               <span class="icon is-small">
                 <i class="fas fa-folder-minus" />
               </span>
               FieldContext
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Label">
+            <.link class="" navigate="/builtincomponents/Label">
               <span class="icon is-small">
                 <i class="fas fa-font" />
               </span>
               Label
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/InputControls">
+            <.link class="" navigate="/builtincomponents/InputControls">
               <span class="icon is-small">
                 <i class="fa fa-equals" />
               </span>
               Input Controls
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/TextArea">
+            <.link class="" navigate="/builtincomponents/TextArea">
               <span class="icon is-small">
                 <i class="far fa-square" />
               </span>
               TextArea
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Select">
+            <.link class="" navigate="/builtincomponents/Select">
               <span class="icon is-small">
                 <i class="fas fa-mouse-pointer" />
               </span>
               Select
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/ErrorTag">
+            <.link class="" navigate="/builtincomponents/ErrorTag">
               <span class="icon is-small">
                 <i class="fas fa-exclamation" />
               </span>
               ErrorTag
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
             <p class="sidebar-label">Other</p>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Markdown">
+            <.link class="" navigate="/builtincomponents/Markdown">
               <span class="icon is-small">
                 <i class="fab fa-markdown" />
               </span>
               Markdown
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Raw">
+            <.link class="" navigate="/builtincomponents/Raw">
               <span class="icon is-small">
                 <i class="far fa-file-code" />
               </span>
               Raw
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/Component">
+            <.link class="" navigate="/builtincomponents/Component">
               <span class="icon is-small">
                 <i class="fa fa-code" />
               </span>
               Component (dynamic)
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/builtincomponents/LiveComponent">
+            <.link class="" navigate="/builtincomponents/LiveComponent">
               <span class="icon is-small">
                 <i class="fa fa-code" />
               </span>
               LiveComponent (dynamic)
-            </LiveRedirect>
+            </.link>
           </li>
         </ul>
       </li>
       <li>
-        <LiveRedirect class="" to="/samplecomponents">
+        <.link class="" navigate="/samplecomponents">
           <span class="icon">
             <i class="fa fa-puzzle-piece" />
           </span>
           Sample UI Components
-        </LiveRedirect>
+        </.link>
         <ul>
           <li>
-            <LiveRedirect class="" to="/samplecomponents/Button">
+            <.link class="" navigate="/samplecomponents/Button">
               <span class="icon is-small">
                 <i class="fa fa-hand-pointer" />
               </span>
               Button
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/samplecomponents/Table">
+            <.link class="" navigate="/samplecomponents/Table">
               <span class="icon is-small">
                 <i class="fa fa-table" />
               </span>
               Table
-            </LiveRedirect>
+            </.link>
           </li>
           <li>
-            <LiveRedirect class="" to="/samplecomponents/Tabs">
+            <.link class="" navigate="/samplecomponents/Tabs">
               <span class="icon is-small">
                 <i class="fa fa-folder" />
               </span>
               Tabs
-            </LiveRedirect>
+            </.link>
           </li>
         </ul>
       </li>

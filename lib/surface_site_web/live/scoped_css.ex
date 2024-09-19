@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.ScopedCSS do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
 
@@ -17,9 +17,9 @@ defmodule SurfaceSiteWeb.ScopedCSS do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Scoped CSS" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Scoped CSS</a></li>
                 </ul>
               </nav>
               <#Markdown>
@@ -254,12 +254,12 @@ defmodule SurfaceSiteWeb.ScopedCSS do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/js_interop">
+              <.link navigate="/js_interop">
                 ← JS Interoperability
-              </LiveRedirect>
-              <LiveRedirect to="/layouts_and_dead_views">
+              </.link>
+              <.link navigate="/layouts_and_dead_views">
                 Layouts &amp; dead views →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Testing do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
 
@@ -17,9 +17,9 @@ defmodule SurfaceSiteWeb.Testing do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Testing" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Testing</a></li>
                 </ul>
               </nav>
               <#Markdown>
@@ -96,12 +96,12 @@ defmodule SurfaceSiteWeb.Testing do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/contexts">
+              <.link navigate="/contexts">
                 ← Contexts
-              </LiveRedirect>
-              <LiveRedirect to="/js_interop">
+              </.link>
+              <.link navigate="/js_interop">
                 JS Interoperability →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

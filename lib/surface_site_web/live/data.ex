@@ -1,7 +1,7 @@
 defmodule SurfaceSiteWeb.Data do
   use Surface.LiveView
 
-  alias Surface.Components.{Link, LiveRedirect, Markdown}
+  alias Surface.Components.Markdown
   alias SurfaceSiteWeb.Sidebar
   alias SurfaceSiteWeb.Components.MobileSidebar
   alias SurfaceSiteWeb.Components.Code
@@ -18,9 +18,9 @@ defmodule SurfaceSiteWeb.Data do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
-                  <li><LiveRedirect label="Documentation" to="/documentation" /></li>
-                  <li class="is-active"><Link to="#" label="Data" /></li>
+                  <li><.link navigate="/">Home</.link></li>
+                  <li><.link navigate="/documentation">Documentation</.link></li>
+                  <li class="is-active"><a href="#">Data</a></li>
                 </ul>
               </nav>
 
@@ -85,12 +85,12 @@ defmodule SurfaceSiteWeb.Data do
               </#Markdown>
             </div>
             <nav class="nav-prev-next">
-              <LiveRedirect to="/properties">
+              <.link navigate="/properties">
                 ← Properties
-              </LiveRedirect>
-              <LiveRedirect to="/events">
+              </.link>
+              <.link navigate="/events">
                 Events →
-              </LiveRedirect>
+              </.link>
             </nav>
           </div>
         </section>

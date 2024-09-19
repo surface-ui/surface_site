@@ -2,7 +2,6 @@ defmodule SurfaceSiteWeb.SampleComponents do
   use Surface.LiveView
 
   alias SurfaceSiteWeb.Sidebar
-  alias Surface.Components.{LiveRedirect, Link}
   alias SurfaceSiteWeb.Components.MobileSidebar
 
   data component, :string
@@ -23,14 +22,14 @@ defmodule SurfaceSiteWeb.SampleComponents do
             <div class="section" style="padding-bottom: 0px;">
               <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                  <li><LiveRedirect label="Home" to="/" /></li>
+                  <li><.link navigate="/">Home</.link></li>
                   <li :if={@component == nil} class="is-active">
-                    <Link to="#" label="Sample UI Components" />
+                    <a href="#">Sample UI Components</a>
                   </li>
                   <li :if={@component != nil}>
-                    <LiveRedirect label="Sample UI Components" to="/samplecomponents" />
+                    <.link navigate="/samplecomponents">Sample UI Components</.link>
                     <li class="is-active">
-                      <Link to="#" label={@component} />
+                      <a href="#">{@component}</a>
                     </li>
                   </li>
                 </ul>

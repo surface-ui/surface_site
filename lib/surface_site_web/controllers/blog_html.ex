@@ -1,8 +1,6 @@
 defmodule SurfaceSiteWeb.BlogHTML do
   use SurfaceSiteWeb, :html
 
-  alias Surface.Components.{Link, LiveRedirect}
-
   embed_sface("blog_html/index.sface")
   embed_sface("blog_html/show.sface")
 
@@ -29,9 +27,9 @@ defmodule SurfaceSiteWeb.BlogHTML do
       <div class="panel-block">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           {#for tag <- @tags}
-            <Link to={"/blog/tags/#{tag}"}>
+            <.link navigate={"/blog/tags/#{tag}"}>
               <span class="tag">{tag}</span>
-            </Link>
+            </.link>
           {/for}
         </div>
       </div>
@@ -44,17 +42,17 @@ defmodule SurfaceSiteWeb.BlogHTML do
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           {#for post <- @recent_posts}
             <div>
-              <Link to={~p"/blog/#{post.id}"} class="is-6">
+              <.link navigate={~p"/blog/#{post.id}"} class="is-6">
                 {post.title}
-              </Link>
+              </.link>
               <p class="subtitle is-7 has-text-grey">
                 <time>{Calendar.strftime(post.date, "%B %d, %Y")}</time> ・ {post.author}
               </p>
             </div>
           {/for}
-          <Link to="/blog">
+          <.link navigate="/blog">
             See all +
-          </Link>
+          </.link>
         </div>
       </div>
     </nav>
