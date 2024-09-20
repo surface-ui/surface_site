@@ -21,7 +21,7 @@ defmodule SurfaceSiteWeb.SidebarMenu do
         </.link>
       </li>
       <li>
-        <.link class="" navidate="/getting_started">
+        <.link class="" navigate="/getting_started">
           <span class="icon">
             <i class="fa fa-power-off" />
           </span>
