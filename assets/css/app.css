@@ -187,6 +187,32 @@ code {
   border-left-width: 7px;
 }
 
+blockquote:has(.warning) {
+  border-radius: 10px;
+  border-left: 0;
+  position: relative;
+  margin: 1.6em 0;
+  padding: 0 1.2rem;
+  overflow: auto;
+  background-color: rgb(255, 249, 235);
+}
+
+blockquote:has(.warning) h3, h4 {
+  background-color: rgb(255, 183, 15);
+  color: rgb(64, 64, 64);
+  margin: 1 -1.2rem;
+  padding: .7rem 1.2rem .7rem 1.3rem;
+  font-weight: 700;
+  font-style: normal;
+  font-size: large;
+}
+
+blockquote:has(.warning) p {
+  padding: 1rem 0.3rem;
+  font-size: medium;
+  color: rgb(117, 82, 0);
+}
+
 .markdown .section-heading a.hover-link {
   -webkit-transition: opacity .2s ease-in-out;
   transition: opacity .2s ease-in-out;
@@ -217,7 +243,7 @@ code {
 .ComponentInfo div.deprecated {
   display: block;
   padding: 9px 15px;
-  background-color: hsl(60, 100%, 43%, 62%);
+  background-color: #ffdd57;
 }
 
 #ComponentInfo_Markdown div.Example pre > code {
