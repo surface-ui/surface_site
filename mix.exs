@@ -34,12 +34,13 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:surface, "~> 0.11.2"},
+      {:surface, "~> 0.12-dev", github: "surface-ui/surface", override: true},
+      {:surface_form, github: "surface-ui/surface_form", ref: "main"},
       {:phoenix, "1.7.10"},
       {:surface_markdown, "~> 0.7.0"},
       {:nimble_publisher, "~> 0.1.2"},
       {:html_entities, "~> 0.5"},
-      {:surface_catalogue, "~> 0.6.2"},
+      {:surface_catalogue, github: "surface-ui/surface_catalogue", ref: "main"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:floki, ">= 0.30.0", only: :test},
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
