@@ -192,15 +192,15 @@ blockquote:has(.warning) {
   border-left: 0;
   position: relative;
   margin: 1.6em 0;
-  padding: 0 1.2rem;
+  padding: 0 1.2rem 1rem 1.2rem;
   overflow: auto;
   background-color: rgb(255, 249, 235);
 }
 
-blockquote:has(.warning) h3, h4 {
+blockquote:has(.warning) :is(h3, h4) {
   background-color: rgb(255, 183, 15);
   color: rgb(64, 64, 64);
-  margin: 1 -1.2rem;
+  margin: 0 -1.2rem 0.9rem -1.2rem !important;
   padding: .7rem 1.2rem .7rem 1.3rem;
   font-weight: 700;
   font-style: normal;
@@ -208,7 +208,6 @@ blockquote:has(.warning) h3, h4 {
 }
 
 blockquote:has(.warning) p {
-  padding: 1rem 0.3rem;
   font-size: medium;
   color: rgb(117, 82, 0);
 }
