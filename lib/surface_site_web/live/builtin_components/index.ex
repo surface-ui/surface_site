@@ -48,23 +48,6 @@ defmodule SurfaceSiteWeb.BuiltinComponents.Index do
           * [LiveRedirect](/builtincomponents/LiveRedirect){: data-phx-link="redirect" data-phx-link-state="push"} -
             Generates a link that will **redirect** to a new LiveView.
 
-        ### Form
-
-          * [Form](/builtincomponents/Form){: data-phx-link="redirect" data-phx-link-state="push"} -
-            Defines a **form** that lets the user submit information.
-
-          * [Field](/builtincomponents/Field){: data-phx-link="redirect" data-phx-link-state="push"} -
-            Defines a form **field**.
-
-          * [Label](/builtincomponents/Label){: data-phx-link="redirect" data-phx-link-state="push"} -
-            Defines a **label**.
-
-          * [Input Controls](/builtincomponents/InputControls){: data-phx-link="redirect" data-phx-link-state="push"} -
-            A set of common **input controls** based on the `<input>` element.
-
-          * [TextArea](/builtincomponents/TextArea){: data-phx-link="redirect" data-phx-link-state="push"} -
-            An input field that let the user enter a **multi-line** text.
-
         ### Other
 
           * [#Markdown](/builtincomponents/Markdown){: data-phx-link="redirect" data-phx-link-state="push"} -
