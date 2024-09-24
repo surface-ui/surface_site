@@ -35,7 +35,7 @@ defmodule SurfaceSite.MixProject do
   defp deps do
     [
       {:surface, "~> 0.12-dev", github: "surface-ui/surface", override: true},
-      {:surface_form, github: "surface-ui/surface_form", ref: "main"},
+      {:surface_form_helpers, github: "surface-ui/surface_form_helpers", ref: "main"},
       {:phoenix, "1.7.10"},
       {:surface_markdown, "~> 0.7.0"},
       {:nimble_publisher, "~> 0.1.2"},
