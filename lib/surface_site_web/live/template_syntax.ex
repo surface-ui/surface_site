@@ -291,7 +291,7 @@ defmodule SurfaceSiteWeb.TemplateSyntax do
 
                 There are two types for comments that can be injected into a Surface template, **public** and **private**.
 
-                Public comments are always sent to the browser and can be defined using the standard HTML comment syntax `<!-- -->`.
+                Public comments are always sent to the browser and can be defined using the standard HTML comment syntax `<&#x21;-- -->`.
 
                 Private comments, on the other hand, are not sent to the browser and should be defined using `{!-- --}` instead.
 
