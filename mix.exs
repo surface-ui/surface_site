@@ -34,8 +34,8 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:surface, "~> 0.12-dev", github: "surface-ui/surface", override: true},
-      {:surface_form_helpers, github: "surface-ui/surface_form_helpers", ref: "main"},
+      {:surface, "~> 0.12.0"},
+      {:surface_form_helpers, "~> 0.1.0"},
       {:phoenix, "1.7.10"},
       {:surface_markdown, "~> 0.7.0"},
       {:nimble_publisher, "~> 0.1.2"},
