@@ -34,7 +34,7 @@ defmodule SurfaceSite.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:surface, "~> 0.12.0"},
+      {:surface, "~> 0.12.1"},
       {:surface_form_helpers, "~> 0.1.0"},
       {:phoenix, "1.7.10"},
       {:surface_markdown, "~> 0.7.0"},
